@@ -2,25 +2,14 @@
 <html>
 <head>
 <title>IPM</title>
-<!--<link rel="stylesheet" href="style.css">-->
-
-<style type="text/css">
-
-</style>
-
-
-
-<script type="text/javascript">
-  function toggleVisible(id) {    
-  }
-
-</script>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="script.js"></script>
 </head>
 
 
-<body style="font-family:calibri; text-align: center;" >
+<body>
 
-<h1 style="color: green">Interfaces Pessoa M&aacute;quina 2018-19</h1>
+<h1>Interfaces Pessoa M&aacute;quina 2018-19</h1>
 <h2>Grupo B - Turno IPM20111326</h2>
 
 
@@ -36,13 +25,13 @@
     <td>89546</td>
   </tr>
   <tr>
-    <td><img id="rgb" src = "student1.png" width="98"></td>
-    <td><img id="cmy" src = "student2.png" width="100"></td> 
-    <td><img id="hsv" src = "student3.png" width="90"></td>
+    <td><img id = "profile_pic_1" class = "profile_pic zoom" src = "student1.png" onclick="changeImage('profile_pic_1', 0)"></td>
+    <td><img id = "profile_pic_2" class = "profile_pic zoom" src = "student2.png" onclick="changeImage('profile_pic_2', 1)"></td> 
+    <td><img id = "profile_pic_3" class = "profile_pic zoom" src = "student3.png" onclick="changeImage('profile_pic_3', 2)"></td>
   </tr>
 </table>
 
-<div id="links" style="text-align: left; padding-left: 100px;">
+<div id="links">
 <p>
 
 <div id="at" class="section">
