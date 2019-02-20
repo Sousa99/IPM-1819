@@ -6,21 +6,20 @@ h1 {
     color: green;
 }
 
-#links {
-    text-align: left;
-    padding-left: 70px;
-}
-
-
 .profile_pic {
     background-color: transparent;
+    overflow: hidden;
     padding-top: 5px;
-    width: 120px;
 }
 
 .zoom {
-    transition: transform .2s; /* Animation */
+    transition: transform .2s;
 }
 .zoom:hover {
-    transform: scale(1.125); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.125);
+}
+
+#links {
+    text-align: left;
+    padding-left: 70px;
 }
