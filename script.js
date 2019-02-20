@@ -16,9 +16,9 @@ function changeImage(id) {
     } else if (id == "profile_pic_2") {
         object.src = images_path[1];
 
-        /* pixels: 127 x 174 */
+        /* pixels: 135 x 174 */
         object.style="border-radius: 75px;";
-        object.width="127";
+        object.width="135";
         object.height="174";
 
     } else if (id == "profile_pic_3") {
