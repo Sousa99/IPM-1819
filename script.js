@@ -2,7 +2,7 @@ function toggleVisible(id) {
 }
 
 function changeImage(id) {
-    images_path = ["Isabel.png", "Rodrigo.png"];
+    images_path = ["Isabel.png", "Rodrigo.png", "Tiago.png"];
     object = document.getElementById(id)
     
     if (id == "profile_pic_1") {
@@ -23,5 +23,11 @@ function changeImage(id) {
 
     } else if (id == "profile_pic_3") {
         object.src = images_path[2];
+
+        /* pixels: 138 x 170 */
+        object.style="border-radius: 75px;";
+        object.width="138";
+        object.height="170";
+
     }
 }
