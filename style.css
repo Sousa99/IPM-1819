@@ -6,6 +6,7 @@ h1 {
     color: SteelBlue;
 }
 h2 {
+    padding: 7px 7px;
     margin-bottom: 5px;
 }
 
@@ -30,7 +31,7 @@ h2 {
     border: hidden;
 }
 .dropdown {
-    width: 24.70%;
+    width: calc(100%/4 - 4px);
     position: relative;
     display: inline-block;
 }
@@ -54,4 +55,10 @@ h2 {
 .dropdown:hover .dropbutton {
     background-color: SteelBlue;
     border-bottom: 2px solid black;
+}
+
+#profiles_table { padding-top: 10%; }
+#profiles_name {
+    font-weight: bold;
+    text-decoration: underline;
 }
