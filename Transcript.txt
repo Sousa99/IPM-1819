@@ -1,0 +1,27 @@
+iGo
+
+Surgiu a nova rede social MyWeb onde podes documentar e partilhar todos os detalhes das tuas viagens! Para interagir com esta rede social, o CEO decidiu criar um dispositivo wearable específico para a mesma, o iGo!
+
+O iGo vai ser um "wearable" pessoal e intransmissível para usar como bracelete, no braço não-dominante. Vai prestar acesso à rede social onde se pode partilhar informações, serviços úteis, fotos, vídeos, sons, localizações e qualquer outra experiência que o utilizador encontre na sua viagem. Não permite tudo o que se consegue fazer num PC ou smartphone, mas as coisas mais importantes e frequentes estão assim sempre ao dispor do utilizador!
+
+Encontrou um excelente restaurante escondido numa cidade e quer recomendar aos seus amigos? Quer partilhar o seu caminho por Berlin com os pais? Viajou até ao Norte da Europa para ver as auroras e quer fazer stream com realidade aumentada? Precisa de comprar bilhetes para o seu próximo destino? Subiu a uma montanha agreste e quer partilhar a sua localização para verem o quão destemido é? Quer combinar viagens com os seus melhores amigos? Está à frente do Machu Picchu e quer guardar uma planta de todo o local para rever quando chegar a casa? Estas são algumas das funcionalidades que o iGo poderá facilitar!
+
+Objetivo: Desenvolver uma interface utilizador para o iGo que permita aos utilizadores aceder às suas funcionalidades de forma eficiente, eficaz e agradável. 
+
+
+Requisitos/Restrições: Pretende-se aqui um pequeno dispositivo capaz de realizar apenas as tarefas mais frequentes on-the-go, mas que o faça bem. Não é suposto ser um substituto da app MyWeb no telemóvel e muito menos um site web. O foco deve estar naquilo em que o wearable poderá fazer especialmente bem graças aos seus sensores, etc. (ver abaixo)
+
+
+Especificações: O iGo tem um ecrã pequeno, com 3'' (máximo), que pode ou não ser táctil e ter um máximo de 4 botões. Outras formas de interação por hardware podem ser consideradas justificadamente, e.g. scrollwheels e fitas condutivas (funciona para introduzir valores numa escala contínua). Um botão não tem que ser apenas um pedaço de plástico sobre uma mola. Sejam inventivos!
+
+De resto, têm toda a liberdade para escolher a forma, disposição dos botões, tipo dos mesmos (rotativos, de pressão, etc.) e quaisquer outros sensores que façam sentido (ritmo cardíaco, GPS, microfone, oxigenação do sangue, NFC, etc.). A bateria não é problema, dura semanas até ser necessário carregar.
+
+Sejam criativos, pensem em cenários inovadores. Fazer simplesmente ?uma app no meu braço? não é uma opção (até porque o facto de estar no braço introduz restrições ao que consigo fazer confortavelmente, etc.)
+
+
+
+Notas: A interface deve ser desenvolvida usando tecnologia HTML5 (HTML+JavaScript+CSS). Deve funcionar de forma local (as in desligo o computador da rede e funciona na mesma), sem necessidade de servidores, etc. (isto é, basta descompriir um zip e abrir um ficheiro). Não precisa de funcionar igualmente em todos os browsers, mas, deverá funcionar pelo menos na última versão do firefox ou do chrome. O código não é o mais importante. É-o, sim, a interacção que possibilita. As interacções físicas (bater na mesa, colocar copos em cima dela, inserir cartões, etc.) devem ser simuladas se forem parte da interacção (mesmo que seja carregando num botão ou clickando numa imagem, se isso não tiver impacto na experiência de utilização).
+
+Não é permitida a utilização de serviços/produtos para criação automática de HTML, especialmente serviços online. A utilização de "mini-sites" já feitos, incluídos por iframes ou semelhante também não é permitida (queremos avaliar a vossa interface, não aquela que copiaram de alguém...)
+
+É permitida a utilização de bibliotecas Javascript, desde que funcionem localmente (Bootstrap, etc. etc.). Neste caso, no entanto, tenham a preocupação de que o look&feel (e a maneira como funcionam) deve ser ajustada para o cenário da superfície sensível ao toque (não pode ser "um site a correr numa mesa")
