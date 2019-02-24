@@ -2,7 +2,7 @@ function toggleVisible(id) {
 }
 
 function changeImage(id) {
-    images_path = ["Isabel.png", "Rodrigo.png", "Tiago.png"];
+    images_path = ["Materials/Isabel.png", "Materials/Rodrigo.png", "Materials/Tiago.png"];
     object = document.getElementById(id)
     
     if (id == "profile_pic_1") {
