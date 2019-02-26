@@ -1,13 +1,15 @@
 body {
     font-family: arial;
     text-align: center;
+    background-image: url("img_5689.png");
 }
 h1 {
-    color: SteelBlue;
+    color: MediumSeaGreen;
 }
 h2 {
     padding: 7px 7px;
     margin-bottom: 5px;
+    color: MediumSeaGreen;
 }
 
 
@@ -28,7 +30,7 @@ h2 {
 .zoom:hover { transform: scale(1.125); }
 
 .dropbutton {
-    background-color: rgb(127, 164, 194);
+    background-color: rgb(127, 194, 127);
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -40,6 +42,7 @@ h2 {
     width: calc(100%/4 - 4px);
     position: relative;
     display: inline-block;
+    color: MediumSeaGreen;
 }
 .dropdown-content {
     display: none;
@@ -59,7 +62,7 @@ h2 {
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbutton {
-    background-color: SteelBlue;
+    background-color: MediumSeaGreen;
     border-bottom: 2px solid black;
 }
 
