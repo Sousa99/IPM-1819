@@ -10,12 +10,18 @@ h2 {
     margin-bottom: 5px;
 }
 
+
 .profiles_table {
     padding-top: 20px;
 }
 .profile_pic {
     background-color: transparent;
     overflow: hidden;
+}
+
+.link_unvailable {
+    text-decoration: line-through;
+    cursor: default;
 }
 
 .zoom { transition: transform .2s;}
@@ -56,6 +62,7 @@ h2 {
     background-color: SteelBlue;
     border-bottom: 2px solid black;
 }
+
 
 #profiles_table { padding-top: 10%; }
 #profiles_name {
