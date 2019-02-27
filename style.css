@@ -2,14 +2,21 @@ body {
     font-family: arial;
     text-align: center;
     background-image: url("Materials/4401726430_706f6f6ca6_o.jpg");
-
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 h1 {
     color: MediumSeaGreen;
+    background-color: MediumSeaGreen;
 }
 h2 {
     padding: 7px 7px;
     margin-bottom: 5px;
+    background-color: MediumSeaGreen;
 }
 
 
@@ -72,14 +79,3 @@ h2 {
     font-weight: bold;
     text-decoration: underline;
 }
-
-.background-image{
-    background-image: url("Materials/4401726430_706f6f6ca6_o.jpg");
-    background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
