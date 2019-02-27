@@ -1,18 +1,21 @@
 body {
     font-family: arial;
     text-align: center;
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
     background-image: url("Materials/4401726430_706f6f6ca6_o.jpg");
     background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
-    position: relative;
 }
 h1 {
     color: rgb(36, 151, 88);
+    text-shadow: -1.5px 0 white, 0 1.5px white, 1.5px 0 white, 0 -1.5px white;
 }
 h2 {
+    font-weight: bold;
     padding: 7px 7px;
     margin-bottom: 5px;
     background-color: MediumSeaGreen;
@@ -22,10 +25,6 @@ h2 {
 .profiles_table {
     padding-top: 20px;
     background-color: MediumSeaGreen;
-}
-.profile_pic {
-    background-color: transparent;
-    overflow: hidden;
 }
 
 .link_unvailable {
@@ -74,8 +73,29 @@ h2 {
 }
 
 
-#profiles_table { padding-top: 10%; }
+#profiles_table {
+    padding-top: 10vh;
+    border-spacing: 1.5vw 0em;
+}
 #profiles_name {
     font-weight: bold;
     text-decoration: underline;
+    background-color: rgb(127, 194, 127);
+}
+#profiles_name td {
+    padding-top: 1.2vh;
+}
+#profiles_id_number {
+    background-color: rgb(127, 194, 127);
+}
+#profiles_id_number td {
+    border-bottom: 0.2vh solid black;
+    padding-bottom: 1vh;
+    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2), 6px 6px 20px 0 rgba(0,0,0,0.15);
+}
+#profile_pics {
+    overflow: hidden;
+}
+#profile_pics td {
+    padding-top: 1.5vh;
 }
