@@ -37,14 +37,14 @@ h2 {
 .dropbutton {
     background-color: rgb(127, 194, 127);
     color: white;
-    padding: 1.7vh;
+    padding: 16px;
     font-size: 16px;
     width: 100%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.15);
     border: hidden;
 }
 .dropdown {
-    width: calc(100%/4 - 0.27vw);
+    width: calc(100%/4 - 4px);
     position: relative;
     display: inline-block;
     color: MediumSeaGreen;
