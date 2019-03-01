@@ -9,6 +9,7 @@ body {
     background-color: #cccccc;
     background-attachment: fixed;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 h1 {
     color: rgb(36, 151, 88);
@@ -16,14 +17,8 @@ h1 {
 }
 h2 {
     font-weight: bold;
-    padding: 7px 7px;
-    margin-bottom: 5px;
-    background-color: MediumSeaGreen;
-}
-
-
-.profiles_table {
-    padding-top: 20px;
+    padding: 0.6vh 0.6vh;
+    margin-bottom: 0.6vh;
     background-color: MediumSeaGreen;
 }
 
@@ -38,14 +33,14 @@ h2 {
 .dropbutton {
     background-color: rgb(127, 194, 127);
     color: white;
-    padding: 16px;
+    padding: 1.7vh;
     font-size: 16px;
     width: 100%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.15);
     border: hidden;
 }
 .dropdown {
-    width: calc(100%/4 - 4px);
+    width: calc(100%/4 - 0.27vw);
     position: relative;
     display: inline-block;
     color: MediumSeaGreen;
@@ -69,13 +64,13 @@ h2 {
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbutton {
     background-color: MediumSeaGreen;
-    border-bottom: 2px solid black;
+    border-bottom: 0.2vh solid black;
 }
 
 
 #profiles_table {
     padding-top: 10vh;
-    border-spacing: 1.5vw 0em;
+    border-spacing: 1.5vw 0;
 }
 #profiles_name {
     font-weight: bold;
