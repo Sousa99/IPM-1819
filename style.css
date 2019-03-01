@@ -27,6 +27,10 @@ h2 {
     cursor: default;
 }
 
+.profile_pic {
+    border-radius: 75px;
+}
+
 .zoom { transition: transform .2s;}
 .zoom:hover { transform: scale(1.125); }
 
@@ -69,7 +73,7 @@ h2 {
 
 
 #profiles_table {
-    padding-top: 10vh;
+    padding-top: 13vh;
     border-spacing: 1.5vw 0;
 }
 #profiles_name {
@@ -78,7 +82,9 @@ h2 {
     background-color: rgb(127, 194, 127);
 }
 #profiles_name td {
-    padding-top: 1.2vh;
+    padding-left: 1.3vw;
+    padding-right: 1.3vw;
+    padding-top: 1.8vh;
 }
 #profiles_id_number {
     background-color: rgb(127, 194, 127);
@@ -92,5 +98,5 @@ h2 {
     overflow: hidden;
 }
 #profile_pics td {
-    padding-top: 1.5vh;
+    padding-top: 2.3vh;
 }

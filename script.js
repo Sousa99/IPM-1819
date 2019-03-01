@@ -16,8 +16,5 @@ function changeImage(id) {
         object.src = images_path[2];
     }
 
-    /* pixels: 138 x 170 */
     object.style="border-radius: 75px;";
-    object.width="138";
-    object.height="170";
 }
