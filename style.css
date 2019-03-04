@@ -1,14 +1,16 @@
-body {
-    font-family: arial;
-    text-align: center;
-    position: relative;
-    margin: 0;
+html {
     background-color: #cccccc;
     background: url("Materials/Background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+body {
+    font-family: arial;
+    text-align: center;
+    position: relative;
+    margin: 0;
 }
 h1 {
     color: rgb(36, 151, 88);
