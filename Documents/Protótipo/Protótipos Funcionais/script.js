@@ -31,15 +31,19 @@ function loadCanvas() {
         height: canvas.width / 7,
         borderRadius : 20,
         fill: "#000000"
-    }).add();
+    });
 
     var time = canvas.display.text({
-        x: canvas.width / 2,
-        y: canvas.height / 2 - 10,
+        x: screen.width / 2,
+        y: screen.height / 2 - 15,
         origin: { x: "center", y: "center" },
-        font: "bold 30px 7Segments",
+        family: "7Segments",
+        font: "30px 7Segments",
         fill: "#ffffff"
-    }).add();
+    });
+
+    screen.addChild(time);
+    canvas.addChild(screen);
 
     canvas.setLoop(function () {
         var d = new Date();
