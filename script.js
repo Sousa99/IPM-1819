@@ -1,6 +1,3 @@
-function toggleVisible(id) {    
-}
-
 function changeImage(id) {
     images_path = ["Materials/Isabel.jpeg", "Materials/Rodrigo.png", "Materials/Tiago.png"];
     object = document.getElementById(id);
