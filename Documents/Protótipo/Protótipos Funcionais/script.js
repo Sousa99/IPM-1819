@@ -265,7 +265,27 @@ function loadCanvas() {
         fill: "#ffffff"
     });
 
+    var battery_template  = canvas.display.image({
+        x: template.width /5,
+        y: 0.5,
+        width: canvas.width / 50,
+        height: canvas.width / 50,
+        origin: { x: "left", y: "top" },
+        image: "../../../Materials/Battery.png"
+    });
+
+    var wifi_template  = canvas.display.image({
+        x: template.width /20,
+        y: 0.5,
+        width: canvas.width / 60,
+        height: canvas.width / 60,
+        origin: { x: "left", y: "top" },
+        image: "../../../Materials/Wifi.png"
+    });
+
     template.addChild(time_template);
+    template.addChild(battery_template);
+    template.addChild(wifi_template);
 
     // ------- Menu Screen --------
 
