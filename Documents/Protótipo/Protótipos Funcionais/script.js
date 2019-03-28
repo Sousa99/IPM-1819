@@ -290,10 +290,46 @@ function loadCanvas() {
         origin: { x: "center", y: "center" },
         image: "../../../Materials/Group.png"
     });
+    var maps_menu_button = canvas.display.image({
+        x: menu_screen.width / 4,
+        y: 2 * menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Maps.png"
+    });
+    var camera_menu_button = canvas.display.image({
+        x: 2 * menu_screen.width / 4,
+        y: 2 * menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Camera.png"
+    });
+    var health_menu_button = canvas.display.image({
+        x: 3 * menu_screen.width / 4,
+        y: 2 * menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Health.png"
+    });
+    var settings_menu_button = canvas.display.image({
+        x: 2 * menu_screen.width / 4,
+        y: 3 * menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Settings.png"
+    });
 
     menu_screen.addChild(contacts_menu_button);
     menu_screen.addChild(gallery_menu_button);
     menu_screen.addChild(group_menu_button);
+    menu_screen.addChild(maps_menu_button);
+    menu_screen.addChild(camera_menu_button);
+    menu_screen.addChild(health_menu_button);
+    menu_screen.addChild(settings_menu_button);
     
     // ------------------------------------------------ Logic and Canvas --------------------------------
 
