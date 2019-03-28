@@ -266,19 +266,19 @@ function loadCanvas() {
     });
 
     var battery_template  = canvas.display.image({
-        x: template.width /5,
+        x: template.width / 7,
         y: 0.5,
-        width: canvas.width / 50,
-        height: canvas.width / 50,
+        width: canvas.width / 90,
+        height: canvas.width / 90,
         origin: { x: "left", y: "top" },
         image: "../../../Materials/Battery.png"
     });
 
     var wifi_template  = canvas.display.image({
-        x: template.width /20,
+        x: template.width / 30,
         y: 0.5,
-        width: canvas.width / 60,
-        height: canvas.width / 60,
+        width: canvas.width / 90,
+        height: canvas.width / 90,
         origin: { x: "left", y: "top" },
         image: "../../../Materials/Wifi.png"
     });
