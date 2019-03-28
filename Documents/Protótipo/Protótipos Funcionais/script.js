@@ -1,10 +1,13 @@
 var actual_screen;
+var description_bar;
 var friendsgroup = [];
 
 function changeScreen(canvas, new_screen, mode, template) {
     canvas.removeChild(actual_screen);
     actual_screen = new_screen;
     canvas.addChild(new_screen);
+    description_bar.text = new_screen.description;
+    description_bar.zindex = "front";
 
     if (mode == 2) {
         canvas.addChild(template);
@@ -30,6 +33,15 @@ function loadCanvas() {
         radius: canvas.width / 6,
         fill: "#fff"
     }).add();
+
+    description_bar = canvas.display.text({
+        x: canvas.width / 2,
+        y: canvas.height / 2 - canvas.width / 17,
+        origin: { x: "center", y: "center" },
+        family: "7Segments",
+        font: "20px",
+        fill: "#ffffff",
+    });
     
     // ------------------------------------------------ SCREENS CONSTRUCTION --------------------------------
 
@@ -314,7 +326,7 @@ function loadCanvas() {
         origin: { x: "center", y: "center" },
         image: "../../../Materials/Health.png"
     });
-    var settings_menu_button = canvas.display.image({
+    var settings_menu_button = canvas.display.rectangle({
         x: 2 * menu_screen.width / 4,
         y: 3 * menu_screen.height / 4,
         width: 50,
@@ -322,7 +334,7 @@ function loadCanvas() {
         origin: { x: "center", y: "center" },
         image: "../../../Materials/Settings.png"
     });
-
+    
     menu_screen.addChild(contacts_menu_button);
     menu_screen.addChild(gallery_menu_button);
     menu_screen.addChild(group_menu_button);
@@ -330,11 +342,37 @@ function loadCanvas() {
     menu_screen.addChild(camera_menu_button);
     menu_screen.addChild(health_menu_button);
     menu_screen.addChild(settings_menu_button);
-    
+
+    settings_menu_button.bind("mouseleave", function() {
+        console.log("Entrou2");
+        canvas.mouse.cursor("default");
+    });
+
+    // ------- Settings Screen --------
+
+    var settings_screen = canvas.display.rectangle({
+        x: canvas.width / 2 - canvas.width / 14,
+        y: canvas.height / 2 - canvas.width / 14,
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: "#000000",
+        description: "Settings"
+    });
+    var security = canvas.display.text({
+        x: 10,
+        y: 10,
+        text: "Screen Lock",
+        fill: "#ffffff"
+    });
+
+    settings_screen.addChild(security);
+
     // ------------------------------------------------ Logic and Canvas --------------------------------
 
     canvas.addChild(frame);
     canvas.addChild(main_screen);
+    canvas.addChild(description_bar);
 
     actual_screen = main_screen;
 
