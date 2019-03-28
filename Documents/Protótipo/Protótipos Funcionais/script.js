@@ -326,7 +326,7 @@ function loadCanvas() {
         origin: { x: "center", y: "center" },
         image: "../../../Materials/Health.png"
     });
-    var settings_menu_button = canvas.display.rectangle({
+    var settings_menu_button = canvas.display.image({
         x: 2 * menu_screen.width / 4,
         y: 3 * menu_screen.height / 4,
         width: 50,
@@ -343,7 +343,7 @@ function loadCanvas() {
     menu_screen.addChild(health_menu_button);
     menu_screen.addChild(settings_menu_button);
 
-    settings_menu_button.bind("mouseleave", function() {
+    settings_menu_button.bind("mouseenter", function() {
         console.log("Entrou2");
         canvas.mouse.cursor("default");
     });
