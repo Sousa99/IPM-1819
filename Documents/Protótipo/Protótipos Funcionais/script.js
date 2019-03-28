@@ -109,6 +109,22 @@ function loadCanvas() {
     })
 
     
+    button_minus.bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+    button_plus.bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+    button_back.bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+
     frame.addChild(camera);
     button_plus.addChild(symbol_plus);
     button_minus.addChild(symbol_minus);
@@ -170,6 +186,10 @@ function loadCanvas() {
 
     main_screen.bind("click tap", function() {
         changeScreen(canvas, lock_screen, 1)
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
     });
 
     // ------- Lock Screen --------
@@ -198,7 +218,7 @@ function loadCanvas() {
         radius: 60,
         start: 0,
         end: 0,
-        stroke: "5px #0aa",
+        stroke: "10px #0aa",
         touching: 0
     });
 
@@ -210,7 +230,11 @@ function loadCanvas() {
     }).bind("mouseup", function() {
         progress_circle_fingerprint.touching = 0;
         progress_circle_fingerprint.end = 0;
-    });
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });;
 
     // ------- Template Screens ------
 
@@ -242,6 +266,35 @@ function loadCanvas() {
         fill: "#000000"
     });
 
+    var contacts_menu_button = canvas.display.image({
+        x: menu_screen.width / 4,
+        y: menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Contacts.png"
+    });
+    var gallery_menu_button = canvas.display.image({
+        x: 2 * menu_screen.width / 4,
+        y: menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Gallery.png"
+    });
+    var group_menu_button = canvas.display.image({
+        x: 3 * menu_screen.width / 4,
+        y: menu_screen.height / 4,
+        width: 50,
+        height: 50,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Group.png"
+    });
+
+    menu_screen.addChild(contacts_menu_button);
+    menu_screen.addChild(gallery_menu_button);
+    menu_screen.addChild(group_menu_button);
+    
     // ------------------------------------------------ Logic and Canvas --------------------------------
 
     canvas.addChild(frame);
