@@ -1,7 +1,7 @@
 function build_frame(canvas) {
     var frame = canvas.display.rectangle({
         description: "Frame",
-        template: true,
+        template: false,
         x: canvas.width / 2 - canvas.width / 14 - 8,
         y: canvas.height / 2 - canvas.width / 14 - 8,
         width: canvas.width / 7 + 16,
@@ -72,8 +72,11 @@ function build_frame(canvas) {
         case "Menu Screen":
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        }      
-    })
+        case "Settings Screen":
+            changeScreen(canvas, build_menu_screen(canvas));
+            break;
+        }
+    });
 
     
     frame.button_minus.bind("mouseenter", function () {
@@ -105,11 +108,11 @@ function build_frame(canvas) {
 function build_template(canvas) {
     var template = canvas.display.rectangle({
         description: "Template",
-        template: false,
+        on: false,
         x: canvas.width / 2 - canvas.width / 14,
         y: canvas.height / 2 - canvas.width / 14,
         width: canvas.width / 7,
-        height: canvas.width / 7,
+        height: canvas.width / 90,
     });
     template.time = canvas.display.text({
         x: template.width - 12,
@@ -212,7 +215,7 @@ function build_main_screen(canvas) {
 function build_lock_screen_fingerprint(canvas) {
     var lock_screen = canvas.display.rectangle({
         description: "Fingerprint Lock Screen",
-        identified: false,
+        template: false,
         x: canvas.width / 2 - canvas.width / 14,
         y: canvas.height / 2 - canvas.width / 14,
         width: canvas.width / 7,
@@ -260,7 +263,7 @@ function build_lock_screen_fingerprint(canvas) {
 function build_menu_screen(canvas) {
     var menu_screen = canvas.display.rectangle({
         description: "Menu Screen",
-        identified: false,
+        template: true,
         x: canvas.width / 2 - canvas.width / 14,
         y: canvas.height / 2 - canvas.width / 14,
         width: canvas.width / 7,
@@ -348,14 +351,13 @@ function build_menu_screen(canvas) {
 function build_settings_screen(canvas) {
     var settings_screen = canvas.display.rectangle({
         description: "Settings Screen",
-        identified: false,
+        template: true,
         x: canvas.width / 2 - canvas.width / 14,
         y: canvas.height / 2 - canvas.width / 14,
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
         fill: "#000000",
-        description: "Settings"
     });
     settings_screen.security = canvas.display.text({
         x: 10,

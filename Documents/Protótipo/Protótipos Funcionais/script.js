@@ -9,9 +9,12 @@ function changeScreen(canvas, new_screen) {
     canvas.addChild(new_screen);
     description_bar.text = new_screen.description;
     description_bar.zindex = "front";
+    console.log(new_screen.description + ": " + new_screen.template);
 
-    if (new_screen.template) {
+    if (new_screen.template && !template.on) {
         canvas.addChild(template);
+        template.on = true;
+        template.zindex = "front";
     } else {
         canvas.removeChild(template);
     }
@@ -19,7 +22,6 @@ function changeScreen(canvas, new_screen) {
 
 function loadCanvas() {
     canvas = document.getElementById("workzone");
-
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -37,7 +39,7 @@ function loadCanvas() {
 
     description_bar = canvas.display.text({
         x: canvas.width / 2,
-        y: canvas.height / 2 - canvas.width / 30,
+        y: canvas.height / 2,
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "20px",
@@ -56,10 +58,6 @@ function loadCanvas() {
     canvas.setLoop(function () {
         var d = new Date();
         switch (actual_screen.description) {
-            case "Template":
-                actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-                break;
-            
             case "Main Screen":
                 actual_screen.date.text = ("0" + d.getDate()).slice(-2) + " / " + ("0" + (d.getMonth() + 1)).slice(-2) + " / " + d.getFullYear() + "\n";
                 actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
@@ -77,6 +75,10 @@ function loadCanvas() {
 
                 break;
         }
+
+        if (actual_screen.template)
+            template.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+    
 
         // TODO: Check if it's needed to update drawing of number of friend group
         
