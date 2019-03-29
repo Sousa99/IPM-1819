@@ -13,6 +13,15 @@ function build_health_screen(canvas){
         fill: black
     });
 
+    health_screen.help = canvas.display.image({
+        x: health_screen.width / 2.5,
+        y: health_screen.height / 2.5,
+        width: health_screen.width / 10,
+        height: health_screen.height / 10,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Help.png"
+    });
+
     health_screen.sos_bar = canvas.display.rectangle({
         x: 0,
         y: - health_screen.height / 4,
@@ -76,12 +85,16 @@ function build_health_screen(canvas){
         align: "center"
     });
 
+
+
+    health_screen.addChild(health_screen.help);
     health_screen.addChild(health_screen.sos_bar);
     health_screen.sos_bar.addChild(health_screen.sos_bar_text);
     health_screen.addChild(health_screen.health_bar);
     health_screen.health_bar.addChild(health_screen.health_bar_text);
     health_screen.addChild(health_screen.fitness_bar);
     health_screen.fitness_bar.addChild(health_screen.fitness_bar_text);
+
     
     return health_screen;
 }
