@@ -13,7 +13,7 @@ function build_health_screen(canvas){
         fill: black
     });
 
-    health_screen.help = canvas.display.image({
+    health_screen.health_help_button = canvas.display.image({
         x: health_screen.width / 2.5,
         y: health_screen.height / 2.5,
         width: health_screen.width / 10,
@@ -86,8 +86,16 @@ function build_health_screen(canvas){
     });
 
 
+    health_screen.health_help_button.bind("click tap", function() {
+        changeScreen(canvas, build_health_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
 
-    health_screen.addChild(health_screen.help);
+
+    health_screen.addChild(health_screen.health_help_button);
     health_screen.addChild(health_screen.sos_bar);
     health_screen.sos_bar.addChild(health_screen.sos_bar_text);
     health_screen.addChild(health_screen.health_bar);
