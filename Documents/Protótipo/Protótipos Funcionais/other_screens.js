@@ -1,3 +1,7 @@
+const white = "#FFFFFF";
+const black = "#000000";
+const gray_frame = "#7F7F7F";
+
 function build_frame(canvas) {
     var frame = canvas.display.rectangle({
         description: "Frame",
@@ -9,14 +13,14 @@ function build_frame(canvas) {
         width: canvas.width / 7 + canvas.width / 125,
         height: canvas.width / 7 + canvas.width / 125,
         borderRadius : 20,
-        fill: "#7F7F7F"
+        fill: gray_frame
     });
 
     frame.camera = canvas.display.ellipse({
         x: 0,
         y: - frame.height / 2 + frame.height / 75,
         radius: frame.height / 85,
-        fill: "radial-gradient(#ffffff, #000000)",
+        fill: "radial-gradient(" + white + ", " + black + ")",
     });
 
     frame.button_plus = canvas.display.rectangle({
@@ -24,7 +28,7 @@ function build_frame(canvas) {
         y: - frame.height / 2 + frame.height / 10,
         width: 2 * frame.width / 50,
         height: 1.5 * frame.height / 10,
-        fill: "#7F7F7F",
+        fill: gray_frame,
         borderTopLeftRadius: 10
     });
     frame.symbol_plus = canvas.display.text({
@@ -34,7 +38,7 @@ function build_frame(canvas) {
         family: "7Segments",
         font: "15px",
         text: "+",
-        fill: "#000000"
+        fill: black
 
     });
     frame.button_minus = canvas.display.rectangle({
@@ -42,7 +46,7 @@ function build_frame(canvas) {
         y: - frame.height / 2 + (2.5 + 0.1) * frame.height / 10,
         width: 2 * frame.width / 50,
         height: 1.5 * frame.height / 10,
-        fill: "#7F7F7F",
+        fill: gray_frame,
         borderBottomLeftRadius: 10
     });
     frame.symbol_minus = canvas.display.text({
@@ -52,7 +56,7 @@ function build_frame(canvas) {
         family: "7Segments",
         font: "15px",
         text: "-",
-        fill: "#000000"
+        fill: black
 
     });
 
@@ -61,7 +65,7 @@ function build_frame(canvas) {
         y: - frame.height / 2 + frame.height / 10,
         width: 2 * frame.width / 50,
         height: 1.5 * frame.height / 10,
-        fill: "#7F7F7F",
+        fill: gray_frame,
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10
     });
@@ -123,7 +127,7 @@ function build_template(canvas) {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "12px",
-        fill: "#ffffff"
+        fill: white
     });
 
     template.battery  = canvas.display.image({
@@ -162,7 +166,7 @@ function build_main_screen(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#000000"
+        fill: black
     });
 
     main_screen.date = canvas.display.text({
@@ -171,7 +175,7 @@ function build_main_screen(canvas) {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "15px",
-        fill: "#ffffff"
+        fill: white
     });
     main_screen.time = canvas.display.text({
         x: 0,
@@ -179,7 +183,7 @@ function build_main_screen(canvas) {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "50px",
-        fill: "#ffffff"
+        fill: white
     });
 
     main_screen.number_friends = canvas.display.text({
@@ -188,7 +192,7 @@ function build_main_screen(canvas) {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "20px",
-        fill: "#ffffff",
+        fill: white,
         text: friendsgroup.length,
     });
     main_screen.friends = canvas.display.text({
@@ -197,7 +201,7 @@ function build_main_screen(canvas) {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "10px",
-        fill: "#ffffff",
+        fill: white,
         text: "FRIENDS GROUP"
     });
 
@@ -220,7 +224,7 @@ function build_main_screen(canvas) {
 function build_lock_screen_fingerprint(canvas) {
     var lock_screen = canvas.display.rectangle({
         description: "Fingerprint Lock",
-        description_show: false,
+        description_show: true,
         template: false,
         x: canvas.width / 2,
         y: canvas.height / 2,
@@ -228,7 +232,7 @@ function build_lock_screen_fingerprint(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#000000"
+        fill: black
     });
 
     lock_screen.finger = canvas.display.image({
@@ -278,7 +282,7 @@ function build_menu_screen(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#000000"
+        fill: black
     });
 
     menu_screen.contacts_menu_button = canvas.display.image({
@@ -368,14 +372,14 @@ function build_settings_screen(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#000000",
+        fill: black,
     });
     settings_screen.security = canvas.display.text({
         x: 0,
         y: - 2 * settings_screen.height / 10,
         origin: {x: "center", y: "center" },
         text: "Screen Lock                  >",
-        fill: "#ffffff"
+        fill: white
     });
 
     settings_screen.addChild(settings_screen.security);

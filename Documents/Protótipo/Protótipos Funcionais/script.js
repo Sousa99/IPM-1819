@@ -34,7 +34,7 @@ function loadCanvas() {
         x: canvas.width / 2,
         y: canvas.height / 2,
         radius: canvas.width / 6,
-        fill: "#fff"
+        fill: "#FFFFFF"
     }).add();
 
     description_bar = canvas.display.text({
@@ -43,7 +43,7 @@ function loadCanvas() {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "14px",
-        fill: "#00ffff",
+        fill: "#00FFFF",
     }).add();
 
     // ------------------------------------------------ Logic and Canvas --------------------------------
