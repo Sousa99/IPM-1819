@@ -7,16 +7,16 @@ function changeScreen(canvas, new_screen) {
     canvas.removeChild(actual_screen);
     actual_screen = new_screen;
     canvas.addChild(new_screen);
-    description_bar.text = new_screen.description;
-    description_bar.zindex = "front";
-    console.log(new_screen.description + ": " + new_screen.template);
 
-    if (new_screen.template && !template.on) {
+    canvas.removeChild(description_bar);
+    description_bar.text = new_screen.description;
+    if (new_screen.description_show) {
+        canvas.addChild(description_bar);
+    }
+
+    canvas.removeChild(template);
+    if (new_screen.template) {
         canvas.addChild(template);
-        template.on = true;
-        template.zindex = "front";
-    } else {
-        canvas.removeChild(template);
     }
 }
 
@@ -39,11 +39,11 @@ function loadCanvas() {
 
     description_bar = canvas.display.text({
         x: canvas.width / 2,
-        y: canvas.height / 2,
+        y: canvas.height / 2 - canvas.width / 14 / 8 * 6,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: "20px",
-        fill: "#ffffff",
+        font: "14px",
+        fill: "#00ffff",
     }).add();
 
     // ------------------------------------------------ Logic and Canvas --------------------------------
@@ -58,12 +58,12 @@ function loadCanvas() {
     canvas.setLoop(function () {
         var d = new Date();
         switch (actual_screen.description) {
-            case "Main Screen":
+            case "Main":
                 actual_screen.date.text = ("0" + d.getDate()).slice(-2) + " / " + ("0" + (d.getMonth() + 1)).slice(-2) + " / " + d.getFullYear() + "\n";
                 actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
                 break;
             
-            case "Fingerprint Lock Screen":
+            case "Fingerprint Lock":
                 actual_screen.progress_circle_fingerprint.rotation++;
                 actual_screen.progress_circle_fingerprint.end += actual_screen.progress_circle_fingerprint.touching;
 
