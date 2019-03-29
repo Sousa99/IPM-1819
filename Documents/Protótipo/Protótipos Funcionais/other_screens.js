@@ -90,6 +90,9 @@ function build_frame(canvas) {
         case descriptions[5]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
+        case descriptions[6]:
+            changeScreen(canvas, build_menu_screen(canvas));
+            break;
         }
     });
 
@@ -372,6 +375,14 @@ function build_menu_screen(canvas) {
 
     menu_screen.settings_menu_button.bind("click tap", function() {
         changeScreen(canvas, build_settings_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+
+    menu_screen.health_menu_button.bind("click tap", function() {
+        changeScreen(canvas, build_health_screen(canvas));
     }).bind("mouseenter", function () {
         canvas.mouse.cursor("pointer");
     }).bind("mouseleave", function () {

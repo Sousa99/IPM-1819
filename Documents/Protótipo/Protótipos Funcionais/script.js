@@ -43,7 +43,7 @@ function loadCanvas() {
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: "14px",
-        fill: "#00FFFF",
+        fill: white,
     }).add();
 
     // ------------------------------------------------ Logic and Canvas --------------------------------
