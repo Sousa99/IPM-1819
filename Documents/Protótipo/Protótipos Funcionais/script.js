@@ -81,7 +81,6 @@ function loadCanvas() {
     
 
         // TODO: Check if it's needed to update drawing of number of friend group
-        //actual_screen.rotation++;
     });
     
     canvas.timeline.start();
