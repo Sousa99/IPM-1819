@@ -4,7 +4,7 @@ const gray_frame = "#7F7F7F";
 
 function build_frame(canvas) {
     var frame = canvas.display.rectangle({
-        description: "Frame",
+        description: descriptions[0],
         description_show: false,
         template: false,
         x: canvas.width / 2,
@@ -72,13 +72,13 @@ function build_frame(canvas) {
 
     frame.button_back.bind("click tap", function() {
         switch(actual_screen.description) {
-        case "Fingerprint Lock":
+        case descriptions[3]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case "Menu":
+        case descriptions[4]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case "Settings":
+        case descriptions[5]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
         }
@@ -113,7 +113,7 @@ function build_frame(canvas) {
 
 function build_template(canvas) {
     var template = canvas.display.rectangle({
-        description: "Template",
+        description: descriptions[1],
         description_show: false,
         x: canvas.width / 2,
         y: 13.3 * canvas.height / 36,
@@ -157,7 +157,7 @@ function build_template(canvas) {
 
 function build_main_screen(canvas) {
     var main_screen = canvas.display.rectangle({
-        description: "Main",
+        description: descriptions[2],
         description_show: false,
         template: false,
         x: canvas.width / 2,
@@ -202,7 +202,7 @@ function build_main_screen(canvas) {
         family: "7Segments",
         font: "10px",
         fill: white,
-        text: "FRIENDS GROUP"
+        text: others[0]
     });
 
     main_screen.addChild(main_screen.date);
@@ -223,7 +223,7 @@ function build_main_screen(canvas) {
 
 function build_lock_screen_fingerprint(canvas) {
     var lock_screen = canvas.display.rectangle({
-        description: "Fingerprint Lock",
+        description: descriptions[3],
         description_show: true,
         template: false,
         x: canvas.width / 2,
@@ -273,7 +273,7 @@ function build_lock_screen_fingerprint(canvas) {
 
 function build_menu_screen(canvas) {
     var menu_screen = canvas.display.rectangle({
-        description: "Menu",
+        description: descriptions[4],
         description_show: false,
         template: true,
         x: canvas.width / 2,
@@ -363,7 +363,7 @@ function build_menu_screen(canvas) {
 
 function build_settings_screen(canvas) {
     var settings_screen = canvas.display.rectangle({
-        description: "Settings",
+        description: descriptions[5],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -378,7 +378,7 @@ function build_settings_screen(canvas) {
         x: 0,
         y: - 2 * settings_screen.height / 10,
         origin: {x: "center", y: "center" },
-        text: "Screen Lock                  >",
+        text: others[1] + "                  >",
         fill: white
     });
 
