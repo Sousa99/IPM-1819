@@ -58,12 +58,12 @@ function loadCanvas() {
     canvas.setLoop(function () {
         var d = new Date();
         switch (actual_screen.description) {
-            case "Main":
+            case descriptions[2]:
                 actual_screen.date.text = ("0" + d.getDate()).slice(-2) + " / " + ("0" + (d.getMonth() + 1)).slice(-2) + " / " + d.getFullYear() + "\n";
                 actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
                 break;
             
-            case "Fingerprint Lock":
+            case descriptions[3]:
                 actual_screen.progress_circle_fingerprint.rotation++;
                 actual_screen.progress_circle_fingerprint.end += actual_screen.progress_circle_fingerprint.touching;
 
