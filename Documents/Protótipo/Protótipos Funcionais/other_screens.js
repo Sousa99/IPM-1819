@@ -69,6 +69,15 @@ function build_frame(canvas) {
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10
     });
+    frame.button_lock = canvas.display.rectangle({
+        x: frame.width / 2 - 1,
+        y: frame.height / 2 - frame.height / 10 - 1.5 * frame.height / 10,
+        width: 2 * frame.width / 50,
+        height: 1.5 * frame.height / 10,
+        fill: gray_frame,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10
+    });
 
     frame.button_back.bind("click tap", function() {
         switch(actual_screen.description) {
@@ -82,6 +91,11 @@ function build_frame(canvas) {
             changeScreen(canvas, build_menu_screen(canvas));
             break;
         }
+    });
+
+    frame.button_lock.bind("click tap", function() {
+        if (actual_screen.description != descriptions[2])
+            changeScreen(canvas, build_main_screen(canvas));
     });
 
     
@@ -100,6 +114,11 @@ function build_frame(canvas) {
     }).bind("mouseleave", function () {
         canvas.mouse.cursor("default");
     });
+    frame.button_lock.bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
 
     frame.addChild(frame.camera);
     frame.button_plus.addChild(frame.symbol_plus);
@@ -107,6 +126,7 @@ function build_frame(canvas) {
     frame.addChild(frame.button_plus);
     frame.addChild(frame.button_minus);
     frame.addChild(frame.button_back);
+    frame.addChild(frame.button_lock);
 
     return frame;
 }
