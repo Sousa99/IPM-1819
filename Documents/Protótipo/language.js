@@ -2,12 +2,12 @@ const STRINGS_DESCRIPTIONS = {
     pt: [
         "Moldura", "Molde", "Principal", "Impressao Digital", "Menu",
         "Definicoes", "Definicoes Lingua", "Mudou Lingua",
-        "Saude", "Ajuda (Saude)"
+        "Saude", "Ajuda (Saude)", "Batimento Cardiaco"
     ],
     en: [
         "Frame", "Template", "Main", "Fingerprint Lock", "Menu",
         "Settings", "Language Settings", "Changed Language",
-        "Health", "Help (Health)"
+        "Health", "Help (Health)", "Heart Rate"
     ]
 };
 

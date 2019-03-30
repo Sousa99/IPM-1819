@@ -176,7 +176,7 @@ function build_health_help_screen(canvas){
 
 function build_heart_rate_screen(canvas) {
     var heart_rate_screen = canvas.display.rectangle({
-        description: descriptions[8],
+        description: descriptions[10],
         description_show: false,
         template: true,
         x: canvas.width / 2,

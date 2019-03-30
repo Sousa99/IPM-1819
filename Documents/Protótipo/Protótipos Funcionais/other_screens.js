@@ -95,6 +95,9 @@ function build_frame(canvas) {
         case descriptions[9]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
+        case descriptions[10]:
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
         }
     });
 
