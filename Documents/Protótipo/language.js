@@ -1,15 +1,15 @@
 const STRINGS_DESCRIPTIONS = {
     pt: [
-        "Moldura", "Molde", "Principal", "Impressao Digital", "Menu",
-        "Definicoes", "Definicoes Lingua", "Mudou Lingua",
+        "Moldura", "Molde", "Principal", "Menu",
+        "Definicoes", "Definicoes Lingua", "Mudou Lingua", "Definicoes de Bloqueio", "Mudou Bloqueio", "Nenhuma Protecao", "PIN", "Padrao", "Impressao Digital",
         "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono",
-        "SOS", "No momento", "Atraso da emergencia"
+        "SOS", "Ajuda (SOS)",
     ],
     en: [
-        "Frame", "Template", "Main", "Fingerprint Lock", "Menu",
-        "Settings", "Language Settings", "Changed Language",
+        "Frame", "Template", "Main", "Menu",
+        "Settings", "Language Settings", "Changed Language", "Lock Screen Settings", "Changed Lock", "No Lock", "PIN", "Pattern Lock", "Fingerprint Lock",
         "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
-        "SOS", "Live monitoring", " Emergency delay"
+        "SOS", "Help (SOS)",
     ]
 };
 
@@ -26,10 +26,14 @@ const STRINGS_OTHERS = {
 
 const STRINGS_SETTINGS = {
     pt: [
-        "Protecao de Ecra", "Lingua", "Portugues", "Ingles", "Mudou a lingua\npredefinida para\nPortugues"
+        "Protecao de Ecra",
+        "Lingua", "Portugues", "Ingles", "Mudou a lingua\npredefinida para\nPortugues",
+        "Nenhuma", "PIN", "Padrao", "Impressao Digital", "Mudou o tipo de\nbloqueio do dispositivo"
     ],
     en: [
-        "Screen Lock", "Language", "Portuguese", "English", "Changed predefined\nlanguage to\nEnglish"
+        "Screen Lock",
+        "Language", "Portuguese", "English", "Changed predefined\nlanguage to\nEnglish",
+        "None", "PIN", "Pattern", "Fingerprint", "Changed predefined\nlock method"
     ]
 }
 
@@ -40,7 +44,7 @@ const STRINGS_HEALTH = {
         "SISTOLICA", "DIASTOLICA", "RELATORIO",
         "HOJE", "SEMANA", "RELATORIO",
         "HOJE", "SEMANA", "RELATORIO",
-        "FITNESS", "SOS", "SAUDE","NO MOMENTO" ," ATRASO DA EMERGENCIA"
+        "FITNESS", "SOS", "SAUDE", "NO MOMENTO", "ATRASO DA EMERGENCIA"
 
     ],
     en: [

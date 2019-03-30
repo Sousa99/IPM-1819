@@ -63,7 +63,7 @@ function loadCanvas() {
                 actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
                 break;
             
-            case descriptions[3]:
+            case descriptions[12]:
                 actual_screen.progress_circle_fingerprint.rotation++;
                 actual_screen.progress_circle_fingerprint.end += actual_screen.progress_circle_fingerprint.touching;
 

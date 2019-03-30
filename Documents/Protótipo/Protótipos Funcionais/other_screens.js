@@ -81,44 +81,53 @@ function build_frame(canvas) {
             changeScreen(canvas, build_main_screen(canvas));
             break;
         case descriptions[4]:
-            changeScreen(canvas, build_main_screen(canvas));
+            changeScreen(canvas, build_menu_screen(canvas));
             break;
         case descriptions[5]:
-            changeScreen(canvas, build_menu_screen(canvas));
-            break;
-        case descriptions[6]:
             changeScreen(canvas, build_settings_screen(canvas));
             break;
-        case descriptions[8]:
-            changeScreen(canvas, build_menu_screen(canvas));
+        case descriptions[7]:
+            changeScreen(canvas, build_settings_screen(canvas));
             break;
         case descriptions[9]:
-            changeScreen(canvas, build_health_screen(canvas));
-            break;
-        case descriptions[10]:
-            changeScreen(canvas, build_health_screen(canvas));
+            changeScreen(canvas, build_main_screen(canvas));
             break;
         case descriptions[11]:
-            changeScreen(canvas, build_heart_rate_screen(canvas));
+            changeScreen(canvas, build_main_screen(canvas));
             break;
         case descriptions[12]:
-            changeScreen(canvas, build_blood_pressure_screen(canvas));
+            changeScreen(canvas, build_main_screen(canvas));
             break;
         case descriptions[13]:
-            changeScreen(canvas, build_blood_oxygen_screen(canvas));
+            changeScreen(canvas, build_menu_screen(canvas));
             break;  
         case descriptions[14]:
-            changeScreen(canvas, build_sleep_time_screen(canvas));
-            break; 
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
         case descriptions[15]:
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
+        case descriptions[16]:
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
+        case descriptions[17]:
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
+        case descriptions[18]:
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
+        case descriptions[19]:
+            changeScreen(canvas, build_health_screen(canvas));
+            break;
+        case descriptions[20]:
             changeScreen(canvas, build_sos_screen(canvas));
-            break; 
-        
+            break;
         }
     });
 
+    var non_lockables = [descriptions[2], descriptions[6], descriptions[8]];
     frame.button_lock.bind("click tap", function() {
-        if (actual_screen.description != descriptions[2])
+        if (!non_lockables.includes(actual_screen.description))
             changeScreen(canvas, build_main_screen(canvas));
     });
 
@@ -255,7 +264,7 @@ function build_main_screen(canvas) {
     main_screen.addChild(main_screen.friends);
 
     main_screen.bind("click tap", function() {
-        changeScreen(canvas, build_lock_screen_fingerprint(canvas));
+        changeScreen(canvas, build_lock_screen(canvas));
     }).bind("mouseenter", function () {
         canvas.mouse.cursor("pointer");
     }).bind("mouseleave", function () {
@@ -265,59 +274,9 @@ function build_main_screen(canvas) {
     return main_screen;
 }
 
-function build_lock_screen_fingerprint(canvas) {
-    var lock_screen = canvas.display.rectangle({
-        description: descriptions[3],
-        description_show: true,
-        template: false,
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
-        borderRadius : 20,
-        fill: black
-    });
-
-    lock_screen.finger = canvas.display.image({
-        x: 0,
-        y: 0,
-        width: 7 * lock_screen.width / 18,
-        height: 7 * lock_screen.width / 18,
-        origin: { x: "center", y: "center" },
-        image: "../../../Materials/Fingerprint.png"
-    });
-
-    lock_screen.progress_circle_fingerprint = canvas.display.arc({
-        x: 0,
-        y: 0,
-        radius: 9 * lock_screen.width / 36,
-        start: 0,
-        end: 0,
-        stroke: "10px #0aa",
-        touching: 0
-    });
-
-    lock_screen.addChild(lock_screen.finger);
-    lock_screen.addChild(lock_screen.progress_circle_fingerprint);
-
-    lock_screen.finger.bind("mousedown", function() {
-        lock_screen.progress_circle_fingerprint.touching = 7;
-    }).bind("mouseup", function() {
-        lock_screen.progress_circle_fingerprint.touching = 0;
-        lock_screen.progress_circle_fingerprint.end = 0;
-    }).bind("mouseenter", function () {
-        canvas.mouse.cursor("pointer");
-    }).bind("mouseleave", function () {
-        canvas.mouse.cursor("default");
-    });
-
-    return lock_screen;
-}
-
 function build_menu_screen(canvas) {
     var menu_screen = canvas.display.rectangle({
-        description: descriptions[4],
+        description: descriptions[3],
         description_show: false,
         template: true,
         x: canvas.width / 2,

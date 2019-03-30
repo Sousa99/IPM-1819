@@ -1,7 +1,6 @@
-
 function build_health_screen(canvas){
     var health_screen = canvas.display.rectangle({
-        description: descriptions[8],
+        description: descriptions[13],
         description_show: false,
         template: true,
         x: canvas.width / 2,
@@ -135,15 +134,12 @@ function build_health_screen(canvas){
     links[0].bind("click tap", function() {
         changeScreen(canvas, build_heart_rate_screen(canvas));
     });
-
     links[1].bind("click tap", function() {
         changeScreen(canvas, build_blood_pressure_screen(canvas));
     });
-
     links[2].bind("click tap", function() {
         changeScreen(canvas, build_blood_oxygen_screen(canvas));
     });
-
     links[3].bind("click tap", function() {
         changeScreen(canvas, build_sleep_time_screen(canvas));
     });
@@ -155,13 +151,21 @@ function build_health_screen(canvas){
     health_screen.addChild(health_screen.fitness_bar);
     health_screen.fitness_bar.addChild(health_screen.fitness_bar_text);
     health_screen.addChild(health_screen.health_help_button);
+
+    health_screen.sos_bar.bind("click tap", function() {
+        changeScreen(canvas, build_sos_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
     
     return health_screen;
 }
 
 function build_health_help_screen(canvas){
     var health_help_screen = canvas.display.rectangle({
-        description: descriptions[9],
+        description: descriptions[14],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -188,7 +192,7 @@ function build_health_help_screen(canvas){
 
 function build_heart_rate_screen(canvas) {
     var heart_rate_screen = canvas.display.rectangle({
-        description: descriptions[10],
+        description: descriptions[15],
         description_show: true ,
         template: true,
         x: canvas.width / 2,
@@ -261,7 +265,7 @@ function build_heart_rate_screen(canvas) {
 
 function build_blood_pressure_screen(canvas) {
     var blood_pressure_screen = canvas.display.rectangle({
-        description: descriptions[11],
+        description: descriptions[16],
         description_show: true ,
         template: true,
         x: canvas.width / 2,
@@ -311,7 +315,7 @@ function build_blood_pressure_screen(canvas) {
 
 function build_blood_oxygen_screen (canvas){
     var blood_oxygen_screen = canvas.display.rectangle({
-        description: descriptions[12],
+        description: descriptions[17],
         description_show: true ,
         template: true,
         x: canvas.width / 2,
@@ -362,7 +366,7 @@ function build_blood_oxygen_screen (canvas){
 
 function build_sleep_time_screen (canvas){
     var sleep_time_screen = canvas.display.rectangle({
-        description: descriptions[13],
+        description: descriptions[18],
         description_show: true ,
         template: true,
         x: canvas.width / 2,
@@ -413,7 +417,7 @@ function build_sleep_time_screen (canvas){
 
 function build_sos_screen (canvas){
     var sos_screen = canvas.display.rectangle({
-        description: descriptions[14],
+        description: descriptions[19],
         description_show: false,
         template: true,
         x: canvas.width / 2,
@@ -457,7 +461,6 @@ function build_sos_screen (canvas){
     sos_screen.addChild(sos_screen.emergency_delay);
     links = add_lines(canvas, sos_screen, -1.5, 0)
     
-    
     sos_screen.sos_help_button.bind("click tap", function() {
         changeScreen(canvas, build_sos_help_screen(canvas));
     }).bind("mouseenter", function () {
@@ -465,15 +468,13 @@ function build_sos_screen (canvas){
     }).bind("mouseleave", function () {
         canvas.mouse.cursor("default");
     });
-    
 
     return sos_screen;
-
 }
 
 function build_sos_help_screen(canvas){
     var sos_help_screen = canvas.display.rectangle({
-        description: descriptions[9],
+        description: descriptions[20],
         description_show: true,
         template: true,
         x: canvas.width / 2,
