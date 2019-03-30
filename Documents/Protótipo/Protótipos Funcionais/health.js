@@ -177,7 +177,7 @@ function build_health_help_screen(canvas){
 function build_heart_rate_screen(canvas) {
     var heart_rate_screen = canvas.display.rectangle({
         description: descriptions[10],
-        description_show: false,
+        description_show: true ,
         template: true,
         x: canvas.width / 2,
         y: canvas.height / 2,
@@ -185,7 +185,65 @@ function build_heart_rate_screen(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#FF00AA"
+        fill: "#ff887f"
+    });
+
+    heart_rate_screen.live = canvas.display.text({
+        x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
+        y: - 1.5 * heart_rate_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[7],
+        fill: white
+    });
+
+    heart_rate_screen.today = canvas.display.text({
+        x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
+        y: - 0.5 * heart_rate_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[8],
+        fill: white
+    });
+
+    heart_rate_screen.weekly = canvas.display.text({
+        x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
+        y: + 0.5 * heart_rate_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[9],
+        fill: white
+    });
+
+    /*heart_rate_screen.message = canvas.display.rectangle({
+        x: 0,
+        y: heart_rate_screen.height / 4,
+        origin: {x: "center", y: "center" },
+        width: heart_rate_screen.width / 7,
+        height: heart_rate_screen.width / 7,
+        borderRadius : 20,
+        fill: white,
+    });
+    
+    heart_rate_screen.message_text = canvas.display.text({
+        x: 0,
+        y: 0,
+        origin: { x: "center", y: "center" },
+        font: "15px",
+        text: health[10],
+        fill: black
+    });*/
+
+    heart_rate_screen.addChild(heart_rate_screen.live);
+    heart_rate_screen.addChild(heart_rate_screen.today);
+    heart_rate_screen.addChild(heart_rate_screen.weekly);
+    //heart_rate_screen.addChild(heart_rate_screen.message);
+    //heart_rate_screen.message_text.addChild(heart_rate_screen.message_text);
+    
+    links = add_lines(canvas, heart_rate_screen, -1.5, 0)
+
+    links[0].bind("click tap", function() {
+        changeScreen(canvas, build_heart_rate_screen(canvas));
     });
 
     return heart_rate_screen;

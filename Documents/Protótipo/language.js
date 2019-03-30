@@ -33,10 +33,12 @@ const STRINGS_SETTINGS = {
 
 const STRINGS_HEALTH = {
     pt: [
-        "FITNESS", "SOS", "SAUDE", "Batimento Cardiaco", "Pressao Arterial", "Oxigenacao do Sangue", "Tempo de Sono"
+        "FITNESS", "SOS", "SAUDE", "Batimento Cardiaco", "Pressao Arterial", "Oxigenacao do Sangue", "Tempo de Sono",
+        "NO MOMENTO", "HOJE", "SEMANA", "BOM"
     ],
     en: [
-        "FITNESS", "SOS", "HEALTH", "Heart Rate", "Blood Pressure", "Blood Oxygen", "Sleep Time"
+        "FITNESS", "SOS", "HEALTH", "Heart Rate", "Blood Pressure", "Blood Oxygen", "Sleep Time",
+        "LIVE", "TODAY", "WEEKLY", "GOOD"
     ]
 }
 
