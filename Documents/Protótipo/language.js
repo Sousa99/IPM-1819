@@ -13,10 +13,12 @@ const STRINGS_DESCRIPTIONS = {
 
 const STRINGS_OTHERS = {
     pt: [
-        "GRUPO DE AMIGOS"
+        "GRUPO DE AMIGOS",
+        "Ajuda"
     ],
     en: [
-        "FRIENDS GROUP"
+        "FRIENDS GROUP",
+        "Help"
     ]
 }
 
