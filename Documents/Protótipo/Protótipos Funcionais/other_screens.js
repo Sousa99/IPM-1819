@@ -98,6 +98,18 @@ function build_frame(canvas) {
         case descriptions[10]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
+        case descriptions[11]:
+            changeScreen(canvas, build_heart_rate_screen(canvas));
+            break;
+        case descriptions[12]:
+            changeScreen(canvas, build_blood_pressure_screen(canvas));
+            break;
+        case descriptions[13]:
+            changeScreen(canvas, build_blood_oxygen_screen(canvas));
+            break;  
+        case descriptions[14]:
+            changeScreen(canvas, build_sleep_time_screen(canvas));
+            break; 
         }
     });
 

@@ -197,7 +197,7 @@ function build_heart_rate_screen(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#ff887f"
+        fill: black
     });
 
     heart_rate_screen.live = canvas.display.text({
@@ -229,11 +229,11 @@ function build_heart_rate_screen(canvas) {
 
     heart_rate_screen.message = canvas.display.rectangle({
         x: 0,
-        y: heart_rate_screen.height / 4,
+        y: heart_rate_screen.height / 3,
         origin: {x: "center", y: "center" },
-        width: heart_rate_screen.width / 7,
-        height: heart_rate_screen.width / 7,
-        borderRadius : 20,
+        width: heart_rate_screen.width / 4,
+        height: heart_rate_screen.width / 4,
+        borderRadius : 5,
         fill: white,
     });
     
@@ -241,7 +241,7 @@ function build_heart_rate_screen(canvas) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: "15px",
+        font: "10px",
         text: health[10],
         fill: black
     });
@@ -250,16 +250,16 @@ function build_heart_rate_screen(canvas) {
     heart_rate_screen.addChild(heart_rate_screen.today);
     heart_rate_screen.addChild(heart_rate_screen.weekly);
     
+    
+    links = add_lines(canvas, heart_rate_screen, -1.5, 0)
 
     heart_rate_screen.message.addChild(heart_rate_screen.message_text);
     heart_rate_screen.addChild(heart_rate_screen.message);
     
-    
-
     return heart_rate_screen;
 }
 
-function blood_pressure_screen(canvas) {
+function build_blood_pressure_screen(canvas) {
     var blood_pressure_screen = canvas.display.rectangle({
         description: descriptions[11],
         description_show: true ,
@@ -270,15 +270,15 @@ function blood_pressure_screen(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#ff887f"
+        fill: black
     });
 
-   blood_pressure_screenn.systolic = canvas.display.text({
+   blood_pressure_screen.systolic = canvas.display.text({
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 1.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[10],
+        text: health[11],
         fill: white
     });
 
@@ -287,7 +287,7 @@ function blood_pressure_screen(canvas) {
         y: - 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[11],
+        text: health[12],
         fill: white
     });
 
@@ -296,13 +296,15 @@ function blood_pressure_screen(canvas) {
         y: + 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[12],
+        text: health[13],
         fill: white
     });
     
     blood_pressure_screen.addChild(blood_pressure_screen.systolic);
     blood_pressure_screen.addChild(blood_pressure_screen.diastolic);
     blood_pressure_screen.addChild(blood_pressure_screen.report);
+
+    links = add_lines(canvas, blood_pressure_screen, -1.5, 0)
 
     return blood_pressure_screen;
 }
@@ -318,7 +320,7 @@ function build_blood_oxygen_screen (canvas){
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#ff887f"
+        fill: black
     });
 
     blood_oxygen_screen.today = canvas.display.text({
@@ -326,7 +328,7 @@ function build_blood_oxygen_screen (canvas){
         y: - 1.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[13],
+        text: health[14],
         fill: white
     });
 
@@ -335,7 +337,7 @@ function build_blood_oxygen_screen (canvas){
         y: - 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[14],
+        text: health[15],
         fill: white
     });
 
@@ -344,13 +346,15 @@ function build_blood_oxygen_screen (canvas){
         y: + 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[15],
+        text: health[16],
         fill: white
     });
 
     blood_oxygen_screen.addChild(blood_oxygen_screen.today);
     blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
     blood_oxygen_screen.addChild(blood_oxygen_screen.report);
+
+    links = add_lines(canvas, blood_oxygen_screen, -1.5, 0)
 
     return blood_oxygen_screen;
 
@@ -367,7 +371,7 @@ function build_sleep_time_screen (canvas){
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#ff887f"
+        fill: black
     });
 
     sleep_time_screen.today = canvas.display.text({
@@ -375,7 +379,7 @@ function build_sleep_time_screen (canvas){
         y: - 1.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[16],
+        text: health[17],
         fill: white
     });
 
@@ -384,7 +388,7 @@ function build_sleep_time_screen (canvas){
         y: - 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[17],
+        text: health[18],
         fill: white
     });
 
@@ -393,13 +397,15 @@ function build_sleep_time_screen (canvas){
         y: + 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
-        text: health[18],
+        text: health[19],
         fill: white
     });
 
     sleep_time_screen.addChild(sleep_time_screen.today);
     sleep_time_screen.addChild(sleep_time_screen.weekly);
     sleep_time_screen.addChild(sleep_time_screen.report);
+
+    links = add_lines(canvas, sleep_time_screen, -1.5, 0)
 
     return sleep_time_screen;
 
