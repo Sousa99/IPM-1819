@@ -215,7 +215,7 @@ function build_heart_rate_screen(canvas) {
         fill: white
     });
 
-    /*heart_rate_screen.message = canvas.display.rectangle({
+    heart_rate_screen.message = canvas.display.rectangle({
         x: 0,
         y: heart_rate_screen.height / 4,
         origin: {x: "center", y: "center" },
@@ -232,18 +232,18 @@ function build_heart_rate_screen(canvas) {
         font: "15px",
         text: health[10],
         fill: black
-    });*/
+    });
 
     heart_rate_screen.addChild(heart_rate_screen.live);
     heart_rate_screen.addChild(heart_rate_screen.today);
     heart_rate_screen.addChild(heart_rate_screen.weekly);
-    //heart_rate_screen.addChild(heart_rate_screen.message);
-    //heart_rate_screen.message_text.addChild(heart_rate_screen.message_text);
-    
     links = add_lines(canvas, heart_rate_screen, -1.5, 0)
 
+    heart_rate_screen.message.addChild(heart_rate_screen.message_text);
+    heart_rate_screen.addChild(heart_rate_screen.message);
+    
     links[0].bind("click tap", function() {
-        changeScreen(canvas, build_heart_rate_screen(canvas));
+        //changeScreen(canvas, build_heart_rate_screen(canvas));
     });
 
     return heart_rate_screen;
