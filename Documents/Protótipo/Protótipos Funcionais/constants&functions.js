@@ -2,7 +2,7 @@ const white = "#FFFFFF";
 const black = "#000000";
 const gray_frame = "#7F7F7F";
 
-function add_lines(canvas, screen, mode, active) {
+function add_lines(canvas, screen, startpoint, mode, active) {
     var links = [];
     var number_options = screen.children.length;
     for (var i = 0; i < number_options + 1; i++) {
@@ -12,7 +12,7 @@ function add_lines(canvas, screen, mode, active) {
             if (mode == 0) {
                 link = canvas.display.image({
                     x: screen.width / 2 - 1.5 * screen.width / 10,
-                    y: (i - 2) * screen.height / 10,
+                    y: (i + startpoint) * screen.height / 10,
                     origin: { x: "center", y: "center" },
                     width: screen.height / 15,
                     height: screen.height / 15,
@@ -25,7 +25,7 @@ function add_lines(canvas, screen, mode, active) {
                     active_object = true;
                     var choosen = canvas.display.ellipse({
                         x: screen.width / 2 - 1.5 * screen.width / 10,
-                        y: (i - 2) * screen.height / 10,
+                        y: (i + startpoint) * screen.height / 10,
                         radius: screen.height / 55,
                         fill: "#005dff"
                     });
@@ -36,7 +36,7 @@ function add_lines(canvas, screen, mode, active) {
                 link = canvas.display.ellipse({
                     active: active_object,
                     x: screen.width / 2 - 1.5 * screen.width / 10,
-                    y: (i - 2) * screen.height / 10,
+                    y: (i + startpoint) * screen.height / 10,
                     radius: screen.height / 30,
                     stroke: "2px " + white
                 });
@@ -55,11 +55,11 @@ function add_lines(canvas, screen, mode, active) {
         var line = canvas.display.line({
             start: {
                 x: - screen.width / 2 + screen.width / 20,
-                y: (i - 2.5) * screen.height / 10
+                y: (i + startpoint - 0.5) * screen.height / 10
             },
             end: {
                 x: screen.width / 2 - screen.width / 20,
-                y: (i - 2.5) * screen.height / 10
+                y: (i + startpoint - 0.5) * screen.height / 10
             },
             stroke: "1px " + white ,
             cap: "round"

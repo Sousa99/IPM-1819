@@ -29,7 +29,7 @@ function build_settings_screen(canvas) {
     settings_screen.addChild(settings_screen.security);
     settings_screen.addChild(settings_screen.language);
 
-    var links = add_lines(canvas, settings_screen, 0);
+    var links = add_lines(canvas, settings_screen, -2, 0);
 
     links[1].bind("click tap", function() {
         changeScreen(canvas, build_language_settings_screen(canvas));
@@ -79,7 +79,7 @@ function build_language_settings_screen(canvas) {
             break;
     }
 
-    var links = add_lines(canvas, language_settings_screen, 1, active);
+    var links = add_lines(canvas, language_settings_screen, -2, 1, active);
 
     links[0].bind("click tap", function() {
         if (!links[0].active) {
