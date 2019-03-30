@@ -410,3 +410,90 @@ function build_sleep_time_screen (canvas){
     return sleep_time_screen;
 
 }
+
+function build_sos_screen (canvas){
+    var sos_screen = canvas.display.rectangle({
+        description: descriptions[14],
+        description_show: false,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black
+    });
+
+    sos_screen.live_monitoring = canvas.display.text({
+        x: - sos_screen.width / 2 + sos_screen.width / 10,
+        y: - 1.5 * sos_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[17],
+        fill: white
+    });
+
+    sos_screen.emergency_delay = canvas.display.text({
+        x: - sos_screen.width / 2 + sos_screen.width / 10,
+        y: - 0.5 * sos_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[18],
+        fill: white
+    });
+
+
+    sos_screen.sos_help_button = canvas.display.image({
+        x: sos_screen.width / 2.5,
+        y: sos_screen.height / 2.5,
+        width: sos_screen.width / 10,
+        height: sos_screen.height / 10,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Help.png"
+    });
+
+    sos_screen.addChild(sos_screen.live_monitoring);
+    sos_screen.addChild(sos_screen.emergency_delay);
+    links = add_lines(canvas, sos_screen, -1.5, 0)
+    
+    
+    sos_screen.sos_help_button.bind("click tap", function() {
+        changeScreen(canvas, build_sos_help_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+    
+
+    return sos_screen;
+
+}
+
+function build_sos_help_screen(canvas){
+    var sos_help_screen = canvas.display.rectangle({
+        description: descriptions[9],
+        description_show: true,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: {x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black,
+    });
+    
+    sos_help_screen.help_text = canvas.display.text({
+        x: 0,
+        y: - 2 * sos_help_screen.height / 10,
+        origin: {x: "center", y: "center" },
+        text: others[1],
+        fill: white
+    });
+
+    sos_help_screen.addChild(sos_help_screen.help_text);
+
+    return sos_help_screen;
+}

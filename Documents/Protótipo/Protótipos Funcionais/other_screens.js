@@ -110,6 +110,10 @@ function build_frame(canvas) {
         case descriptions[14]:
             changeScreen(canvas, build_sleep_time_screen(canvas));
             break; 
+        case descriptions[15]:
+            changeScreen(canvas, build_sos_screen(canvas));
+            break; 
+        
         }
     });
 

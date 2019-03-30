@@ -2,12 +2,14 @@ const STRINGS_DESCRIPTIONS = {
     pt: [
         "Moldura", "Molde", "Principal", "Impressao Digital", "Menu",
         "Definicoes", "Definicoes Lingua", "Mudou Lingua",
-        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono"
+        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono",
+        "SOS", "No momento", "Atraso da emergencia"
     ],
     en: [
         "Frame", "Template", "Main", "Fingerprint Lock", "Menu",
         "Settings", "Language Settings", "Changed Language",
-        "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time"
+        "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
+        "SOS", "Live monitoring", " Emergency delay"
     ]
 };
 
@@ -37,7 +39,8 @@ const STRINGS_HEALTH = {
         "NO MOMENTO", "HOJE", "SEMANA", "BOM",
         "SISTOLICA", "DIASTOLICA", "RELATORIO",
         "HOJE", "SEMANA", "RELATORIO",
-        "HOJE", "SEMANA", "RELATORIO"
+        "HOJE", "SEMANA", "RELATORIO",
+        "FITNESS", "SOS", "SAUDE","NO MOMENTO" ," ATRASO DA EMERGENCIA"
 
     ],
     en: [
@@ -45,7 +48,8 @@ const STRINGS_HEALTH = {
         "LIVE", "TODAY", "WEEKLY", "GOOD",
         "SYSTOLIC", "DIASTOLIC", "REPORT",
         "TODAY", "WEEKLY", "REPORT",
-        "TODAY", "WEEKLY", "REPORT"
+        "TODAY", "WEEKLY", "REPORT",
+        "FITNESS", "SOS", "HEALTH", "LIVE MONITORING", "EMERGENCY DELAY"
     ]
 }
 
