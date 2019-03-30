@@ -106,3 +106,30 @@ function build_health_screen(canvas){
     
     return health_screen;
 }
+
+function build_help_screen(canvas){
+    var help_screen = canvas.display.rectangle({
+            description: descriptions[6],
+            description_show: false,
+            template: true,
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            origin: {x: "center", y: "center" },
+            width: canvas.width / 7,
+            height: canvas.width / 7,
+            borderRadius : 0,
+            fill: "#EOFFFF",
+    });
+    
+    help_screen.help_text = canvas.display.text({
+        x: 0,
+        y: - 2 * help_screen.height / 10,
+        origin: {x: "center", y: "center" },
+        text: others[2],
+        fill: white
+    });
+
+    help_screen.addChild(help_screen.help_text);
+
+    return help_screen;
+}

@@ -11,10 +11,12 @@ const STRINGS_DESCRIPTIONS = {
 
 const STRINGS_OTHERS = {
     pt: [
-        "GRUPO DE AMIGOS", "Protecao de Ecra"
+        "GRUPO DE AMIGOS", "Protecao de Ecra",
+        "Ajuda"
     ],
     en: [
-        "FRIENDS GROUP", "Screen Lock"
+        "FRIENDS GROUP", "Screen Lock",
+        "Help"
     ]
 }
 
