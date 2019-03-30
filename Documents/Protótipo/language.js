@@ -2,7 +2,7 @@ const STRINGS_DESCRIPTIONS = {
     pt: [
         "Moldura", "Molde", "Principal", "Impressao Digital", "Menu",
         "Definicoes", "Definicoes Lingua", "Mudou Lingua",
-        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Horas de sono"
+        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono"
     ],
     en: [
         "Frame", "Template", "Main", "Fingerprint Lock", "Menu",

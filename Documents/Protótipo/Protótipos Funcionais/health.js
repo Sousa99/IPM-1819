@@ -393,7 +393,7 @@ function build_sleep_time_screen (canvas){
 
     sleep_time_screen.report = canvas.display.text({
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
-        y: + 0.5 * blood_oxygen_screen.height / 10,
+        y: + 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: "10px",
         text: health[18],
