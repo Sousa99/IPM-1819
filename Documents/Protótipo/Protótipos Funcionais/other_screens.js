@@ -86,7 +86,7 @@ function build_frame(canvas) {
         case descriptions[5]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
-        case descriptions[6]:
+        case descriptions[7]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
         }
@@ -386,30 +386,4 @@ function build_menu_screen(canvas) {
     });
 
     return menu_screen;
-}
-
-function build_settings_screen(canvas) {
-    var settings_screen = canvas.display.rectangle({
-        description: descriptions[5],
-        description_show: true,
-        template: true,
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
-        borderRadius : 20,
-        fill: black,
-    });
-    settings_screen.security = canvas.display.text({
-        x: 0,
-        y: - 2 * settings_screen.height / 10,
-        origin: {x: "center", y: "center" },
-        text: others[1] + "                  >",
-        fill: white
-    });
-
-    settings_screen.addChild(settings_screen.security);
-
-    return settings_screen;
 }
