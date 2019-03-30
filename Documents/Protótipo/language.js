@@ -2,12 +2,12 @@ const STRINGS_DESCRIPTIONS = {
     pt: [
         "Moldura", "Molde", "Principal", "Impressao Digital", "Menu",
         "Definicoes", "Definicoes Lingua", "Mudou Lingua",
-        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue"
+        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Horas de sono"
     ],
     en: [
         "Frame", "Template", "Main", "Fingerprint Lock", "Menu",
         "Settings", "Language Settings", "Changed Language",
-        "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen"
+        "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time"
     ]
 };
 
@@ -37,12 +37,14 @@ const STRINGS_HEALTH = {
         "NO MOMENTO", "HOJE", "SEMANA", "BOM",
         "SISTOLICA", "DIASTOLICA", "RELATORIO",
         "HOJE", "SEMANA", "RELATORIO",
+        "HOJE", "SEMANA", "RELATORIO"
 
     ],
     en: [
         "FITNESS", "SOS", "HEALTH", "Heart Rate", "Blood Pressure", "Blood Oxygen", "Sleep Time",
         "LIVE", "TODAY", "WEEKLY", "GOOD",
         "SYSTOLIC", "DIASTOLIC", "REPORT",
+        "TODAY", "WEEKLY", "REPORT",
         "TODAY", "WEEKLY", "REPORT"
     ]
 }

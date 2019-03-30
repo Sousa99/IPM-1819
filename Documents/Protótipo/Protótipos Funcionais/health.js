@@ -358,3 +358,58 @@ function build_blood_oxygen_screen (canvas){
     return blood_oxygen_screen;
 
 }
+
+function build_sleep_time_screen (canvas){
+    var sleep_time_screen = canvas.display.rectangle({
+        description: descriptions[13],
+        description_show: true ,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: "#ff887f"
+    });
+
+    sleep_time_screen.today = canvas.display.text({
+        x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
+        y: - 1.5 * sleep_time_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[16],
+        fill: white
+    });
+
+    sleep_time_screen.weekly = canvas.display.text({
+        x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
+        y: - 0.5 * sleep_time_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[17],
+        fill: white
+    });
+
+    sleep_time_screen.report = canvas.display.text({
+        x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
+        y: + 0.5 * blood_oxygen_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: "10px",
+        text: health[18],
+        fill: white
+    });
+
+    sleep_time_screen.addChild(sleep_time_screen.today);
+    sleep_time_screen.addChild(sleep_time_screen.weekly);
+    sleep_time_screen.addChild(sleep_time_screen.report);
+    
+    links = add_lines(canvas, sleep_time_screen, -1.5, 0)
+
+    links[0].bind("click tap", function() {
+        changeScreen(canvas, build_sleep_time_screen(canvas));
+    });
+
+    return sleep_time_screen;
+
+}
