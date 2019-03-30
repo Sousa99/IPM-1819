@@ -1,7 +1,7 @@
 
 function build_health_screen(canvas){
     var health_screen = canvas.display.rectangle({
-        description: descriptions[7],
+        description: descriptions[8],
         description_show: false,
         template: true,
         x: canvas.width / 2,
