@@ -136,6 +136,18 @@ function build_health_screen(canvas){
         changeScreen(canvas, build_heart_rate_screen(canvas));
     });
 
+    links[1].bind("click tap", function() {
+        changeScreen(canvas, build_blood_pressure_screen(canvas));
+    });
+
+    links[2].bind("click tap", function() {
+        changeScreen(canvas, build_blood_oxygen_screen(canvas));
+    });
+
+    links[3].bind("click tap", function() {
+        changeScreen(canvas, build_sleep_time_screen(canvas));
+    });
+
     health_screen.addChild(health_screen.sos_bar);
     health_screen.sos_bar.addChild(health_screen.sos_bar_text);
     health_screen.addChild(health_screen.health_bar);
@@ -237,14 +249,12 @@ function build_heart_rate_screen(canvas) {
     heart_rate_screen.addChild(heart_rate_screen.live);
     heart_rate_screen.addChild(heart_rate_screen.today);
     heart_rate_screen.addChild(heart_rate_screen.weekly);
-    links = add_lines(canvas, heart_rate_screen, -1.5, 0)
+    
 
     heart_rate_screen.message.addChild(heart_rate_screen.message_text);
     heart_rate_screen.addChild(heart_rate_screen.message);
     
-    links[0].bind("click tap", function() {
-        //changeScreen(canvas, build_heart_rate_screen(canvas));
-    });
+    
 
     return heart_rate_screen;
 }
@@ -294,13 +304,6 @@ function blood_pressure_screen(canvas) {
     blood_pressure_screen.addChild(blood_pressure_screen.diastolic);
     blood_pressure_screen.addChild(blood_pressure_screen.report);
 
-    
-    links = add_lines(canvas, blood_pressure_screen, -1.5, 0)
-
-    links[0].bind("click tap", function() {
-        changeScreen(canvas, build_blood_pressure_screen(canvas));
-    });
-
     return blood_pressure_screen;
 }
 
@@ -348,12 +351,6 @@ function build_blood_oxygen_screen (canvas){
     blood_oxygen_screen.addChild(blood_oxygen_screen.today);
     blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
     blood_oxygen_screen.addChild(blood_oxygen_screen.report);
-    
-    links = add_lines(canvas, blood_oxygen_screen, -1.5, 0)
-
-    links[0].bind("click tap", function() {
-        changeScreen(canvas, build_blood_oxygen_screen(canvas));
-    });
 
     return blood_oxygen_screen;
 
@@ -403,12 +400,6 @@ function build_sleep_time_screen (canvas){
     sleep_time_screen.addChild(sleep_time_screen.today);
     sleep_time_screen.addChild(sleep_time_screen.weekly);
     sleep_time_screen.addChild(sleep_time_screen.report);
-    
-    links = add_lines(canvas, sleep_time_screen, -1.5, 0)
-
-    links[0].bind("click tap", function() {
-        changeScreen(canvas, build_sleep_time_screen(canvas));
-    });
 
     return sleep_time_screen;
 
