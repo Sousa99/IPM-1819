@@ -26,7 +26,7 @@ function build_health_screen(canvas){
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: canvas.width / 128 + "px",
+        font: canvas.width / 120 + "px",
         text: health[1],
         fill: black
     });
@@ -47,7 +47,7 @@ function build_health_screen(canvas){
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 130 + "px",
         text: health[2],
         fill: black,
         align: "center"
@@ -69,7 +69,7 @@ function build_health_screen(canvas){
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 130 + "px",
         text: health[0],
         fill: black,
         align: "center"
@@ -88,7 +88,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: - 1.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[3],
         fill: white,
     });
@@ -96,7 +96,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: - 0.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[4],
         fill: white,
     });
@@ -104,7 +104,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: + 0.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[5],
         fill: white,
     });
@@ -112,7 +112,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: + 1.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[6],
         fill: white,
     });
@@ -209,7 +209,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: - 1.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[7],
         fill: white
     });
@@ -218,7 +218,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: - 0.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[8],
         fill: white
     });
@@ -227,7 +227,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: + 0.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[9],
         fill: white
     });
@@ -246,7 +246,7 @@ function build_heart_rate_screen(canvas) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[10],
         fill: black
     });
@@ -282,7 +282,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 1.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[11],
         fill: white
     });
@@ -291,7 +291,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[12],
         fill: white
     });
@@ -300,7 +300,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: + 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[13],
         fill: white
     });
@@ -332,7 +332,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: - 1.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[14],
         fill: white
     });
@@ -341,7 +341,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: - 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[15],
         fill: white
     });
@@ -350,7 +350,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: + 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[16],
         fill: white
     });
@@ -383,7 +383,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: - 1.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[17],
         fill: white
     });
@@ -392,7 +392,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: - 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[18],
         fill: white
     });
@@ -401,7 +401,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: + 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[19],
         fill: white
     });
@@ -434,7 +434,7 @@ function build_sos_screen (canvas){
         x: - sos_screen.width / 2 + sos_screen.width / 10,
         y: - 1.5 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[17],
         fill: white
     });
@@ -443,7 +443,7 @@ function build_sos_screen (canvas){
         x: - sos_screen.width / 2 + sos_screen.width / 10,
         y: - 0.5 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 192 + "px",
+        font: canvas.width / 120 + "px",
         text: health[18],
         fill: white
     });
