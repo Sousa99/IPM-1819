@@ -536,63 +536,63 @@ function build_lock_screen_pattern(canvas) {
     }
 
     color = "#4593c6";
-    links[0].bind("mouseenter mouseleave", function() {
+    links[0].bind("mousemove", function() {
         if (lock_screen.active && !links[0].active) {
             links[0].active = true;
             circles[0].fill = color;
             lock_screen.attempt += 1;
         }
     });
-    links[1].bind("mouseenter mouseleave", function() {
+    links[1].bind("mousemove", function() {
         if (lock_screen.active && !links[1].active) {
             links[1].active = true;
             circles[1].fill = color;
             lock_screen.attempt += 2;
         }
     });
-    links[2].bind("mouseenter mouseleave", function() {
+    links[2].bind("mousemove", function() {
         if (lock_screen.active && !links[2].active) {
             links[2].active = true;
             circles[2].fill = color;
             lock_screen.attempt += 3;
         }
     });
-    links[3].bind("mouseenter mouseleave", function() {
+    links[3].bind("mousemove", function() {
         if (lock_screen.active && !links[3].active) {
             links[3].active = true;
             circles[3].fill = color;
             lock_screen.attempt += 4;
         }
     });
-    links[4].bind("mouseenter mouseleave", function() {
+    links[4].bind("mousemove", function() {
         if (lock_screen.active && !links[4].active) {
             links[4].active = true;
             circles[4].fill = color;
             lock_screen.attempt += 5;
         }
     });
-    links[5].bind("mouseenter mouseleave", function() {
+    links[5].bind("mousemove", function() {
         if (lock_screen.active && !links[5].active) {
             links[5].active = true;
             circles[5].fill = color;
             lock_screen.attempt += 6;
         }
     });
-    links[6].bind("mouseenter mouseleave", function() {
+    links[6].bind("mousemove", function() {
         if (lock_screen.active && !links[6].active) {
             links[6].active = true;
             circles[6].fill = color;
             lock_screen.attempt += 7;
         }
     });
-    links[7].bind("mouseenter mouseleave", function() {
+    links[7].bind("mousemove", function() {
         if (lock_screen.active && !links[7].active) {
             links[7].active = true;
             circles[7].fill = color;
             lock_screen.attempt += 8;
         }
     });
-    links[8].bind("mouseenter mouseleave", function() {
+    links[8].bind("mousemove", function() {
         if (lock_screen.active && !links[8].active) {
             links[8].active = true;
             circles[8].fill = color;
@@ -639,9 +639,9 @@ function build_lock_screen_fingerprint(canvas) {
     lock_screen.addChild(lock_screen.finger);
     lock_screen.addChild(lock_screen.progress_circle_fingerprint);
 
-    lock_screen.finger.bind("mousedown", function() {
+    lock_screen.finger.bind("mousedown touchstart", function() {
         lock_screen.progress_circle_fingerprint.touching = 7;
-    }).bind("mouseup", function() {
+    }).bind("mouseup touchend", function() {
         lock_screen.progress_circle_fingerprint.touching = 0;
         lock_screen.progress_circle_fingerprint.end = 0;
     }).bind("mouseenter", function () {

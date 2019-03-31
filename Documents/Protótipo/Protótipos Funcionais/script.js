@@ -64,8 +64,8 @@ function loadCanvas() {
                 break;
 
             case descriptions[11]:
-                if (canvas.mouse.buttonState == "down") actual_screen.active = true;
-                else if (canvas.mouse.buttonState == "up") {
+                if (canvas.mouse.buttonState == "down" || canvas.touch.touchState == "down") actual_screen.active = true;
+                else if (canvas.mouse.buttonState == "up" || canvas.touch.touchState == "up") {
                     changeScreen(canvas, build_lock_screen(canvas));
                 }
 
