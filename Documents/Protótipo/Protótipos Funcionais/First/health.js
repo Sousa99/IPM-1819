@@ -17,7 +17,7 @@ function build_health_template(canvas, screen, active) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[1],
         fill: black
     });
@@ -37,7 +37,7 @@ function build_health_template(canvas, screen, active) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 15),
+        font: canvas.width / 130 + "px",
         text: health[2],
         fill: black,
         align: "center"
@@ -58,7 +58,7 @@ function build_health_template(canvas, screen, active) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 15),
+        font: canvas.width / 130 + "px",
         text: health[0],
         fill: black,
         align: "center"
@@ -128,7 +128,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: - 1.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[3],
         fill: white,
     });
@@ -136,7 +136,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: - 0.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[4],
         fill: white,
     });
@@ -144,7 +144,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: + 0.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[5],
         fill: white,
     });
@@ -152,7 +152,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: + 1.5 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[6],
         fill: white,
     });
@@ -208,7 +208,7 @@ function build_health_help_screen(canvas){
         x: 0,
         y: - 2 * health_help_screen.height / 10,
         origin: {x: "center", y: "center" },
-        font: get_size_px(canvas, 19),
+        font: canvas.width / 100 + "px",
         text: others[1],
         fill: white
     });
@@ -236,7 +236,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: - 1.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[7],
         fill: white
     });
@@ -245,7 +245,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: - 0.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[8],
         fill: white
     });
@@ -254,7 +254,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: + 0.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[9],
         fill: white
     });
@@ -273,7 +273,7 @@ function build_heart_rate_screen(canvas) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[10],
         fill: black
     });
@@ -309,7 +309,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 1.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[11],
         fill: white
     });
@@ -318,7 +318,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[12],
         fill: white
     });
@@ -327,7 +327,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: + 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[13],
         fill: white
     });
@@ -359,7 +359,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: - 1.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[14],
         fill: white
     });
@@ -368,7 +368,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: - 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[15],
         fill: white
     });
@@ -377,7 +377,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: + 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[16],
         fill: white
     });
@@ -410,7 +410,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: - 1.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[17],
         fill: white
     });
@@ -419,7 +419,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: - 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[18],
         fill: white
     });
@@ -428,7 +428,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: + 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[19],
         fill: white
     });
@@ -461,7 +461,7 @@ function build_sos_screen (canvas){
         x: - sos_screen.width / 2 + sos_screen.width / 10,
         y: - 1.5 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[20],
         fill: white
     });
@@ -470,7 +470,7 @@ function build_sos_screen (canvas){
         x: - sos_screen.width / 2 + sos_screen.width / 10,
         y: - 0.5 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[21],
         fill: white
     });
@@ -520,7 +520,7 @@ function build_sos_help_screen(canvas){
         x: 0,
         y: - 2 * sos_help_screen.height / 10,
         origin: {x: "center", y: "center" },
-        font: get_size_px(canvas, 19),
+        font: canvas.width / 100 + "px",
         text: others[1],
         fill: white
     });
@@ -548,7 +548,7 @@ function build_fitness_screen (canvas){
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
         y: - 1.5 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[22],
         fill: white
     });
@@ -557,7 +557,7 @@ function build_fitness_screen (canvas){
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
         y: - 0.5 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[23],
         fill: white
     });
@@ -566,7 +566,7 @@ function build_fitness_screen (canvas){
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
         y:  0.5 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: canvas.width / 120 + "px",
         text: health[24],
         fill: white
     });
@@ -584,14 +584,6 @@ function build_fitness_screen (canvas){
     fitness_screen.addChild(fitness_screen.activity);
     fitness_screen.addChild(fitness_screen.nutrition);
     links = add_lines(canvas, fitness_screen, -1.5, 0)
-
-    links[0].bind("click tap", function() {
-        changeScreen(canvas, build_energy_screen(canvas));
-    }).bind("mouseenter", function () {
-        canvas.mouse.cursor("pointer");
-    }).bind("mouseleave", function () {
-        canvas.mouse.cursor("default");
-    });
 
     build_health_template(canvas, fitness_screen, 0);
     fitness_screen.addChild(fitness_screen.fitness_help_button);
@@ -625,7 +617,7 @@ function build_fitness_help_screen(canvas){
         x: 0,
         y: - 2 * fitness_help_screen.height / 10,
         origin: {x: "center", y: "center" },
-        font: get_size_px(canvas, 19),
+        font: canvas.width / 100 + "px",
         text: others[1],
         fill: white
     });
@@ -683,4 +675,5 @@ function build_energy_screen (canvas){
     links = add_lines(canvas, energy_screen, -1.5, 0)
 
     return energy_screen;
+
 }
