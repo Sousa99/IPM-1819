@@ -475,6 +475,33 @@ function build_sos_screen (canvas){
         fill: white
     });
 
+    sos_screen.message = canvas.display.rectangle({
+        x: 0,
+        y: sos_screen.height / 4,
+        origin: {x: "center", y: "center" },
+        width: sos_screen.width / 1.5,
+        height: sos_screen.width / 3,
+        borderRadius : 5,
+        fill: white,
+    });
+    
+    sos_screen.message_text = canvas.display.text({
+        x: 0,
+        y: -0.35 * sos_screen.height / 10,
+        origin: { x: "center", y: "center" },
+        font: get_size_px(canvas, 16),
+        text: health[37],
+        fill: black,
+    });
+    sos_screen.message_hold = canvas.display.text({
+        x: 0,
+        y: 0.35 * sos_screen.height / 10,
+        origin: { x: "center", y: "center" },
+        font: get_size_px(canvas, 16),
+        text: health[38],
+        fill: black,
+    });
+
     sos_screen.sos_help_button = canvas.display.image({
         x: sos_screen.width / 2.5,
         y: sos_screen.height / 2.5,
@@ -487,6 +514,10 @@ function build_sos_screen (canvas){
     sos_screen.addChild(sos_screen.live_monitoring);
     sos_screen.addChild(sos_screen.emergency_delay);
     links = add_lines(canvas, sos_screen, -1.5, 0)
+
+    sos_screen.message.addChild(sos_screen.message_text);
+    sos_screen.message.addChild(sos_screen.message_hold);
+    sos_screen.addChild(sos_screen.message);
 
     build_health_template(canvas, sos_screen, 1);
     sos_screen.addChild(sos_screen.sos_help_button);
@@ -595,6 +626,14 @@ function build_fitness_screen (canvas){
 
     links[1].bind("click tap", function() {
         changeScreen(canvas, build_activity_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+
+    links[2].bind("click tap", function() {
+        changeScreen(canvas, build_nutrition_screen(canvas));
     }).bind("mouseenter", function () {
         canvas.mouse.cursor("pointer");
     }).bind("mouseleave", function () {
@@ -763,4 +802,74 @@ function build_activity_screen (canvas){
     activity_screen.addChild(activity_screen.message);
 
     return activity_screen;
+}
+
+function build_nutrition_screen (canvas){
+    var nutrition_screen = canvas.display.rectangle({
+        description: descriptions[25],
+        description_show: true ,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black
+    });
+
+    nutrition_screen.vitamins = canvas.display.text({
+        x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
+        y: - 1.5 * nutrition_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[32],
+        fill: white
+    });
+
+    nutrition_screen.proteins = canvas.display.text({
+        x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
+        y: - 0.5 * nutrition_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[33],
+        fill: white
+    });
+
+    nutrition_screen.water = canvas.display.text({
+        x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
+        y: + 0.5 * nutrition_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[34],
+        fill: white
+    });
+
+    nutrition_screen.fat = canvas.display.text({
+        x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
+        y: + 1.5 * nutrition_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[35],
+        fill: white
+    });
+
+    nutrition_screen.calcium = canvas.display.text({
+        x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
+        y: + 2.5 * nutrition_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[36],
+        fill: white
+    });
+
+    nutrition_screen.addChild(nutrition_screen.vitamins);
+    nutrition_screen.addChild(nutrition_screen.proteins);
+    nutrition_screen.addChild(nutrition_screen.water);
+    nutrition_screen.addChild(nutrition_screen.fat);
+    nutrition_screen.addChild(nutrition_screen.calcium);
+
+    links = add_lines(canvas, nutrition_screen, -1.5, 0)
+
+    return nutrition_screen;
 }

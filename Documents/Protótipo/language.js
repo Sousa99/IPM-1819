@@ -11,7 +11,7 @@ const STRINGS_DESCRIPTIONS = {
         "Settings", "Language Settings", "Changed Language", "Lock Screen Settings", "Changed Lock", "No Lock", "PIN", "Pattern Lock", "Fingerprint Lock",
         "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
         "SOS", "Help (SOS)",
-        "Fitness", "Help(Fitness)", "Energy", "Actvity","Nutrition"
+        "Fitness", "Help(Fitness)", "Energy", "Activity","Nutrition"
     ]
 }
 
@@ -50,7 +50,9 @@ const STRINGS_HEALTH = {
         "Hoje", "Semana", "Relatorio",
         "No Momento", "Atraso da Emergencia",
         "Energia", "Atividade", "Nutricao",
-        "Hoje", "Semana", "Unidades","Distancia","Passos", "Elevacao", "COMECAR ATIVIDADE"
+        "Hoje", "Semana", "Unidades","Distancia","Passos", "Elevacao", "COMECAR ATIVIDADE",
+        "Vitaminas", "Proteinas", "Agua", "Gorduras", "Calcio",
+        "CHAMAR EMERGENCIA", "Premir por 3 segundos"
 
     ],
     en: [
@@ -61,7 +63,9 @@ const STRINGS_HEALTH = {
         "Today", "Weekly", "Report",
         "Live Monitoring", "Emergency Delay",
         "Energy", "Activity", "Nutrition",
-        "Today", "Weekly", "Units", "Distance", "Steps", "Elevation", "START ACTIVITY"
+        "Today", "Weekly", "Units", "Distance", "Steps", "Elevation", "START ACTIVITY",
+        "Vitamins", "Proteins", "Water", "Fat", "Calcium",
+        "CALL EMERGENCY", "Hold for 3 seconds"
     ]
 }
 
