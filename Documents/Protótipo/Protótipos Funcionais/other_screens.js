@@ -125,7 +125,23 @@ function build_frame(canvas) {
         case descriptions[20]:
             changeScreen(canvas, build_sos_screen(canvas));
             break;
+        case descriptions[21]:
+            changeScreen(canvas, build_fitness_screen(canvas));
+            break;
+        case descriptions[22]:
+            changeScreen(canvas, build_fitness_screen(canvas));
+            break;
+        case descriptions[23]:
+            changeScreen(canvas, build_fitness_screen(canvas));
+            break;
+        case descriptions[24]:
+            changeScreen(canvas, build_fitness_screen(canvas));
+            break;
+        case descriptions[25]:
+            changeScreen(canvas, build_fitness_screen(canvas));
+            break;
         }
+
     });
 
     var non_lockables = [descriptions[2], descriptions[6], descriptions[8]];

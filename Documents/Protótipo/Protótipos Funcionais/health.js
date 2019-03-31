@@ -523,3 +523,100 @@ function build_sos_help_screen(canvas){
 
     return sos_help_screen;
 }
+
+function build_fitness_screen (canvas){
+    var fitness_screen = canvas.display.rectangle({
+        description: descriptions[21],
+        description_show: false,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black
+    });
+
+    fitness_screen.energy = canvas.display.text({
+        x: - fitness_screen.width / 2 + fitness_screen.width / 10,
+        y: - 1.5 * fitness_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[22],
+        fill: white
+    });
+
+    fitness_screen.activity = canvas.display.text({
+        x: - fitness_screen.width / 2 + fitness_screen.width / 10,
+        y: - 0.5 * fitness_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[23],
+        fill: white
+    });
+
+    fitness_screen.nutrition = canvas.display.text({
+        x: - fitness_screen.width / 2 + fitness_screen.width / 10,
+        y: - 0.5 * fitness_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[24],
+        fill: white
+    });
+
+    fitness_screen.fitness_help_button = canvas.display.image({
+        x: fitness_screen.width / 2.5,
+        y: fitness_screen.height / 2.5,
+        width: fitness_screen.width / 10,
+        height: fitness_screen.height / 10,
+        origin: { x: "center", y: "center" },
+        image: "../../../Materials/Help.png"
+    });
+
+    fitness_screen.addChild(fitness_screen.energy);
+    fitness_screen.addChild(fitness_screen.activity);
+    fitness_screen.addChild(fitness_screen.nutrition);
+    links = add_lines(canvas, fitness_screen, -1.5, 0)
+
+    build_health_template(canvas, fitness_screen, 1);
+    fitness_screen.addChild(fitness_screen.fitness_help_button);
+    
+    fitness_screen.fitness_help_button.bind("click tap", function() {
+        changeScreen(canvas, build_fitness_help_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+
+    return fitness_screen;
+}
+
+function build_fitness_help_screen(canvas){
+    var fitness_help_screen = canvas.display.rectangle({
+        description: descriptions[20],
+        description_show: true,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: {x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black,
+    });
+    
+    fitness_help_screen.help_text = canvas.display.text({
+        x: 0,
+        y: - 2 * fitness_help_screen.height / 10,
+        origin: {x: "center", y: "center" },
+        font: canvas.width / 100 + "px",
+        text: others[1],
+        fill: white
+    });
+
+    fitness_help_screen.addChild(fitness_help_screen.help_text);
+
+    return fitness_help_screen;
+}

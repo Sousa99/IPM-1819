@@ -4,12 +4,14 @@ const STRINGS_DESCRIPTIONS = {
         "Definicoes", "Definicoes Lingua", "Mudou Lingua", "Definicoes de Bloqueio", "Mudou Bloqueio", "Nenhuma Protecao", "PIN", "Padrao", "Impressao Digital",
         "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono",
         "SOS", "Ajuda (SOS)",
+        "Fitness", "Ajuda(Fitness)", "Energia", "Atividade", "Nutricao"
     ],
     en: [
         "Frame", "Template", "Main", "Menu",
         "Settings", "Language Settings", "Changed Language", "Lock Screen Settings", "Changed Lock", "No Lock", "PIN", "Pattern Lock", "Fingerprint Lock",
         "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
         "SOS", "Help (SOS)",
+        "Fitness", "Help(Fitness)", "Energy", "Actvity","Nutrition"
     ]
 }
 
@@ -46,7 +48,8 @@ const STRINGS_HEALTH = {
         "Sistolica", "Diastolica", "Relatorio",
         "Hoje", "Semana", "Relatorio",
         "Hoje", "Semana", "Relatorio",
-        "No Momento", "Atraso da Emergencia"
+        "No Momento", "Atraso da Emergencia",
+        "Energia", "Atividade", "Nutricao"
 
     ],
     en: [
@@ -55,7 +58,8 @@ const STRINGS_HEALTH = {
         "Systolic", "Diastolic", "Report",
         "Today", "Weekly", "Report",
         "Today", "Weekly", "Report",
-        "Live Monitoring", "Emergency Delay"
+        "Live Monitoring", "Emergency Delay",
+        "Energy", "Activity", "Nutrition" 
     ]
 }
 
