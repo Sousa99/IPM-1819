@@ -172,7 +172,7 @@ function build_template(canvas) {
         description: descriptions[1],
         description_show: false,
         x: canvas.width / 2,
-        y: 13.3 * canvas.height / 36,
+        y: canvas.height / 2 - 0.90 * canvas.width / 14,
         origin: {x: "center", y: "center"},
         width: canvas.width / 7,
         height: canvas.width / 90,
