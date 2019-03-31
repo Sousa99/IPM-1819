@@ -3,7 +3,7 @@ const black = "#000000";
 const gray_frame = "#7F7F7F";
 
 function get_size_px(canvas, px_size) {
-    return px_size + "px"
+    return (canvas.width / (1920 / px_size)) + "px";
 }
 
 function add_lines(canvas, screen, startpoint, mode, active) {
