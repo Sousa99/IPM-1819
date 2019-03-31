@@ -11,7 +11,7 @@ const STRINGS_DESCRIPTIONS = {
         "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
         "SOS", "Help (SOS)",
     ]
-};
+}
 
 const STRINGS_OTHERS = {
     pt: [
@@ -28,12 +28,14 @@ const STRINGS_SETTINGS = {
     pt: [
         "Protecao de Ecra",
         "Lingua", "Portugues", "Ingles", "Mudou a lingua\npredefinida para\nPortugues",
-        "Nenhuma", "PIN", "Padrao", "Impressao Digital", "Mudou o tipo de\nbloqueio do dispositivo"
+        "Nenhuma", "PIN", "Padrao", "Impressao Digital", "Mudou o tipo de\nbloqueio do dispositivo",
+        "Toque no ecra para desbloquear"
     ],
     en: [
         "Screen Lock",
         "Language", "Portuguese", "English", "Changed predefined\nlanguage to\nEnglish",
-        "None", "PIN", "Pattern", "Fingerprint", "Changed predefined\nlock method"
+        "None", "PIN", "Pattern", "Fingerprint", "Changed predefined\nlock method",
+        "Touch the screen to unlock device"
     ]
 }
 
@@ -64,7 +66,6 @@ var settings;
 var health;
 
 change_language("pt");
-
 function change_language(change) {
     language = change;
     switch (change) {

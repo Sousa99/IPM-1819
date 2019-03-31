@@ -62,6 +62,16 @@ function loadCanvas() {
                 actual_screen.date.text = ("0" + d.getDate()).slice(-2) + " / " + ("0" + (d.getMonth() + 1)).slice(-2) + " / " + d.getFullYear() + "\n";
                 actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
                 break;
+
+            case descriptions[11]:
+                if (canvas.mouse.buttonState == "down") actual_screen.active = true;
+                else if (canvas.mouse.buttonState == "up") {
+                    changeScreen(canvas, build_lock_screen(canvas));
+                }
+
+                if (actual_screen.attempt == code)
+                    changeScreen(canvas, build_menu_screen(canvas));
+                break;
             
             case descriptions[12]:
                 actual_screen.progress_circle_fingerprint.rotation++;

@@ -1,5 +1,6 @@
-var build_lock_screen = build_lock_screen_fingerprint;
-var lock_screen_type = "fingerprint";
+var build_lock_screen = build_lock_screen_none;
+var lock_screen_type = "none";
+var code = "1234";
 
 function build_settings_screen(canvas) {
     var settings_screen = canvas.display.rectangle({
@@ -279,7 +280,7 @@ function build_changed_lock_screen(canvas) {
 function build_lock_screen_none(canvas) {
     var lock_screen = canvas.display.rectangle({
         description: descriptions[9],
-        description_show: true,
+        description_show: false,
         template: false,
         x: canvas.width / 2,
         y: canvas.height / 2,
@@ -287,7 +288,34 @@ function build_lock_screen_none(canvas) {
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#A00000"
+        fill: black
+    });
+
+    for (i = 2; i < 6; i++) {
+        var circle = canvas.display.ellipse({
+            x: 0,
+            y: 0,
+            radius: 1.25 * lock_screen.width / Math.pow(2, i),
+            stroke: lock_screen.width / 100 + " " + white
+        });
+        lock_screen.addChild(circle);
+    }
+
+    lock_screen.text = canvas.display.text({
+        x: 0,
+        y: + lock_screen.height / 2 - lock_screen.height / 15,
+        origin: {x: "center", y: "center" },
+        text: settings[10],
+        fill: white
+    });
+    lock_screen.addChild(lock_screen.text);
+
+    lock_screen.bind("click tap", function() {
+        changeScreen(canvas, build_menu_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
     });
 
     return lock_screen;
@@ -298,13 +326,153 @@ function build_lock_screen_pin(canvas) {
         description: descriptions[10],
         description_show: true,
         template: false,
+        attempt: "",
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#FF0000"
+        fill: black
+    });
+
+    var links = [];
+    var x, y, color;
+    for (i = 0; i < 12; i++) {
+        if (i == 0) {
+            x = 0;
+            y = 2 * lock_screen.height / 6;
+            color = white;
+        } else if (i == 10) {
+            x = - lock_screen.height / 4;
+            y = 2 * lock_screen.height / 6;
+            color = "#c10f0f"
+        } else if (i == 11) {
+            x = + lock_screen.height / 4;
+            y = 2 * lock_screen.height / 6;
+            color = "#0fc10f"
+        } else {
+            x = ((i-1)%3 - 1) * lock_screen.height / 4;
+            y = (Math.floor((i-1)/3) - 1) * lock_screen.height / 6;
+            color = white;
+        }
+
+        var button = canvas.display.rectangle({
+            x: x,
+            y: y,
+            origin: { x: "center", y: "center" },
+            width: 0.90 * lock_screen.width / 4,
+            height: lock_screen.width / 7,
+            borderRadius : 3,
+            fill: "radial-gradient(" + color + ", " + black + ")"
+        });
+
+        if (i < 10) {
+            var text = canvas.display.text({
+                x: 0,
+                y: 0,
+                origin: {x: "center", y: "center" },
+                text: i,
+                fill: black
+            });
+
+            button.addChild(text);
+        }
+
+        button.bind("mouseenter", function () {
+            canvas.mouse.cursor("pointer");
+        }).bind("mouseleave", function () {
+            canvas.mouse.cursor("default");
+        });
+
+        links.push(button);
+        lock_screen.addChild(button);
+    }
+
+    var circles = [];
+    for (i = 0; i < 4; i++) {
+        var circle = canvas.display.ellipse({
+            x: (i - 1.5) * lock_screen.width / 10,
+            y: - 0.60 * lock_screen.width / 2,
+            radius: lock_screen.width / 40,
+            fill: gray_frame
+        });
+
+        circles.push(circle);
+        lock_screen.addChild(circle);
+    }
+
+    links[0].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 0;
+        }
+    });
+    links[1].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 1;
+        }
+    });
+    links[2].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 2;
+        }
+    });
+    links[3].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 3;
+        }
+    });
+    links[4].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 4;
+        }
+    });
+    links[5].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 5;
+        }
+    });
+    links[6].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 6;
+        }
+    });
+    links[7].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 7;
+        }
+    });
+    links[8].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 8;
+        }
+    });
+    links[9].bind("click tap", function() {
+        if (lock_screen.attempt.length < 4) {
+            circles[lock_screen.attempt.length].fill = white;
+            lock_screen.attempt += 9;
+        }
+    });
+    links[10].bind("click tap", function() {
+        lock_screen.attempt = "";
+        for (i = 0; i < 4; i++) circles[i].fill = gray_frame
+    });
+    links[11].bind("click tap", function() {
+        if (lock_screen.attempt == code) {
+            changeScreen(canvas, build_menu_screen(canvas));
+        } else {
+            lock_screen.attempt = "";
+            for (i = 0; i < 4; i++) circles[i].fill = gray_frame
+        }
     });
 
     return lock_screen;
@@ -315,13 +483,112 @@ function build_lock_screen_pattern(canvas) {
         description: descriptions[11],
         description_show: true,
         template: false,
+        attempt: "",
+        active: false,
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
         width: canvas.width / 7,
         height: canvas.width / 7,
         borderRadius : 20,
-        fill: "#00FF00"
+        fill: black
+    });
+
+    var links = [];
+    var circles = [];
+    for (i = 0; i < 9; i++) {
+        var button = canvas.display.ellipse({
+            active: false,
+            x: (i % 3 - 1) * lock_screen.width / 4,
+            y: (Math.floor(i / 3) - 0.75) * lock_screen.height / 4,
+            origin: { x: "center", y: "center" },
+            radius: lock_screen.width / 15,
+            stroke: lock_screen.width / 100 + " " + white
+        });
+
+        var circle = canvas.display.ellipse({
+            x: 0,
+            y: 0,
+            origin: { x: "center", y: "center" },
+            radius: lock_screen.width / 70,
+            fill: white
+        });
+        
+        button.bind("mouseenter", function () {
+            canvas.mouse.cursor("pointer");
+        }).bind("mouseleave", function () {
+            canvas.mouse.cursor("default");
+        });
+
+        links.push(button);
+        circles.push(circle);
+        button.addChild(circle);
+        lock_screen.addChild(button);
+    }
+
+    color = "#4593c6";
+    links[0].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[0].active) {
+            links[0].active = true;
+            circles[0].fill = color;
+            lock_screen.attempt += 1;
+        }
+    });
+    links[1].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[1].active) {
+            links[1].active = true;
+            circles[1].fill = color;
+            lock_screen.attempt += 2;
+        }
+    });
+    links[2].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[2].active) {
+            links[2].active = true;
+            circles[2].fill = color;
+            lock_screen.attempt += 3;
+        }
+    });
+    links[3].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[3].active) {
+            links[3].active = true;
+            circles[3].fill = color;
+            lock_screen.attempt += 4;
+        }
+    });
+    links[4].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[4].active) {
+            links[4].active = true;
+            circles[4].fill = color;
+            lock_screen.attempt += 5;
+        }
+    });
+    links[5].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[5].active) {
+            links[5].active = true;
+            circles[5].fill = color;
+            lock_screen.attempt += 6;
+        }
+    });
+    links[6].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[6].active) {
+            links[6].active = true;
+            circles[6].fill = color;
+            lock_screen.attempt += 7;
+        }
+    });
+    links[7].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[7].active) {
+            links[7].active = true;
+            circles[7].fill = color;
+            lock_screen.attempt += 8;
+        }
+    });
+    links[8].bind("mouseenter mouseleave", function() {
+        if (lock_screen.active && !links[8].active) {
+            links[8].active = true;
+            circles[8].fill = color;
+            lock_screen.attempt += 9;
+        }
     });
 
     return lock_screen;
