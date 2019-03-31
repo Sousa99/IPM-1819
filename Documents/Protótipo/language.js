@@ -52,7 +52,7 @@ const STRINGS_HEALTH = {
         "Energia", "Atividade", "Nutricao",
         "Hoje", "Semana", "Unidades","Distancia","Passos", "Elevacao", "COMECAR ATIVIDADE",
         "Vitaminas", "Proteinas", "Agua", "Gorduras", "Calcio",
-        "CHAMAR EMERGENCIA", "Premir por 3 segundos"
+        "CHAMAR EMERGENCIA", "Premir por 3 segundos", "AJUDA A CAMINHO", "Premir por 5 segundos\npara cancelar"
 
     ],
     en: [
@@ -65,7 +65,7 @@ const STRINGS_HEALTH = {
         "Energy", "Activity", "Nutrition",
         "Today", "Weekly", "Units", "Distance", "Steps", "Elevation", "START ACTIVITY",
         "Vitamins", "Proteins", "Water", "Fat", "Calcium",
-        "CALL EMERGENCY", "Hold for 3 seconds"
+        "CALL EMERGENCY", "Hold for 3 seconds", "HELP ON THE WAY", "Hold for 5 seconds\nto cancel"
     ]
 }
 

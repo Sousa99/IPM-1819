@@ -84,6 +84,19 @@ function loadCanvas() {
                 }
 
                 break;
+
+            case descriptions[19]:
+                if (!actual_screen.active && canvas.mouse.buttonState == "up") {
+                    actual_screen.message_hold.text = health[38];
+                } else if (actual_screen.active && canvas.mouse.buttonState == "up") {
+                    actual_screen.message_hold.text = health[40];
+                }
+                
+                if (actual_screen.active) {
+                    actual_screen.audio_emergency.play();
+                } else {
+                    actual_screen.audio_emergency.pause();
+                }
         }
 
         if (actual_screen.template)
