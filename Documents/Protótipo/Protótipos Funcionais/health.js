@@ -601,7 +601,7 @@ function build_fitness_screen (canvas){
 
 function build_fitness_help_screen(canvas){
     var fitness_help_screen = canvas.display.rectangle({
-        description: descriptions[20],
+        description: descriptions[22],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -625,4 +625,55 @@ function build_fitness_help_screen(canvas){
     fitness_help_screen.addChild(fitness_help_screen.help_text);
 
     return fitness_help_screen;
+}
+
+function build_energy_screen (canvas){
+    var energy_screen = canvas.display.rectangle({
+        description: descriptions[23],
+        description_show: true ,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black
+    });
+
+    energy_screen.today = canvas.display.text({
+        x: - energy_screen.width / 2 + energy_screen.width / 10,
+        y: - 1.5 * energy_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[25],
+        fill: white
+    });
+
+    energy_screen.weekly = canvas.display.text({
+        x: - energy_screen.width / 2 + energy_screen.width / 10,
+        y: - 0.5 * energy_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[26],
+        fill: white
+    });
+
+    energy_screen.units = canvas.display.text({
+        x: - energy_screen.width / 2 + energy_screen.width / 10,
+        y: + 0.5 * energy_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[27],
+        fill: white
+    });
+
+    energy_screen.addChild(energy_screen.today);
+    energy_screen.addChild(energy_screen.weekly);
+    energy_screen.addChild(energy_screen.units);
+
+    links = add_lines(canvas, energy_screen, -1.5, 0)
+
+    return energy_screen;
+
 }
