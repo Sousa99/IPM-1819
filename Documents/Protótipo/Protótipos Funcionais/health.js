@@ -542,7 +542,7 @@ function build_sos_screen (canvas){
         canvas.mouse.cursor("default");
     });
 
-    sos_screen.message.bind("mousedown", function() {
+    sos_screen.message.bind("mousedown touchstart", function() {
         var check = function() {
             if (canvas.mouse.buttonState == "down") {
                 if (sos_screen.message_hold.text.indexOf("1") != -1) {

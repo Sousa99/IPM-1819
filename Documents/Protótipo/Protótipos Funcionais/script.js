@@ -1,5 +1,6 @@
 var actual_screen;
 var template;
+var frame;
 var description_bar;
 var friendsgroup = [];
 
@@ -48,10 +49,11 @@ function loadCanvas() {
 
     // ------------------------------------------------ Logic and Canvas --------------------------------
     
+    frame = build_frame(canvas);
     template = build_template(canvas);
     actual_screen = build_main_screen(canvas);
 
-    canvas.addChild(build_frame(canvas));
+    canvas.addChild(frame);
     canvas.addChild(actual_screen);
     canvas.addChild(description_bar);
 
@@ -101,7 +103,9 @@ function loadCanvas() {
 
         if (actual_screen.template)
             template.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
-    
+
+        if (canvas.mouse.buttonState == "up")
+            frame.emergency = 5;
 
         // TODO: Check if it's needed to update drawing of number of friend group
     });

@@ -3,6 +3,7 @@ function build_frame(canvas) {
         description: descriptions[0],
         description_show: false,
         template: false,
+        emergency: 5,
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
@@ -141,7 +142,32 @@ function build_frame(canvas) {
             changeScreen(canvas, build_fitness_screen(canvas));
             break;
         }
+    });
 
+    frame.button_back.bind("mousedown touchstart", function() {
+        var check = function() {
+            if (canvas.mouse.buttonState == "down") {
+                if (frame.emergency == 1) {
+                    canvas.mouse.cancel();
+                    canvas.touch.cancel();
+                    changeScreen(canvas, build_sos_screen(canvas));
+                    actual_screen.active = true;
+                    actual_screen.message.fill = "radial-gradient(" + "#FF5555" + ", " + black + ")";
+                    actual_screen.message_text.text = health[39];
+                    actual_screen.message_hold.text = health[40];
+                    actual_screen.message_hold.y = 0.50 * actual_screen.height / 10;
+                }
+
+                frame.emergency -= 1;
+            }
+    
+        }
+
+        setTimeout(check, 1000);
+        setTimeout(check, 2000);
+        setTimeout(check, 3000);
+        setTimeout(check, 4000);
+        setTimeout(check, 5000);
     });
 
     var non_lockables = [descriptions[2], descriptions[6], descriptions[8]];
