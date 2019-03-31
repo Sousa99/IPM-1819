@@ -32,7 +32,7 @@ function build_frame(canvas) {
         y: 2,
         origin: { x: "left", y: "top" },
         family: "7Segments",
-        font: canvas.width / 128 + "px",
+        font: get_size_px(canvas, 15),
         text: "+",
         fill: black
 
@@ -50,7 +50,7 @@ function build_frame(canvas) {
         y: frame.button_minus.height - 2,
         origin: { x: "left", y: "bottom" },
         family: "7Segments",
-        font: canvas.width / 128 + "px",
+        font: get_size_px(canvas, 15),
         text: "-",
         fill: black
 
@@ -198,7 +198,7 @@ function build_template(canvas) {
         y: 0,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: canvas.width / 160 + "px",
+        font: get_size_px(canvas, 12),
         fill: white
     });
 
@@ -246,7 +246,7 @@ function build_main_screen(canvas) {
         y: - main_screen.height / 2 + main_screen.height / 10,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: canvas.width / 128 + "px",
+        font: get_size_px(canvas, 15),
         fill: white
     });
     main_screen.time = canvas.display.text({
@@ -254,7 +254,7 @@ function build_main_screen(canvas) {
         y: 0,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: canvas.width / 38.4 + "px",
+        font: get_size_px(canvas, 50),
         fill: white
     });
 
@@ -263,7 +263,7 @@ function build_main_screen(canvas) {
         y: main_screen.height / 2 - 2.5 * main_screen.height / 20,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: canvas.width / 96 + "px",
+        font: get_size_px(canvas, 20),
         fill: white,
         text: friendsgroup.length,
     });
@@ -272,7 +272,7 @@ function build_main_screen(canvas) {
         y: main_screen.height / 2 - main_screen.height / 20,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: canvas.width / 192 + "px",
+        font: get_size_px(canvas, 10),
         fill: white,
         text: others[0]
     });
