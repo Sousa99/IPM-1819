@@ -19,7 +19,7 @@ function build_settings_screen(canvas) {
         x: - settings_screen.width / 2 + settings_screen.width / 10,
         y: - 2 * settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[0],
         fill: white
     });
@@ -27,7 +27,7 @@ function build_settings_screen(canvas) {
         x: - settings_screen.width / 2 + settings_screen.width / 10,
         y: - settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[1],
         fill: white
     });
@@ -64,7 +64,7 @@ function build_language_settings_screen(canvas) {
         x: - language_settings_screen.width / 2 + language_settings_screen.width / 10,
         y: - 2 * language_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[2],
         fill: white
     });
@@ -72,7 +72,7 @@ function build_language_settings_screen(canvas) {
         x: - language_settings_screen.width / 2 + language_settings_screen.width / 10,
         y: - language_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[3],
         fill: white
     });
@@ -160,7 +160,7 @@ function build_lock_settings_screen(canvas) {
         x: - lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
         y: - 2 * lock_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[5],
         fill: white
     });
@@ -168,7 +168,7 @@ function build_lock_settings_screen(canvas) {
         x: - lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
         y: - lock_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[6],
         fill: white
     });
@@ -176,7 +176,7 @@ function build_lock_settings_screen(canvas) {
         x: - lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
         y: 0,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[7],
         fill: white
     });
@@ -184,7 +184,7 @@ function build_lock_settings_screen(canvas) {
         x: - lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
         y: + lock_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: settings[8],
         fill: white
     });
@@ -314,7 +314,7 @@ function build_lock_screen_none(canvas) {
         y: + lock_screen.height / 2 - lock_screen.height / 15,
         origin: {x: "center", y: "center" },
         text: settings[10],
-        font: get_size_px(canvas, 15),
+        font: get_size_px(canvas, 16),
         fill: white
     });
     lock_screen.addChild(lock_screen.text);

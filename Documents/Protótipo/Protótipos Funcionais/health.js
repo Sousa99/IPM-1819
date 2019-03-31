@@ -17,7 +17,7 @@ function build_health_template(canvas, screen, active) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 15),
+        font: get_size_px(canvas, 16),
         text: health[1],
         fill: black
     });
@@ -128,7 +128,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: - 1 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[3],
         fill: white,
     });
@@ -136,7 +136,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: - 0 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[4],
         fill: white,
     });
@@ -144,7 +144,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: + 1 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[5],
         fill: white,
     });
@@ -152,7 +152,7 @@ function build_health_screen(canvas){
         x: - health_screen.width / 2 + health_screen.width / 10,
         y: + 2 * health_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[6],
         fill: white,
     });
@@ -236,7 +236,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: - 1.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[7],
         fill: white
     });
@@ -245,7 +245,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: - 0.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[8],
         fill: white
     });
@@ -254,7 +254,7 @@ function build_heart_rate_screen(canvas) {
         x: - heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
         y: + 0.5 * heart_rate_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[9],
         fill: white
     });
@@ -273,7 +273,7 @@ function build_heart_rate_screen(canvas) {
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[10],
         fill: black
     });
@@ -309,7 +309,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 1.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[11],
         fill: white
     });
@@ -318,7 +318,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: - 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[12],
         fill: white
     });
@@ -327,7 +327,7 @@ function build_blood_pressure_screen(canvas) {
         x: - blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
         y: + 0.5 * blood_pressure_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[13],
         fill: white
     });
@@ -359,7 +359,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: - 1.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[14],
         fill: white
     });
@@ -368,7 +368,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: - 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[15],
         fill: white
     });
@@ -377,7 +377,7 @@ function build_blood_oxygen_screen (canvas){
         x: - blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
         y: + 0.5 * blood_oxygen_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[16],
         fill: white
     });
@@ -410,7 +410,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: - 1.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[17],
         fill: white
     });
@@ -419,7 +419,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: - 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[18],
         fill: white
     });
@@ -428,7 +428,7 @@ function build_sleep_time_screen (canvas){
         x: - sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
         y: + 0.5 * sleep_time_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[19],
         fill: white
     });
@@ -463,7 +463,7 @@ function build_sos_screen (canvas){
         x: - sos_screen.width / 2 + sos_screen.width / 10,
         y: - 1 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[20],
         fill: white
     });
@@ -472,7 +472,7 @@ function build_sos_screen (canvas){
         x: - sos_screen.width / 2 + sos_screen.width / 10,
         y: - 0 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[21],
         fill: white
     });
@@ -499,7 +499,7 @@ function build_sos_screen (canvas){
         y: -0.35 * sos_screen.height / 10,
         origin: { x: "center", y: "center" },
         align: "center",
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[37],
         fill: black,
     });
@@ -508,7 +508,7 @@ function build_sos_screen (canvas){
         y: 0.35 * sos_screen.height / 10,
         origin: { x: "center", y: "center" },
         align: "center",
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[38],
         fill: black,
     });
@@ -629,7 +629,7 @@ function build_fitness_screen (canvas){
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
         y: - 1 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[22],
         fill: white
     });
@@ -638,7 +638,7 @@ function build_fitness_screen (canvas){
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
         y: - 0 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[23],
         fill: white
     });
@@ -647,7 +647,7 @@ function build_fitness_screen (canvas){
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
         y:  1 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[24],
         fill: white
     });
@@ -750,7 +750,7 @@ function build_energy_screen (canvas){
         x: - energy_screen.width / 2 + energy_screen.width / 10,
         y: - 1.5 * energy_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[25],
         fill: white
     });
@@ -759,7 +759,7 @@ function build_energy_screen (canvas){
         x: - energy_screen.width / 2 + energy_screen.width / 10,
         y: - 0.5 * energy_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[26],
         fill: white
     });
@@ -768,7 +768,7 @@ function build_energy_screen (canvas){
         x: - energy_screen.width / 2 + energy_screen.width / 10,
         y: + 0.5 * energy_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[27],
         fill: white
     });
@@ -800,7 +800,7 @@ function build_activity_screen (canvas){
         x: - activity_screen.width / 2 + activity_screen.width / 10,
         y: - 1.5 * activity_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[28],
         fill: white
     });
@@ -809,7 +809,7 @@ function build_activity_screen (canvas){
         x: - activity_screen.width / 2 + activity_screen.width / 10,
         y: - 0.5 * activity_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[29],
         fill: white
     });
@@ -818,7 +818,7 @@ function build_activity_screen (canvas){
         x: - activity_screen.width / 2 + activity_screen.width / 10,
         y: + 0.5 * activity_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[30],
         fill: white
     });
@@ -837,7 +837,7 @@ function build_activity_screen (canvas){
         x: 0,
         y: 0,
         origin: { x: "center", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[31],
         fill: black,
     });
@@ -872,7 +872,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: - 1.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[32],
         fill: white
     });
@@ -881,7 +881,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: - 0.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[33],
         fill: white
     });
@@ -890,7 +890,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: + 0.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[34],
         fill: white
     });
@@ -899,7 +899,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: + 1.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[35],
         fill: white
     });
@@ -908,7 +908,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: + 2.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         text: health[36],
         fill: white
     });

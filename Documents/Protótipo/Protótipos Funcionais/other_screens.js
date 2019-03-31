@@ -33,7 +33,7 @@ function build_frame(canvas) {
         y: 2,
         origin: { x: "left", y: "top" },
         family: "7Segments",
-        font: get_size_px(canvas, 15),
+        font: get_size_px(canvas, 16),
         text: "+",
         fill: black
 
@@ -51,7 +51,7 @@ function build_frame(canvas) {
         y: frame.button_minus.height - 2,
         origin: { x: "left", y: "bottom" },
         family: "7Segments",
-        font: get_size_px(canvas, 15),
+        font: get_size_px(canvas, 16),
         text: "-",
         fill: black
 
@@ -272,7 +272,7 @@ function build_main_screen(canvas) {
         y: - main_screen.height / 2 + main_screen.height / 10,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: get_size_px(canvas, 15),
+        font: get_size_px(canvas, 16),
         fill: white
     });
     main_screen.time = canvas.display.text({

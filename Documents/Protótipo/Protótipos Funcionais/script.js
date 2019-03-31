@@ -43,7 +43,7 @@ function loadCanvas() {
         y: canvas.height / 2 - canvas.width / 14 / 8 * 6,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: get_size_px(canvas, 16),
+        font: get_size_px(canvas, 17),
         fill: white,
     }).add();
 
