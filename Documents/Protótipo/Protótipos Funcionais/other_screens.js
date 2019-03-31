@@ -120,13 +120,13 @@ function build_frame(canvas) {
             changeScreen(canvas, build_health_screen(canvas));
             break;
         case descriptions[19]:
-            changeScreen(canvas, build_health_screen(canvas));
+            changeScreen(canvas, build_menu_screen(canvas));
             break;
         case descriptions[20]:
             changeScreen(canvas, build_sos_screen(canvas));
             break;
         case descriptions[21]:
-            changeScreen(canvas, build_fitness_screen(canvas));
+            changeScreen(canvas, build_menu_screen(canvas));
             break;
         case descriptions[22]:
             changeScreen(canvas, build_fitness_screen(canvas));

@@ -585,6 +585,14 @@ function build_fitness_screen (canvas){
     fitness_screen.addChild(fitness_screen.nutrition);
     links = add_lines(canvas, fitness_screen, -1.5, 0)
 
+    links[0].bind("click tap", function() {
+        changeScreen(canvas, build_energy_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+
     build_health_template(canvas, fitness_screen, 0);
     fitness_screen.addChild(fitness_screen.fitness_help_button);
     
@@ -675,5 +683,4 @@ function build_energy_screen (canvas){
     links = add_lines(canvas, energy_screen, -1.5, 0)
 
     return energy_screen;
-
 }
