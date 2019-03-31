@@ -92,6 +92,9 @@ function build_frame(canvas) {
         case descriptions[9]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
+        case descriptions[10]:
+            changeScreen(canvas, build_main_screen(canvas));
+            break;
         case descriptions[11]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
