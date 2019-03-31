@@ -32,7 +32,7 @@ function build_frame(canvas) {
         y: 2,
         origin: { x: "left", y: "top" },
         family: "7Segments",
-        font: "15px",
+        font: canvas.width / 128 + "px",
         text: "+",
         fill: black
 
@@ -50,7 +50,7 @@ function build_frame(canvas) {
         y: frame.button_minus.height - 2,
         origin: { x: "left", y: "bottom" },
         family: "7Segments",
-        font: "15px",
+        font: canvas.width / 128 + "px",
         text: "-",
         fill: black
 
@@ -182,7 +182,7 @@ function build_template(canvas) {
         y: 0,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: "12px",
+        font: canvas.width / 160 + "px",
         fill: white
     });
 
@@ -230,7 +230,7 @@ function build_main_screen(canvas) {
         y: - main_screen.height / 2 + main_screen.height / 10,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: "15px",
+        font: canvas.width / 128 + "px",
         fill: white
     });
     main_screen.time = canvas.display.text({
@@ -238,7 +238,7 @@ function build_main_screen(canvas) {
         y: 0,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: "50px",
+        font: canvas.width / 38.4 + "px",
         fill: white
     });
 
@@ -247,7 +247,7 @@ function build_main_screen(canvas) {
         y: main_screen.height / 2 - 2.5 * main_screen.height / 20,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: "20px",
+        font: canvas.width / 96 + "px",
         fill: white,
         text: friendsgroup.length,
     });
@@ -256,7 +256,7 @@ function build_main_screen(canvas) {
         y: main_screen.height / 2 - main_screen.height / 20,
         origin: { x: "center", y: "center" },
         family: "7Segments",
-        font: "10px",
+        font: canvas.width / 192 + "px",
         fill: white,
         text: others[0]
     });
