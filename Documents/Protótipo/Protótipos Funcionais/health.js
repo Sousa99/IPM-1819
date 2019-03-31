@@ -700,7 +700,7 @@ function build_energy_screen (canvas){
         x: - energy_screen.width / 2 + energy_screen.width / 10,
         y: - 1.5 * energy_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[25],
         fill: white
     });
@@ -709,7 +709,7 @@ function build_energy_screen (canvas){
         x: - energy_screen.width / 2 + energy_screen.width / 10,
         y: - 0.5 * energy_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[26],
         fill: white
     });
@@ -718,7 +718,7 @@ function build_energy_screen (canvas){
         x: - energy_screen.width / 2 + energy_screen.width / 10,
         y: + 0.5 * energy_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[27],
         fill: white
     });
@@ -750,7 +750,7 @@ function build_activity_screen (canvas){
         x: - activity_screen.width / 2 + activity_screen.width / 10,
         y: - 1.5 * activity_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[28],
         fill: white
     });
@@ -759,7 +759,7 @@ function build_activity_screen (canvas){
         x: - activity_screen.width / 2 + activity_screen.width / 10,
         y: - 0.5 * activity_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[29],
         fill: white
     });
@@ -768,7 +768,7 @@ function build_activity_screen (canvas){
         x: - activity_screen.width / 2 + activity_screen.width / 10,
         y: + 0.5 * activity_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[30],
         fill: white
     });
@@ -822,7 +822,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: - 1.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[32],
         fill: white
     });
@@ -831,7 +831,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: - 0.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[33],
         fill: white
     });
@@ -840,7 +840,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: + 0.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[34],
         fill: white
     });
@@ -849,7 +849,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: + 1.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[35],
         fill: white
     });
@@ -858,7 +858,7 @@ function build_nutrition_screen (canvas){
         x: - nutrition_screen.width / 2 + nutrition_screen.width / 10,
         y: + 2.5 * nutrition_screen.height / 10,
         origin: {x: "left", y: "center" },
-        font: canvas.width / 120 + "px",
+        font: get_size_px(canvas, 16),
         text: health[36],
         fill: white
     });
