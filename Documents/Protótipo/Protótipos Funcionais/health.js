@@ -75,7 +75,13 @@ function build_health_template(canvas, screen, active) {
     screen.fitness_bar.addChild(screen.fitness_bar_text);
 
     if (active != 0) {
-        
+        screen.fitness_bar.bind("click tap", function() {
+            changeScreen(canvas, build_fitness_screen(canvas));
+        }).bind("mouseenter", function () {
+            canvas.mouse.cursor("pointer");
+        }).bind("mouseleave", function () {
+            canvas.mouse.cursor("default");
+        });
     } if (active != 1) {
         screen.sos_bar.bind("click tap", function() {
             changeScreen(canvas, build_sos_screen(canvas));
@@ -558,7 +564,7 @@ function build_fitness_screen (canvas){
 
     fitness_screen.nutrition = canvas.display.text({
         x: - fitness_screen.width / 2 + fitness_screen.width / 10,
-        y: - 0.5 * fitness_screen.height / 10,
+        y:  0.5 * fitness_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: canvas.width / 120 + "px",
         text: health[24],
@@ -579,7 +585,7 @@ function build_fitness_screen (canvas){
     fitness_screen.addChild(fitness_screen.nutrition);
     links = add_lines(canvas, fitness_screen, -1.5, 0)
 
-    build_health_template(canvas, fitness_screen, 1);
+    build_health_template(canvas, fitness_screen, 0);
     fitness_screen.addChild(fitness_screen.fitness_help_button);
     
     fitness_screen.fitness_help_button.bind("click tap", function() {
