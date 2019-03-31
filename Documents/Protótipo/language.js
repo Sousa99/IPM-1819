@@ -42,20 +42,20 @@ const STRINGS_SETTINGS = {
 const STRINGS_HEALTH = {
     pt: [
         "FITNESS", "SOS", "SAUDE", "Batimento Cardiaco", "Pressao Arterial", "Oxigenacao do Sangue", "Tempo de Sono",
-        "NO MOMENTO", "HOJE", "SEMANA", "BOM",
-        "SISTOLICA", "DIASTOLICA", "RELATORIO",
-        "HOJE", "SEMANA", "RELATORIO",
-        "HOJE", "SEMANA", "RELATORIO",
-        "FITNESS", "SOS", "SAUDE", "NO MOMENTO", "ATRASO DA EMERGENCIA"
+        "No Momento", "Hoje", "Semana", "BOM",
+        "Sistolica", "Diastolica", "Relatorio",
+        "Hoje", "Semana", "Relatorio",
+        "Hoje", "Semana", "Relatorio",
+        "No Momento", "Atraso da Emergencia"
 
     ],
     en: [
         "FITNESS", "SOS", "HEALTH", "Heart Rate", "Blood Pressure", "Blood Oxygen", "Sleep Time",
-        "LIVE", "TODAY", "WEEKLY", "GOOD",
-        "SYSTOLIC", "DIASTOLIC", "REPORT",
-        "TODAY", "WEEKLY", "REPORT",
-        "TODAY", "WEEKLY", "REPORT",
-        "FITNESS", "SOS", "HEALTH", "LIVE MONITORING", "EMERGENCY DELAY"
+        "Live", "Today", "Weekly", "GOOD",
+        "Systolic", "Diastolic", "Report",
+        "Today", "Weekly", "Report",
+        "Today", "Weekly", "Report",
+        "Live Monitoring", "Emergency Delay"
     ]
 }
 

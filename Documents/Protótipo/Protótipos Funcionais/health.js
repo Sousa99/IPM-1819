@@ -1,3 +1,100 @@
+function build_health_template(canvas, screen, active) {
+    var links = [];
+    var colors = [white, white, white]
+
+    colors[active] = "#ed9393";
+
+    screen.sos_bar = canvas.display.rectangle({
+        x: 0,
+        y: - 0.95 * screen.height / 3,
+        origin: { x: "center", y: "center" },
+        width: screen.width / 4,
+        height: screen.width / 7,
+        borderRadius : 0,
+        fill: colors[1]
+    });
+    screen.sos_bar_text = canvas.display.text({
+        x: 0,
+        y: 0,
+        origin: { x: "center", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[1],
+        fill: black
+    });
+    
+    screen.health_bar = canvas.display.rectangle({
+        x: screen.width / 4 ,
+        y: - 0.95 * screen.height / 3,
+        origin: { x: "center", y: "center" },
+        width: screen.width / 4,
+        height: screen.width / 7,
+        borderRadius : 0,
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
+        fill: colors[2]
+    });
+    screen.health_bar_text = canvas.display.text({
+        x: 0,
+        y: 0,
+        origin: { x: "center", y: "center" },
+        font: canvas.width / 130 + "px",
+        text: health[2],
+        fill: black,
+        align: "center"
+    });
+    
+    screen.fitness_bar = canvas.display.rectangle({
+        x: - screen.width / 4 ,
+        y: - 0.95 * screen.height / 3,
+        origin: { x: "center", y: "center" },
+        width: screen.width / 4,
+        height: screen.width / 7,
+        borderRadius : 0,
+        fill: colors[0],
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5
+    });
+    screen.fitness_bar_text = canvas.display.text({
+        x: 0,
+        y: 0,
+        origin: { x: "center", y: "center" },
+        font: canvas.width / 130 + "px",
+        text: health[0],
+        fill: black,
+        align: "center"
+    });
+
+    links.push(screen.sos_bar);
+    screen.addChild(screen.sos_bar);
+    screen.sos_bar.addChild(screen.sos_bar_text);
+    links.push(screen.health_bar);
+    screen.addChild(screen.health_bar);
+    screen.health_bar.addChild(screen.health_bar_text);
+    links.push(screen.fitness_bar);
+    screen.addChild(screen.fitness_bar);
+    screen.fitness_bar.addChild(screen.fitness_bar_text);
+
+    if (active != 0) {
+        
+    } if (active != 1) {
+        screen.sos_bar.bind("click tap", function() {
+            changeScreen(canvas, build_sos_screen(canvas));
+        }).bind("mouseenter", function () {
+            canvas.mouse.cursor("pointer");
+        }).bind("mouseleave", function () {
+            canvas.mouse.cursor("default");
+        });
+    } if (active != 2) {
+        screen.health_bar.bind("click tap", function() {
+            changeScreen(canvas, build_health_screen(canvas));
+        }).bind("mouseenter", function () {
+            canvas.mouse.cursor("pointer");
+        }).bind("mouseleave", function () {
+            canvas.mouse.cursor("default");
+        });
+    }
+}
+
 function build_health_screen(canvas){
     var health_screen = canvas.display.rectangle({
         description: descriptions[13],
@@ -10,69 +107,6 @@ function build_health_screen(canvas){
         height: canvas.width / 7,
         borderRadius : 20,
         fill: black
-    });
-    
-    health_screen.sos_bar = canvas.display.rectangle({
-        x: 0,
-        y: - health_screen.height / 3,
-        origin: { x: "center", y: "center" },
-        width: health_screen.width / 4,
-        height: health_screen.width / 7,
-        borderRadius : 0,
-        fill: white
-    });
-    
-    health_screen.sos_bar_text = canvas.display.text({
-        x: 0,
-        y: 0,
-        origin: { x: "center", y: "center" },
-        font: canvas.width / 120 + "px",
-        text: health[1],
-        fill: black
-    });
-    
-    health_screen.health_bar = canvas.display.rectangle({
-        x: health_screen.width / 4 ,
-        y: - health_screen.height / 3,
-        origin: { x: "center", y: "center" },
-        width: health_screen.width / 4,
-        height: health_screen.width / 7,
-        borderRadius : 0,
-        borderTopRightRadius: 5,
-        borderBottomRightRadius: 5,
-        fill: "#ed9393"
-    });
-    
-    health_screen.health_bar_text = canvas.display.text({
-        x: 0,
-        y: 0,
-        origin: { x: "center", y: "center" },
-        font: canvas.width / 130 + "px",
-        text: health[2],
-        fill: black,
-        align: "center"
-    });
-    
-    health_screen.fitness_bar = canvas.display.rectangle({
-        x: - health_screen.width / 4 ,
-        y: - health_screen.height / 3,
-        origin: { x: "center", y: "center" },
-        width: health_screen.width / 4,
-        height: health_screen.width / 7,
-        borderRadius : 0,
-        fill: white,
-        borderTopLeftRadius: 5,
-        borderBottomLeftRadius: 5
-    });
-    
-    health_screen.fitness_bar_text = canvas.display.text({
-        x: 0,
-        y: 0,
-        origin: { x: "center", y: "center" },
-        font: canvas.width / 130 + "px",
-        text: health[0],
-        fill: black,
-        align: "center"
     });
     
     health_screen.health_help_button = canvas.display.image({
@@ -144,21 +178,8 @@ function build_health_screen(canvas){
         changeScreen(canvas, build_sleep_time_screen(canvas));
     });
 
-    health_screen.addChild(health_screen.sos_bar);
-    health_screen.sos_bar.addChild(health_screen.sos_bar_text);
-    health_screen.addChild(health_screen.health_bar);
-    health_screen.health_bar.addChild(health_screen.health_bar_text);
-    health_screen.addChild(health_screen.fitness_bar);
-    health_screen.fitness_bar.addChild(health_screen.fitness_bar_text);
+    build_health_template(canvas, health_screen, 2);
     health_screen.addChild(health_screen.health_help_button);
-
-    health_screen.sos_bar.bind("click tap", function() {
-        changeScreen(canvas, build_sos_screen(canvas));
-    }).bind("mouseenter", function () {
-        canvas.mouse.cursor("pointer");
-    }).bind("mouseleave", function () {
-        canvas.mouse.cursor("default");
-    });
     
     return health_screen;
 }
@@ -435,7 +456,7 @@ function build_sos_screen (canvas){
         y: - 1.5 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: canvas.width / 120 + "px",
-        text: health[17],
+        text: health[20],
         fill: white
     });
 
@@ -444,10 +465,9 @@ function build_sos_screen (canvas){
         y: - 0.5 * sos_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: canvas.width / 120 + "px",
-        text: health[18],
+        text: health[21],
         fill: white
     });
-
 
     sos_screen.sos_help_button = canvas.display.image({
         x: sos_screen.width / 2.5,
@@ -461,6 +481,9 @@ function build_sos_screen (canvas){
     sos_screen.addChild(sos_screen.live_monitoring);
     sos_screen.addChild(sos_screen.emergency_delay);
     links = add_lines(canvas, sos_screen, -1.5, 0)
+
+    build_health_template(canvas, sos_screen, 1);
+    sos_screen.addChild(sos_screen.sos_help_button);
     
     sos_screen.sos_help_button.bind("click tap", function() {
         changeScreen(canvas, build_sos_help_screen(canvas));
