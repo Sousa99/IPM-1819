@@ -593,6 +593,14 @@ function build_fitness_screen (canvas){
         canvas.mouse.cursor("default");
     });
 
+    links[1].bind("click tap", function() {
+        changeScreen(canvas, build_activity_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
+
     build_health_template(canvas, fitness_screen, 0);
     fitness_screen.addChild(fitness_screen.fitness_help_button);
     
@@ -683,4 +691,76 @@ function build_energy_screen (canvas){
     links = add_lines(canvas, energy_screen, -1.5, 0)
 
     return energy_screen;
+}
+
+function build_activity_screen (canvas){
+    var activity_screen = canvas.display.rectangle({
+        description: descriptions[24],
+        description_show: true ,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black
+    });
+
+    activity_screen.distance = canvas.display.text({
+        x: - activity_screen.width / 2 + activity_screen.width / 10,
+        y: - 1.5 * activity_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[28],
+        fill: white
+    });
+
+    activity_screen.steps = canvas.display.text({
+        x: - activity_screen.width / 2 + activity_screen.width / 10,
+        y: - 0.5 * activity_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[29],
+        fill: white
+    });
+
+    activity_screen.elevation = canvas.display.text({
+        x: - activity_screen.width / 2 + activity_screen.width / 10,
+        y: + 0.5 * activity_screen.height / 10,
+        origin: {x: "left", y: "center" },
+        font: canvas.width / 120 + "px",
+        text: health[30],
+        fill: white
+    });
+
+    activity_screen.message = canvas.display.rectangle({
+        x: 0,
+        y: activity_screen.height / 3,
+        origin: {x: "center", y: "center" },
+        width: activity_screen.width / 1.5,
+        height: activity_screen.width / 4,
+        borderRadius : 5,
+        fill: white,
+    });
+    
+    activity_screen.message_text = canvas.display.text({
+        x: 0,
+        y: 0,
+        origin: { x: "center", y: "center" },
+        font: get_size_px(canvas, 16),
+        text: health[31],
+        fill: black,
+    });
+
+    activity_screen.addChild(activity_screen.distance);
+    activity_screen.addChild(activity_screen.steps);
+    activity_screen.addChild(activity_screen.elevation);
+
+    links = add_lines(canvas, activity_screen, -1.5, 0)
+
+    activity_screen.message.addChild(activity_screen.message_text);
+    activity_screen.addChild(activity_screen.message);
+
+    return activity_screen;
 }

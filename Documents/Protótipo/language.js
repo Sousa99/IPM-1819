@@ -50,7 +50,7 @@ const STRINGS_HEALTH = {
         "Hoje", "Semana", "Relatorio",
         "No Momento", "Atraso da Emergencia",
         "Energia", "Atividade", "Nutricao",
-        "Hoje", "Semana", "Unidades",
+        "Hoje", "Semana", "Unidades","Distancia","Passos", "Elevacao", "COMECAR ATIVIDADE"
 
     ],
     en: [
@@ -61,7 +61,7 @@ const STRINGS_HEALTH = {
         "Today", "Weekly", "Report",
         "Live Monitoring", "Emergency Delay",
         "Energy", "Activity", "Nutrition",
-        "Today", "Weekly", "Units",
+        "Today", "Weekly", "Units", "Distance", "Steps", "Elevation", "START ACTIVITY"
     ]
 }
 
