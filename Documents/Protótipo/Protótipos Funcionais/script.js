@@ -60,12 +60,12 @@ function loadCanvas() {
     canvas.setLoop(function () {
         var d = new Date();
         switch (actual_screen.description) {
-            case descriptions[2]:
+            case descriptions["main"]:
                 actual_screen.date.text = ("0" + d.getDate()).slice(-2) + " / " + ("0" + (d.getMonth() + 1)).slice(-2) + " / " + d.getFullYear() + "\n";
                 actual_screen.time.text = ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
                 break;
 
-            case descriptions[11]:
+            case descriptions["pattern_lock"]:
                 if (canvas.mouse.buttonState == "down" || canvas.touch.touchState == "down") actual_screen.active = true;
                 else if (canvas.mouse.buttonState == "up" || canvas.touch.touchState == "up") {
                     changeScreen(canvas, build_lock_screen(canvas));
@@ -75,7 +75,7 @@ function loadCanvas() {
                     changeScreen(canvas, build_menu_screen(canvas));
                 break;
             
-            case descriptions[12]:
+            case descriptions["fingerprint_lock"]:
                 actual_screen.progress_circle_fingerprint.rotation++;
                 actual_screen.progress_circle_fingerprint.end += actual_screen.progress_circle_fingerprint.touching;
 
@@ -87,11 +87,11 @@ function loadCanvas() {
 
                 break;
 
-            case descriptions[19]:
+            case descriptions["sos"]:
                 if (!actual_screen.active && canvas.mouse.buttonState == "up") {
-                    actual_screen.message_hold.text = health[38];
+                    actual_screen.message_hold.text = health["press_3_seconds"];
                 } else if (actual_screen.active && canvas.mouse.buttonState == "up") {
-                    actual_screen.message_hold.text = health[40];
+                    actual_screen.message_hold.text = health["press_5_seconds_cancel"];
                 }
                 
                 if (actual_screen.active) {
