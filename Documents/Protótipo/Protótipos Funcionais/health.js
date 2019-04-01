@@ -825,12 +825,12 @@ function build_activity_screen (canvas){
 
     activity_screen.message = canvas.display.rectangle({
         x: 0,
-        y: activity_screen.height / 3,
+        y: 1.10 * activity_screen.height / 4,
         origin: {x: "center", y: "center" },
-        width: activity_screen.width / 1.5,
-        height: activity_screen.width / 4,
+        width: activity_screen.width / 1.2,
+        height: 0.75 * activity_screen.width / 3,
         borderRadius : 5,
-        fill: white,
+        fill: "radial-gradient(" + white + ", " + "#AAAAAA" + ")"
     });
     
     activity_screen.message_text = canvas.display.text({
@@ -850,6 +850,14 @@ function build_activity_screen (canvas){
 
     activity_screen.message.addChild(activity_screen.message_text);
     activity_screen.addChild(activity_screen.message);
+
+    activity_screen.message.bind("click tap", function() {
+        changeScreen(canvas, build_choose_activity_screen(canvas));
+    }).bind("mouseenter", function () {
+        canvas.mouse.cursor("pointer");
+    }).bind("mouseleave", function () {
+        canvas.mouse.cursor("default");
+    });
 
     return activity_screen;
 }
@@ -922,4 +930,37 @@ function build_nutrition_screen (canvas){
     links = add_lines(canvas, nutrition_screen, -1.5, 0)
 
     return nutrition_screen;
+}
+
+function build_choose_activity_screen (canvas){
+    var choose_activity_screen = canvas.display.rectangle({
+        description: descriptions[26],
+        description_show: true ,
+        template: true,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: "center", y: "center" },
+        width: canvas.width / 7,
+        height: canvas.width / 7,
+        borderRadius : 20,
+        fill: black
+    });
+
+    var line_separating = canvas.display.line({
+        start: { x:  - 0.55 * choose_activity_screen.width / 2, y: 0.20 * choose_activity_screen.height / 2 },
+        end: { x: 0.55 * choose_activity_screen.width / 2, y: 0.20 * choose_activity_screen.height / 2 },
+        stroke: "2px " + white,
+        cap: "round"
+    });
+    choose_activity_screen.addChild(line_separating);
+
+    var line_separating = canvas.display.line({
+        start: { x: 0, y: (0.20 - 0.55) * choose_activity_screen.height / 2 },
+        end: { x: 0, y:  (0.20 + 0.55) * choose_activity_screen.height / 2 },
+        stroke: "2px " + white,
+        cap: "round"
+    });
+    choose_activity_screen.addChild(line_separating);
+
+    return choose_activity_screen;
 }

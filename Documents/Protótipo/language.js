@@ -4,14 +4,14 @@ const STRINGS_DESCRIPTIONS = {
         "Definicoes", "Definicoes Lingua", "Mudou Lingua", "Definicoes de Bloqueio", "Mudou Bloqueio", "Nenhuma Protecao", "PIN", "Padrao", "Impressao Digital",
         "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono",
         "SOS", "Ajuda (SOS)",
-        "Fitness", "Ajuda(Fitness)", "Energia", "Atividade", "Nutricao"
+        "Fitness", "Ajuda(Fitness)", "Energia", "Atividade", "Nutricao", "Escolher Atividade"
     ],
     en: [
         "Frame", "Template", "Main", "Menu",
         "Settings", "Language Settings", "Changed Language", "Lock Screen Settings", "Changed Lock", "No Lock", "PIN", "Pattern Lock", "Fingerprint Lock",
         "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
         "SOS", "Help (SOS)",
-        "Fitness", "Help(Fitness)", "Energy", "Activity","Nutrition"
+        "Fitness", "Help(Fitness)", "Energy", "Activity", "Nutrition", "Choose Activity"
     ]
 }
 

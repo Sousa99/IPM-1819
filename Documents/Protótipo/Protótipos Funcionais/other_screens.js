@@ -141,6 +141,9 @@ function build_frame(canvas) {
         case descriptions[25]:
             changeScreen(canvas, build_fitness_screen(canvas));
             break;
+        case descriptions[26]:
+            changeScreen(canvas, build_activity_screen(canvas));
+            break;
         }
     });
 
