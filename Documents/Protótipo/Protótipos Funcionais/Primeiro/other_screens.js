@@ -237,7 +237,7 @@ function build_template(canvas) {
         width: canvas.width / 90,
         height: canvas.width / 90,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Battery.png"
+        image: MATERIALS_DIR + "/Battery.png"
     });
 
     template.wifi  = canvas.display.image({
@@ -246,7 +246,7 @@ function build_template(canvas) {
         width: canvas.width / 90,
         height: canvas.width / 90,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Wifi.png"
+        image: MATERIALS_DIR + "/Wifi.png"
     });
 
     template.addChild(template.time);
@@ -342,7 +342,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Contacts.png"
+        image: MATERIALS_DIR + "/Contacts.png"
     });
     menu_screen.gallery_menu_button = canvas.display.image({
         x: 0,
@@ -350,7 +350,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Gallery.png"
+        image: MATERIALS_DIR + "/Gallery.png"
     });
     menu_screen.group_menu_button = canvas.display.image({
         x: menu_screen.width / 3.6,
@@ -358,7 +358,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Group.png"
+        image: MATERIALS_DIR + "/Group.png"
     });
     menu_screen.maps_menu_button = canvas.display.image({
         x: - menu_screen.width / 3.6,
@@ -366,7 +366,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Maps.png"
+        image: MATERIALS_DIR + "/Maps.png"
     });
     menu_screen.camera_menu_button = canvas.display.image({
         x: 0,
@@ -374,7 +374,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Camera.png"
+        image: MATERIALS_DIR + "/Camera.png"
     });
     menu_screen.health_menu_button = canvas.display.image({
         x: menu_screen.width / 3.6,
@@ -382,7 +382,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Health.png"
+        image: MATERIALS_DIR + "/Health.png"
     });
     menu_screen.settings_menu_button = canvas.display.image({
         x: 0,
@@ -390,7 +390,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Settings.png"
+        image: MATERIALS_DIR + "/Settings.png"
     });
     
     menu_screen.addChild(menu_screen.contacts_menu_button);

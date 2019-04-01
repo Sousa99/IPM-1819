@@ -623,7 +623,7 @@ function build_lock_screen_fingerprint(canvas) {
         width: 7 * lock_screen.width / 18,
         height: 7 * lock_screen.width / 18,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Fingerprint.png"
+        image: MATERIALS_DIR + "/Fingerprint.png"
     });
 
     lock_screen.progress_circle_fingerprint = canvas.display.arc({

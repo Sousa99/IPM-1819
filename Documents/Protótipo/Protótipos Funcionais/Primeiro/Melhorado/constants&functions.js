@@ -2,6 +2,8 @@ const white = "#FFFFFF";
 const black = "#000000";
 const gray_frame = "#7F7F7F";
 
+const MATERIALS_DIR = "../../../../../Materials";
+
 function get_size_px(canvas, px_size) {
     return (canvas.width / (1920 / px_size)) + "px";
 }
@@ -20,7 +22,7 @@ function add_lines(canvas, screen, startpoint, mode, active) {
                     origin: { x: "center", y: "center" },
                     width: screen.height / 15,
                     height: screen.height / 15,
-                    image: "../../../Materials/Arrow-White.png"
+                    image: MATERIALS_DIR + "/Arrow-White.png"
                 });
     
             } else {

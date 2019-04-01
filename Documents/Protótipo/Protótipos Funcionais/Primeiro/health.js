@@ -121,7 +121,7 @@ function build_health_screen(canvas){
         width: health_screen.width / 10,
         height: health_screen.height / 10,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Help.png"
+        image: MATERIALS_DIR + "/Help.png"
     });
 
     health_screen.heart_rate = canvas.display.text({
@@ -519,7 +519,7 @@ function build_sos_screen (canvas){
         width: sos_screen.width / 10,
         height: sos_screen.height / 10,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Help.png"
+        image: MATERIALS_DIR + "/Help.png"
     });
 
     sos_screen.addChild(sos_screen.live_monitoring);
@@ -658,7 +658,7 @@ function build_fitness_screen (canvas){
         width: fitness_screen.width / 10,
         height: fitness_screen.height / 10,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Help.png"
+        image: MATERIALS_DIR + "/Help.png"
     });
 
     fitness_screen.addChild(fitness_screen.energy);
@@ -968,7 +968,7 @@ function build_choose_activity_screen (canvas){
         width: choose_activity_screen.width / 4.75,
         height: choose_activity_screen.height / 4.75,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Activity-Walk.png"
+        image: MATERIALS_DIR + "/Activity-Walk.png"
     });
     choose_activity_screen.run_button = canvas.display.image({
         x: + choose_activity_screen.width / 4.75,
@@ -976,7 +976,7 @@ function build_choose_activity_screen (canvas){
         width: choose_activity_screen.width / 4.75,
         height: choose_activity_screen.height / 4.75,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Activity-Run.png"
+        image: MATERIALS_DIR + "/Activity-Run.png"
     });
     choose_activity_screen.cycle_button = canvas.display.image({
         x: - choose_activity_screen.width / 4.75,
@@ -984,7 +984,7 @@ function build_choose_activity_screen (canvas){
         width: choose_activity_screen.width / 4.75,
         height: choose_activity_screen.height / 4.75,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Activity-Bike.png"
+        image: MATERIALS_DIR + "/Activity-Bike.png"
     });
     choose_activity_screen.gym_button = canvas.display.image({
         x: + choose_activity_screen.width / 4.75,
@@ -992,7 +992,7 @@ function build_choose_activity_screen (canvas){
         width: choose_activity_screen.width / 4.75,
         height: choose_activity_screen.height / 4.75,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Activity-Gym.png"
+        image: MATERIALS_DIR + "/Activity-Gym.png"
     });
 
     choose_activity_screen.addChild(choose_activity_screen.walk_button);
