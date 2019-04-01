@@ -2,7 +2,7 @@ function build_health_template(canvas, screen, active) {
     var links = [];
     var colors = [white, white, white]
 
-    colors[active] = "#ed9393";
+    colors[active] = "#e85151";
 
     screen.sos_bar = canvas.display.rectangle({
         x: 0,
@@ -548,13 +548,13 @@ function build_sos_screen (canvas){
                 if (sos_screen.message_hold.text.indexOf("1") != -1) {
                     if (sos_screen.active) {
                         sos_screen.active = false;
-                        sos_screen.message.fill = "radial-gradient(" + white + ", " + black + ")";
+                        sos_screen.message.fill = "radial-gradient(" + white + ", " + "#AAAAAA" + ")";
                         sos_screen.message_text.text = health[37];
                         sos_screen.message_hold.text = health[38];
                         sos_screen.message_hold.y = 0.35 * sos_screen.height / 10;
                     } else {
                         sos_screen.active = true;
-                        sos_screen.message.fill = "radial-gradient(" + "#FF5555" + ", " + black + ")";
+                        sos_screen.message.fill = "radial-gradient(" + "#FF5555" + ", " + "#bc2b2b" + ")";
                         sos_screen.message_text.text = health[39];
                         sos_screen.message_hold.text = health[40];
                         sos_screen.message_hold.y = 0.50 * sos_screen.height / 10;
