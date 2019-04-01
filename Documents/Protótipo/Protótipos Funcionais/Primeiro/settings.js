@@ -4,7 +4,7 @@ var code = "1234";
 
 function build_settings_screen(canvas) {
     var settings_screen = canvas.display.rectangle({
-        description: descriptions[4],
+        description: descriptions["settings"],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -20,7 +20,7 @@ function build_settings_screen(canvas) {
         y: - 2 * settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[0],
+        text: settings["lock_protection"],
         fill: white
     });
     settings_screen.language = canvas.display.text({
@@ -28,7 +28,7 @@ function build_settings_screen(canvas) {
         y: - settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[1],
+        text: settings["language"],
         fill: white
     });
 
@@ -49,7 +49,7 @@ function build_settings_screen(canvas) {
 
 function build_language_settings_screen(canvas) {
     var language_settings_screen = canvas.display.rectangle({
-        description: descriptions[5],
+        description: descriptions["language_settings"],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -65,7 +65,7 @@ function build_language_settings_screen(canvas) {
         y: - 2 * language_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[2],
+        text: settings["portuguese"],
         fill: white
     });
     language_settings_screen.english = canvas.display.text({
@@ -73,7 +73,7 @@ function build_language_settings_screen(canvas) {
         y: - language_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[3],
+        text: settings["english"],
         fill: white
     });
 
@@ -116,7 +116,7 @@ function build_language_settings_screen(canvas) {
 
 function build_changed_language_screen(canvas) {
     var changed_language_screen = canvas.display.rectangle({
-        description: descriptions[6],
+        description: descriptions["changed_language"],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -133,7 +133,7 @@ function build_changed_language_screen(canvas) {
         y: 0,
         origin: {x: "center", y: "center" },
         align: "center",
-        text: settings[4],
+        text: settings["message_changed_language"],
         font: get_size_px(canvas, 19),
         fill: white
     });
@@ -145,7 +145,7 @@ function build_changed_language_screen(canvas) {
 
 function build_lock_settings_screen(canvas) {
     var lock_settings_screen = canvas.display.rectangle({
-        description: descriptions[7],
+        description: descriptions["lock_settings"],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -161,7 +161,7 @@ function build_lock_settings_screen(canvas) {
         y: - 2 * lock_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[5],
+        text: settings["none"],
         fill: white
     });
     lock_settings_screen.pin = canvas.display.text({
@@ -169,7 +169,7 @@ function build_lock_settings_screen(canvas) {
         y: - lock_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[6],
+        text: settings["pin"],
         fill: white
     });
     lock_settings_screen.pattern = canvas.display.text({
@@ -177,7 +177,7 @@ function build_lock_settings_screen(canvas) {
         y: 0,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[7],
+        text: settings["pattern"],
         fill: white
     });
     lock_settings_screen.fingerprint = canvas.display.text({
@@ -185,7 +185,7 @@ function build_lock_settings_screen(canvas) {
         y: + lock_settings_screen.height / 10,
         origin: {x: "left", y: "center" },
         font: get_size_px(canvas, 17),
-        text: settings[8],
+        text: settings["fingerprint"],
         fill: white
     });
 
@@ -258,7 +258,7 @@ function build_lock_settings_screen(canvas) {
 
 function build_changed_lock_screen(canvas) {
     var changed_lock_screen = canvas.display.rectangle({
-        description: descriptions[8],
+        description: descriptions["changed_lock"],
         description_show: true,
         template: true,
         x: canvas.width / 2,
@@ -275,7 +275,7 @@ function build_changed_lock_screen(canvas) {
         y: 0,
         origin: {x: "center", y: "center" },
         align: "center",
-        text: settings[9],
+        text: settings["message_changed_lock"],
         font: get_size_px(canvas, 19),
         fill: white
     });
@@ -287,7 +287,7 @@ function build_changed_lock_screen(canvas) {
 
 function build_lock_screen_none(canvas) {
     var lock_screen = canvas.display.rectangle({
-        description: descriptions[9],
+        description: descriptions["no_lock"],
         description_show: false,
         template: false,
         x: canvas.width / 2,
@@ -313,7 +313,7 @@ function build_lock_screen_none(canvas) {
         x: 0,
         y: + lock_screen.height / 2 - lock_screen.height / 15,
         origin: {x: "center", y: "center" },
-        text: settings[10],
+        text: settings["touch_screen_to_unlock"],
         font: get_size_px(canvas, 16),
         fill: white
     });
@@ -332,7 +332,7 @@ function build_lock_screen_none(canvas) {
 
 function build_lock_screen_pin(canvas) {
     var lock_screen = canvas.display.rectangle({
-        description: descriptions[10],
+        description: descriptions["pin_lock"],
         description_show: true,
         template: false,
         attempt: "",
@@ -489,7 +489,7 @@ function build_lock_screen_pin(canvas) {
 
 function build_lock_screen_pattern(canvas) {
     var lock_screen = canvas.display.rectangle({
-        description: descriptions[11],
+        description: descriptions["pattern_lock"],
         description_show: true,
         template: false,
         attempt: "",
@@ -605,7 +605,7 @@ function build_lock_screen_pattern(canvas) {
 
 function build_lock_screen_fingerprint(canvas) {
     var lock_screen = canvas.display.rectangle({
-        description: descriptions[12],
+        description: descriptions["fingerprint_lock"],
         description_show: true,
         template: false,
         x: canvas.width / 2,
@@ -623,7 +623,7 @@ function build_lock_screen_fingerprint(canvas) {
         width: 7 * lock_screen.width / 18,
         height: 7 * lock_screen.width / 18,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Fingerprint.png"
+        image: MATERIALS_DIR + "/Fingerprint.png"
     });
 
     lock_screen.progress_circle_fingerprint = canvas.display.arc({

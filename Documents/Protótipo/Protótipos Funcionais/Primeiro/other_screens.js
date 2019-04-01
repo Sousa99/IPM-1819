@@ -1,6 +1,6 @@
 function build_frame(canvas) {
     var frame = canvas.display.rectangle({
-        description: descriptions[0],
+        description: descriptions["frame"],
         description_show: false,
         template: false,
         emergency: 5,
@@ -78,70 +78,70 @@ function build_frame(canvas) {
 
     frame.button_back.bind("click tap", function() {
         switch(actual_screen.description) {
-        case descriptions[3]:
+        case descriptions["menu"]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case descriptions[4]:
+        case descriptions["settings"]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
-        case descriptions[5]:
+        case descriptions["language_settings"]:
             changeScreen(canvas, build_settings_screen(canvas));
             break;
-        case descriptions[7]:
+        case descriptions["lock_settings"]:
             changeScreen(canvas, build_settings_screen(canvas));
             break;
-        case descriptions[9]:
+        case descriptions["no_lock"]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case descriptions[10]:
+        case descriptions["pin_lock"]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case descriptions[11]:
+        case descriptions["pattern_lock"]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case descriptions[12]:
+        case descriptions["fingerprint_lock"]:
             changeScreen(canvas, build_main_screen(canvas));
             break;
-        case descriptions[13]:
+        case descriptions["health"]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;  
-        case descriptions[14]:
+        case descriptions["health_help"]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
-        case descriptions[15]:
+        case descriptions["heart_rate"]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
-        case descriptions[16]:
+        case descriptions["blood_pressure"]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
-        case descriptions[17]:
+        case descriptions["blood_oxygen"]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
-        case descriptions[18]:
+        case descriptions["sleep_time"]:
             changeScreen(canvas, build_health_screen(canvas));
             break;
-        case descriptions[19]:
+        case descriptions["sos"]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
-        case descriptions[20]:
+        case descriptions["sos_help"]:
             changeScreen(canvas, build_sos_screen(canvas));
             break;
-        case descriptions[21]:
+        case descriptions["fitness"]:
             changeScreen(canvas, build_menu_screen(canvas));
             break;
-        case descriptions[22]:
+        case descriptions["fitness_help"]:
             changeScreen(canvas, build_fitness_screen(canvas));
             break;
-        case descriptions[23]:
+        case descriptions["energy"]:
             changeScreen(canvas, build_fitness_screen(canvas));
             break;
-        case descriptions[24]:
+        case descriptions["activity"]:
             changeScreen(canvas, build_fitness_screen(canvas));
             break;
-        case descriptions[25]:
+        case descriptions["nutrition"]:
             changeScreen(canvas, build_fitness_screen(canvas));
             break;
-        case descriptions[26]:
+        case descriptions["choose_activity"]:
             changeScreen(canvas, build_activity_screen(canvas));
             break;
         }
@@ -156,8 +156,8 @@ function build_frame(canvas) {
                     changeScreen(canvas, build_sos_screen(canvas));
                     actual_screen.active = true;
                     actual_screen.message.fill = "radial-gradient(" + "#FF5555" + ", " + black + ")";
-                    actual_screen.message_text.text = health[39];
-                    actual_screen.message_hold.text = health[40];
+                    actual_screen.message_text.text = health["help_on_the_way"];
+                    actual_screen.message_hold.text = health["press_5_seconds_cancel"];
                     actual_screen.message_hold.y = 0.50 * actual_screen.height / 10;
                 }
 
@@ -173,7 +173,7 @@ function build_frame(canvas) {
         setTimeout(check, 5000);
     });
 
-    var non_lockables = [descriptions[2], descriptions[6], descriptions[8]];
+    var non_lockables = [descriptions["main"], descriptions["changed_language"], descriptions["changed_lock"]];
     frame.button_lock.bind("click tap", function() {
         if (!non_lockables.includes(actual_screen.description))
             changeScreen(canvas, build_main_screen(canvas));
@@ -214,7 +214,7 @@ function build_frame(canvas) {
 
 function build_template(canvas) {
     var template = canvas.display.rectangle({
-        description: descriptions[1],
+        description: descriptions["template"],
         description_show: false,
         x: canvas.width / 2,
         y: canvas.height / 2 - 0.90 * canvas.width / 14,
@@ -237,7 +237,7 @@ function build_template(canvas) {
         width: canvas.width / 90,
         height: canvas.width / 90,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Battery.png"
+        image: MATERIALS_DIR + "/Battery.png"
     });
 
     template.wifi  = canvas.display.image({
@@ -246,7 +246,7 @@ function build_template(canvas) {
         width: canvas.width / 90,
         height: canvas.width / 90,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Wifi.png"
+        image: MATERIALS_DIR + "/Wifi.png"
     });
 
     template.addChild(template.time);
@@ -258,7 +258,7 @@ function build_template(canvas) {
 
 function build_main_screen(canvas) {
     var main_screen = canvas.display.rectangle({
-        description: descriptions[2],
+        description: descriptions["main"],
         description_show: false,
         template: false,
         x: canvas.width / 2,
@@ -303,7 +303,7 @@ function build_main_screen(canvas) {
         family: "7Segments",
         font: get_size_px(canvas, 10),
         fill: white,
-        text: others[0]
+        text: others["friends_group"]
     });
 
     main_screen.addChild(main_screen.date);
@@ -324,7 +324,7 @@ function build_main_screen(canvas) {
 
 function build_menu_screen(canvas) {
     var menu_screen = canvas.display.rectangle({
-        description: descriptions[3],
+        description: descriptions["menu"],
         description_show: false,
         template: true,
         x: canvas.width / 2,
@@ -342,7 +342,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Contacts.png"
+        image: MATERIALS_DIR + "/Contacts.png"
     });
     menu_screen.gallery_menu_button = canvas.display.image({
         x: 0,
@@ -350,7 +350,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Gallery.png"
+        image: MATERIALS_DIR + "/Gallery.png"
     });
     menu_screen.group_menu_button = canvas.display.image({
         x: menu_screen.width / 3.6,
@@ -358,7 +358,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Group.png"
+        image: MATERIALS_DIR + "/Group.png"
     });
     menu_screen.maps_menu_button = canvas.display.image({
         x: - menu_screen.width / 3.6,
@@ -366,7 +366,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Maps.png"
+        image: MATERIALS_DIR + "/Maps.png"
     });
     menu_screen.camera_menu_button = canvas.display.image({
         x: 0,
@@ -374,7 +374,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Camera.png"
+        image: MATERIALS_DIR + "/Camera.png"
     });
     menu_screen.health_menu_button = canvas.display.image({
         x: menu_screen.width / 3.6,
@@ -382,7 +382,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Health.png"
+        image: MATERIALS_DIR + "/Health.png"
     });
     menu_screen.settings_menu_button = canvas.display.image({
         x: 0,
@@ -390,7 +390,7 @@ function build_menu_screen(canvas) {
         width: menu_screen.width / 5,
         height: menu_screen.height / 5,
         origin: { x: "center", y: "center" },
-        image: "../../../Materials/Settings.png"
+        image: MATERIALS_DIR + "/Settings.png"
     });
     
     menu_screen.addChild(menu_screen.contacts_menu_button);
