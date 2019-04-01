@@ -1,72 +1,182 @@
 const STRINGS_DESCRIPTIONS = {
-    pt: [
-        "Moldura", "Molde", "Principal", "Menu",
-        "Definicoes", "Definicoes Lingua", "Mudou Lingua", "Definicoes de Bloqueio", "Mudou Bloqueio", "Nenhuma Protecao", "PIN", "Padrao", "Impressao Digital",
-        "Saude", "Ajuda (Saude)", "Batimento Cardiaco", "Pressao arterial", "Oxigenacao do sangue", "Tempo de sono",
-        "SOS", "Ajuda (SOS)",
-        "Fitness", "Ajuda(Fitness)", "Energia", "Atividade", "Nutricao", "Escolher Atividade"
-    ],
-    en: [
-        "Frame", "Template", "Main", "Menu",
-        "Settings", "Language Settings", "Changed Language", "Lock Screen Settings", "Changed Lock", "No Lock", "PIN", "Pattern Lock", "Fingerprint Lock",
-        "Health", "Help (Health)", "Heart Rate", "Blood pressure", "Blood Oxygen", "Sleep Time",
-        "SOS", "Help (SOS)",
-        "Fitness", "Help(Fitness)", "Energy", "Activity", "Nutrition", "Choose Activity"
-    ]
+    pt: {
+        frame: "Moldura",
+        template: "Molde",
+        main: "Principal",
+        menu: "Menu",
+
+        settings: "Definicoes",
+        language_settings: "Definicoes Lingua",
+        changed_language: "Mudou Lingua",
+        lock_settings: "Definicoes de Bloqueio",
+        changed_lock: "Mudou Bloqueio",
+        no_lock: "Nenhuma Protecao",
+        pin_lock: "PIN",
+        pattern_lock: "Padrao",
+        fingerprint_lock: "Impressao Digital",
+
+        health: "Saude",
+        health_help: "Ajuda (Saude)",
+        heart_rate: "Batimento Cardiaco",
+        blood_pressure: "Pressao Arterial",
+        blood_oxygen: "Oxigenacao do Sangue",
+        sleep_time: "Tempo de Sono",
+        sos: "SOS",
+        sos_help: "Ajuda (SOS)",
+
+        fitness: "Fitness",
+        fitness_help: "Ajuda (Fitness)",
+        energy: "Energia",
+        activity: "Atividade",
+        nutrition: "Nutricao",
+        choose_activity: "Escolher atividade"
+    },
+
+    en: {
+        frame: "Frame",
+        template: "Template",
+        main: "Main",
+        menu: "Menu",
+
+        settings: "Settings",
+        language_settings: "Language Settings",
+        changed_language: "Changed Language",
+        lock_settings: "Lock Screen Settings",
+        changed_lock: "Changed Lock",
+        no_lock: "No Lock",
+        pin_lock: "PIN",
+        pattern_lock: "Pattern Lock",
+        fingerprint_lock: "Fingerprint Lock",
+
+        health: "Health",
+        health_help: "Help (Health)",
+        heart_rate: "Heart Rate",
+        blood_pressure: "Blood Pressure",
+        blood_oxygen: "Blood Oxygen",
+        sleep_time: "Sleep Time",
+        sos: "SOS",
+        sos_help: "Help (SOS)",
+
+        fitness: "Fitness",
+        fitness_help: "Help (Fitness)",
+        energy: "Energy",
+        activity: "Activity",
+        nutrition: "Nutrition",
+        choose_activity: "Choose Activity"
+    }
 }
 
 const STRINGS_OTHERS = {
-    pt: [
-        "GRUPO DE AMIGOS",
-        "Ajuda"
-    ],
-    en: [
-        "FRIENDS GROUP",
-        "Help"
-    ]
+    pt: {
+        friends_group: "GRUPO DE AMIGOS",
+        help: "Ajuda"
+    },
+    en: {
+        friends_group: "FRIENDS GROUP",
+        help: "Help"
+    }
 }
 
 const STRINGS_SETTINGS = {
-    pt: [
-        "Protecao de Ecra",
-        "Lingua", "Portugues", "Ingles", "Mudou a lingua\npredefinida para\nPortugues",
-        "Nenhuma", "PIN", "Padrao", "Impressao Digital", "Mudou o tipo de\nbloqueio do dispositivo",
-        "Toque no ecra para desbloquear"
-    ],
-    en: [
-        "Screen Lock",
-        "Language", "Portuguese", "English", "Changed predefined\nlanguage to\nEnglish",
-        "None", "PIN", "Pattern", "Fingerprint", "Changed predefined\nlock method",
-        "Touch the screen to unlock device"
-    ]
+    pt: {
+        lock_protection: "Protecao de Ecra",
+        language: "Lingua",
+        portuguese: "Portugues",
+        english: "Ingles",
+        message_changed_language: "Mudou a lingua\npredefinida para\nPortugues",
+        none: "Nenhuma",
+        pin: "PIN",
+        pattern: "Padrao",
+        fingerprint: "Impressao Digital",
+        message_changed_lock: "Mudou o tipo de\nbloqueio do dispositivo",
+        touch_screen_to_unlock: "Toque no ecra para desbloquear"
+    },
+    en: {
+        lock_protection: "Screen Lock",
+        language: "Language",
+        portuguese: "Portuguese",
+        english: "English",
+        message_changed_language: "Changed predefined\nlanguage to\nEnglish",
+        none: "None",
+        pin: "PIN",
+        pattern: "Pattern",
+        fingerprint: "Fingerprint",
+        message_changed_lock: "Changed predefined\nlock method",
+        touch_screen_to_unlock: "Touch the screen to unlock device"
+    }
 }
 
 const STRINGS_HEALTH = {
-    pt: [
-        "FITNESS", "SOS", "SAUDE", "Batimento Cardiaco", "Pressao Arterial", "Oxigenacao do Sangue", "Tempo de Sono",
-        "No Momento", "Hoje", "Semana", "BOM",
-        "Sistolica", "Diastolica", "Relatorio",
-        "Hoje", "Semana", "Relatorio",
-        "Hoje", "Semana", "Relatorio",
-        "No Momento", "Atraso da Emergencia",
-        "Energia", "Atividade", "Nutricao",
-        "Hoje", "Semana", "Unidades","Distancia","Passos", "Elevacao", "COMECAR ATIVIDADE",
-        "Vitaminas", "Proteinas", "Agua", "Gorduras", "Calcio",
-        "CHAMAR EMERGENCIA", "Premir por 3 segundos", "AJUDA A CAMINHO", "Premir por 5 segundos\npara cancelar"
-
-    ],
-    en: [
-        "FITNESS", "SOS", "HEALTH", "Heart Rate", "Blood Pressure", "Blood Oxygen", "Sleep Time",
-        "Live", "Today", "Weekly", "GOOD",
-        "Systolic", "Diastolic", "Report",
-        "Today", "Weekly", "Report",
-        "Today", "Weekly", "Report",
-        "Live Monitoring", "Emergency Delay",
-        "Energy", "Activity", "Nutrition",
-        "Today", "Weekly", "Units", "Distance", "Steps", "Elevation", "START ACTIVITY",
-        "Vitamins", "Proteins", "Water", "Fat", "Calcium",
-        "CALL EMERGENCY", "Hold for 3 seconds", "HELP ON THE WAY", "Hold for 5 seconds\nto cancel"
-    ]
+    pt: {
+        fitness: "FITNESS",
+        sos: "SOS",
+        health: "SAUDE",
+        heart_rate: "Batimento Cardiaco",
+        blood_pressure: "Pressao Arterial",
+        blood_oxygen: "Oxigenacao do Sangue",
+        sleep_time: "Tempo de Sono",
+        at_the_moment: "No Momento",
+        today: "Hoje",
+        week: "Semana",
+        good: "BOM",
+        systolic: "Sistolica",
+        diastolic: "Diastolica",
+        report: "Relatorio",
+        live: "No Momento",
+        emergency_delay: "Atraso da Emergencia",
+        energy: "Energia",
+        activity: "Atividade",
+        nutrition: "Nutricao",
+        units: "Unidades",
+        distance: "Distancia",
+        steps: "Passos",
+        elevation: "Elevacao",
+        start_activity: "COMECAR ATIVIDADE",
+        vitamins: "Vitaminas",
+        proteins: "Proteinas",
+        water: "Water",
+        fat: "Gorduras",
+        calcium: "Calcio",
+        call_emergency: "CHAMAR EMERGENCIA",
+        press_3_seconds: "Premir por 3 segundos",
+        help_on_the_way: "AJUDA A CAMINHO",
+        press_5_seconds_cancel: "Premir por 5 segundos\npara cancelar"
+    },
+    en: {
+        fitness: "FITNESS",
+        sos: "SOS",
+        health: "HEALTH",
+        heart_rate: "Heart Rate",
+        blood_pressure: "Blood Pressure",
+        blood_oxygen: "Blood Oxygen",
+        sleep_time: "Sleep Time",
+        at_the_moment: "Live",
+        today: "Today",
+        week: "Weekly",
+        good: "GOOD",
+        systolic: "Systolic",
+        diastolic: "Diastolic",
+        report: "Report",
+        live: "Live Monitoring",
+        emergency_delay: "Emergency Delay",
+        energy: "Energy",
+        activity: "Activity",
+        nutrition: "Nutrition",
+        units: "Units",
+        distance: "Distance",
+        steps: "Steps",
+        elevation: "Elevation",
+        start_activity: "START ACTIVITY",
+        vitamins: "Vitamins",
+        proteins: "Proteins",
+        water: "Water",
+        fat: "Fat",
+        calcium: "Calcium",
+        call_emergency: "CALL EMERGENCY",
+        press_3_seconds: "Hold for 3 seconds",
+        help_on_the_way: "HELP ON THE WAY",
+        press_5_seconds_cancel: "Hold for 5 seconds\nto cancel"
+    }
 }
 
 var language;
