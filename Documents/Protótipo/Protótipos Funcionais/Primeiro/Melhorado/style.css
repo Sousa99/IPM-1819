@@ -1,0 +1,40 @@
+html {
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background-color: #cccccc;
+    background: url("../../Materials/Background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    font-family: arial;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+h1 {
+    font-family:"7Segments",Verdana, sans-serif;
+    font-size: 3rem;
+    color: rgb(36, 151, 88);
+    text-shadow: -1.5px 0 white, 0 1.5px white, 1.5px 0 white, 0 -1.5px white;
+}
+h2 {
+    font-weight: bold;
+    padding: 0.6vh 0.6vh;
+    margin-bottom: 0.6vh;
+    background-color: MediumSeaGreen;
+}
+
+@font-face {
+    font-family: "7Segments";
+    src: url("../../Materials/Fonts/Segment7Standard.woff") format("woff"), url("../../Materials/Fonts/Segment7Standard.ttf") format("truetype");
+}
