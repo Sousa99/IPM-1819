@@ -45,7 +45,7 @@ function add_lines(canvas, screen, startpoint, mode, list_image, active) {
 
                 link = canvas.display.ellipse({
                     active: active_object,
-                    x: screen.width / 2 - 1.5 * screen.width / 10,
+                    x: screen.width / 2 - 1 * screen.width / 10,
                     y: (i + startpoint) * screen.height / 10,
                     radius: screen.height / 30,
                     stroke: "2px " + white
