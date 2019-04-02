@@ -90,7 +90,7 @@ function build_language_settings_screen(canvas) {
             break;
     }
 
-    var links = add_lines(canvas, language_settings_screen, -2, 1, active);
+    var links = add_lines(canvas, language_settings_screen, -2, 1, null, active);
 
     links[0].bind("click tap", function() {
         if (!links[0].active) {
@@ -210,7 +210,7 @@ function build_lock_settings_screen(canvas) {
             break;
     }
 
-    var links = add_lines(canvas, lock_settings_screen, -2, 1, active);
+    var links = add_lines(canvas, lock_settings_screen, -2, 1, null, active);
 
     links[0].bind("click tap", function() {
         if (!links[0].active) {

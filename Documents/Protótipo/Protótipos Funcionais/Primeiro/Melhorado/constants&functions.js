@@ -12,7 +12,7 @@ function get_size_px(canvas, px_size) {
     return px_size + "px";
 }
 
-function add_lines(canvas, screen, startpoint, mode, active) {
+function add_lines(canvas, screen, startpoint, mode, list_image, active) {
     var links = [];
     var number_options = screen.children.length;
     for (var i = 0; i < number_options + 1; i++) {
@@ -21,7 +21,7 @@ function add_lines(canvas, screen, startpoint, mode, active) {
 
             if (mode == 0) {
                 link = canvas.display.image({
-                    x: screen.width / 2 - 1.5 * screen.width / 10,
+                    x: screen.width / 2 - 1 * screen.width / 10,
                     y: (i + startpoint) * screen.height / 10,
                     origin: { x: "center", y: "center" },
                     width: screen.height / 15,
@@ -34,7 +34,7 @@ function add_lines(canvas, screen, startpoint, mode, active) {
                 if (i == active) {
                     active_object = true;
                     var choosen = canvas.display.ellipse({
-                        x: screen.width / 2 - 1.5 * screen.width / 10,
+                        x: screen.width / 2 - 1 * screen.width / 10,
                         y: (i + startpoint) * screen.height / 10,
                         radius: screen.height / 55,
                         fill: "#005dff"
@@ -50,6 +50,19 @@ function add_lines(canvas, screen, startpoint, mode, active) {
                     radius: screen.height / 30,
                     stroke: "2px " + white
                 });
+            }
+
+            if (list_image != null) {
+                var image = canvas.display.image({
+                    x: - screen.width / 2 + 1 * screen.width / 10,
+                    y: (i + startpoint) * screen.height / 10,
+                    origin: { x: "center", y: "center" },
+                    width: screen.height / 13,
+                    height: screen.height / 13,
+                    image: MATERIALS_DIR + "/" + list_image[i]
+                });
+
+                screen.addChild(image);
             }
             
             link.bind("mouseenter", function () {
