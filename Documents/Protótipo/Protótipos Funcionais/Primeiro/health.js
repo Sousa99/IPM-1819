@@ -449,7 +449,7 @@ function build_sos_screen (canvas){
         description_show: false,
         template: true,
         active: false,
-        audio_emergency: new Audio('../../../Materials/Emergency.mp3'),
+        audio_emergency: new Audio(MATERIALS_DIR + '/Emergency.mp3'),
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
