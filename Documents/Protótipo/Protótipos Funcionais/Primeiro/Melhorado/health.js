@@ -209,7 +209,7 @@ function build_health_help_screen(canvas){
         y: - 2 * health_help_screen.height / 10,
         origin: {x: "center", y: "center" },
         font: get_size_px(canvas, 19),
-        text: others[1],
+        text: others["help"],
         fill: white
     });
 
@@ -602,7 +602,7 @@ function build_sos_help_screen(canvas){
         y: - 2 * sos_help_screen.height / 10,
         origin: {x: "center", y: "center" },
         font: get_size_px(canvas, 19),
-        text: others[1],
+        text: others["help"],
         fill: white
     });
 
@@ -723,7 +723,7 @@ function build_fitness_help_screen(canvas){
         y: - 2 * fitness_help_screen.height / 10,
         origin: {x: "center", y: "center" },
         font: get_size_px(canvas, 19),
-        text: others[1],
+        text: others["help"],
         fill: white
     });
 
