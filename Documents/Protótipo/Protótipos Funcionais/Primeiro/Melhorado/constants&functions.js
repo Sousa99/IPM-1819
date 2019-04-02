@@ -4,8 +4,12 @@ const gray_frame = "#7F7F7F";
 
 const MATERIALS_DIR = "../../../../../Materials";
 
+const RADIUS_WORKZONE = 320;
+const SIZE_FRAME = 15;
+const SIZE_SCREEN = 270;
+
 function get_size_px(canvas, px_size) {
-    return (canvas.width / (1920 / px_size)) + "px";
+    return px_size + "px";
 }
 
 function add_lines(canvas, screen, startpoint, mode, active) {

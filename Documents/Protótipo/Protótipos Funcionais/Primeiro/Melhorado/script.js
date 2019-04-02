@@ -34,13 +34,13 @@ function loadCanvas() {
     var center = canvas.display.ellipse({
         x: canvas.width / 2,
         y: canvas.height / 2,
-        radius: canvas.width / 6,
+        radius: RADIUS_WORKZONE,
         fill: "#FFFFFF"
     }).add();
 
     description_bar = canvas.display.text({
         x: canvas.width / 2,
-        y: canvas.height / 2 - canvas.width / 14 / 8 * 6,
+        y: canvas.height / 2 - SIZE_SCREEN / 2 / 8 * 6,
         origin: { x: "center", y: "center" },
         family: "7Segments",
         font: get_size_px(canvas, 19),

@@ -10,8 +10,8 @@ function build_settings_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -55,8 +55,8 @@ function build_language_settings_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -122,8 +122,8 @@ function build_changed_language_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -151,8 +151,8 @@ function build_lock_settings_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -264,8 +264,8 @@ function build_changed_lock_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -293,8 +293,8 @@ function build_lock_screen_none(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -339,8 +339,8 @@ function build_lock_screen_pin(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -497,8 +497,8 @@ function build_lock_screen_pattern(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -611,8 +611,8 @@ function build_lock_screen_fingerprint(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -632,7 +632,7 @@ function build_lock_screen_fingerprint(canvas) {
         radius: 9 * lock_screen.width / 36,
         start: 0,
         end: 0,
-        stroke: canvas.width / 192 + "px #0aa",
+        stroke: "10px #0aa",
         touching: 0
     });
 

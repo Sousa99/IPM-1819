@@ -109,8 +109,8 @@ function build_health_screen(canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -198,8 +198,8 @@ function build_health_help_screen(canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -226,8 +226,8 @@ function build_heart_rate_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -299,8 +299,8 @@ function build_blood_pressure_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -349,8 +349,8 @@ function build_blood_oxygen_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -400,8 +400,8 @@ function build_sleep_time_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -453,8 +453,8 @@ function build_sos_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -591,8 +591,8 @@ function build_sos_help_screen(canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -619,8 +619,8 @@ function build_fitness_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -712,8 +712,8 @@ function build_fitness_help_screen(canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: {x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black,
     });
@@ -740,8 +740,8 @@ function build_energy_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -790,8 +790,8 @@ function build_activity_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -870,8 +870,8 @@ function build_nutrition_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -940,8 +940,8 @@ function build_choose_activity_screen (canvas){
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });

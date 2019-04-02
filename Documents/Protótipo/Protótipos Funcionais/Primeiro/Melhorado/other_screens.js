@@ -7,8 +7,8 @@ function build_frame(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7 + canvas.width / 125,
-        height: canvas.width / 7 + canvas.width / 125,
+        width: SIZE_SCREEN + SIZE_FRAME,
+        height: SIZE_SCREEN + SIZE_FRAME,
         borderRadius : 20,
         fill: gray_frame
     });
@@ -217,10 +217,10 @@ function build_template(canvas) {
         description: descriptions["template"],
         description_show: false,
         x: canvas.width / 2,
-        y: canvas.height / 2 - 0.90 * canvas.width / 14,
+        y: canvas.height / 2 - 0.90 * SIZE_SCREEN / 2,
         origin: {x: "center", y: "center"},
-        width: canvas.width / 7,
-        height: canvas.width / 90,
+        width: SIZE_SCREEN,
+        height: 20,
     });
     template.time = canvas.display.text({
         x: template.width / 2 - template.width / 10,
@@ -232,10 +232,10 @@ function build_template(canvas) {
     });
 
     template.battery  = canvas.display.image({
-        x: - template.width / 2 + template.width / 12 + canvas.width / 65,
+        x: - template.width / 2 + template.width / 12 + 30,
         y: 0,
-        width: canvas.width / 90,
-        height: canvas.width / 90,
+        width: 20,
+        height: 20,
         origin: { x: "center", y: "center" },
         image: MATERIALS_DIR + "/Battery.png"
     });
@@ -243,8 +243,8 @@ function build_template(canvas) {
     template.wifi  = canvas.display.image({
         x: - template.width / 2 + template.width / 12,
         y: 0,
-        width: canvas.width / 90,
-        height: canvas.width / 90,
+        width: 20,
+        height: 20,
         origin: { x: "center", y: "center" },
         image: MATERIALS_DIR + "/Wifi.png"
     });
@@ -264,8 +264,8 @@ function build_main_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
@@ -330,8 +330,8 @@ function build_menu_screen(canvas) {
         x: canvas.width / 2,
         y: canvas.height / 2,
         origin: { x: "center", y: "center" },
-        width: canvas.width / 7,
-        height: canvas.width / 7,
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
         borderRadius : 20,
         fill: black
     });
