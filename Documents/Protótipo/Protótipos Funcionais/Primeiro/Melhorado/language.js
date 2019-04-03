@@ -136,7 +136,7 @@ const STRINGS_HEALTH = {
 		start_activity: 'COMECAR ATIVIDADE',
 		vitamins: 'Vitaminas',
 		proteins: 'Proteinas',
-		water: 'Water',
+		water: 'Agua',
 		fat: 'Gorduras',
 		calcium: 'Calcio',
 		call_emergency: 'CHAMAR EMERGENCIA',
