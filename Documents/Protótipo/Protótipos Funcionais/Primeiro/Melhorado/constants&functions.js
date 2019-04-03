@@ -19,6 +19,10 @@ const MIN_HEART_RATE_DAY = 50;
 const MAX_HEART_RATE_DAY = 80;
 const MIN_HEART_RATE_WEEK = 50;
 const MAX_HEART_RATE_WEEK = 80;
+const MIN_SLEEP_TIME_HOURS = 5;
+const MAX_SLEEP_TIME_HOURS = 9;
+const MIN_SLEEP_TIME_MINUTES = 0;
+const MAX_SLEEP_TIME_MINUTES = 59;
 
 var health_information = {
 	at_the_moment: {
@@ -37,11 +41,19 @@ var health_information = {
 		steps: Math.floor(Math.random() * MAX_STEPS_INPUT_DAY),
 		elevation: Math.floor(Math.random() * MAX_ELEVATION_INPUT_DAY),
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
-		heart_rate: MIN_HEART_RATE_DAY + Math.floor(Math.random() * (MAX_HEART_RATE_DAY - MIN_HEART_RATE_DAY))
+		heart_rate: MIN_HEART_RATE_DAY + Math.floor(Math.random() * (MAX_HEART_RATE_DAY - MIN_HEART_RATE_DAY)),
+		sleep_time_hours:
+			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
+		sleep_time_minutes:
+			MIN_SLEEP_TIME_MINUTES + Math.floor(Math.random() * (MAX_SLEEP_TIME_MINUTES - MIN_SLEEP_TIME_MINUTES))
 	},
 	week: {
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_WEEK) + MAX_CALORIES_BURNED_DAY,
-		heart_rate: MIN_HEART_RATE_WEEK + Math.floor(Math.random() * (MAX_HEART_RATE_WEEK - MIN_HEART_RATE_WEEK))
+		heart_rate: MIN_HEART_RATE_WEEK + Math.floor(Math.random() * (MAX_HEART_RATE_WEEK - MIN_HEART_RATE_WEEK)),
+		sleep_time_hours:
+			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
+		sleep_time_minutes:
+			MIN_SLEEP_TIME_MINUTES + Math.floor(Math.random() * (MAX_SLEEP_TIME_MINUTES - MIN_SLEEP_TIME_MINUTES))
 	}
 };
 
@@ -56,7 +68,7 @@ function add_lines(canvas, screen, startpoint, mode, list_image, active) {
 		if (i < number_options) {
 			var link;
 
-			if (mode == 0) {
+			if (mode == 0 || (mode == 2 && active[i] == 'link')) {
 				link = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
 					y: (i + startpoint) * screen.height / 10,
@@ -86,7 +98,7 @@ function add_lines(canvas, screen, startpoint, mode, list_image, active) {
 					radius: screen.height / 30,
 					stroke: '2px ' + white
 				});
-			} else if (mode == 2) {
+			} else if (mode == 2 && active[i] != 'link') {
 				link = canvas.display.text({
 					x: screen.width / 2 - 0.5 * screen.width / 10,
 					y: (i + startpoint) * screen.height / 10,
@@ -109,7 +121,7 @@ function add_lines(canvas, screen, startpoint, mode, list_image, active) {
 				screen.addChild(image);
 			}
 
-			if (mode != 2) {
+			if ([ 0, 1 ].includes(mode) || (mode == 2 && active[i] == 'link')) {
 				link
 					.bind('mouseenter', function() {
 						canvas.mouse.cursor('pointer');
@@ -169,6 +181,21 @@ function get_health_info(screen) {
 		info.push(health_information.at_the_moment['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);
+	} else if (screen == descriptions['sleep_time']) {
+		info.push(
+			health_information.today['sleep_time_hours'] +
+				':' +
+				('0' + health_information.today['sleep_time_minutes']).slice(-2) +
+				' ' +
+				health['hours']
+		);
+		info.push(
+			health_information.week['sleep_time_hours'] +
+				':' +
+				('0' + health_information.week['sleep_time_minutes']).slice(-2) +
+				' ' +
+				health['hours']
+		);
 	}
 
 	return info;

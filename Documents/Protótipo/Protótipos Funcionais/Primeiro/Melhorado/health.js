@@ -451,7 +451,9 @@ function build_sleep_time_screen(canvas) {
 	sleep_time_screen.addChild(sleep_time_screen.weekly);
 	sleep_time_screen.addChild(sleep_time_screen.report);
 
-	links = add_lines(canvas, sleep_time_screen, -1.5, 0);
+	var health_info = get_health_info(sleep_time_screen.description);
+	health_info.push('link');
+	links = add_lines(canvas, sleep_time_screen, -1.5, 2, null, health_info);
 
 	return sleep_time_screen;
 }
