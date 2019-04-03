@@ -117,7 +117,10 @@ const STRINGS_HEALTH = {
 		at_the_moment: 'No Momento',
 		today: 'Hoje',
 		week: 'Semana',
+		bad: 'MAU',
+		ok: 'OK',
 		good: 'BOM',
+		excellent: 'EXCELENTE',
 		systolic: 'Sistolica',
 		diastolic: 'Diastolica',
 		report: 'Relatorio',
@@ -139,7 +142,10 @@ const STRINGS_HEALTH = {
 		call_emergency: 'CHAMAR EMERGENCIA',
 		press_3_seconds: 'Premir por 3 segundos',
 		help_on_the_way: 'AJUDA A CAMINHO',
-		press_5_seconds_cancel: 'Premir por 5 segundos\npara cancelar'
+		press_5_seconds_cancel: 'Premir por 5 segundos\npara cancelar',
+		km: 'Km',
+		floors: 'Andares',
+		cal: 'Cal'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -152,7 +158,10 @@ const STRINGS_HEALTH = {
 		at_the_moment: 'Live',
 		today: 'Today',
 		week: 'Weekly',
+		bad: 'BAD',
+		ok: 'OK',
 		good: 'GOOD',
+		excellent: 'EXCELLENT',
 		systolic: 'Systolic',
 		diastolic: 'Diastolic',
 		report: 'Report',
@@ -174,7 +183,10 @@ const STRINGS_HEALTH = {
 		call_emergency: 'CALL EMERGENCY',
 		press_3_seconds: 'Hold for 3 seconds',
 		help_on_the_way: 'HELP ON THE WAY',
-		press_5_seconds_cancel: 'Hold for 5 seconds\nto cancel'
+		press_5_seconds_cancel: 'Hold for 5 seconds\nto cancel',
+		km: 'Km',
+		floors: 'Floors',
+		cal: 'Cal'
 	}
 };
 
