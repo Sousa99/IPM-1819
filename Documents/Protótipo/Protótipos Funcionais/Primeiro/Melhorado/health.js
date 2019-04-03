@@ -297,7 +297,8 @@ function build_heart_rate_screen(canvas) {
 	heart_rate_screen.addChild(heart_rate_screen.today);
 	heart_rate_screen.addChild(heart_rate_screen.weekly);
 
-	links = add_lines(canvas, heart_rate_screen, -1.5, 0);
+	var health_info = get_health_info(heart_rate_screen.description);
+	links = add_lines(canvas, heart_rate_screen, -1.5, 2, null, health_info);
 
 	heart_rate_screen.message.addChild(heart_rate_screen.message_text);
 	heart_rate_screen.addChild(heart_rate_screen.message);

@@ -145,7 +145,8 @@ const STRINGS_HEALTH = {
 		press_5_seconds_cancel: 'Premir por 5 segundos\npara cancelar',
 		km: 'Km',
 		floors: 'Andares',
-		cal: 'Cal'
+		cal: 'Cal',
+		bpm: 'Bpm'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -186,7 +187,8 @@ const STRINGS_HEALTH = {
 		press_5_seconds_cancel: 'Hold for 5 seconds\nto cancel',
 		km: 'Km',
 		floors: 'Floors',
-		cal: 'Cal'
+		cal: 'Cal',
+		bpm: 'Bpm'
 	}
 };
 

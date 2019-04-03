@@ -13,6 +13,12 @@ const MAX_STEPS_INPUT_DAY = 6500;
 const MAX_ELEVATION_INPUT_DAY = 7;
 const MAX_CALORIES_BURNED_DAY = 5000;
 const MAX_CALORIES_BURNED_WEEK = 30000;
+const MIN_HEART_RATE_AT_THE_MOMENT = 45;
+const MAX_HEART_RATE_AT_THE_MOMENT = 90;
+const MIN_HEART_RATE_DAY = 50;
+const MAX_HEART_RATE_DAY = 80;
+const MIN_HEART_RATE_WEEK = 50;
+const MAX_HEART_RATE_WEEK = 80;
 
 var health_information = {
 	at_the_moment: {
@@ -20,17 +26,22 @@ var health_information = {
 		nutrition_proteins: Math.random(),
 		nutrition_water: Math.random(),
 		nutrition_fats: Math.random(),
-		nutrition_calcium: Math.random()
+		nutrition_calcium: Math.random(),
+		heart_rate:
+			MIN_HEART_RATE_AT_THE_MOMENT +
+			Math.floor(Math.random() * (MAX_HEART_RATE_AT_THE_MOMENT - MIN_HEART_RATE_AT_THE_MOMENT))
 	},
 
 	today: {
 		distance: Math.floor(Math.random() * MAX_DISTANCE_INPUT_DAY) / 10 / 100,
 		steps: Math.floor(Math.random() * MAX_STEPS_INPUT_DAY),
 		elevation: Math.floor(Math.random() * MAX_ELEVATION_INPUT_DAY),
-		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY)
+		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
+		heart_rate: MIN_HEART_RATE_DAY + Math.floor(Math.random() * (MAX_HEART_RATE_DAY - MIN_HEART_RATE_DAY))
 	},
 	week: {
-		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_WEEK) + MAX_CALORIES_BURNED_DAY
+		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_WEEK) + MAX_CALORIES_BURNED_DAY,
+		heart_rate: MIN_HEART_RATE_WEEK + Math.floor(Math.random() * (MAX_HEART_RATE_WEEK - MIN_HEART_RATE_WEEK))
 	}
 };
 
@@ -154,6 +165,10 @@ function get_health_info(screen) {
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_water']));
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_fats']));
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_calcium']));
+	} else if (screen == descriptions['heart_rate']) {
+		info.push(health_information.at_the_moment['heart_rate'] + ' ' + health['bpm']);
+		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
+		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);
 	}
 
 	return info;
