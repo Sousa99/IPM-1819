@@ -26,7 +26,8 @@ const MAX_SLEEP_TIME_MINUTES = 59;
 
 var sos = {
 	active: false,
-	time_delay: 30,
+	time_delays: [15, 30, 60],
+	time_delay_option: 0,
 	audio_emergency: new Audio(MATERIALS_DIR + '/Emergency.mp3'),
 	live_monitoring: false,
 };

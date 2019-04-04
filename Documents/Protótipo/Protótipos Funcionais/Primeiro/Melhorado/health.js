@@ -557,6 +557,27 @@ function build_sos_screen(canvas) {
 	});
 	if (sos.live_monitoring) sos_screen.sos_live_box.addChild(sos_screen.sos_live_box_tick);
 
+	sos_screen.time_delay_box = canvas.display.rectangle({
+		x: sos_screen.width / 2 - 1.3 * sos_screen.width / 10,
+		y: 0 * sos_screen.height / 10,
+		origin: { x: 'center', y: 'center' },
+		width: sos_screen.height / 7,
+		height: sos_screen.height / 13,
+		borderRadius: 5,
+		stroke: '2px ' + white
+	});
+	sos_screen.addChild(sos_screen.time_delay_box);
+
+	sos_screen.time_delay = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 15),
+		text: sos.time_delays[sos.time_delay_option] + ' ' + health['seconds'],
+		fill: white
+	});
+	sos_screen.time_delay_box.addChild(sos_screen.time_delay);
+
 	sos_screen.message.addChild(sos_screen.message_text);
 	sos_screen.message.addChild(sos_screen.message_hold);
 	sos_screen.addChild(sos_screen.message);
@@ -570,7 +591,7 @@ function build_sos_screen(canvas) {
 			changeScreen(canvas, build_sos_help_screen(canvas));
 		})
 		.bind('mouseenter', function() {
-			canvas.mouse.cursor("pointer");
+			canvas.mouse.cursor('pointer');
 		})
 		.bind('mouseleave', function() {
 			canvas.mouse.cursor('default');
@@ -581,6 +602,18 @@ function build_sos_screen(canvas) {
 			sos.live_monitoring = !sos.live_monitoring;
 			if (sos.live_monitoring) sos_screen.sos_live_box.addChild(sos_screen.sos_live_box_tick);
 			else sos_screen.sos_live_box.removeChild(sos_screen.sos_live_box_tick);
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	sos_screen.time_delay_box
+		.bind('click tap', function() {
+			sos.time_delay_option = (sos.time_delay_option + 1) % sos.time_delays.length;
+			sos_screen.time_delay.text = sos.time_delays[sos.time_delay_option] + ' ' + health['seconds'];
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');

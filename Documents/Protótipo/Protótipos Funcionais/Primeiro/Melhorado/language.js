@@ -147,7 +147,8 @@ const STRINGS_HEALTH = {
 		floors: 'Andares',
 		cal: 'Cal',
 		bpm: 'Bpm',
-		hours: 'Horas'
+		hours: 'Horas',
+		seconds: 's'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -190,7 +191,8 @@ const STRINGS_HEALTH = {
 		floors: 'Floors',
 		cal: 'Cal',
 		bpm: 'Bpm',
-		hours: 'Hours'
+		hours: 'Hours',
+		seconds: 's'
 	}
 };
 
