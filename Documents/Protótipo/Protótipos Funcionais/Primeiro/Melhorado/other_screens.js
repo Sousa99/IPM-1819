@@ -151,12 +151,10 @@ function build_frame(canvas) {
 				if (frame.emergency == 1) {
 					canvas.mouse.cancel();
 					canvas.touch.cancel();
-					changeScreen(canvas, build_sos_screen(canvas));
-					actual_screen.active = true;
-					actual_screen.message.fill = 'radial-gradient(' + '#FF5555' + ', ' + black + ')';
-					actual_screen.message_text.text = health['help_on_the_way'];
-					actual_screen.message_hold.text = health['press_5_seconds_cancel'];
-					actual_screen.message_hold.y = 0.5 * actual_screen.height / 10;
+					sos_screen = build_sos_screen(canvas);
+					changeScreen(canvas, sos_screen);
+					call_cancel_sos(sos_screen);
+					
 				}
 
 				frame.emergency -= 1;

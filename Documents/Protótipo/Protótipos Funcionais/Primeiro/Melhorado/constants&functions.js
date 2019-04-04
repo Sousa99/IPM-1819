@@ -24,6 +24,12 @@ const MAX_SLEEP_TIME_HOURS = 9;
 const MIN_SLEEP_TIME_MINUTES = 0;
 const MAX_SLEEP_TIME_MINUTES = 59;
 
+var sos = {
+	active: false,
+	time_delay: 30,
+	audio_emergency: new Audio(MATERIALS_DIR + '/Emergency.mp3')
+}
+
 var health_information = {
 	at_the_moment: {
 		nutrition_vitamins: Math.random(),
@@ -132,7 +138,7 @@ function add_lines(canvas, screen, startpoint, mode, list_image, active) {
 				links.push(link);
 			}
 
-			screen.addChild(link);
+			if (link != null) screen.addChild(link);
 		}
 
 		var line = canvas.display.line({
@@ -199,4 +205,23 @@ function get_health_info(screen) {
 	}
 
 	return info;
+}
+
+function call_cancel_sos(sos_screen) {
+	if (sos.active) {
+		sos.active = false;
+		sos_screen.message.fill = 'radial-gradient(' + white + ', ' + '#AAAAAA' + ')';
+		sos_screen.message_text.text = health['call_emergency'];
+		sos_screen.message_text.y = - 0.35 * sos_screen.height / 10;
+		sos_screen.message_hold.text = health['press_3_seconds'];
+		sos_screen.message_hold.y = 0.35 * sos_screen.height / 10;
+		frame.emergency = 5;
+	} else {
+		sos.active = true;
+		sos_screen.message.fill = 'radial-gradient(' + '#FF5555' + ', ' + '#bc2b2b' + ')';
+		sos_screen.message_text.text = health['help_on_the_way'];
+		sos_screen.message_text.y = - 0.65 * sos_screen.height / 10;
+		sos_screen.message_hold.text = health['press_5_seconds_cancel'];
+		sos_screen.message_hold.y = 0.5 * sos_screen.height / 10;
+	}
 }

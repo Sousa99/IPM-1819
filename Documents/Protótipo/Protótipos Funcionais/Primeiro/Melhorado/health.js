@@ -463,8 +463,6 @@ function build_sos_screen(canvas) {
 		description: descriptions['sos'],
 		description_show: false,
 		template: true,
-		active: false,
-		audio_emergency: new Audio(MATERIALS_DIR + '/Emergency.mp3'),
 		x: canvas.width / 2,
 		y: canvas.height / 2,
 		origin: { x: 'center', y: 'center' },
@@ -511,7 +509,7 @@ function build_sos_screen(canvas) {
 
 	sos_screen.message_text = canvas.display.text({
 		x: 0,
-		y: -0.35 * sos_screen.height / 10,
+		y: - 0.35 * sos_screen.height / 10,
 		origin: { x: 'center', y: 'center' },
 		align: 'center',
 		font: get_size_px(canvas, 17),
@@ -539,7 +537,9 @@ function build_sos_screen(canvas) {
 
 	sos_screen.addChild(sos_screen.live_monitoring);
 	sos_screen.addChild(sos_screen.emergency_delay);
-	links = add_lines(canvas, sos_screen, -1, 0);
+	links = add_lines(canvas, sos_screen, -1, -1);
+
+	// TODO: Add button
 
 	sos_screen.message.addChild(sos_screen.message_text);
 	sos_screen.message.addChild(sos_screen.message_hold);
@@ -560,23 +560,16 @@ function build_sos_screen(canvas) {
 			canvas.mouse.cursor('default');
 		});
 
+	if (sos.active) {
+		sos.active = false;
+		call_cancel_sos(sos_screen);
+	}
+
 	sos_screen.message.bind('mousedown touchstart', function() {
 		var check = function() {
 			if (canvas.mouse.buttonState == 'down') {
 				if (sos_screen.message_hold.text.indexOf('1') != -1) {
-					if (sos_screen.active) {
-						sos_screen.active = false;
-						sos_screen.message.fill = 'radial-gradient(' + white + ', ' + '#AAAAAA' + ')';
-						sos_screen.message_text.text = health['call_emergency'];
-						sos_screen.message_hold.text = health['press_3_seconds'];
-						sos_screen.message_hold.y = 0.35 * sos_screen.height / 10;
-					} else {
-						sos_screen.active = true;
-						sos_screen.message.fill = 'radial-gradient(' + '#FF5555' + ', ' + '#bc2b2b' + ')';
-						sos_screen.message_text.text = health['help_on_the_way'];
-						sos_screen.message_hold.text = health['press_5_seconds_cancel'];
-						sos_screen.message_hold.y = 0.5 * sos_screen.height / 10;
-					}
+					call_cancel_sos(sos_screen)
 				}
 
 				sos_screen.message_hold.text = sos_screen.message_hold.text.replace('2', '1');

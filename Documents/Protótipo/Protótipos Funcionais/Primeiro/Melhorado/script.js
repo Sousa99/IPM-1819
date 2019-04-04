@@ -98,17 +98,17 @@ function loadCanvas() {
 				break;
 
 			case descriptions['sos']:
-				if (!actual_screen.active && canvas.mouse.buttonState == 'up') {
+				if (!sos.active && canvas.mouse.buttonState == 'up') {
 					actual_screen.message_hold.text = health['press_3_seconds'];
-				} else if (actual_screen.active && canvas.mouse.buttonState == 'up') {
+				} else if (sos.active && canvas.mouse.buttonState == 'up') {
 					actual_screen.message_hold.text = health['press_5_seconds_cancel'];
 				}
+		}
 
-				if (actual_screen.active) {
-					actual_screen.audio_emergency.play();
-				} else {
-					actual_screen.audio_emergency.pause();
-				}
+		if (sos.active) {
+			sos.audio_emergency.play();
+		} else {
+			sos.audio_emergency.pause();
 		}
 
 		if (actual_screen.template)
