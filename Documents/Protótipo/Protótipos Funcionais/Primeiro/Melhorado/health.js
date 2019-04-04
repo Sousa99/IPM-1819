@@ -477,7 +477,7 @@ function build_sos_screen(canvas) {
 		y: -1 * sos_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
-		text: health['live'],
+		text: health['live_monitoring'],
 		fill: white
 	});
 
@@ -509,7 +509,7 @@ function build_sos_screen(canvas) {
 
 	sos_screen.message_text = canvas.display.text({
 		x: 0,
-		y: - 0.35 * sos_screen.height / 10,
+		y: -0.35 * sos_screen.height / 10,
 		origin: { x: 'center', y: 'center' },
 		align: 'center',
 		font: get_size_px(canvas, 17),
@@ -539,7 +539,23 @@ function build_sos_screen(canvas) {
 	sos_screen.addChild(sos_screen.emergency_delay);
 	links = add_lines(canvas, sos_screen, -1, -1);
 
-	// TODO: Add button
+	sos_screen.sos_live_box = canvas.display.ellipse({
+		x: sos_screen.width / 2 - 1 * sos_screen.width / 10,
+		y: -1 * sos_screen.height / 10,
+		radius: sos_screen.height / 30,
+		stroke: '2px ' + white
+	});
+	sos_screen.addChild(sos_screen.sos_live_box);
+
+	sos_screen.sos_live_box_tick = canvas.display.image({
+		x: +sos_screen.height / 40,
+		y: -sos_screen.height / 40,
+		origin: { x: 'center', y: 'center' },
+		width: sos_screen.height / 10,
+		height: sos_screen.height / 10,
+		image: MATERIALS_DIR + '/Tick.png'
+	});
+	if (sos.live_monitoring) sos_screen.sos_live_box.addChild(sos_screen.sos_live_box_tick);
 
 	sos_screen.message.addChild(sos_screen.message_text);
 	sos_screen.message.addChild(sos_screen.message_hold);
@@ -552,6 +568,19 @@ function build_sos_screen(canvas) {
 	sos_screen.sos_help_button
 		.bind('click tap', function() {
 			changeScreen(canvas, build_sos_help_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor("pointer");
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	sos_screen.sos_live_box
+		.bind('click tap', function() {
+			sos.live_monitoring = !sos.live_monitoring;
+			if (sos.live_monitoring) sos_screen.sos_live_box.addChild(sos_screen.sos_live_box_tick);
+			else sos_screen.sos_live_box.removeChild(sos_screen.sos_live_box_tick);
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
@@ -569,7 +598,7 @@ function build_sos_screen(canvas) {
 		var check = function() {
 			if (canvas.mouse.buttonState == 'down') {
 				if (sos_screen.message_hold.text.indexOf('1') != -1) {
-					call_cancel_sos(sos_screen)
+					call_cancel_sos(sos_screen);
 				}
 
 				sos_screen.message_hold.text = sos_screen.message_hold.text.replace('2', '1');

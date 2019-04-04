@@ -154,7 +154,6 @@ function build_frame(canvas) {
 					sos_screen = build_sos_screen(canvas);
 					changeScreen(canvas, sos_screen);
 					call_cancel_sos(sos_screen);
-					
 				}
 
 				frame.emergency -= 1;
