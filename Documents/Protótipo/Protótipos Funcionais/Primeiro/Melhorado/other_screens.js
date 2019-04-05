@@ -147,7 +147,7 @@ function build_frame(canvas) {
 
 	frame.button_back.bind('mousedown touchstart', function() {
 		var check = function() {
-			if (canvas.mouse.buttonState == 'down') {
+			if (canvas.mouse.buttonState == 'down' || canvas.touch.touchState == 'down') {
 				if (frame.emergency == 1) {
 					canvas.mouse.cancel();
 					canvas.touch.cancel();

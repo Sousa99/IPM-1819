@@ -629,7 +629,7 @@ function build_sos_screen(canvas) {
 
 	sos_screen.message.bind('mousedown touchstart', function() {
 		var check = function() {
-			if (canvas.mouse.buttonState == 'down') {
+			if (canvas.mouse.buttonState == 'down' || canvas.touch.touchState == 'down') {
 				if (sos_screen.message_hold.text.indexOf('1') != -1) {
 					call_cancel_sos(sos_screen);
 				}
