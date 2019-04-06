@@ -464,6 +464,28 @@ function build_blood_oxygen_screen(canvas) {
 		fill: white
 	});
 
+	blood_oxygen_screen.message = canvas.display.rectangle({
+		x: 0,
+		y: blood_oxygen_screen.height / 3,
+		origin: { x: 'center', y: 'center' },
+		width: blood_oxygen_screen.width / 2,
+		height: blood_oxygen_screen.height / 4,
+		borderRadius: 5,
+		fill: white
+	});
+
+	blood_oxygen_screen.message_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['new_measurement'],
+		fill: black
+	});
+
+	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
+	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
+
 	blood_oxygen_screen.addChild(blood_oxygen_screen.today);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.report);
@@ -1119,7 +1141,7 @@ function build_choose_activity_screen(canvas) {
 	choose_activity_screen.addChild(line_separating);
 
 	choose_activity_screen.walk_button = canvas.display.image({
-		x: -choose_activity_screen.width / 4.75,
+		x: -choose_activity_screen.width / 6,
 		y: -choose_activity_screen.height / 4.75 + 0.2 * choose_activity_screen.height / 2,
 		width: choose_activity_screen.width / 4.75,
 		height: choose_activity_screen.height / 4.75,
