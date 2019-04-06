@@ -187,7 +187,7 @@ function build_health_screen(canvas) {
 
 	health_screen.message_text = canvas.display.text({
 		x: 0,
-		y: -0.3 *health_screen.height / 10,
+		y: -0.3 * health_screen.height / 10,
 		origin: { x: 'center', y: 'center' },
 		align: 'left',
 		font: get_size_px(canvas, 14),
@@ -221,9 +221,9 @@ function build_health_screen(canvas) {
 	health_screen.addChild(health_screen.blood_pressure);
 	health_screen.addChild(health_screen.blood_oxygen);
 	health_screen.addChild(health_screen.sleep_time);
-	
+
 	links = add_lines(canvas, health_screen, -1, 0, images);
-	
+
 	health_screen.message.addChild(health_screen.message_text);
 	health_screen.message.addChild(health_screen.message_result);
 	health_screen.addChild(health_screen.message);
@@ -244,7 +244,6 @@ function build_health_screen(canvas) {
 
 	build_health_template(canvas, health_screen, 2);
 	health_screen.addChild(health_screen.health_help_button);
-	
 
 	return health_screen;
 }
@@ -483,13 +482,12 @@ function build_blood_oxygen_screen(canvas) {
 		fill: black
 	});
 
-	
 	blood_oxygen_screen.addChild(blood_oxygen_screen.today);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.report);
-	
+
 	links = add_lines(canvas, blood_oxygen_screen, -1.5, 0);
-	
+
 	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
 
@@ -1175,7 +1173,7 @@ function build_choose_activity_screen(canvas) {
 		origin: { x: 'center', y: 'center' },
 		image: MATERIALS_DIR + '/Activity-Run.png'
 	});
-	choose_activity_screen.cycle_button = canvas.display.image({
+	choose_activity_screen.bike_button = canvas.display.image({
 		x: -choose_activity_screen.width / 6,
 		y: +choose_activity_screen.height / 4.75 + 0.1 * choose_activity_screen.height / 2,
 		width: choose_activity_screen.width / 4.75,
@@ -1194,8 +1192,52 @@ function build_choose_activity_screen(canvas) {
 
 	choose_activity_screen.addChild(choose_activity_screen.walk_button);
 	choose_activity_screen.addChild(choose_activity_screen.run_button);
-	choose_activity_screen.addChild(choose_activity_screen.cycle_button);
+	choose_activity_screen.addChild(choose_activity_screen.bike_button);
 	choose_activity_screen.addChild(choose_activity_screen.gym_button);
+
+	choose_activity_screen.walk_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_activity_walk_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	choose_activity_screen.run_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_activity_run_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	choose_activity_screen.gym_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_activity_gym_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	choose_activity_screen.bike_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_activity_bike_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
 
 	return choose_activity_screen;
 }
@@ -1216,7 +1258,7 @@ function build_activity_walk_screen(canvas) {
 
 	activity_walk_screen.type = canvas.display.text({
 		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
-		y: -1.5 *activity_walk_screen.height / 10,
+		y: -1.5 * activity_walk_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['type'],
@@ -1287,7 +1329,7 @@ function build_activity_run_screen(canvas) {
 
 	activity_run_screen.type = canvas.display.text({
 		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
-		y: -1.5 *activity_run_screen.height / 10,
+		y: -1.5 * activity_run_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['type'],
@@ -1358,7 +1400,7 @@ function build_activity_gym_screen(canvas) {
 
 	activity_gym_screen.type = canvas.display.text({
 		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
-		y: -1.5 *activity_gym_screen.height / 10,
+		y: -1.5 * activity_gym_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['type'],
@@ -1429,7 +1471,7 @@ function build_activity_bike_screen(canvas) {
 
 	activity_bike_screen.type = canvas.display.text({
 		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
-		y: -1.5 *activity_bike_screen.height / 10,
+		y: -1.5 * activity_bike_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['type'],
