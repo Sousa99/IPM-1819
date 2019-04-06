@@ -15,6 +15,10 @@ const MAX_CALORIES_BURNED_DAY = 5000;
 const MAX_CALORIES_BURNED_WEEK = 30000;
 const MIN_HEART_RATE_AT_THE_MOMENT = 45;
 const MAX_HEART_RATE_AT_THE_MOMENT = 90;
+const MIN_SYSTOLIC_DAY = 120;
+const MAX_SYSTOLIC_DAY = 140;
+const MIN_DIASTOLIC_DAY = 70;
+const MAX_DIASTOLIC_DAY = 90;
 const MIN_HEART_RATE_DAY = 50;
 const MAX_HEART_RATE_DAY = 80;
 const MIN_HEART_RATE_WEEK = 50;
@@ -50,6 +54,8 @@ var health_information = {
 		elevation: Math.floor(Math.random() * MAX_ELEVATION_INPUT_DAY),
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
 		heart_rate: MIN_HEART_RATE_DAY + Math.floor(Math.random() * (MAX_HEART_RATE_DAY - MIN_HEART_RATE_DAY)),
+		systolic: MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY)),
+		diastolic:MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY)),
 		sleep_time_hours:
 			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
 		sleep_time_minutes:
@@ -63,6 +69,9 @@ var health_information = {
 		sleep_time_minutes:
 			MIN_SLEEP_TIME_MINUTES + Math.floor(Math.random() * (MAX_SLEEP_TIME_MINUTES - MIN_SLEEP_TIME_MINUTES))
 	}
+
+	
+
 };
 
 function get_size_px(canvas, px_size) {
@@ -189,7 +198,11 @@ function get_health_info(screen) {
 		info.push(health_information.at_the_moment['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);
-	} else if (screen == descriptions['sleep_time']) {
+	} else if (screen == descriptions['blood_pressure']) {
+		info.push(health_information.systolic['blood_pressure'] + ' ' + health['mmHg']);
+		info.push(health_information.diastolic['blood_pressure'] + ' ' + health['mmHg']);
+		info.push('healthy');
+	}else if (screen == descriptions['sleep_time']) {
 		info.push(
 			health_information.today['sleep_time_hours'] +
 				':' +

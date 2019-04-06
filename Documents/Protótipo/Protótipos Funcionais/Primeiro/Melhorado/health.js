@@ -168,6 +168,43 @@ function build_health_screen(canvas) {
 		fill: white
 	});
 
+	health_screen.circle_help_button = canvas.display.ellipse({
+		x: health_screen.width / 2.5,
+		y: health_screen.height / 2.5,
+		radius: health_screen.height / 15,
+		fill: black
+	});
+
+	health_screen.message = canvas.display.rectangle({
+		x: -0.35,
+		y: 1.5 * health_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: health_screen.width / 1.2,
+		height: 0.3* health_screen.width / 3,
+		borderRadius: 5,
+		fill: 'radial-gradient(' + white + ', ' + '#AAAAAA' + ')'
+	});
+
+	health_screen.message_text = canvas.display.text({
+		x: -0.35,
+		y: -0.35 *health_screen.height / 10,
+		origin: { x: 'left', y: 'left' },
+		align: 'left',
+		font: get_size_px(canvas, 10),
+		text: health['weekly_health_report'],
+		fill: black
+	});
+
+	health_screen.message_result = canvas.display.text({
+		x: -0.35,
+		y: 0.35 * health_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		align: 'left',
+		font: get_size_px(canvas, 17),
+		text: health['good'],
+		fill: black
+	});
+
 	health_screen.health_help_button
 		.bind('click tap', function() {
 			changeScreen(canvas, build_health_help_screen(canvas));
@@ -184,6 +221,12 @@ function build_health_screen(canvas) {
 	health_screen.addChild(health_screen.blood_pressure);
 	health_screen.addChild(health_screen.blood_oxygen);
 	health_screen.addChild(health_screen.sleep_time);
+	health_screen.message.addChild(health_screen.message_text);
+	health_screen.message.addChild(health_screen.message_result);
+	health_screen.addChild(health_screen.message);
+	health_screen.addChild(health_screen.circle_help_button);
+	
+
 	links = add_lines(canvas, health_screen, -1, 0, images);
 
 	links[0].bind('click tap', function() {
@@ -201,6 +244,7 @@ function build_health_screen(canvas) {
 
 	build_health_template(canvas, health_screen, 2);
 	health_screen.addChild(health_screen.health_help_button);
+	
 
 	return health_screen;
 }
@@ -347,11 +391,34 @@ function build_blood_pressure_screen(canvas) {
 		fill: white
 	});
 
+	blood_pressure_screen.message = canvas.display.rectangle({
+		x: 0,
+		y: blood_pressure_screen.height / 3,
+		origin: { x: 'center', y: 'center' },
+		width: blood_pressure_screen.width / 2,
+		height: blood_pressure_screen.height / 4,
+		borderRadius: 5,
+		fill: white
+	});
+
+	blood_pressure_screen.message_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['new_measurement'],
+		fill: black
+	});
+
 	blood_pressure_screen.addChild(blood_pressure_screen.systolic);
 	blood_pressure_screen.addChild(blood_pressure_screen.diastolic);
 	blood_pressure_screen.addChild(blood_pressure_screen.report);
 
-	links = add_lines(canvas, blood_pressure_screen, -1.5, 0);
+	var health_info = get_health_info(blood_pressure_screen.description);
+	links = add_lines(canvas, blood_pressure_screen, -1.5, 2, null, health_info);
+
+	blood_pressure_screen.message.addChild(blood_pressure_screen.message_text);
+	blood_pressure_screen.addChild(blood_pressure_screen.message);
 
 	return blood_pressure_screen;
 }

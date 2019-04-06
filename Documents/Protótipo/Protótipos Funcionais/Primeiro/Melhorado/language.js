@@ -124,6 +124,7 @@ const STRINGS_HEALTH = {
 		systolic: 'Sistólica',
 		diastolic: 'Diastólica',
 		report: 'Relatório',
+		new_measurement: 'Nova Medição',
 		live_monitoring: 'Monitorização Constante',
 		emergency_delay: 'Atraso da Emergência',
 		energy: 'Energia',
@@ -139,6 +140,7 @@ const STRINGS_HEALTH = {
 		water: 'Agua',
 		fat: 'Gorduras',
 		calcium: 'Cálcio',
+		weekly_health_report:' Relatório semanal de saúde',
 		call_emergency: 'CHAMAR EMERGÊNCIA',
 		press_3_seconds: 'Premir por 3 segundos',
 		help_on_the_way: 'AJUDA A CAMINHO',
@@ -148,7 +150,8 @@ const STRINGS_HEALTH = {
 		cal: 'Cal',
 		bpm: 'Bpm',
 		hours: 'Horas',
-		seconds: 's'
+		seconds: 's',
+		mmHg: 'mmHg'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -158,6 +161,7 @@ const STRINGS_HEALTH = {
 		blood_pressure: 'Blood Pressure',
 		blood_oxygen: 'Blood Oxygen',
 		sleep_time: 'Sleep Time',
+		weekly_health_report: 'Weekly Health Report',
 		at_the_moment: 'Live',
 		today: 'Today',
 		week: 'Weekly',
@@ -168,6 +172,7 @@ const STRINGS_HEALTH = {
 		systolic: 'Systolic',
 		diastolic: 'Diastolic',
 		report: 'Report',
+		new_measurement: 'New Measurement',
 		live_monitoring: 'Live Monitoring',
 		emergency_delay: 'Emergency Delay',
 		energy: 'Energy',
@@ -192,7 +197,8 @@ const STRINGS_HEALTH = {
 		cal: 'Cal',
 		bpm: 'Bpm',
 		hours: 'Hours',
-		seconds: 's'
+		seconds: 's',
+		mmHg: 'mmHg'
 	}
 };
 
