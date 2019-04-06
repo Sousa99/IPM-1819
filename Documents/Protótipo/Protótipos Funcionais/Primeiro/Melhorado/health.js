@@ -1285,7 +1285,7 @@ function build_activity_walk_screen(canvas) {
 
 	activity_walk_screen.share = canvas.display.text({
 		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
-		y: +0.5 * activity_walk_screen.height / 10,
+		y: +1.5 * activity_walk_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['share'],
@@ -1294,7 +1294,7 @@ function build_activity_walk_screen(canvas) {
 
 	activity_walk_screen.invite = canvas.display.text({
 		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
-		y: +0.5 * activity_walk_screen.height / 10,
+		y: +2.5 * activity_walk_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['invite'],
@@ -1356,7 +1356,7 @@ function build_activity_run_screen(canvas) {
 
 	activity_run_screen.share = canvas.display.text({
 		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
-		y: +0.5 * activity_run_screen.height / 10,
+		y: +1.5 * activity_run_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['share'],
@@ -1365,7 +1365,7 @@ function build_activity_run_screen(canvas) {
 
 	activity_run_screen.invite = canvas.display.text({
 		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
-		y: +0.5 * activity_run_screen.height / 10,
+		y: +2.5 * activity_run_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['invite'],
@@ -1427,7 +1427,7 @@ function build_activity_gym_screen(canvas) {
 
 	activity_gym_screen.share = canvas.display.text({
 		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
-		y: +0.5 * activity_gym_screen.height / 10,
+		y: +1.5 * activity_gym_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['share'],
@@ -1436,7 +1436,7 @@ function build_activity_gym_screen(canvas) {
 
 	activity_gym_screen.invite = canvas.display.text({
 		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
-		y: +0.5 * activity_gym_screen.height / 10,
+		y: +2.5 * activity_gym_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['invite'],
@@ -1498,7 +1498,7 @@ function build_activity_bike_screen(canvas) {
 
 	activity_bike_screen.share = canvas.display.text({
 		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
-		y: +0.5 * activity_gym_screen.height / 10,
+		y: +1.5 * activity_gym_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['share'],
@@ -1507,7 +1507,7 @@ function build_activity_bike_screen(canvas) {
 
 	activity_bike_screen.invite = canvas.display.text({
 		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
-		y: +0.5 * activity_bike_screen.height / 10,
+		y: +2.5 * activity_bike_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['invite'],
