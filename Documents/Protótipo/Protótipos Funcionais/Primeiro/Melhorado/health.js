@@ -811,6 +811,13 @@ function build_fitness_screen(canvas) {
 		fill: white
 	});
 
+	/*fitness_screen.circle_help_button = canvas.display.ellipse({
+		x: fitness_screen.width / 2.5,
+		y: fitness_screen.height / 2.5,
+		radius: fitness_screen.height / 15,
+		fill: black
+	});*/
+
 	fitness_screen.fitness_help_button = canvas.display.image({
 		x: fitness_screen.width / 2.5,
 		y: fitness_screen.height / 2.5,
@@ -871,6 +878,8 @@ function build_fitness_screen(canvas) {
 
 	build_health_template(canvas, fitness_screen, 0);
 	fitness_screen.addChild(fitness_screen.fitness_help_button);
+	fitness_screen.addChild(fitness_screen.fitness_graphic);
+	//fitness_screen.addChild(fitness_screen.circle_help_button);
 
 	fitness_screen.fitness_help_button
 		.bind('click tap', function() {
