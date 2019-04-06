@@ -176,18 +176,18 @@ function build_health_screen(canvas) {
 	});
 
 	health_screen.message = canvas.display.rectangle({
-		x: -0.3,
+		x: 0,
 		y: 1.5 * health_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
 		width: health_screen.width / 1.2,
-		height: 0.3* health_screen.width / 3,
+		height: 0.5 * health_screen.width / 3,
 		borderRadius: 5,
 		fill: 'radial-gradient(' + white + ', ' + '#AAAAAA' + ')'
 	});
 
 	health_screen.message_text = canvas.display.text({
-		x: -20,
-		y: -0.25 *health_screen.height / 10,
+		x: 0,
+		y: -0.3 *health_screen.height / 10,
 		origin: { x: 'center', y: 'center' },
 		align: 'left',
 		font: get_size_px(canvas, 14),
@@ -221,13 +221,13 @@ function build_health_screen(canvas) {
 	health_screen.addChild(health_screen.blood_pressure);
 	health_screen.addChild(health_screen.blood_oxygen);
 	health_screen.addChild(health_screen.sleep_time);
+	
+	links = add_lines(canvas, health_screen, -1, 0, images);
+	
 	health_screen.message.addChild(health_screen.message_text);
 	health_screen.message.addChild(health_screen.message_result);
 	health_screen.addChild(health_screen.message);
 	health_screen.addChild(health_screen.circle_help_button);
-	
-
-	links = add_lines(canvas, health_screen, -1, 0, images);
 
 	links[0].bind('click tap', function() {
 		changeScreen(canvas, build_heart_rate_screen(canvas));
@@ -483,14 +483,15 @@ function build_blood_oxygen_screen(canvas) {
 		fill: black
 	});
 
-	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
-	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
-
+	
 	blood_oxygen_screen.addChild(blood_oxygen_screen.today);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.report);
-
+	
 	links = add_lines(canvas, blood_oxygen_screen, -1.5, 0);
+	
+	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
+	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
 
 	return blood_oxygen_screen;
 }

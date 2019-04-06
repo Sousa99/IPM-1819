@@ -199,8 +199,8 @@ function get_health_info(screen) {
 		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);
 	} else if (screen == descriptions['blood_pressure']) {
-		info.push(health_information.systolic['blood_pressure'] + ' ' + health['mmHg']);
-		info.push(health_information.diastolic['blood_pressure'] + ' ' + health['mmHg']);
+		info.push(health_information.today['systolic'] + ' ' + health['mmHg']);
+		info.push(health_information.today['diastolic'] + ' ' + health['mmHg']);
 		info.push('healthy');
 	}else if (screen == descriptions['sleep_time']) {
 		info.push(
