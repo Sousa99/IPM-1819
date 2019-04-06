@@ -28,7 +28,11 @@ const STRINGS_DESCRIPTIONS = {
 		energy: 'Energia',
 		activity: 'Atividade',
 		nutrition: 'Nutrição',
-		choose_activity: 'Escolher atividade'
+		choose_activity: 'Escolher atividade',
+		activity_walk: 'Caminhada',
+		activity_run: 'Corrida',
+		activity_gym: 'Ginásio',
+		activity_bike: 'Bike'
 	},
 
 	en: {
@@ -61,7 +65,12 @@ const STRINGS_DESCRIPTIONS = {
 		energy: 'Energy',
 		activity: 'Activity',
 		nutrition: 'Nutrition',
-		choose_activity: 'Choose Activity'
+		choose_activity: 'Choose Activity',
+		activity_walk:'Walk',
+		activity_run: 'Run',
+		activity_gym: 'Gym',
+		activity_bike: 'Bike'
+
 	}
 };
 
@@ -151,7 +160,12 @@ const STRINGS_HEALTH = {
 		bpm: 'Bpm',
 		hours: 'Horas',
 		seconds: 's',
-		mmHg: 'mmHg'
+		mmHg: 'mmHg',
+		type: 'tipo',
+		route:'rota',
+		objective:'objetivo',
+		share: 'partilha',
+		invite: 'convite'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -198,7 +212,13 @@ const STRINGS_HEALTH = {
 		bpm: 'Bpm',
 		hours: 'Hours',
 		seconds: 's',
-		mmHg: 'mmHg'
+		mmHg: 'mmHg',
+		type: 'type',
+		route:'route',
+		objective: 'objective',
+		share: 'share',
+		invite: 'invite',
+		
 	}
 };
 

@@ -1180,3 +1180,287 @@ function build_choose_activity_screen(canvas) {
 
 	return choose_activity_screen;
 }
+
+function build_activity_walk_screen(canvas) {
+	var activity_walk_screen = canvas.display.rectangle({
+		description: descriptions['activity_walk'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	activity_walk_screen.type = canvas.display.text({
+		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
+		y: -1.5 *activity_walk_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['type'],
+		fill: white
+	});
+
+	activity_walk_screen.route = canvas.display.text({
+		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
+		y: -0.5 * activity_walk_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['route'],
+		fill: white
+	});
+
+	activity_walk_screen.objective = canvas.display.text({
+		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
+		y: +0.5 * activity_walk_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['objective'],
+		fill: white
+	});
+
+	activity_walk_screen.share = canvas.display.text({
+		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
+		y: +0.5 * activity_walk_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['share'],
+		fill: white
+	});
+
+	activity_walk_screen.invite = canvas.display.text({
+		x: -activity_walk_screen.width / 2 + activity_walk_screen.width / 10,
+		y: +0.5 * activity_walk_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['invite'],
+		fill: white
+	});
+
+	activity_walk_screen.addChild(activity_walk_screen.type);
+	activity_walk_screen.addChild(activity_walk_screen.route);
+	activity_walk_screen.addChild(activity_walk_screen.objective);
+	activity_walk_screen.addChild(activity_walk_screen.share);
+	activity_walk_screen.addChild(activity_walk_screen.invite);
+
+	var health_info = get_health_info(activity_walk_screen.description);
+	links = add_lines(canvas, activity_walk_screen, -1.5, 2, null, health_info);
+
+	return activity_walk_screen;
+}
+
+function build_activity_run_screen(canvas) {
+	var activity_run_screen = canvas.display.rectangle({
+		description: descriptions['activity_run'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	activity_run_screen.type = canvas.display.text({
+		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
+		y: -1.5 *activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['type'],
+		fill: white
+	});
+
+	activity_run_screen.route = canvas.display.text({
+		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
+		y: -0.5 * activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['route'],
+		fill: white
+	});
+
+	activity_run_screen.objective = canvas.display.text({
+		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
+		y: +0.5 * activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['objective'],
+		fill: white
+	});
+
+	activity_run_screen.share = canvas.display.text({
+		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
+		y: +0.5 * activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['share'],
+		fill: white
+	});
+
+	activity_run_screen.invite = canvas.display.text({
+		x: -activity_run_screen.width / 2 + activity_run_screen.width / 10,
+		y: +0.5 * activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['invite'],
+		fill: white
+	});
+
+	activity_run_screen.addChild(activity_run_screen.type);
+	activity_run_screen.addChild(activity_run_screen.route);
+	activity_run_screen.addChild(activity_run_screen.objective);
+	activity_run_screen.addChild(activity_run_screen.share);
+	activity_run_screen.addChild(activity_run_screen.invite);
+
+	var health_info = get_health_info(activity_run_screen.description);
+	links = add_lines(canvas, activity_run_screen, -1.5, 2, null, health_info);
+
+	return activity_run_screen;
+}
+
+function build_activity_gym_screen(canvas) {
+	var activity_gym_screen = canvas.display.rectangle({
+		description: descriptions['activity_gym'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	activity_gym_screen.type = canvas.display.text({
+		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
+		y: -1.5 *activity_gym_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['type'],
+		fill: white
+	});
+
+	activity_gym_screen.route = canvas.display.text({
+		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
+		y: -0.5 * activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['route'],
+		fill: white
+	});
+
+	activity_gym_screen.objective = canvas.display.text({
+		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
+		y: +0.5 * activity_gym_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['objective'],
+		fill: white
+	});
+
+	activity_gym_screen.share = canvas.display.text({
+		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
+		y: +0.5 * activity_gym_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['share'],
+		fill: white
+	});
+
+	activity_gym_screen.invite = canvas.display.text({
+		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
+		y: +0.5 * activity_gym_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['invite'],
+		fill: white
+	});
+
+	activity_gym_screen.addChild(activity_gym_screen.type);
+	activity_gym_screen.addChild(activity_gym_screen.route);
+	activity_gym_screen.addChild(activity_gym_screen.objective);
+	activity_gym_screen.addChild(activity_gym_screen.share);
+	activity_gym_screen.addChild(activity_gym_screen.invite);
+
+	var health_info = get_health_info(activity_gym_screen.description);
+	links = add_lines(canvas, activity_gym_screen, -1.5, 2, null, health_info);
+
+	return activity_gym_screen;
+}
+
+function build_activity_bike_screen(canvas) {
+	var activity_bike_screen = canvas.display.rectangle({
+		description: descriptions['activity_bike'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	activity_bike_screen.type = canvas.display.text({
+		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
+		y: -1.5 *activity_bike_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['type'],
+		fill: white
+	});
+
+	activity_bike_screen.route = canvas.display.text({
+		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
+		y: -0.5 * activity_run_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['route'],
+		fill: white
+	});
+
+	activity_bike_screen.objective = canvas.display.text({
+		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
+		y: +0.5 * activity_bike_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['objective'],
+		fill: white
+	});
+
+	activity_bike_screen.share = canvas.display.text({
+		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
+		y: +0.5 * activity_gym_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['share'],
+		fill: white
+	});
+
+	activity_bike_screen.invite = canvas.display.text({
+		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
+		y: +0.5 * activity_bike_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['invite'],
+		fill: white
+	});
+
+	activity_bike_screen.addChild(activity_bike_screen.type);
+	activity_bike_screen.addChild(activity_bike_screen.route);
+	activity_bike_screen.addChild(activity_bike_screen.objective);
+	activity_bike_screen.addChild(activity_bike_screen.share);
+	activity_bike_screen.addChild(activity_bike_screen.invite);
+
+	var health_info = get_health_info(activity_bike_screen.description);
+	links = add_lines(canvas, activity_bike_screen, -1.5, 2, null, health_info);
+
+	return activity_bike_screen;
+}

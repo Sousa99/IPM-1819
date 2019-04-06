@@ -142,6 +142,18 @@ function build_frame(canvas) {
 			case descriptions['choose_activity']:
 				changeScreen(canvas, build_activity_screen(canvas));
 				break;
+			case descriptions['activity_walk']:
+				changeScreen(canvas, build_activity_walk_screen(canvas));
+				break;
+			case descriptions['activity_run']:
+				changeScreen(canvas, build_activity_run_screen(canvas));
+				break;
+			case descriptions['activity_gym']:
+				changeScreen(canvas, build_activity_gym_screen(canvas));
+				break;
+			case descriptions['activity_bike']:
+				changeScreen(canvas, build_activity_bike_screen(canvas));
+				break;
 		}
 	});
 
