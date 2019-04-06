@@ -1141,32 +1141,32 @@ function build_choose_activity_screen(canvas) {
 	choose_activity_screen.addChild(line_separating);
 
 	choose_activity_screen.walk_button = canvas.display.image({
-		x: -choose_activity_screen.width / 6,
-		y: -choose_activity_screen.height / 4.75 + 0.2 * choose_activity_screen.height / 2,
+		x: -choose_activity_screen.width / 7,
+		y: -choose_activity_screen.height / 4.75 + 0.3 * choose_activity_screen.height / 2,
 		width: choose_activity_screen.width / 4.75,
 		height: choose_activity_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
 		image: MATERIALS_DIR + '/Activity-Walk.png'
 	});
 	choose_activity_screen.run_button = canvas.display.image({
-		x: +choose_activity_screen.width / 4.75,
-		y: -choose_activity_screen.height / 4.75 + 0.2 * choose_activity_screen.height / 2,
+		x: +choose_activity_screen.width / 6,
+		y: -choose_activity_screen.height / 4.75 + 0.3 * choose_activity_screen.height / 2,
 		width: choose_activity_screen.width / 4.75,
 		height: choose_activity_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
 		image: MATERIALS_DIR + '/Activity-Run.png'
 	});
 	choose_activity_screen.cycle_button = canvas.display.image({
-		x: -choose_activity_screen.width / 4.75,
-		y: +choose_activity_screen.height / 4.75 + 0.2 * choose_activity_screen.height / 2,
+		x: -choose_activity_screen.width / 6,
+		y: +choose_activity_screen.height / 4.75 + 0.1 * choose_activity_screen.height / 2,
 		width: choose_activity_screen.width / 4.75,
 		height: choose_activity_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
 		image: MATERIALS_DIR + '/Activity-Bike.png'
 	});
 	choose_activity_screen.gym_button = canvas.display.image({
-		x: +choose_activity_screen.width / 4.75,
-		y: +choose_activity_screen.height / 4.75 + 0.2 * choose_activity_screen.height / 2,
+		x: +choose_activity_screen.width / 6,
+		y: +choose_activity_screen.height / 4.75 + 0.1 * choose_activity_screen.height / 2,
 		width: choose_activity_screen.width / 4.75,
 		height: choose_activity_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
