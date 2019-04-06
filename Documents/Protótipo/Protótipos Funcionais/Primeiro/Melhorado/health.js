@@ -1409,7 +1409,7 @@ function build_activity_gym_screen(canvas) {
 
 	activity_gym_screen.route = canvas.display.text({
 		x: -activity_gym_screen.width / 2 + activity_gym_screen.width / 10,
-		y: -0.5 * activity_run_screen.height / 10,
+		y: -0.5 * activity_gym_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['route'],
@@ -1480,7 +1480,7 @@ function build_activity_bike_screen(canvas) {
 
 	activity_bike_screen.route = canvas.display.text({
 		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
-		y: -0.5 * activity_run_screen.height / 10,
+		y: -0.5 * activity_bike_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['route'],
@@ -1498,7 +1498,7 @@ function build_activity_bike_screen(canvas) {
 
 	activity_bike_screen.share = canvas.display.text({
 		x: -activity_bike_screen.width / 2 + activity_bike_screen.width / 10,
-		y: +1.5 * activity_gym_screen.height / 10,
+		y: +1.5 * activity_bike_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['share'],
