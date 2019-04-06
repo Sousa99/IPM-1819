@@ -176,7 +176,7 @@ function build_health_screen(canvas) {
 	});
 
 	health_screen.message = canvas.display.rectangle({
-		x: -0.35,
+		x: -0.3,
 		y: 1.5 * health_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
 		width: health_screen.width / 1.2,
@@ -186,21 +186,21 @@ function build_health_screen(canvas) {
 	});
 
 	health_screen.message_text = canvas.display.text({
-		x: -0.35,
-		y: -0.35 *health_screen.height / 10,
-		origin: { x: 'left', y: 'left' },
+		x: -20,
+		y: -0.25 *health_screen.height / 10,
+		origin: { x: 'center', y: 'center' },
 		align: 'left',
-		font: get_size_px(canvas, 10),
+		font: get_size_px(canvas, 14),
 		text: health['weekly_health_report'],
 		fill: black
 	});
 
 	health_screen.message_result = canvas.display.text({
-		x: -0.35,
-		y: 0.35 * health_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
+		x: 0,
+		y: 0.3 * health_screen.height / 10,
+		origin: { x: 'center', y: 'center' },
 		align: 'left',
-		font: get_size_px(canvas, 17),
+		font: get_size_px(canvas, 15),
 		text: health['good'],
 		fill: black
 	});
@@ -818,6 +818,16 @@ function build_fitness_screen(canvas) {
 		height: fitness_screen.height / 10,
 		origin: { x: 'center', y: 'center' },
 		image: MATERIALS_DIR + '/Help.png'
+	});
+
+	fitness_screen.fitness_graphic = canvas.display.image({
+		x: 0,
+		y: 1.1 * fitness_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: fitness_screen.width / 1.2,
+		height: 0.75 * fitness_screen.width / 3,
+		origin: { x: 'center', y: 'center' },
+		image: MATERIALS_DIR + '/Fitness_graphic_en.png'
 	});
 
 	var images = [ 'Energy.png', 'Activity.png', 'Nutrition.png' ];
