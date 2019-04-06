@@ -49,7 +49,7 @@ var health_information = {
 	},
 
 	today: {
-		distance: Math.floor(Math.random() * MAX_DISTANCE_INPUT_DAY) / 10 / 100,
+		distance: (Math.floor(Math.random() * MAX_DISTANCE_INPUT_DAY) / 10 / 100),
 		steps: Math.floor(Math.random() * MAX_STEPS_INPUT_DAY),
 		elevation: Math.floor(Math.random() * MAX_ELEVATION_INPUT_DAY),
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
@@ -69,9 +69,6 @@ var health_information = {
 		sleep_time_minutes:
 			MIN_SLEEP_TIME_MINUTES + Math.floor(Math.random() * (MAX_SLEEP_TIME_MINUTES - MIN_SLEEP_TIME_MINUTES))
 	}
-
-	
-
 };
 
 function get_size_px(canvas, px_size) {
@@ -199,10 +196,10 @@ function get_health_info(screen) {
 		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);
 	} else if (screen == descriptions['blood_pressure']) {
-		info.push(health_information.systolic['blood_pressure'] + ' ' + health['mmHg']);
-		info.push(health_information.diastolic['blood_pressure'] + ' ' + health['mmHg']);
+		info.push(health_information.today['systolic'] + ' ' + health['mmHg']);
+		info.push(health_information.today['diastolic'] + ' ' + health['mmHg']);
 		info.push('healthy');
-	}else if (screen == descriptions['sleep_time']) {
+	} else if (screen == descriptions['sleep_time']) {
 		info.push(
 			health_information.today['sleep_time_hours'] +
 				':' +

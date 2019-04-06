@@ -143,16 +143,16 @@ function build_frame(canvas) {
 				changeScreen(canvas, build_activity_screen(canvas));
 				break;
 			case descriptions['activity_walk']:
-				changeScreen(canvas, build_activity_walk_screen(canvas));
+				changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_run']:
-				changeScreen(canvas, build_activity_run_screen(canvas));
+				changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_gym']:
-				changeScreen(canvas, build_activity_gym_screen(canvas));
+				changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_bike']:
-				changeScreen(canvas, build_activity_bike_screen(canvas));
+				changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 		}
 	});
