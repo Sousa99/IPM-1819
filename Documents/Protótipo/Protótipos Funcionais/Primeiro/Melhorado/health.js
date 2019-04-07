@@ -264,7 +264,7 @@ function build_health_help_screen(canvas) {
 
 	health_help_screen.help_text = canvas.display.text({
 		x: 0,
-		y: 1 * health_help_screen.height / 22,
+		y: 0.95 * health_help_screen.height / 22,
 		origin: { x: 'center', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: others['help_health'],
@@ -757,10 +757,10 @@ function build_sos_help_screen(canvas) {
 
 	sos_help_screen.help_text = canvas.display.text({
 		x: 0,
-		y: -2 * sos_help_screen.height / 10,
+		y: 0.95 * sos_help_screen.height / 22,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 19),
-		text: others['help'],
+		font: get_size_px(canvas, 17),
+		text: others['help_sos'],
 		fill: white
 	});
 
@@ -909,12 +909,13 @@ function build_fitness_help_screen(canvas) {
 
 	fitness_help_screen.help_text = canvas.display.text({
 		x: 0,
-		y: -2 * fitness_help_screen.height / 10,
+		y: 0.95 * fitness_help_screen.height / 22,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 19),
-		text: others['help'],
+		font: get_size_px(canvas, 17),
+		text: others['help_fitness'],
 		fill: white
 	});
+
 
 	fitness_help_screen.addChild(fitness_help_screen.help_text);
 
@@ -962,13 +963,24 @@ function build_energy_screen(canvas) {
 		fill: white
 	});
 
+	energy_screen.energy_graphic = canvas.display.image({
+		x: 0,
+		y: 1.3 * energy_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: energy_screen.width / 1.2,
+		height: 0.75 * energy_screen.width / 3,
+		image: MATERIALS_DIR + '/Energy_graphic_en.png'
+	});
+
 	energy_screen.addChild(energy_screen.today);
 	energy_screen.addChild(energy_screen.weekly);
 	energy_screen.addChild(energy_screen.units);
+	
 
 	var health_info = get_health_info(energy_screen.description);
 	links = add_lines(canvas, energy_screen, -1.5, 2, null, health_info);
 
+	energy_screen.addChild(energy_screen.energy_graphic);
 	return energy_screen;
 }
 

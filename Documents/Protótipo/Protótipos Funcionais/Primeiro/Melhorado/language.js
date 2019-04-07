@@ -81,11 +81,15 @@ const STRINGS_DESCRIPTIONS = {
 const STRINGS_OTHERS = {
 	pt: {
 		friends_group: 'GRUPO DE AMIGOS',
-		help_health: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma 4 opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.'
+		help_health: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
+		help_sos: 'Premir o botão circular\npara estar sempre\nem modo sos.\n\nAtravés do botão retangular\nque indica o tempo de atraso\nde emergência, pode mudar\nesse tempo premindo algumas\nvezes até a opção que preferir.',
+		help_fitness: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
-		help_health: 'Help'
+		help_health: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
+		help_sos: 'Hold an cycle button\nto always be in sos mode.\n\nThrough the rectangle button\nthat have the emergency\ndelay time,you can change\nthis number,\nhold sometimes even your option\nthat you prefer.',
+		help_fitness: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.'
 	}
 };
 
