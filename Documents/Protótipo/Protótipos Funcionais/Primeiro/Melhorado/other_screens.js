@@ -158,6 +158,12 @@ function build_frame(canvas) {
 				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
 				else changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
+			case descriptions['cancel_activity']:
+				changeScreen(canvas, build_start_activity_screen(canvas));
+				break;
+			case descriptions['stop_activity']:
+				changeScreen(canvas, build_start_activity_screen(canvas));
+				break;
 		}
 	});
 

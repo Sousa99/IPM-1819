@@ -1395,8 +1395,7 @@ function build_start_activity_screen(canvas) {
 
 	activity_screen.cancel_button
 		.bind('click tap', function() {
-			fitness.started = false;
-			changeScreen(canvas, build_start_activity_screen(canvas));
+			changeScreen(canvas, build_cancel_activity_screen(canvas));
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
@@ -1407,8 +1406,7 @@ function build_start_activity_screen(canvas) {
 	
 	activity_screen.stop_button
 		.bind('click tap', function() {
-			fitness.started = false;
-			changeScreen(canvas, build_start_activity_screen(canvas));
+			changeScreen(canvas, build_stop_activity_screen(canvas));
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
@@ -1418,4 +1416,198 @@ function build_start_activity_screen(canvas) {
 		});
 
 	return activity_screen;
+}
+
+function build_cancel_activity_screen(canvas) {
+	var cancel_screen = canvas.display.rectangle({
+		description: descriptions['cancel_activity'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	cancel_screen.message = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		align: 'center',
+		font: get_size_px(canvas, 17),
+		text: health['cancel_activity'],
+		fill: white
+	});
+
+	cancel_screen.yes_button = canvas.display.rectangle({
+		x: + 0.41 * cancel_screen.width / 2,
+		y: 1.25 * cancel_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: 0.80 * cancel_screen.width / 4,
+		height: 0.60 * cancel_screen.width / 6,
+		borderRadius: 5,
+		fill: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'
+	});
+	cancel_screen.yes_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['yes'],
+		fill: black
+	});
+
+	cancel_screen.no_button = canvas.display.rectangle({
+		x: - 0.41 * cancel_screen.width / 2,
+		y: 1.25 * cancel_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: 0.80 * cancel_screen.width / 4,
+		height: 0.60 * cancel_screen.width / 6,
+		borderRadius: 5,
+		borderTopLeftRadius: 5,
+		fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
+	});
+	cancel_screen.no_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['no'],
+		fill: black
+	});
+
+	cancel_screen.yes_button.addChild(cancel_screen.yes_text);
+	cancel_screen.no_button.addChild(cancel_screen.no_text);
+	cancel_screen.addChild(cancel_screen.yes_button);
+	cancel_screen.addChild(cancel_screen.no_button);
+	cancel_screen.addChild(cancel_screen.message);
+	
+	cancel_screen.yes_button
+		.bind('click tap', function() {
+			fitness.started = false;
+			fitness.distance = 0;
+			fitness.calories = 0;
+			fitness.duration = 0;
+
+			changeScreen(canvas, build_start_activity_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	cancel_screen.no_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_start_activity_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	return cancel_screen;
+}
+
+function build_stop_activity_screen(canvas) {
+	var stop_screen = canvas.display.rectangle({
+		description: descriptions['stop_activity'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	stop_screen.message = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		align: 'center',
+		font: get_size_px(canvas, 17),
+		text: health['stop_activity'],
+		fill: white
+	});
+
+	stop_screen.yes_button = canvas.display.rectangle({
+		x: + 0.41 * stop_screen.width / 2,
+		y: 1.25 * stop_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: 0.80 * stop_screen.width / 4,
+		height: 0.60 * stop_screen.width / 6,
+		borderRadius: 5,
+		fill: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'
+	});
+	stop_screen.yes_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['yes'],
+		fill: black
+	});
+
+	stop_screen.no_button = canvas.display.rectangle({
+		x: - 0.41 * stop_screen.width / 2,
+		y: 1.25 * stop_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: 0.80 * stop_screen.width / 4,
+		height: 0.60 * stop_screen.width / 6,
+		borderRadius: 5,
+		borderTopLeftRadius: 5,
+		fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
+	});
+	stop_screen.no_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['no'],
+		fill: black
+	});
+
+	stop_screen.yes_button.addChild(stop_screen.yes_text);
+	stop_screen.no_button.addChild(stop_screen.no_text);
+	stop_screen.addChild(stop_screen.yes_button);
+	stop_screen.addChild(stop_screen.no_button);
+	stop_screen.addChild(stop_screen.message);
+	
+	stop_screen.yes_button
+		.bind('click tap', function() {
+			fitness.started = false;
+			fitness.distance = 0;
+			fitness.calories = 0;
+			fitness.duration = 0;
+
+			changeScreen(canvas, build_start_activity_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	stop_screen.no_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_start_activity_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	return stop_screen;
 }
