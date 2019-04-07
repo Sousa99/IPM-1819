@@ -536,12 +536,38 @@ function build_sleep_time_screen(canvas) {
 		fill: white
 	});
 
+	switch(language){
+		case 'pt':
+		sleep_time_screen.graphic = canvas.display.image({
+			x: 0,
+			y: 1.3 * sleep_time_screen.height / 4,
+			origin: { x: 'center', y: 'center' },
+			width: sleep_time_screen.width / 1.2,
+			height:  sleep_time_screen.width / 3,
+			image: MATERIALS_DIR + '/sleep_graph_pt.png'
+		});
+		break;
+		case 'en':
+		sleep_time_screen.graphic = canvas.display.image({
+			x: 0,
+			y: 1.3 * sleep_time_screen.height / 4,
+			origin: { x: 'center', y: 'center' },
+			width: sleep_time_screen.width / 1.2,
+			height:  sleep_time_screen.width / 3,
+			image: MATERIALS_DIR + '/sleep_graph_en.png'
+		});
+		break;
+	}
+
+	
 	sleep_time_screen.addChild(sleep_time_screen.today);
 	sleep_time_screen.addChild(sleep_time_screen.weekly);
 	sleep_time_screen.addChild(sleep_time_screen.report);
+	
 
 	var health_info = get_health_info(sleep_time_screen.description);
 	links = add_lines(canvas, sleep_time_screen, -1.5, 2, null, health_info);
+	sleep_time_screen.addChild(sleep_time_screen.graphic);
 
 	return sleep_time_screen;
 }
