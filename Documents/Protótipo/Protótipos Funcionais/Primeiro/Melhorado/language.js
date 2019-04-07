@@ -182,8 +182,8 @@ const STRINGS_HEALTH = {
 		objective:'objetivo',
 		share: 'Partilha',
 		invite: 'convite',
-		cancel_activity: 'Quer mesmo cancelar\na actividade?\n\nIrá perder todo o progresso!',
-		stop_activity: 'Quer mesmo parar\na actividade?\n\nO progresso será guardado!'
+		cancel_activity: 'Deseja mesmo cancelar\na actividade?\n\nIrá perder todo o progresso!',
+		stop_activity: 'Deseja mesmo parar\na actividade?\n\nO progresso será guardado!'
 	},
 	en: {
 		fitness: 'FITNESS',

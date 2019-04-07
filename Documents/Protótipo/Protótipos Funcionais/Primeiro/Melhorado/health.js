@@ -1359,7 +1359,7 @@ function build_start_activity_screen(canvas) {
 		origin: { x: 'center', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['start'],
-		fill: black
+		fill: white
 	});
 	activity_screen.start_button.addChild(activity_screen.start_text);
 
@@ -1371,7 +1371,7 @@ function build_start_activity_screen(canvas) {
 		height: 0.60 * activity_screen.width / 3,
 		borderBottomLeftRadius: 5,
 		borderTopLeftRadius: 5,
-		fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
+		fill: 'radial-gradient(' + white + ', ' + '#cccccc' + ')'
 	});
 	activity_screen.stop_button = canvas.display.rectangle({
 		x: 0.41 * activity_screen.width / 2,
@@ -1390,7 +1390,7 @@ function build_start_activity_screen(canvas) {
 		origin: { x: 'center', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['cancel'],
-		fill: black
+		fill: '#AA5555'
 	});
 	activity_screen.stop_text = canvas.display.text({
 		x: 0,
@@ -1398,7 +1398,7 @@ function build_start_activity_screen(canvas) {
 		origin: { x: 'center', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['stop'],
-		fill: black
+		fill: white
 	});
 
 	activity_screen.cancel_button.addChild(activity_screen.cancel_text);
