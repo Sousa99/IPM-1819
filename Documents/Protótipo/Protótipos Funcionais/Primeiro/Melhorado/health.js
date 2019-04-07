@@ -826,14 +826,29 @@ function build_fitness_screen(canvas) {
 		image: MATERIALS_DIR + '/Help.png'
 	});
 
-	fitness_screen.fitness_graphic = canvas.display.image({
-		x: 0,
-		y: 1.3 * fitness_screen.height / 4,
-		origin: { x: 'center', y: 'center' },
-		width: fitness_screen.width / 1.2,
-		height: 0.75 * fitness_screen.width / 3,
-		image: MATERIALS_DIR + '/Fitness_graphic_en.png'
-	});
+	switch(language){
+		case 'pt':
+		fitness_screen.fitness_graphic = canvas.display.image({
+			x: 0,
+			y: 1.3 * fitness_screen.height / 4,
+			origin: { x: 'center', y: 'center' },
+			width: fitness_screen.width / 1.4,
+			height: 0.75 * fitness_screen.width / 3,
+			image: MATERIALS_DIR + '/ftpt.png'
+		});
+		break;
+		case 'en':
+		fitness_screen.fitness_graphic = canvas.display.image({
+			x: 0,
+			y: 1.3 * fitness_screen.height / 4,
+			origin: { x: 'center', y: 'center' },
+			width: fitness_screen.width / 1.4,
+			height: 0.75 * fitness_screen.width / 3,
+			image: MATERIALS_DIR + '/ften.png'
+		});
+		break;
+	}
+
 
 	var images = [ 'Energy.png', 'Activity.png', 'Nutrition.png' ];
 	fitness_screen.addChild(fitness_screen.energy);
@@ -963,14 +978,29 @@ function build_energy_screen(canvas) {
 		fill: white
 	});
 
-	energy_screen.energy_graphic = canvas.display.image({
-		x: 0,
-		y: 1.3 * energy_screen.height / 4,
-		origin: { x: 'center', y: 'center' },
-		width: energy_screen.width / 1.2,
-		height: 0.75 * energy_screen.width / 3,
-		image: MATERIALS_DIR + '/Energy_graphic_en.png'
-	});
+	switch(language){
+		case 'pt':
+		energy_screen.energy_graphic = canvas.display.image({
+			x: 0,
+			y: 1.3 * energy_screen.height / 4,
+			origin: { x: 'center', y: 'center' },
+			width: energy_screen.width / 1.2,
+			height:  energy_screen.width / 3,
+			image: MATERIALS_DIR + '/egpt.png'
+		});
+		break;
+		case 'en':
+		energy_screen.energy_graphic = canvas.display.image({
+			x: 0,
+			y: 1.3 * energy_screen.height / 4,
+			origin: { x: 'center', y: 'center' },
+			width: energy_screen.width / 1.2,
+			height:  energy_screen.width / 3,
+			image: MATERIALS_DIR + '/egen.png'
+		});
+		break;
+	}
+
 
 	energy_screen.addChild(energy_screen.today);
 	energy_screen.addChild(energy_screen.weekly);
