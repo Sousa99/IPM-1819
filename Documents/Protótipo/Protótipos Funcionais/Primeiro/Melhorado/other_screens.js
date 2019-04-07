@@ -143,7 +143,7 @@ function build_frame(canvas) {
 				changeScreen(canvas, build_activity_screen(canvas));
 				break;
 			case descriptions['choose_activity_help']:
-				changeScreen(canvas, build_choose_activity_help_screen(canvas));
+				changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_walk']:
 				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
