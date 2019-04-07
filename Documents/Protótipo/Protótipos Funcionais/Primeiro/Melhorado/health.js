@@ -1315,11 +1315,11 @@ function build_start_activity_screen(canvas) {
 		info.push(fitness.calories + ' ' + health['cal'])
 	} else {
 		activity_screen.addChild(activity_screen.distance);
-		info.push(fitness.distance + ' ' + health['km']);
+		info.push((fitness.distance).toFixed(3) + ' ' + health['km']);
 	}
 
 	activity_screen.addChild(activity_screen.time);
-	info.push(fitness.duration + ' ' + health['minutes']);
+	info.push(Math.floor(fitness.duration) + ' ' + health['minutes']);
 
 	activity_screen.addChild(activity_screen.sharing);
 	info.push('none');

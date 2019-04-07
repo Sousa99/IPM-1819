@@ -116,31 +116,33 @@ function loadCanvas() {
 					fitness.distance += 0.001;
 					fitness.calories += 5;
 					fitness.steps += 1;
-					fitness.time += 1 / 60;
+					fitness.duration += 1 / 60;
 				}
 			} else if (fitness.type == 'activity_run') {
 				if (counter == 0) {
 					fitness.distance += 0.002;
 					fitness.calories += 8;
 					fitness.steps += 4;
-					fitness.time += 1 / 60;
+					fitness.duration += 1 / 60;
 				}
 			} else if (fitness.type == 'activity_gym') {
 				if (counter == 0) {
 					fitness.distance += 0.001;
 					fitness.calories += 10;
 					fitness.steps += 6;
-					fitness.time += 1 / 60;
+					fitness.duration += 1 / 60;
 				}
 			} else if (fitness.type == 'activity_bike') {
 				if (counter == 0) {
 					fitness.distance += 0.005;
 					fitness.calories += 10;
 					fitness.steps += 0;
-					fitness.time += 1 / 60;
+					fitness.duration += 1 / 60;
 				}
 			}
 		}
+
+		console.log(fitness.duration);
 
 		if (sos.active) {
 			sos.audio_emergency.play();

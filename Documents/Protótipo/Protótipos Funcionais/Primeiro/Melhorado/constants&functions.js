@@ -59,7 +59,7 @@ var health_information = {
 	},
 
 	today: {
-		distance: (Math.floor(Math.random() * MAX_DISTANCE_INPUT_DAY) / 10 / 100),
+		distance: (Math.random() * MAX_DISTANCE_INPUT_DAY) / 10 / 100,
 		steps: Math.floor(Math.random() * MAX_STEPS_INPUT_DAY),
 		elevation: Math.floor(Math.random() * MAX_ELEVATION_INPUT_DAY),
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
@@ -207,7 +207,7 @@ function get_qualitative_sleep_time(sleep_time) {
 function get_health_info(screen) {
 	var info = [];
 	if (screen == descriptions['activity']) {
-		info.push(health_information.today.distance + ' ' + health['km']);
+		info.push((health_information.today.distance).toFixed(3) + ' ' + health['km']);
 		info.push(health_information.today.steps);
 		info.push(health_information.today.elevation + ' ' + health['floors']);
 	} else if (screen == descriptions['energy']) {
