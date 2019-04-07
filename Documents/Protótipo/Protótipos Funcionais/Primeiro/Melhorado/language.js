@@ -29,6 +29,7 @@ const STRINGS_DESCRIPTIONS = {
 		activity: 'Atividade',
 		nutrition: 'Nutrição',
 		choose_activity: 'Escolher atividade',
+		choose_activity_help:'Ajuda(Escolha de Atividade)',
 		activity_walk: 'Caminhada',
 		activity_run: 'Corrida',
 		activity_gym: 'Ginásio',
@@ -68,6 +69,7 @@ const STRINGS_DESCRIPTIONS = {
 		activity: 'Activity',
 		nutrition: 'Nutrition',
 		choose_activity: 'Choose Activity',
+		choose_activity_help:'Help(Choose Activity)',
 		activity_walk:'Walk',
 		activity_run: 'Run',
 		activity_gym: 'Gym',
@@ -83,13 +85,15 @@ const STRINGS_OTHERS = {
 		friends_group: 'GRUPO DE AMIGOS',
 		help_health: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
 		help_sos: 'Premir o botão circular\npara estar sempre\nem modo sos.\n\nAtravés do botão retangular\nque indica o tempo de atraso\nde emergência, pode mudar\nesse tempo premindo algumas\nvezes até a opção que preferir.',
-		help_fitness: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.'
+		help_fitness: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
+		help_choose_activity:'\nPremir uma das 4 das atividades.\nEm cada uma delas pode\ncomeçar a mesma.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade- não fica\nguardado o progresso.\n\nParar a atividade- termina\na atividade\ncom o progresso guardado.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
 		help_health: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
 		help_sos: 'Hold an cycle button\nto always be in sos mode.\n\nThrough the rectangle button\nthat have the emergency\ndelay time,you can change\nthis number,\nhold sometimes even your option\nthat you prefer.',
-		help_fitness: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.'
+		help_fitness: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
+		help_choose_activity:'\nHold one of 4 activities.\nIn each one of activities\ncan start one of activities.\n\nFinally,you have 2 options:\n\nCancel the activity- the\nprogress wasn´t saved.\n\nStop the activity- finish\nthe activity with progress\nsaved.'
 	}
 };
 

@@ -1074,6 +1074,7 @@ function build_activity_screen(canvas) {
 		fill: black
 	});
 
+
 	activity_screen.addChild(activity_screen.distance);
 	activity_screen.addChild(activity_screen.steps);
 	activity_screen.addChild(activity_screen.elevation);
@@ -1233,6 +1234,22 @@ function build_choose_activity_screen(canvas) {
 		image: MATERIALS_DIR + '/Activity-Gym.png'
 	});
 
+	choose_activity_screen.circle_help_button = canvas.display.ellipse({
+		x: choose_activity_screen.width / 2.5,
+		y: choose_activity_screen.height / 2.5,
+		radius: choose_activity_screen.height / 15,
+		fill: black
+	});
+
+	choose_activity_screen.choose_activity_help_button = canvas.display.image({
+		x: choose_activity_screen.width / 2.5,
+		y: choose_activity_screen.height / 2.5,
+		width: choose_activity_screen.width / 10,
+		height: choose_activity_screen.height / 10,
+		origin: { x: 'center', y: 'center' },
+		image: MATERIALS_DIR + '/Help.png'
+	});
+
 	choose_activity_screen.addChild(choose_activity_screen.walk_button);
 	choose_activity_screen.addChild(choose_activity_screen.run_button);
 	choose_activity_screen.addChild(choose_activity_screen.bike_button);
@@ -1285,8 +1302,51 @@ function build_choose_activity_screen(canvas) {
 		.bind('mouseleave', function() {
 			canvas.mouse.cursor('default');
 		});
+	
+	choose_activity_screen.choose_activity_help_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_choose_activity_help_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
+
+	choose_activity_screen.addChild(choose_activity_screen.circle_help_button);
+	choose_activity_screen.addChild(choose_activity_screen.choose_activity_help_button);
 
 	return choose_activity_screen;
+}
+
+function build_choose_activity_help_screen(canvas) {
+	var choose_activity_help_screen = canvas.display.rectangle({
+		description: descriptions['choose_activity_help'],
+		description_show: true,
+		template: true,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	choose_activity_help_screen.help_text = canvas.display.text({
+		x: 0,
+		y: 0.95 * choose_activity_help_screen.height / 22,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: others['help_choose_activity'],
+		fill: white
+	});
+
+
+	choose_activity_help_screen.addChild(choose_activity_help_screen.help_text);
+
+	return choose_activity_help_screen;
 }
 
 function build_start_activity_screen(canvas) {
