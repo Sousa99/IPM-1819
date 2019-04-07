@@ -66,7 +66,7 @@ function loadCanvas() {
 
 	canvas.setLoop(function() {
 		var d = new Date();
-		counter = (counter + 1) % fps
+		counter = (counter + 1) % fps;
 
 		switch (actual_screen.description) {
 			case descriptions['main']:
@@ -108,6 +108,38 @@ function loadCanvas() {
 				} else if (sos.active && canvas.mouse.buttonState == 'up') {
 					actual_screen.message_hold.text = health['press_5_seconds_cancel'];
 				}
+		}
+
+		if (fitness.started) {
+			if (fitness.type == 'activity_walk') {
+				if (counter == 0) {
+					fitness.distance += 0.001;
+					fitness.calories += 5;
+					fitness.steps += 1;
+					fitness.time += 1 / 60;
+				}
+			} else if (fitness.type == 'activity_run') {
+				if (counter == 0) {
+					fitness.distance += 0.002;
+					fitness.calories += 8;
+					fitness.steps += 4;
+					fitness.time += 1 / 60;
+				}
+			} else if (fitness.type == 'activity_gym') {
+				if (counter == 0) {
+					fitness.distance += 0.001;
+					fitness.calories += 10;
+					fitness.steps += 6;
+					fitness.time += 1 / 60;
+				}
+			} else if (fitness.type == 'activity_bike') {
+				if (counter == 0) {
+					fitness.distance += 0.005;
+					fitness.calories += 10;
+					fitness.steps += 0;
+					fitness.time += 1 / 60;
+				}
+			}
 		}
 
 		if (sos.active) {

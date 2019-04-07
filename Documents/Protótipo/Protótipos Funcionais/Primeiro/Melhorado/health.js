@@ -1263,7 +1263,7 @@ function build_start_activity_screen(canvas) {
 
 	activity_screen.type = canvas.display.text({
 		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -2 * activity_screen.height / 10,
+		y: -2.5 * activity_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['type'],
@@ -1272,7 +1272,7 @@ function build_start_activity_screen(canvas) {
 
 	activity_screen.distance = canvas.display.text({
 		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -1 * activity_screen.height / 10,
+		y: -1.5 * activity_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['distance'],
@@ -1281,7 +1281,7 @@ function build_start_activity_screen(canvas) {
 	
 	activity_screen.calories = canvas.display.text({
 		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -1 * activity_screen.height / 10,
+		y: -1.5 * activity_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['energy'],
@@ -1290,7 +1290,7 @@ function build_start_activity_screen(canvas) {
 
 	activity_screen.time = canvas.display.text({
 		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: 0 * activity_screen.height / 10,
+		y: -0.5 * activity_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['duration'],
@@ -1299,7 +1299,7 @@ function build_start_activity_screen(canvas) {
 
 	activity_screen.sharing = canvas.display.text({
 		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: 1 * activity_screen.height / 10,
+		y: 0.5 * activity_screen.height / 10,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health['share'],
@@ -1324,11 +1324,11 @@ function build_start_activity_screen(canvas) {
 	activity_screen.addChild(activity_screen.sharing);
 	info.push('none');
 
-	activity_screen.links = add_lines(canvas, activity_screen, -2, 2, null, info);
+	activity_screen.links = add_lines(canvas, activity_screen, -2.5, 2, null, info);
 
 	activity_screen.sharing_box = canvas.display.ellipse({
 		x: activity_screen.width / 2 - 1 * activity_screen.width / 10,
-		y: 1 * activity_screen.height / 10,
+		y: 0.5 * activity_screen.height / 10,
 		radius: activity_screen.height / 30,
 		stroke: '2px ' + white
 	});
@@ -1627,9 +1627,14 @@ function build_stop_activity_screen(canvas) {
 	
 	stop_screen.yes_button
 		.bind('click tap', function() {
+			health_information.today.distance += fitness.distance;
+			health_information.today.calories += fitness.calories;
+			health_information.today.steps += fitness.steps;
+
 			fitness.started = false;
 			fitness.distance = 0;
 			fitness.calories = 0;
+			fitness.steps = 0;
 			fitness.duration = 0;
 
 			changeScreen(canvas, build_start_activity_screen(canvas));

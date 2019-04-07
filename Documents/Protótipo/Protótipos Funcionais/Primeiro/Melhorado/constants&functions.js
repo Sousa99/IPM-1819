@@ -42,6 +42,7 @@ var fitness = {
 	sharing: false,
 	distance: 0,
 	calories: 0,
+	steps: 0,
 	duration: 0
 }
 
