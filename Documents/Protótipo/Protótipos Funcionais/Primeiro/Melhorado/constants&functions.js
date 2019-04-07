@@ -233,7 +233,7 @@ function get_health_info(screen) {
 		info.push(
 			health_information.week['sleep_time_hours'] +
 				':' +
-				('0' + health_information.week['sleep_time_minutes']).slice(-2) +
+				('0' + health_information.today['sleep_time_minutes']).slice(-2) +
 				' ' +
 				health['hours']
 		);
