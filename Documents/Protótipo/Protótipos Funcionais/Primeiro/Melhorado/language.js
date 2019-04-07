@@ -77,7 +77,7 @@ const STRINGS_DESCRIPTIONS = {
 const STRINGS_OTHERS = {
 	pt: {
 		friends_group: 'GRUPO DE AMIGOS',
-		help_health: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma 4 opções dadas.\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.'
+		help_health: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma 4 opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
