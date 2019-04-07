@@ -264,10 +264,10 @@ function build_health_help_screen(canvas) {
 
 	health_help_screen.help_text = canvas.display.text({
 		x: 0,
-		y: -2 * health_help_screen.height / 10,
+		y: 1 * health_help_screen.height / 22,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 19),
-		text: others['help'],
+		font: get_size_px(canvas, 17),
+		text: others['help_health'],
 		fill: white
 	});
 
