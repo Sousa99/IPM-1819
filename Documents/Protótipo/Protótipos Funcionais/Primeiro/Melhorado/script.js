@@ -142,8 +142,6 @@ function loadCanvas() {
 			}
 		}
 
-		console.log(fitness.duration);
-
 		if (sos.active) {
 			sos.audio_emergency.play();
 		} else {
