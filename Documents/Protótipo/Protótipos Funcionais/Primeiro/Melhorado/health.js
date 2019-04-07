@@ -1297,6 +1297,15 @@ function build_start_activity_screen(canvas) {
 		fill: white
 	});
 
+	activity_screen.sharing = canvas.display.text({
+		x: -activity_screen.width / 2 + activity_screen.width / 10,
+		y: 1 * activity_screen.height / 10,
+		origin: { x: 'left', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health['share'],
+		fill: white
+	});
+
 	var info = [];
 	activity_screen.addChild(activity_screen.type);
 	info.push(activity_screen.description);
@@ -1310,9 +1319,30 @@ function build_start_activity_screen(canvas) {
 	}
 
 	activity_screen.addChild(activity_screen.time);
-	info.push(fitness.duration + ' ' + health['minutes'])
+	info.push(fitness.duration + ' ' + health['minutes']);
+
+	activity_screen.addChild(activity_screen.sharing);
+	info.push('none');
 
 	activity_screen.links = add_lines(canvas, activity_screen, -2, 2, null, info);
+
+	activity_screen.sharing_box = canvas.display.ellipse({
+		x: activity_screen.width / 2 - 1 * activity_screen.width / 10,
+		y: 1 * activity_screen.height / 10,
+		radius: activity_screen.height / 30,
+		stroke: '2px ' + white
+	});
+	activity_screen.addChild(activity_screen.sharing_box);
+
+	activity_screen.sharing_tick = canvas.display.image({
+		x: +activity_screen.height / 40,
+		y: -activity_screen.height / 40,
+		origin: { x: 'center', y: 'center' },
+		width: activity_screen.height / 10,
+		height: activity_screen.height / 10,
+		image: MATERIALS_DIR + '/Tick.png'
+	});
+	if (fitness.sharing) activity_screen.sharing_box.addChild(activity_screen.sharing_tick);
 
 	activity_screen.start_button = canvas.display.rectangle({
 		x: 0,
@@ -1380,6 +1410,19 @@ function build_start_activity_screen(canvas) {
 	} else {
 		activity_screen.addChild(activity_screen.start_button);
 	}
+
+	activity_screen.sharing_box
+		.bind('click tap', function() {
+			fitness.sharing = !fitness.sharing;
+			if (fitness.sharing) activity_screen.sharing_box.addChild(activity_screen.sharing_tick);
+			else activity_screen.sharing_box.removeChild(activity_screen.sharing_tick);
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
 
 	activity_screen.start_button
 		.bind('click tap', function() {

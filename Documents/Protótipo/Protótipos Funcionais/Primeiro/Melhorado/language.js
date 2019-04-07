@@ -180,7 +180,7 @@ const STRINGS_HEALTH = {
 		duration: 'Duração',
 		route:'rota',
 		objective:'objetivo',
-		share: 'partilha',
+		share: 'Partilha',
 		invite: 'convite',
 		cancel_activity: 'Quer mesmo cancelar\na actividade?\n\nIrá perder todo o progresso!',
 		stop_activity: 'Quer mesmo parar\na actividade?\n\nO progresso será guardado!'
@@ -246,7 +246,7 @@ const STRINGS_HEALTH = {
 		duration: 'Duration',
 		route:'route',
 		objective: 'objective',
-		share: 'share',
+		share: 'Share',
 		invite: 'invite',
 		cancel_activity: 'Do you really wish to\ncancel activity?\n\nYou will lose all progress!',
 		stop_activity: 'Do you really wish to\nstop this activity?\n\nThe progress will be saved!'

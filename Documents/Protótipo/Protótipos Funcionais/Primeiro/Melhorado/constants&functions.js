@@ -39,6 +39,7 @@ var sos = {
 var fitness = {
 	type: null,
 	started: false,
+	sharing: false,
 	distance: 0,
 	calories: 0,
 	duration: 0
@@ -122,7 +123,7 @@ function add_lines(canvas, screen, startpoint, mode, list_image, active) {
 					radius: screen.height / 30,
 					stroke: '2px ' + white
 				});
-			} else if (mode == 2 && active[i] != 'link') {
+			} else if (mode == 2 && active[i] != 'link' && active[i] != 'none') {
 				link = canvas.display.text({
 					x: screen.width / 2 - 0.5 * screen.width / 10,
 					y: (i + startpoint) * screen.height / 10,
