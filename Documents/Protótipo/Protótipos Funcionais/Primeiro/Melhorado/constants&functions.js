@@ -55,7 +55,8 @@ var health_information = {
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
 		heart_rate: MIN_HEART_RATE_DAY + Math.floor(Math.random() * (MAX_HEART_RATE_DAY - MIN_HEART_RATE_DAY)),
 		systolic: MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY)),
-		diastolic:MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY)),
+		diastolic: MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY)),
+		blood_oxygen: (Math.random() / 2) + 0.50,
 		sleep_time_hours:
 			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
 		sleep_time_minutes:
@@ -64,6 +65,7 @@ var health_information = {
 	week: {
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_WEEK) + MAX_CALORIES_BURNED_DAY,
 		heart_rate: MIN_HEART_RATE_WEEK + Math.floor(Math.random() * (MAX_HEART_RATE_WEEK - MIN_HEART_RATE_WEEK)),
+		blood_oxygen: (Math.random() / 2) + 0.50,
 		sleep_time_hours:
 			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
 		sleep_time_minutes:
@@ -175,6 +177,23 @@ function get_qualitative(value) {
 	else return health['excellent'];
 }
 
+function get_qualitative_blood_pressure(systolic, diastolic) {
+	if (systolic < 120 && diastolic < 80) return health['normal'];
+	else if (systolic <= 129 && diastolic < 80) return health['elevated'];
+	else return health['hypertension'];
+}
+
+function get_qualitative_blood_oxygen(percentage) {
+	if (percentage >= 0.85) return health['normal'];
+	else if (percentage >= 0.65) return health['low'];
+	else return health['very_low'];
+}
+
+function get_qualitative_sleep_time(sleep_time) {
+	if (sleep_time > 7 && sleep_time < 9) return health['good'];
+	else return health['bad'];
+}
+
 function get_health_info(screen) {
 	var info = [];
 	if (screen == descriptions['activity']) {
@@ -198,7 +217,11 @@ function get_health_info(screen) {
 	} else if (screen == descriptions['blood_pressure']) {
 		info.push(health_information.today['systolic'] + ' ' + health['mmHg']);
 		info.push(health_information.today['diastolic'] + ' ' + health['mmHg']);
-		info.push('healthy');
+		info.push(get_qualitative_blood_pressure(health_information.today['systolic'], health_information.today['diastolic']));
+	} else if (screen == descriptions['blood_oxygen']) {
+		info.push(Math.floor(health_information.today['blood_oxygen'] * 100));
+		info.push(Math.floor(health_information.week['blood_oxygen'] * 100));
+		info.push(get_qualitative_blood_oxygen(health_information.today['blood_oxygen']));
 	} else if (screen == descriptions['sleep_time']) {
 		info.push(
 			health_information.today['sleep_time_hours'] +
@@ -214,6 +237,7 @@ function get_health_info(screen) {
 				' ' +
 				health['hours']
 		);
+		info.push(get_qualitative_sleep_time(health_information.week['sleep_time_hours']));
 	}
 
 	return info;

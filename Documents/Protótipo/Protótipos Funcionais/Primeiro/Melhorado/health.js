@@ -394,7 +394,7 @@ function build_blood_pressure_screen(canvas) {
 		x: 0,
 		y: blood_pressure_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		width: blood_pressure_screen.width / 2,
+		width: 1.25 * blood_pressure_screen.width / 2,
 		height: blood_pressure_screen.height / 4,
 		borderRadius: 5,
 		fill: white
@@ -467,7 +467,7 @@ function build_blood_oxygen_screen(canvas) {
 		x: 0,
 		y: blood_oxygen_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		width: blood_oxygen_screen.width / 2,
+		width: 1.25 * blood_oxygen_screen.width / 2,
 		height: blood_oxygen_screen.height / 4,
 		borderRadius: 5,
 		fill: white
@@ -486,7 +486,8 @@ function build_blood_oxygen_screen(canvas) {
 	blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.report);
 
-	links = add_lines(canvas, blood_oxygen_screen, -1.5, 0);
+	var health_info = get_health_info(blood_oxygen_screen.description);
+	links = add_lines(canvas, blood_oxygen_screen, -1.5, 2, null, health_info);
 
 	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
@@ -540,7 +541,6 @@ function build_sleep_time_screen(canvas) {
 	sleep_time_screen.addChild(sleep_time_screen.report);
 
 	var health_info = get_health_info(sleep_time_screen.description);
-	health_info.push('link');
 	links = add_lines(canvas, sleep_time_screen, -1.5, 2, null, health_info);
 
 	return sleep_time_screen;
