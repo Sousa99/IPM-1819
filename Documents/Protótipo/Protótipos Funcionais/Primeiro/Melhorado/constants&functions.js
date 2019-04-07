@@ -36,6 +36,14 @@ var sos = {
 	live_monitoring: false,
 };
 
+var fitness = {
+	type: null,
+	started: false,
+	distance: 0,
+	calories: 0,
+	duration: 0
+}
+
 var health_information = {
 	at_the_moment: {
 		nutrition_vitamins: Math.random(),

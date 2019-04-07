@@ -4,6 +4,9 @@ var frame;
 var description_bar;
 var friendsgroup = [];
 
+const fps = 60;
+var counter = 0;
+
 function changeScreen(canvas, new_screen) {
 	canvas.removeChild(actual_screen);
 	actual_screen = new_screen;
@@ -28,7 +31,7 @@ function loadCanvas() {
 
 	var canvas = oCanvas.create({
 		canvas: '#workzone',
-		fps: 60
+		fps: fps
 	});
 
 	var center = canvas.display
@@ -63,6 +66,8 @@ function loadCanvas() {
 
 	canvas.setLoop(function() {
 		var d = new Date();
+		counter = (counter + 1) % fps
+
 		switch (actual_screen.description) {
 			case descriptions['main']:
 				actual_screen.date.text =

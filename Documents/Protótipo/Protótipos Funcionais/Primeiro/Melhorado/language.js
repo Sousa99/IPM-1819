@@ -32,7 +32,7 @@ const STRINGS_DESCRIPTIONS = {
 		activity_walk: 'Caminhada',
 		activity_run: 'Corrida',
 		activity_gym: 'Ginásio',
-		activity_bike: 'Bike'
+		activity_bike: 'Bicicleta'
 	},
 
 	en: {
@@ -165,8 +165,13 @@ const STRINGS_HEALTH = {
 		bpm: 'Bpm',
 		hours: 'Horas',
 		seconds: 's',
+		minutes: 'm',
 		mmHg: 'mmHg',
-		type: 'tipo',
+		start: 'Começar',
+		stop: 'Parar',
+		cancel: 'Cancelar',
+		type: 'Tipo',
+		duration: 'Duração',
 		route:'rota',
 		objective:'objetivo',
 		share: 'partilha',
@@ -222,8 +227,13 @@ const STRINGS_HEALTH = {
 		bpm: 'Bpm',
 		hours: 'Hours',
 		seconds: 's',
+		minutes: 'm',
 		mmHg: 'mmHg',
-		type: 'type',
+		start: 'Start',
+		stop: 'Stop',
+		cancel: 'Cancel',
+		type: 'Type',
+		duration: 'Duration',
 		route:'route',
 		objective: 'objective',
 		share: 'share',
