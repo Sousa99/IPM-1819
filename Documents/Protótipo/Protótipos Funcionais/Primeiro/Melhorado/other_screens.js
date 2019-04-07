@@ -143,16 +143,26 @@ function build_frame(canvas) {
 				changeScreen(canvas, build_activity_screen(canvas));
 				break;
 			case descriptions['activity_walk']:
-				changeScreen(canvas, build_choose_activity_screen(canvas));
+				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
+				else changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_run']:
-				changeScreen(canvas, build_choose_activity_screen(canvas));
+				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
+				else changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_gym']:
-				changeScreen(canvas, build_choose_activity_screen(canvas));
+				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
+				else changeScreen(canvas, build_choose_activity_screen(canvas));
 				break;
 			case descriptions['activity_bike']:
-				changeScreen(canvas, build_choose_activity_screen(canvas));
+				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
+				else changeScreen(canvas, build_choose_activity_screen(canvas));
+				break;
+			case descriptions['cancel_activity']:
+				changeScreen(canvas, build_start_activity_screen(canvas));
+				break;
+			case descriptions['stop_activity']:
+				changeScreen(canvas, build_start_activity_screen(canvas));
 				break;
 		}
 	});

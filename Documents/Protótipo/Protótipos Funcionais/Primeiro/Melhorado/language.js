@@ -32,7 +32,9 @@ const STRINGS_DESCRIPTIONS = {
 		activity_walk: 'Caminhada',
 		activity_run: 'Corrida',
 		activity_gym: 'Ginásio',
-		activity_bike: 'Bike'
+		activity_bike: 'Bicicleta',
+		cancel_activity: 'Cancelar Atividade',
+		stop_activity: 'Parar Atividade'
 	},
 
 	en: {
@@ -69,7 +71,9 @@ const STRINGS_DESCRIPTIONS = {
 		activity_walk:'Walk',
 		activity_run: 'Run',
 		activity_gym: 'Gym',
-		activity_bike: 'Bike'
+		activity_bike: 'Bike',
+		cancel_activity: 'Cancel Activity',
+		stop_activity: 'Stop Activity'
 
 	}
 };
@@ -135,6 +139,8 @@ const STRINGS_HEALTH = {
 		normal: 'Normal',
 		elevated: 'Elevado',
 		hypertension: 'Hipertensão',
+		yes: 'Sim',
+		no: 'Não',
 		systolic: 'Sistólica',
 		diastolic: 'Diastólica',
 		report: 'Relatório',
@@ -165,12 +171,19 @@ const STRINGS_HEALTH = {
 		bpm: 'Bpm',
 		hours: 'Horas',
 		seconds: 's',
+		minutes: 'm',
 		mmHg: 'mmHg',
-		type: 'tipo',
+		start: 'Começar',
+		stop: 'Parar',
+		cancel: 'Cancelar',
+		type: 'Tipo',
+		duration: 'Duração',
 		route:'rota',
 		objective:'objetivo',
-		share: 'partilha',
-		invite: 'convite'
+		share: 'Partilha',
+		invite: 'convite',
+		cancel_activity: 'Quer mesmo cancelar\na actividade?\n\nIrá perder todo o progresso!',
+		stop_activity: 'Quer mesmo parar\na actividade?\n\nO progresso será guardado!'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -193,6 +206,8 @@ const STRINGS_HEALTH = {
 		normal: 'Normal',
 		elevated: 'Elevated',
 		hypertension: 'Hypertension',
+		yes: 'Yes',
+		no: 'No',
 		systolic: 'Systolic',
 		diastolic: 'Diastolic',
 		report: 'Report',
@@ -222,13 +237,19 @@ const STRINGS_HEALTH = {
 		bpm: 'Bpm',
 		hours: 'Hours',
 		seconds: 's',
+		minutes: 'm',
 		mmHg: 'mmHg',
-		type: 'type',
+		start: 'Start',
+		stop: 'Stop',
+		cancel: 'Cancel',
+		type: 'Type',
+		duration: 'Duration',
 		route:'route',
 		objective: 'objective',
-		share: 'share',
+		share: 'Share',
 		invite: 'invite',
-		
+		cancel_activity: 'Do you really wish to\ncancel activity?\n\nYou will lose all progress!',
+		stop_activity: 'Do you really wish to\nstop this activity?\n\nThe progress will be saved!'
 	}
 };
 
