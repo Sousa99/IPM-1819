@@ -1272,6 +1272,17 @@ function build_choose_activity_screen(canvas) {
 		.bind('mouseleave', function() {
 			canvas.mouse.cursor('default');
 		});
+	
+	choose_activity_screen.choose_activity_help_button
+		.bind('click tap', function() {
+			changeScreen(canvas, build_choose_activity_help_screen(canvas));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
 
 	choose_activity_screen.addChild(choose_activity_screen.circle_help_button);
 	choose_activity_screen.addChild(choose_activity_screen.choose_activity_help_button);
