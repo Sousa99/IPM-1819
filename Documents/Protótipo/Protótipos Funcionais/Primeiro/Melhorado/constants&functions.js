@@ -30,10 +30,10 @@ const MAX_SLEEP_TIME_MINUTES = 59;
 
 var sos = {
 	active: false,
-	time_delays: [15, 30, 60],
+	time_delays: [ 15, 30, 60 ],
 	time_delay_option: 0,
 	audio_emergency: new Audio(MATERIALS_DIR + '/Emergency.mp3'),
-	live_monitoring: false,
+	live_monitoring: false
 };
 
 var fitness = {
@@ -44,7 +44,7 @@ var fitness = {
 	calories: 0,
 	steps: 0,
 	duration: 0
-}
+};
 
 var health_information = {
 	at_the_moment: {
@@ -59,14 +59,14 @@ var health_information = {
 	},
 
 	today: {
-		distance: (Math.random() * MAX_DISTANCE_INPUT_DAY) / 10 / 100,
+		distance: Math.random() * MAX_DISTANCE_INPUT_DAY / 10 / 100,
 		steps: Math.floor(Math.random() * MAX_STEPS_INPUT_DAY),
 		elevation: Math.floor(Math.random() * MAX_ELEVATION_INPUT_DAY),
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_DAY),
 		heart_rate: MIN_HEART_RATE_DAY + Math.floor(Math.random() * (MAX_HEART_RATE_DAY - MIN_HEART_RATE_DAY)),
 		systolic: MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY)),
 		diastolic: MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY)),
-		blood_oxygen: (Math.random() / 2) + 0.50,
+		blood_oxygen: Math.random() / 2 + 0.5,
 		sleep_time_hours:
 			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
 		sleep_time_minutes:
@@ -75,7 +75,7 @@ var health_information = {
 	week: {
 		calories: Math.floor(Math.random() * MAX_CALORIES_BURNED_WEEK) + MAX_CALORIES_BURNED_DAY,
 		heart_rate: MIN_HEART_RATE_WEEK + Math.floor(Math.random() * (MAX_HEART_RATE_WEEK - MIN_HEART_RATE_WEEK)),
-		blood_oxygen: (Math.random() / 2) + 0.50,
+		blood_oxygen: Math.random() / 2 + 0.5,
 		sleep_time_hours:
 			MIN_SLEEP_TIME_HOURS + Math.floor(Math.random() * (MAX_SLEEP_TIME_HOURS - MIN_SLEEP_TIME_HOURS)),
 		sleep_time_minutes:
@@ -213,7 +213,7 @@ function get_qualitative_sleep_time(sleep_time) {
 function get_health_info(screen) {
 	var info = [];
 	if (screen == descriptions['activity']) {
-		info.push((health_information.today.distance).toFixed(3) + ' ' + health['km']);
+		info.push(health_information.today.distance.toFixed(3) + ' ' + health['km']);
 		info.push(health_information.today.steps);
 		info.push(health_information.today.elevation + ' ' + health['floors']);
 	} else if (screen == descriptions['energy']) {
@@ -226,14 +226,18 @@ function get_health_info(screen) {
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_fats']));
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_calcium']));
 	} else if (screen == descriptions['heart_rate']) {
-		health_information.at_the_moment.heart_rate = MIN_HEART_RATE_AT_THE_MOMENT + Math.floor(Math.random() * (MAX_HEART_RATE_AT_THE_MOMENT - MIN_HEART_RATE_AT_THE_MOMENT))
+		health_information.at_the_moment.heart_rate =
+			MIN_HEART_RATE_AT_THE_MOMENT +
+			Math.floor(Math.random() * (MAX_HEART_RATE_AT_THE_MOMENT - MIN_HEART_RATE_AT_THE_MOMENT));
 		info.push(health_information.at_the_moment['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);
 	} else if (screen == descriptions['blood_pressure']) {
 		info.push(health_information.today['systolic'] + ' ' + health['mmHg']);
 		info.push(health_information.today['diastolic'] + ' ' + health['mmHg']);
-		info.push(get_qualitative_blood_pressure(health_information.today['systolic'], health_information.today['diastolic']));
+		info.push(
+			get_qualitative_blood_pressure(health_information.today['systolic'], health_information.today['diastolic'])
+		);
 	} else if (screen == descriptions['blood_oxygen']) {
 		info.push(Math.floor(health_information.today['blood_oxygen'] * 100));
 		info.push(Math.floor(health_information.week['blood_oxygen'] * 100));

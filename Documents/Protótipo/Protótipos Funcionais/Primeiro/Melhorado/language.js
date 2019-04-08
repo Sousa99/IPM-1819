@@ -29,7 +29,7 @@ const STRINGS_DESCRIPTIONS = {
 		activity: 'Atividade',
 		nutrition: 'Nutrição',
 		choose_activity: 'Escolher atividade',
-		choose_activity_help:'Ajuda(Escolha de Atividade)',
+		choose_activity_help: 'Ajuda(Escolha de Atividade)',
 		activity_walk: 'Caminhada',
 		activity_run: 'Corrida',
 		activity_gym: 'Ginásio',
@@ -70,32 +70,39 @@ const STRINGS_DESCRIPTIONS = {
 		activity: 'Activity',
 		nutrition: 'Nutrition',
 		choose_activity: 'Choose Activity',
-		choose_activity_help:'Help(Choose Activity)',
-		activity_walk:'Walk',
+		choose_activity_help: 'Help(Choose Activity)',
+		activity_walk: 'Walk',
 		activity_run: 'Run',
 		activity_gym: 'Gym',
 		activity_bike: 'Bike',
 		cancel_activity: 'Cancel Activity',
 		stop_activity: 'Stop Activity',
 		new_measurement: 'New Measurement'
-
 	}
 };
 
 const STRINGS_OTHERS = {
 	pt: {
 		friends_group: 'GRUPO DE AMIGOS',
-		help_health: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
-		help_sos: 'Premir o botão circular\npara estar sempre\nem modo sos.\n\nAtravés do botão retangular\nque indica o tempo de atraso\nde emergência, pode mudar\nesse tempo premindo algumas\nvezes até a opção que preferir.',
-		help_fitness: 'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
-		help_choose_activity:'\nPremir uma das 4 das atividades.\nEm cada uma delas pode\ncomeçar a mesma.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade- não fica\nguardado o progresso.\n\nParar a atividade- termina\na atividade\ncom o progresso guardado.'
+		help_health:
+			'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
+		help_sos:
+			'Premir o botão circular\npara estar sempre\nem modo sos.\n\nAtravés do botão retangular\nque indica o tempo de atraso\nde emergência, pode mudar\nesse tempo premindo algumas\nvezes até a opção que preferir.',
+		help_fitness:
+			'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão\nlateral direito superior.\n\nPara bloqueio do dispositivo\npremir botão\ndireito lateral inferior.',
+		help_choose_activity:
+			'\nPremir uma das 4 das atividades.\nEm cada uma delas pode\ncomeçar a mesma.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade- não fica\nguardado o progresso.\n\nParar a atividade- termina\na atividade\ncom o progresso guardado.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
-		help_health: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
-		help_sos: 'Hold an cycle button\nto always be in sos mode.\n\nThrough the rectangle button\nthat have the emergency\ndelay time,you can change\nthis number,\nhold sometimes even your option\nthat you prefer.',
-		help_fitness: 'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
-		help_choose_activity:'\nHold one of 4 activities.\nIn each one of activities\ncan start one of activities.\n\nFinally,you have 2 options:\n\nCancel the activity- the\nprogress wasn´t saved.\n\nStop the activity- finish\nthe activity with progress\nsaved.'
+		help_health:
+			'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
+		help_sos:
+			'Hold an cycle button\nto always be in sos mode.\n\nThrough the rectangle button\nthat have the emergency\ndelay time,you can change\nthis number,\nhold sometimes even your option\nthat you prefer.',
+		help_fitness:
+			'Hold each arrows\nto have more information\nabout each options.\n\nIf you want to turn back\nhold the upper right\nside button.\n\nAnd to lock screen,\nhold the lower right\nside button.',
+		help_choose_activity:
+			'\nHold one of 4 activities.\nIn each one of activities\ncan start one of activities.\n\nFinally,you have 2 options:\n\nCancel the activity- the\nprogress wasn´t saved.\n\nStop the activity- finish\nthe activity with progress\nsaved.'
 	}
 };
 
@@ -171,7 +178,7 @@ const STRINGS_HEALTH = {
 		water: 'Agua',
 		fat: 'Gorduras',
 		calcium: 'Cálcio',
-		weekly_health_report:' Relatório semanal de saúde',
+		weekly_health_report: ' Relatório semanal de saúde',
 		call_emergency: 'CHAMAR EMERGÊNCIA',
 		press_3_seconds: 'Premir por 3 segundos',
 		help_on_the_way: 'AJUDA A CAMINHO',
@@ -189,8 +196,8 @@ const STRINGS_HEALTH = {
 		cancel: 'Cancelar',
 		type: 'Tipo',
 		duration: 'Duração',
-		route:'rota',
-		objective:'objetivo',
+		route: 'rota',
+		objective: 'objetivo',
 		share: 'Partilha',
 		invite: 'convite',
 		cancel_activity: 'Deseja mesmo cancelar\na actividade?\n\nIrá perder todo o progresso!',
@@ -259,7 +266,7 @@ const STRINGS_HEALTH = {
 		cancel: 'Cancel',
 		type: 'Type',
 		duration: 'Duration',
-		route:'route',
+		route: 'route',
 		objective: 'objective',
 		share: 'Share',
 		invite: 'invite',

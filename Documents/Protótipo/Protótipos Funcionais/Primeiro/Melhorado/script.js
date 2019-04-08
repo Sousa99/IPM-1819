@@ -113,11 +113,13 @@ function loadCanvas() {
 
 					switch (actual_screen.back_page) {
 						case 'blood_pressure':
-							health_information.today.systolic = MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY));
-							health_information.today.diastolic = MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY));
+							health_information.today.systolic =
+								MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY));
+							health_information.today.diastolic =
+								MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY));
 							break;
 						case 'blood_oxygen':
-							health_information.today.blood_oxygen = (Math.random() / 2) + 0.50;
+							health_information.today.blood_oxygen = Math.random() / 2 + 0.5;
 							break;
 					}
 				}
@@ -163,8 +165,14 @@ function loadCanvas() {
 				}
 			}
 
-			descriptions_valid = [descriptions['activity_walk'], descriptions['activity_run'], descriptions['activity_gym'], descriptions['activity_bike']]
-			if (counter == 0 && descriptions_valid.includes(actual_screen.description)) changeScreen(canvas, build_start_activity_screen(canvas));
+			descriptions_valid = [
+				descriptions['activity_walk'],
+				descriptions['activity_run'],
+				descriptions['activity_gym'],
+				descriptions['activity_bike']
+			];
+			if (counter == 0 && descriptions_valid.includes(actual_screen.description))
+				changeScreen(canvas, build_start_activity_screen(canvas));
 		}
 
 		if (sos.active) {

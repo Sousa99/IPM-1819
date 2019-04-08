@@ -319,21 +319,21 @@ function build_heart_rate_screen(canvas) {
 
 	heart_rate_screen.message = canvas.display.rectangle({
 		x: 0,
-		y: 0.90 * heart_rate_screen.height / 3,
+		y: 0.9 * heart_rate_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
 		width: 1.25 * heart_rate_screen.width / 2,
 		height: heart_rate_screen.height / 4,
 		borderRadius: 5,
 		fill: white
 	});
-	
+
 	heart_rate_screen.addChild(heart_rate_screen.live);
 	heart_rate_screen.addChild(heart_rate_screen.today);
 	heart_rate_screen.addChild(heart_rate_screen.weekly);
-	
+
 	var health_info = get_health_info(heart_rate_screen.description);
 	links = add_lines(canvas, heart_rate_screen, -1.5, 2, null, health_info);
-	
+
 	heart_rate_screen.message_text = canvas.display.text({
 		x: 0,
 		y: 0,
@@ -393,7 +393,7 @@ function build_blood_pressure_screen(canvas) {
 
 	blood_pressure_screen.message = canvas.display.rectangle({
 		x: 0,
-		y: 0.90 * blood_pressure_screen.height / 3,
+		y: 0.9 * blood_pressure_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
 		width: 1.25 * blood_pressure_screen.width / 2,
 		height: blood_pressure_screen.height / 4,
@@ -477,7 +477,7 @@ function build_blood_oxygen_screen(canvas) {
 
 	blood_oxygen_screen.message = canvas.display.rectangle({
 		x: 0,
-		y: 0.90 * blood_oxygen_screen.height / 3,
+		y: 0.9 * blood_oxygen_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
 		width: 1.25 * blood_oxygen_screen.width / 2,
 		height: blood_oxygen_screen.height / 4,
@@ -559,34 +559,32 @@ function build_sleep_time_screen(canvas) {
 		fill: white
 	});
 
-	switch(language){
+	switch (language) {
 		case 'pt':
-		sleep_time_screen.graphic = canvas.display.image({
-			x: 0,
-			y: 1.2 * sleep_time_screen.height / 4,
-			origin: { x: 'center', y: 'center' },
-			width: sleep_time_screen.width / 1.4,
-			height:  1.1 * sleep_time_screen.width / 3,
-			image: MATERIALS_DIR + '/sleep_graph_pt.png'
-		});
-		break;
+			sleep_time_screen.graphic = canvas.display.image({
+				x: 0,
+				y: 1.2 * sleep_time_screen.height / 4,
+				origin: { x: 'center', y: 'center' },
+				width: sleep_time_screen.width / 1.4,
+				height: 1.1 * sleep_time_screen.width / 3,
+				image: MATERIALS_DIR + '/sleep_graph_pt.png'
+			});
+			break;
 		case 'en':
-		sleep_time_screen.graphic = canvas.display.image({
-			x: 0,
-			y: 1.2 * sleep_time_screen.height / 4,
-			origin: { x: 'center', y: 'center' },
-			width: sleep_time_screen.width / 1.4,
-			height:  1.1 * sleep_time_screen.width / 3,
-			image: MATERIALS_DIR + '/sleep_graph_en.png'
-		});
-		break;
+			sleep_time_screen.graphic = canvas.display.image({
+				x: 0,
+				y: 1.2 * sleep_time_screen.height / 4,
+				origin: { x: 'center', y: 'center' },
+				width: sleep_time_screen.width / 1.4,
+				height: 1.1 * sleep_time_screen.width / 3,
+				image: MATERIALS_DIR + '/sleep_graph_en.png'
+			});
+			break;
 	}
 
-	
 	sleep_time_screen.addChild(sleep_time_screen.today);
 	sleep_time_screen.addChild(sleep_time_screen.weekly);
 	sleep_time_screen.addChild(sleep_time_screen.report);
-	
 
 	var health_info = get_health_info(sleep_time_screen.description);
 	links = add_lines(canvas, sleep_time_screen, -1.5, 2, null, health_info);
@@ -875,29 +873,28 @@ function build_fitness_screen(canvas) {
 		image: MATERIALS_DIR + '/Help.png'
 	});
 
-	switch(language){
+	switch (language) {
 		case 'pt':
-		fitness_screen.fitness_graphic = canvas.display.image({
-			x: 0,
-			y: 1.3 * fitness_screen.height / 4,
-			origin: { x: 'center', y: 'center' },
-			width: fitness_screen.width / 1.5,
-			height: 0.75 * fitness_screen.width / 3,
-			image: MATERIALS_DIR + '/ftpt.png'
-		});
-		break;
+			fitness_screen.fitness_graphic = canvas.display.image({
+				x: 0,
+				y: 1.3 * fitness_screen.height / 4,
+				origin: { x: 'center', y: 'center' },
+				width: fitness_screen.width / 1.5,
+				height: 0.75 * fitness_screen.width / 3,
+				image: MATERIALS_DIR + '/ftpt.png'
+			});
+			break;
 		case 'en':
-		fitness_screen.fitness_graphic = canvas.display.image({
-			x: 0,
-			y: 1.3 * fitness_screen.height / 4,
-			origin: { x: 'center', y: 'center' },
-			width: fitness_screen.width / 1.5,
-			height: 0.75 * fitness_screen.width / 3,
-			image: MATERIALS_DIR + '/ften.png'
-		});
-		break;
+			fitness_screen.fitness_graphic = canvas.display.image({
+				x: 0,
+				y: 1.3 * fitness_screen.height / 4,
+				origin: { x: 'center', y: 'center' },
+				width: fitness_screen.width / 1.5,
+				height: 0.75 * fitness_screen.width / 3,
+				image: MATERIALS_DIR + '/ften.png'
+			});
+			break;
 	}
-
 
 	var images = [ 'Energy.png', 'Activity.png', 'Nutrition.png' ];
 	fitness_screen.addChild(fitness_screen.energy);
@@ -980,7 +977,6 @@ function build_fitness_help_screen(canvas) {
 		fill: white
 	});
 
-
 	fitness_help_screen.addChild(fitness_help_screen.help_text);
 
 	return fitness_help_screen;
@@ -1018,27 +1014,27 @@ function build_energy_screen(canvas) {
 		fill: white
 	});
 
-	switch(language){
+	switch (language) {
 		case 'pt':
-		energy_screen.energy_graphic = canvas.display.image({
-			x: 0,
-			y: 1.2 * energy_screen.height / 4,
-			origin: { x: 'center', y: 'center' },
-			width: energy_screen.width / 1.4,
-			height:  1.1 * energy_screen.width / 3,
-			image: MATERIALS_DIR + '/egpt.png'
-		});
-		break;
+			energy_screen.energy_graphic = canvas.display.image({
+				x: 0,
+				y: 1.2 * energy_screen.height / 4,
+				origin: { x: 'center', y: 'center' },
+				width: energy_screen.width / 1.4,
+				height: 1.1 * energy_screen.width / 3,
+				image: MATERIALS_DIR + '/egpt.png'
+			});
+			break;
 		case 'en':
-		energy_screen.energy_graphic = canvas.display.image({
-			x: 0,
-			y: 1.2 * energy_screen.height / 4,
-			origin: { x: 'center', y: 'center' },
-			width: energy_screen.width / 1.4,
-			height:  1.1 * energy_screen.width / 3,
-			image: MATERIALS_DIR + '/egen.png'
-		});
-		break;
+			energy_screen.energy_graphic = canvas.display.image({
+				x: 0,
+				y: 1.2 * energy_screen.height / 4,
+				origin: { x: 'center', y: 'center' },
+				width: energy_screen.width / 1.4,
+				height: 1.1 * energy_screen.width / 3,
+				image: MATERIALS_DIR + '/egen.png'
+			});
+			break;
 	}
 
 	energy_screen.addChild(energy_screen.today);
@@ -1110,7 +1106,6 @@ function build_activity_screen(canvas) {
 		text: health['start_activity'],
 		fill: black
 	});
-
 
 	activity_screen.addChild(activity_screen.distance);
 	activity_screen.addChild(activity_screen.steps);
@@ -1339,7 +1334,7 @@ function build_choose_activity_screen(canvas) {
 		.bind('mouseleave', function() {
 			canvas.mouse.cursor('default');
 		});
-	
+
 	choose_activity_screen.choose_activity_help_button
 		.bind('click tap', function() {
 			changeScreen(canvas, build_choose_activity_help_screen(canvas));
@@ -1380,7 +1375,6 @@ function build_choose_activity_help_screen(canvas) {
 		fill: white
 	});
 
-
 	choose_activity_help_screen.addChild(choose_activity_help_screen.help_text);
 
 	return choose_activity_help_screen;
@@ -1417,7 +1411,7 @@ function build_start_activity_screen(canvas) {
 		text: health['distance'],
 		fill: white
 	});
-	
+
 	activity_screen.calories = canvas.display.text({
 		x: -activity_screen.width / 2 + activity_screen.width / 10,
 		y: -1.5 * activity_screen.height / 10,
@@ -1451,10 +1445,10 @@ function build_start_activity_screen(canvas) {
 
 	if (activity_screen.description == descriptions['activity_gym']) {
 		activity_screen.addChild(activity_screen.calories);
-		info.push(fitness.calories + ' ' + health['cal'])
+		info.push(fitness.calories + ' ' + health['cal']);
 	} else {
 		activity_screen.addChild(activity_screen.distance);
-		info.push((fitness.distance).toFixed(3) + ' ' + health['km']);
+		info.push(fitness.distance.toFixed(3) + ' ' + health['km']);
 	}
 
 	activity_screen.addChild(activity_screen.time);
@@ -1488,7 +1482,7 @@ function build_start_activity_screen(canvas) {
 		y: 1.25 * activity_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
 		width: activity_screen.width / 1.2,
-		height: 0.60 * activity_screen.width / 3,
+		height: 0.6 * activity_screen.width / 3,
 		borderRadius: 5,
 		fill: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'
 	});
@@ -1503,11 +1497,11 @@ function build_start_activity_screen(canvas) {
 	activity_screen.start_button.addChild(activity_screen.start_text);
 
 	activity_screen.cancel_button = canvas.display.rectangle({
-		x: - 0.41 * activity_screen.width / 2,
+		x: -0.41 * activity_screen.width / 2,
 		y: 1.25 * activity_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
-		width: 0.80 * activity_screen.width / 2,
-		height: 0.60 * activity_screen.width / 3,
+		width: 0.8 * activity_screen.width / 2,
+		height: 0.6 * activity_screen.width / 3,
 		borderBottomLeftRadius: 5,
 		borderTopLeftRadius: 5,
 		fill: 'radial-gradient(' + white + ', ' + '#cccccc' + ')'
@@ -1516,8 +1510,8 @@ function build_start_activity_screen(canvas) {
 		x: 0.41 * activity_screen.width / 2,
 		y: 1.25 * activity_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
-		width: 0.80 * activity_screen.width / 2,
-		height: 0.60 * activity_screen.width / 3,
+		width: 0.8 * activity_screen.width / 2,
+		height: 0.6 * activity_screen.width / 3,
 		borderBottomRightRadius: 5,
 		borderTopRightRadius: 5,
 		fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
@@ -1585,7 +1579,7 @@ function build_start_activity_screen(canvas) {
 		.bind('mouseleave', function() {
 			canvas.mouse.cursor('default');
 		});
-	
+
 	activity_screen.stop_button
 		.bind('click tap', function() {
 			changeScreen(canvas, build_stop_activity_screen(canvas));
@@ -1625,11 +1619,11 @@ function build_cancel_activity_screen(canvas) {
 	});
 
 	cancel_screen.yes_button = canvas.display.rectangle({
-		x: + 0.41 * cancel_screen.width / 2,
+		x: +0.41 * cancel_screen.width / 2,
 		y: 1.25 * cancel_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
-		width: 0.80 * cancel_screen.width / 4,
-		height: 0.60 * cancel_screen.width / 6,
+		width: 0.8 * cancel_screen.width / 4,
+		height: 0.6 * cancel_screen.width / 6,
 		borderRadius: 5,
 		fill: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'
 	});
@@ -1643,11 +1637,11 @@ function build_cancel_activity_screen(canvas) {
 	});
 
 	cancel_screen.no_button = canvas.display.rectangle({
-		x: - 0.41 * cancel_screen.width / 2,
+		x: -0.41 * cancel_screen.width / 2,
 		y: 1.25 * cancel_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
-		width: 0.80 * cancel_screen.width / 4,
-		height: 0.60 * cancel_screen.width / 6,
+		width: 0.8 * cancel_screen.width / 4,
+		height: 0.6 * cancel_screen.width / 6,
 		borderRadius: 5,
 		borderTopLeftRadius: 5,
 		fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
@@ -1666,7 +1660,7 @@ function build_cancel_activity_screen(canvas) {
 	cancel_screen.addChild(cancel_screen.yes_button);
 	cancel_screen.addChild(cancel_screen.no_button);
 	cancel_screen.addChild(cancel_screen.message);
-	
+
 	cancel_screen.yes_button
 		.bind('click tap', function() {
 			fitness.started = false;
@@ -1722,11 +1716,11 @@ function build_stop_activity_screen(canvas) {
 	});
 
 	stop_screen.yes_button = canvas.display.rectangle({
-		x: + 0.41 * stop_screen.width / 2,
+		x: +0.41 * stop_screen.width / 2,
 		y: 1.25 * stop_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
-		width: 0.80 * stop_screen.width / 4,
-		height: 0.60 * stop_screen.width / 6,
+		width: 0.8 * stop_screen.width / 4,
+		height: 0.6 * stop_screen.width / 6,
 		borderRadius: 5,
 		fill: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'
 	});
@@ -1740,11 +1734,11 @@ function build_stop_activity_screen(canvas) {
 	});
 
 	stop_screen.no_button = canvas.display.rectangle({
-		x: - 0.41 * stop_screen.width / 2,
+		x: -0.41 * stop_screen.width / 2,
 		y: 1.25 * stop_screen.height / 4,
 		origin: { x: 'center', y: 'center' },
-		width: 0.80 * stop_screen.width / 4,
-		height: 0.60 * stop_screen.width / 6,
+		width: 0.8 * stop_screen.width / 4,
+		height: 0.6 * stop_screen.width / 6,
 		borderRadius: 5,
 		borderTopLeftRadius: 5,
 		fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
@@ -1763,7 +1757,7 @@ function build_stop_activity_screen(canvas) {
 	stop_screen.addChild(stop_screen.yes_button);
 	stop_screen.addChild(stop_screen.no_button);
 	stop_screen.addChild(stop_screen.message);
-	
+
 	stop_screen.yes_button
 		.bind('click tap', function() {
 			health_information.today.distance += fitness.distance;
@@ -1817,7 +1811,7 @@ function build_new_measurement_screen(canvas, type) {
 
 	new_measurement_screen.type_text = canvas.display.text({
 		x: 0,
-		y: -0.60 * new_measurement_screen.height / 2,
+		y: -0.6 * new_measurement_screen.height / 2,
 		origin: { x: 'center', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: health[type],
@@ -1854,7 +1848,7 @@ function build_new_measurement_screen(canvas, type) {
 
 	new_measurement_screen.done_text = canvas.display.text({
 		x: 0,
-		y: 0.90 * new_measurement_screen.height / 2,
+		y: 0.9 * new_measurement_screen.height / 2,
 		origin: { x: 'center', y: 'center' },
 		font: get_size_px(canvas, 19),
 		text: health['done'],
