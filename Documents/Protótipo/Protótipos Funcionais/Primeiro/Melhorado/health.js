@@ -263,9 +263,9 @@ function build_health_help_screen(canvas) {
 	});
 
 	health_help_screen.help_text = canvas.display.text({
-		x: 0,
+		x: - 0.90 * health_help_screen.width / 2,
 		y: 0.95 * health_help_screen.height / 22,
-		origin: { x: 'center', y: 'center' },
+		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: others['help_health'],
 		fill: white
@@ -803,9 +803,9 @@ function build_sos_help_screen(canvas) {
 	});
 
 	sos_help_screen.help_text = canvas.display.text({
-		x: 0,
+		x: -0.90 * sos_help_screen.width / 2,
 		y: 0.95 * sos_help_screen.height / 22,
-		origin: { x: 'center', y: 'center' },
+		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: others['help_sos'],
 		fill: white
@@ -969,9 +969,9 @@ function build_fitness_help_screen(canvas) {
 	});
 
 	fitness_help_screen.help_text = canvas.display.text({
-		x: 0,
+		x: - 0.90 * fitness_help_screen.width / 2,
 		y: 0.95 * fitness_help_screen.height / 22,
-		origin: { x: 'center', y: 'center' },
+		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: others['help_fitness'],
 		fill: white
@@ -1367,9 +1367,9 @@ function build_choose_activity_help_screen(canvas) {
 	});
 
 	choose_activity_help_screen.help_text = canvas.display.text({
-		x: 0,
+		x: -0.90 * choose_activity_help_screen.width / 2,
 		y: 0.95 * choose_activity_help_screen.height / 22,
-		origin: { x: 'center', y: 'center' },
+		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
 		text: others['help_choose_activity'],
 		fill: white
