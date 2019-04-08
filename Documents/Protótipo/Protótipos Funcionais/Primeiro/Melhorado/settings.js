@@ -15,27 +15,10 @@ function build_settings_screen(canvas) {
 		borderRadius: 20,
 		fill: black
 	});
-	settings_screen.security = canvas.display.text({
-		x: -settings_screen.width / 2 + settings_screen.width / 10,
-		y: -2 * settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['lock_protection'],
-		fill: white
-	});
-	settings_screen.language = canvas.display.text({
-		x: -settings_screen.width / 2 + settings_screen.width / 10,
-		y: -settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['language'],
-		fill: white
-	});
 
-	settings_screen.addChild(settings_screen.security);
-	settings_screen.addChild(settings_screen.language);
-
-	var links = add_lines(canvas, settings_screen, -2, 0);
+	var options = [ settings['lock_protection'], settings['language'] ];
+	var link = [ 'link_arrow', 'link_arrow' ];
+	var links = add_lines(canvas, settings_screen, -2, options, link);
 
 	links[0].bind('click tap', function() {
 		changeScreen(canvas, build_lock_settings_screen(canvas));
@@ -60,37 +43,14 @@ function build_language_settings_screen(canvas) {
 		borderRadius: 20,
 		fill: black
 	});
-	language_settings_screen.portuguese = canvas.display.text({
-		x: -language_settings_screen.width / 2 + language_settings_screen.width / 10,
-		y: -2 * language_settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['portuguese'],
-		fill: white
-	});
-	language_settings_screen.english = canvas.display.text({
-		x: -language_settings_screen.width / 2 + language_settings_screen.width / 10,
-		y: -language_settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['english'],
-		fill: white
-	});
 
-	language_settings_screen.addChild(language_settings_screen.portuguese);
-	language_settings_screen.addChild(language_settings_screen.english);
+	var options = [ settings['portuguese'], settings['english'] ];
+	var link = [ 'link_option', 'link_option' ];
 
-	var active = -1;
-	switch (language) {
-		case 'pt':
-			active = 0;
-			break;
-		case 'en':
-			active = 1;
-			break;
-	}
+	if (language == 'pt') link[0] = 'link_option_active';
+	else if (language == 'en') link[1] = 'link_option_active';
 
-	var links = add_lines(canvas, language_settings_screen, -2, 1, null, active);
+	var links = add_lines(canvas, language_settings_screen, -2, options, link);
 
 	links[0].bind('click tap', function() {
 		if (!links[0].active) {
@@ -156,61 +116,16 @@ function build_lock_settings_screen(canvas) {
 		borderRadius: 20,
 		fill: black
 	});
-	lock_settings_screen.none = canvas.display.text({
-		x: -lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
-		y: -2 * lock_settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['none'],
-		fill: white
-	});
-	lock_settings_screen.pin = canvas.display.text({
-		x: -lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
-		y: -lock_settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['pin'],
-		fill: white
-	});
-	lock_settings_screen.pattern = canvas.display.text({
-		x: -lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
-		y: 0,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['pattern'],
-		fill: white
-	});
-	lock_settings_screen.fingerprint = canvas.display.text({
-		x: -lock_settings_screen.width / 2 + lock_settings_screen.width / 10,
-		y: +lock_settings_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: settings['fingerprint'],
-		fill: white
-	});
 
-	lock_settings_screen.addChild(lock_settings_screen.none);
-	lock_settings_screen.addChild(lock_settings_screen.pin);
-	lock_settings_screen.addChild(lock_settings_screen.pattern);
-	lock_settings_screen.addChild(lock_settings_screen.fingerprint);
+	var options = [ settings['none'], settings['pin'], settings['pattern'], settings['fingerprint'] ];
+	var link = [ 'link_option', 'link_option', 'link_option', 'link_option' ];
 
-	var active = -1;
-	switch (lock_screen_type) {
-		case 'none':
-			active = 0;
-			break;
-		case 'pin':
-			active = 1;
-			break;
-		case 'pattern':
-			active = 2;
-			break;
-		case 'fingerprint':
-			active = 3;
-			break;
-	}
+	if (lock_screen_type == 'none') link[0] = 'link_option_active';
+	else if (lock_screen_type == 'pin') link[1] = 'link_option_active';
+	else if (lock_screen_type == 'pattern') link[2] = 'link_option_active';
+	else if (lock_screen_type == 'fingerprint') link[3] = 'link_option_active';
 
-	var links = add_lines(canvas, lock_settings_screen, -2, 1, null, active);
+	var links = add_lines(canvas, lock_settings_screen, -2, options, link);
 
 	links[0].bind('click tap', function() {
 		if (!links[0].active) {

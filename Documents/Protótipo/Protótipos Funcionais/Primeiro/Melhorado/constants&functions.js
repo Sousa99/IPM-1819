@@ -87,80 +87,108 @@ function get_size_px(canvas, px_size) {
 	return px_size + 'px';
 }
 
-function add_lines(canvas, screen, startpoint, mode, list_image, active) {
+function add_lines(canvas, screen, startpoint, list_option, list_link, list_image, list_info) {
 	var links = [];
-	var number_options = screen.children.length;
-	for (var i = 0; i < number_options + 1; i++) {
-		if (i < number_options) {
-			var link;
+	var text_x = 1;
 
-			if (mode == 0 || (mode == 2 && active[i] == 'link')) {
-				link = canvas.display.image({
+	if (list_image != null) text_x += 0.6;
+
+	var options = list_option.length;
+	for (var i = 0; i < options; i++) {
+		var box = canvas.display.rectangle({
+			x: 0,
+			y: (i + startpoint) * screen.height / 10,
+			origin: { x: 'center', y: 'center' },
+			width: screen.width - screen.width / 10,
+			height: screen.height / 10,
+			fill: black
+		});
+
+		var text = canvas.display.text({
+			x: -screen.width / 2 + text_x * screen.width / 10,
+			y: 0,
+			origin: { x: 'left', y: 'center' },
+			font: get_size_px(canvas, 17),
+			text: list_option[i],
+			fill: white
+		});
+
+		box.addChild(text);
+		screen.addChild(box);
+
+		if (
+			list_link[i] == 'link' ||
+			list_link[i] == 'link_arrow' ||
+			list_link[i] == 'link_option' ||
+			list_link[i] == 'link_option_active'
+		) {
+			box
+				.bind('mouseenter', function() {
+					canvas.mouse.cursor('pointer');
+				})
+				.bind('mouseleave', function() {
+					canvas.mouse.cursor('default');
+				});
+			links.push(box);
+
+			if (list_link[i] == 'link_arrow') {
+				arrow = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
-					y: (i + startpoint) * screen.height / 10,
+					y: 0,
 					origin: { x: 'center', y: 'center' },
 					width: screen.height / 15,
 					height: screen.height / 15,
 					image: MATERIALS_DIR + '/Arrow-White.png'
 				});
-			} else if (mode == 1) {
-				var active_object = false;
-				if (i == active) {
-					active_object = true;
-					var choosen = canvas.display.ellipse({
-						x: screen.width / 2 - 1 * screen.width / 10,
-						y: (i + startpoint) * screen.height / 10,
-						radius: screen.height / 55,
-						fill: '#005dff'
-					});
-
-					screen.addChild(choosen);
-				}
-
-				link = canvas.display.ellipse({
-					active: active_object,
+				box.addChild(arrow);
+			} else if (list_link[i] == 'link_option' || list_link[i] == 'link_option_active') {
+				circle = canvas.display.ellipse({
+					//active: active_object,
 					x: screen.width / 2 - 1 * screen.width / 10,
-					y: (i + startpoint) * screen.height / 10,
+					y: 0,
 					radius: screen.height / 30,
 					stroke: '2px ' + white
 				});
-			} else if (mode == 2 && active[i] != 'link' && active[i] != 'none') {
-				link = canvas.display.text({
-					x: screen.width / 2 - 0.5 * screen.width / 10,
-					y: (i + startpoint) * screen.height / 10,
-					origin: { x: 'right', y: 'center' },
-					text: active[i],
-					fill: white
-				});
-			}
+				box.addChild(circle);
+				box.active = false;
 
-			if (list_image != null) {
-				var image = canvas.display.image({
-					x: -screen.width / 2 + 1 * screen.width / 10,
-					y: (i + startpoint) * screen.height / 10,
-					origin: { x: 'center', y: 'center' },
-					width: screen.height / 13,
-					height: screen.height / 13,
-					image: MATERIALS_DIR + '/' + list_image[i]
-				});
-
-				screen.addChild(image);
-			}
-
-			if ([ 0, 1 ].includes(mode) || (mode == 2 && active[i] == 'link')) {
-				link
-					.bind('mouseenter', function() {
-						canvas.mouse.cursor('pointer');
-					})
-					.bind('mouseleave', function() {
-						canvas.mouse.cursor('default');
+				if (list_link[i] == 'link_option_active') {
+					var choosen = canvas.display.ellipse({
+						x: screen.width / 2 - 1 * screen.width / 10,
+						y: 0,
+						radius: screen.height / 55,
+						fill: '#005dff'
 					});
-				links.push(link);
+					box.addChild(choosen);
+					box.active = true;
+				}
 			}
-
-			if (link != null) screen.addChild(link);
+		} else if (list_link[i] == 'text') {
+			info = canvas.display.text({
+				x: screen.width / 2 - 0.5 * screen.width / 10,
+				y: 0,
+				origin: { x: 'right', y: 'center' },
+				text: list_info[i],
+				fill: white
+			});
+			box.addChild(info);
 		}
 
+		if (list_image != null && list_image[i] != 'none') {
+			var image = canvas.display.image({
+				x: -screen.width / 2 + 1 * screen.width / 10,
+				y: 0,
+				origin: { x: 'center', y: 'center' },
+				width: screen.height / 13,
+				height: screen.height / 13,
+				image: MATERIALS_DIR + '/' + list_image[i]
+			});
+
+			box.addChild(image);
+		}
+	}
+
+	for (var i = 0; i < options + 1; i++) {
 		var line = canvas.display.line({
 			start: {
 				x: -screen.width / 2 + screen.width / 20,
@@ -239,8 +267,8 @@ function get_health_info(screen) {
 			get_qualitative_blood_pressure(health_information.today['systolic'], health_information.today['diastolic'])
 		);
 	} else if (screen == descriptions['blood_oxygen']) {
-		info.push(Math.floor(health_information.today['blood_oxygen'] * 100));
-		info.push(Math.floor(health_information.week['blood_oxygen'] * 100));
+		info.push(Math.floor(health_information.today['blood_oxygen'] * 100) + ' %');
+		info.push(Math.floor(health_information.week['blood_oxygen'] * 100) + ' %');
 		info.push(get_qualitative_blood_oxygen(health_information.today['blood_oxygen']));
 	} else if (screen == descriptions['sleep_time']) {
 		info.push(

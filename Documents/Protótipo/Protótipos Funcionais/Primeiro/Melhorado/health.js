@@ -134,40 +134,6 @@ function build_health_screen(canvas) {
 		origin: { x: 'center', y: 'center' },
 		image: MATERIALS_DIR + '/Help.png'
 	});
-
-	health_screen.heart_rate = canvas.display.text({
-		x: -health_screen.width / 2 + 1.6 * health_screen.width / 10,
-		y: -1 * health_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['heart_rate'],
-		fill: white
-	});
-	health_screen.blood_pressure = canvas.display.text({
-		x: -health_screen.width / 2 + 1.6 * health_screen.width / 10,
-		y: -0 * health_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['blood_pressure'],
-		fill: white
-	});
-	health_screen.blood_oxygen = canvas.display.text({
-		x: -health_screen.width / 2 + 1.6 * health_screen.width / 10,
-		y: +1 * health_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['blood_oxygen'],
-		fill: white
-	});
-	health_screen.sleep_time = canvas.display.text({
-		x: -health_screen.width / 2 + 1.6 * health_screen.width / 10,
-		y: +2 * health_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['sleep_time'],
-		fill: white
-	});
-
 	health_screen.circle_help_button = canvas.display.ellipse({
 		x: health_screen.width / 2.5,
 		y: health_screen.height / 2.5,
@@ -184,7 +150,6 @@ function build_health_screen(canvas) {
 		borderRadius: 5,
 		fill: 'radial-gradient(' + white + ', ' + '#AAAAAA' + ')'
 	});
-
 	health_screen.message_text = canvas.display.text({
 		x: 0,
 		y: -0.3 * health_screen.height / 10,
@@ -194,7 +159,6 @@ function build_health_screen(canvas) {
 		text: health['weekly_health_report'],
 		fill: black
 	});
-
 	health_screen.message_result = canvas.display.text({
 		x: 0,
 		y: 0.3 * health_screen.height / 10,
@@ -216,13 +180,11 @@ function build_health_screen(canvas) {
 			canvas.mouse.cursor('default');
 		});
 
+	var options = [ health['heart_rate'], health['blood_pressure'], health['blood_oxygen'], health['sleep_time'] ];
+	var link = [ 'link_arrow', 'link_arrow', 'link_arrow', 'link_arrow' ];
 	var images = [ 'Heart Rate.png', 'Blood Pressure.png', 'Blood Oxygen.png', 'Sleep Time.png' ];
-	health_screen.addChild(health_screen.heart_rate);
-	health_screen.addChild(health_screen.blood_pressure);
-	health_screen.addChild(health_screen.blood_oxygen);
-	health_screen.addChild(health_screen.sleep_time);
 
-	links = add_lines(canvas, health_screen, -1, 0, images);
+	links = add_lines(canvas, health_screen, -1, options, link, images);
 
 	health_screen.message.addChild(health_screen.message_text);
 	health_screen.message.addChild(health_screen.message_result);
@@ -263,7 +225,7 @@ function build_health_help_screen(canvas) {
 	});
 
 	health_help_screen.help_text = canvas.display.text({
-		x: - 0.90 * health_help_screen.width / 2,
+		x: -0.9 * health_help_screen.width / 2,
 		y: 0.95 * health_help_screen.height / 22,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
@@ -290,33 +252,6 @@ function build_heart_rate_screen(canvas) {
 		fill: black
 	});
 
-	heart_rate_screen.live = canvas.display.text({
-		x: -heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
-		y: -1.5 * heart_rate_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['at_the_moment'],
-		fill: white
-	});
-
-	heart_rate_screen.today = canvas.display.text({
-		x: -heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
-		y: -0.5 * heart_rate_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['today'],
-		fill: white
-	});
-
-	heart_rate_screen.weekly = canvas.display.text({
-		x: -heart_rate_screen.width / 2 + heart_rate_screen.width / 10,
-		y: +0.5 * heart_rate_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['week'],
-		fill: white
-	});
-
 	heart_rate_screen.message = canvas.display.rectangle({
 		x: 0,
 		y: 0.9 * heart_rate_screen.height / 3,
@@ -327,12 +262,11 @@ function build_heart_rate_screen(canvas) {
 		fill: white
 	});
 
-	heart_rate_screen.addChild(heart_rate_screen.live);
-	heart_rate_screen.addChild(heart_rate_screen.today);
-	heart_rate_screen.addChild(heart_rate_screen.weekly);
+	var options = [ health['at_the_moment'], health['today'], health['week'] ];
+	var link = [ 'text', 'text', 'text', 'text' ];
+	var info = get_health_info(heart_rate_screen.description);
 
-	var health_info = get_health_info(heart_rate_screen.description);
-	links = add_lines(canvas, heart_rate_screen, -1.5, 2, null, health_info);
+	links = add_lines(canvas, heart_rate_screen, -1.5, options, link, null, info);
 
 	heart_rate_screen.message_text = canvas.display.text({
 		x: 0,
@@ -364,33 +298,6 @@ function build_blood_pressure_screen(canvas) {
 		fill: black
 	});
 
-	blood_pressure_screen.systolic = canvas.display.text({
-		x: -blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
-		y: -1.5 * blood_pressure_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['systolic'],
-		fill: white
-	});
-
-	blood_pressure_screen.diastolic = canvas.display.text({
-		x: -blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
-		y: -0.5 * blood_pressure_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['diastolic'],
-		fill: white
-	});
-
-	blood_pressure_screen.report = canvas.display.text({
-		x: -blood_pressure_screen.width / 2 + blood_pressure_screen.width / 10,
-		y: +0.5 * blood_pressure_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['report'],
-		fill: white
-	});
-
 	blood_pressure_screen.message = canvas.display.rectangle({
 		x: 0,
 		y: 0.9 * blood_pressure_screen.height / 3,
@@ -410,12 +317,10 @@ function build_blood_pressure_screen(canvas) {
 		fill: black
 	});
 
-	blood_pressure_screen.addChild(blood_pressure_screen.systolic);
-	blood_pressure_screen.addChild(blood_pressure_screen.diastolic);
-	blood_pressure_screen.addChild(blood_pressure_screen.report);
-
-	var health_info = get_health_info(blood_pressure_screen.description);
-	links = add_lines(canvas, blood_pressure_screen, -1.5, 2, null, health_info);
+	var options = [ health['systolic'], health['diastolic'], health['report'] ];
+	var link = [ 'text', 'text', 'text', 'text' ];
+	var info = get_health_info(blood_pressure_screen.description);
+	links = add_lines(canvas, blood_pressure_screen, -1.5, options, link, null, info);
 
 	blood_pressure_screen.message.addChild(blood_pressure_screen.message_text);
 	blood_pressure_screen.addChild(blood_pressure_screen.message);
@@ -448,33 +353,6 @@ function build_blood_oxygen_screen(canvas) {
 		fill: black
 	});
 
-	blood_oxygen_screen.today = canvas.display.text({
-		x: -blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
-		y: -1.5 * blood_oxygen_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['today'],
-		fill: white
-	});
-
-	blood_oxygen_screen.weekly = canvas.display.text({
-		x: -blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
-		y: -0.5 * blood_oxygen_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['week'],
-		fill: white
-	});
-
-	blood_oxygen_screen.report = canvas.display.text({
-		x: -blood_oxygen_screen.width / 2 + blood_oxygen_screen.width / 10,
-		y: +0.5 * blood_oxygen_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['report'],
-		fill: white
-	});
-
 	blood_oxygen_screen.message = canvas.display.rectangle({
 		x: 0,
 		y: 0.9 * blood_oxygen_screen.height / 3,
@@ -494,12 +372,10 @@ function build_blood_oxygen_screen(canvas) {
 		fill: black
 	});
 
-	blood_oxygen_screen.addChild(blood_oxygen_screen.today);
-	blood_oxygen_screen.addChild(blood_oxygen_screen.weekly);
-	blood_oxygen_screen.addChild(blood_oxygen_screen.report);
-
-	var health_info = get_health_info(blood_oxygen_screen.description);
-	links = add_lines(canvas, blood_oxygen_screen, -1.5, 2, null, health_info);
+	var options = [ health['today'], health['week'], health['report'] ];
+	var link = [ 'text', 'text', 'text', 'text' ];
+	var info = get_health_info(blood_oxygen_screen.description);
+	links = add_lines(canvas, blood_oxygen_screen, -1.5, options, link, null, info);
 
 	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
@@ -532,33 +408,6 @@ function build_sleep_time_screen(canvas) {
 		fill: black
 	});
 
-	sleep_time_screen.today = canvas.display.text({
-		x: -sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
-		y: -1.5 * sleep_time_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['today'],
-		fill: white
-	});
-
-	sleep_time_screen.weekly = canvas.display.text({
-		x: -sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
-		y: -0.5 * sleep_time_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['week'],
-		fill: white
-	});
-
-	sleep_time_screen.report = canvas.display.text({
-		x: -sleep_time_screen.width / 2 + sleep_time_screen.width / 10,
-		y: +0.5 * sleep_time_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['report'],
-		fill: white
-	});
-
 	switch (language) {
 		case 'pt':
 			sleep_time_screen.graphic = canvas.display.image({
@@ -582,12 +431,11 @@ function build_sleep_time_screen(canvas) {
 			break;
 	}
 
-	sleep_time_screen.addChild(sleep_time_screen.today);
-	sleep_time_screen.addChild(sleep_time_screen.weekly);
-	sleep_time_screen.addChild(sleep_time_screen.report);
+	var options = [ health['today'], health['week'], health['report'] ];
+	var link = [ 'text', 'text', 'text', 'text' ];
+	var info = get_health_info(sleep_time_screen.description);
+	links = add_lines(canvas, sleep_time_screen, -1.5, options, link, null, info);
 
-	var health_info = get_health_info(sleep_time_screen.description);
-	links = add_lines(canvas, sleep_time_screen, -1.5, 2, null, health_info);
 	sleep_time_screen.addChild(sleep_time_screen.graphic);
 
 	return sleep_time_screen;
@@ -605,24 +453,6 @@ function build_sos_screen(canvas) {
 		height: SIZE_SCREEN,
 		borderRadius: 20,
 		fill: black
-	});
-
-	sos_screen.live_monitoring = canvas.display.text({
-		x: -sos_screen.width / 2 + sos_screen.width / 10,
-		y: -1 * sos_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['live_monitoring'],
-		fill: white
-	});
-
-	sos_screen.emergency_delay = canvas.display.text({
-		x: -sos_screen.width / 2 + sos_screen.width / 10,
-		y: -0 * sos_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['emergency_delay'],
-		fill: white
 	});
 
 	sos_screen.circle_help_button = canvas.display.ellipse({
@@ -670,17 +500,17 @@ function build_sos_screen(canvas) {
 		image: MATERIALS_DIR + '/Help.png'
 	});
 
-	sos_screen.addChild(sos_screen.live_monitoring);
-	sos_screen.addChild(sos_screen.emergency_delay);
-	links = add_lines(canvas, sos_screen, -1, -1);
+	var options = [ health['live_monitoring'], health['emergency_delay'] ];
+	var link = [ 'link', 'link' ];
+	links = add_lines(canvas, sos_screen, -1, options, link);
 
 	sos_screen.sos_live_box = canvas.display.ellipse({
 		x: sos_screen.width / 2 - 1 * sos_screen.width / 10,
-		y: -1 * sos_screen.height / 10,
+		y: 0,
 		radius: sos_screen.height / 30,
 		stroke: '2px ' + white
 	});
-	sos_screen.addChild(sos_screen.sos_live_box);
+	links[0].addChild(sos_screen.sos_live_box);
 
 	sos_screen.sos_live_box_tick = canvas.display.image({
 		x: +sos_screen.height / 40,
@@ -694,14 +524,14 @@ function build_sos_screen(canvas) {
 
 	sos_screen.time_delay_box = canvas.display.rectangle({
 		x: sos_screen.width / 2 - 1.3 * sos_screen.width / 10,
-		y: 0 * sos_screen.height / 10,
+		y: 0,
 		origin: { x: 'center', y: 'center' },
 		width: sos_screen.height / 7,
 		height: sos_screen.height / 13,
 		borderRadius: 5,
 		stroke: '2px ' + white
 	});
-	sos_screen.addChild(sos_screen.time_delay_box);
+	links[1].addChild(sos_screen.time_delay_box);
 
 	sos_screen.time_delay = canvas.display.text({
 		x: 0,
@@ -732,7 +562,7 @@ function build_sos_screen(canvas) {
 			canvas.mouse.cursor('default');
 		});
 
-	sos_screen.sos_live_box
+	links[0]
 		.bind('click tap', function() {
 			sos.live_monitoring = !sos.live_monitoring;
 			if (sos.live_monitoring) sos_screen.sos_live_box.addChild(sos_screen.sos_live_box_tick);
@@ -745,7 +575,7 @@ function build_sos_screen(canvas) {
 			canvas.mouse.cursor('default');
 		});
 
-	sos_screen.time_delay_box
+	links[1]
 		.bind('click tap', function() {
 			sos.time_delay_option = (sos.time_delay_option + 1) % sos.time_delays.length;
 			sos_screen.time_delay.text = sos.time_delays[sos.time_delay_option] + ' ' + health['seconds'];
@@ -803,7 +633,7 @@ function build_sos_help_screen(canvas) {
 	});
 
 	sos_help_screen.help_text = canvas.display.text({
-		x: -0.90 * sos_help_screen.width / 2,
+		x: -0.9 * sos_help_screen.width / 2,
 		y: 0.95 * sos_help_screen.height / 22,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
@@ -828,33 +658,6 @@ function build_fitness_screen(canvas) {
 		height: SIZE_SCREEN,
 		borderRadius: 20,
 		fill: black
-	});
-
-	fitness_screen.energy = canvas.display.text({
-		x: -fitness_screen.width / 2 + 1.6 * fitness_screen.width / 10,
-		y: -1 * fitness_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['energy'],
-		fill: white
-	});
-
-	fitness_screen.activity = canvas.display.text({
-		x: -fitness_screen.width / 2 + 1.6 * fitness_screen.width / 10,
-		y: -0 * fitness_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['activity'],
-		fill: white
-	});
-
-	fitness_screen.nutrition = canvas.display.text({
-		x: -fitness_screen.width / 2 + 1.6 * fitness_screen.width / 10,
-		y: 1 * fitness_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['nutrition'],
-		fill: white
 	});
 
 	fitness_screen.circle_help_button = canvas.display.ellipse({
@@ -896,11 +699,10 @@ function build_fitness_screen(canvas) {
 			break;
 	}
 
+	var options = [ health['energy'], health['activity'], health['nutrition'] ];
+	var link = [ 'link_arrow', 'link_arrow', 'link_arrow' ];
 	var images = [ 'Energy.png', 'Activity.png', 'Nutrition.png' ];
-	fitness_screen.addChild(fitness_screen.energy);
-	fitness_screen.addChild(fitness_screen.activity);
-	fitness_screen.addChild(fitness_screen.nutrition);
-	links = add_lines(canvas, fitness_screen, -1, 0, images);
+	links = add_lines(canvas, fitness_screen, -1, options, link, images);
 
 	links[0]
 		.bind('click tap', function() {
@@ -969,7 +771,7 @@ function build_fitness_help_screen(canvas) {
 	});
 
 	fitness_help_screen.help_text = canvas.display.text({
-		x: - 0.90 * fitness_help_screen.width / 2,
+		x: -0.9 * fitness_help_screen.width / 2,
 		y: 0.95 * fitness_help_screen.height / 22,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
@@ -996,24 +798,6 @@ function build_energy_screen(canvas) {
 		fill: black
 	});
 
-	energy_screen.today = canvas.display.text({
-		x: -energy_screen.width / 2 + energy_screen.width / 10,
-		y: -1.5 * energy_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['today'],
-		fill: white
-	});
-
-	energy_screen.weekly = canvas.display.text({
-		x: -energy_screen.width / 2 + energy_screen.width / 10,
-		y: -0.5 * energy_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['week'],
-		fill: white
-	});
-
 	switch (language) {
 		case 'pt':
 			energy_screen.energy_graphic = canvas.display.image({
@@ -1037,11 +821,10 @@ function build_energy_screen(canvas) {
 			break;
 	}
 
-	energy_screen.addChild(energy_screen.today);
-	energy_screen.addChild(energy_screen.weekly);
-
-	var health_info = get_health_info(energy_screen.description);
-	links = add_lines(canvas, energy_screen, -1.5, 2, null, health_info);
+	var options = [ health['today'], health['week'] ];
+	var link = [ 'text', 'text' ];
+	var info = get_health_info(energy_screen.description);
+	links = add_lines(canvas, energy_screen, -1.5, options, link, null, info);
 
 	energy_screen.addChild(energy_screen.energy_graphic);
 	return energy_screen;
@@ -1059,33 +842,6 @@ function build_activity_screen(canvas) {
 		height: SIZE_SCREEN,
 		borderRadius: 20,
 		fill: black
-	});
-
-	activity_screen.distance = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -1.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['distance'],
-		fill: white
-	});
-
-	activity_screen.steps = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -0.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['steps'],
-		fill: white
-	});
-
-	activity_screen.elevation = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: +0.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['elevation'],
-		fill: white
 	});
 
 	activity_screen.message = canvas.display.rectangle({
@@ -1107,12 +863,10 @@ function build_activity_screen(canvas) {
 		fill: black
 	});
 
-	activity_screen.addChild(activity_screen.distance);
-	activity_screen.addChild(activity_screen.steps);
-	activity_screen.addChild(activity_screen.elevation);
-
-	var health_info = get_health_info(activity_screen.description);
-	links = add_lines(canvas, activity_screen, -1.5, 2, null, health_info);
+	var options = [ health['distance'], health['steps'], health['elevation'] ];
+	var link = [ 'text', 'text', 'text' ];
+	var info = get_health_info(activity_screen.description);
+	links = add_lines(canvas, activity_screen, -1.5, options, link, null, info);
 
 	activity_screen.message.addChild(activity_screen.message_text);
 	activity_screen.addChild(activity_screen.message);
@@ -1197,8 +951,10 @@ function build_nutrition_screen(canvas) {
 	nutrition_screen.addChild(nutrition_screen.fat);
 	nutrition_screen.addChild(nutrition_screen.calcium);
 
-	var health_info = get_health_info(nutrition_screen.description);
-	links = add_lines(canvas, nutrition_screen, -1.5, 2, null, health_info);
+	var options = [ health['vitamins'], health['proteins'], health['water'], health['fat'], health['calcium'] ];
+	var link = [ 'text', 'text', 'text', 'text', 'text' ];
+	var info = get_health_info(nutrition_screen.description);
+	links = add_lines(canvas, nutrition_screen, -1.5, options, link, null, info);
 
 	return nutrition_screen;
 }
@@ -1367,7 +1123,7 @@ function build_choose_activity_help_screen(canvas) {
 	});
 
 	choose_activity_help_screen.help_text = canvas.display.text({
-		x: -0.90 * choose_activity_help_screen.width / 2,
+		x: -0.9 * choose_activity_help_screen.width / 2,
 		y: 0.95 * choose_activity_help_screen.height / 22,
 		origin: { x: 'left', y: 'center' },
 		font: get_size_px(canvas, 17),
@@ -1394,78 +1150,25 @@ function build_start_activity_screen(canvas) {
 		fill: black
 	});
 
-	activity_screen.type = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -2.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['type'],
-		fill: white
-	});
-
-	activity_screen.distance = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -1.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['distance'],
-		fill: white
-	});
-
-	activity_screen.calories = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -1.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['energy'],
-		fill: white
-	});
-
-	activity_screen.time = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: -0.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['duration'],
-		fill: white
-	});
-
-	activity_screen.sharing = canvas.display.text({
-		x: -activity_screen.width / 2 + activity_screen.width / 10,
-		y: 0.5 * activity_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['share'],
-		fill: white
-	});
-
 	var info = [];
-	activity_screen.addChild(activity_screen.type);
 	info.push(activity_screen.description);
-
-	if (activity_screen.description == descriptions['activity_gym']) {
-		activity_screen.addChild(activity_screen.calories);
-		info.push(fitness.calories + ' ' + health['cal']);
-	} else {
-		activity_screen.addChild(activity_screen.distance);
-		info.push(fitness.distance.toFixed(3) + ' ' + health['km']);
-	}
-
-	activity_screen.addChild(activity_screen.time);
+	if (activity_screen.description == descriptions['activity_gym']) info.push(fitness.calories + ' ' + health['cal']);
+	else info.push(fitness.distance.toFixed(3) + ' ' + health['km']);
 	info.push(Math.floor(fitness.duration) + ' ' + health['minutes']);
-
-	activity_screen.addChild(activity_screen.sharing);
 	info.push('none');
 
-	activity_screen.links = add_lines(canvas, activity_screen, -2.5, 2, null, info);
+	var options = [ health['type'], health['distance'], health['duration'], health['share'] ];
+	if (activity_screen.description == descriptions['activity_gym']) options[1] = health['energy'];
+	var link = [ 'text', 'text', 'text', 'link' ];
+	links = add_lines(canvas, activity_screen, -2.5, options, link, null, info);
 
 	activity_screen.sharing_box = canvas.display.ellipse({
 		x: activity_screen.width / 2 - 1 * activity_screen.width / 10,
-		y: 0.5 * activity_screen.height / 10,
+		y: 0,
 		radius: activity_screen.height / 30,
 		stroke: '2px ' + white
 	});
-	activity_screen.addChild(activity_screen.sharing_box);
+	links[0].addChild(activity_screen.sharing_box);
 
 	activity_screen.sharing_tick = canvas.display.image({
 		x: +activity_screen.height / 40,
@@ -1544,7 +1247,7 @@ function build_start_activity_screen(canvas) {
 		activity_screen.addChild(activity_screen.start_button);
 	}
 
-	activity_screen.sharing_box
+	links[0]
 		.bind('click tap', function() {
 			fitness.sharing = !fitness.sharing;
 			if (fitness.sharing) activity_screen.sharing_box.addChild(activity_screen.sharing_tick);
