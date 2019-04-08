@@ -167,6 +167,19 @@ function build_frame(canvas) {
 			case descriptions['stop_activity']:
 				changeScreen(canvas, build_start_activity_screen(canvas));
 				break;
+			case descriptions['new_measurement']:
+				switch (actual_screen.back_page) {
+					case 'heart_rate':
+						changeScreen(canvas, build_heart_rate_screen(canvas));
+						break;
+					case 'blood_pressure':
+						changeScreen(canvas, build_blood_pressure_screen(canvas));
+						break;
+					case 'blood_oxygen':
+						changeScreen(canvas, build_blood_oxygen_screen(canvas));
+						break;
+				}
+				break;
 		}
 	});
 

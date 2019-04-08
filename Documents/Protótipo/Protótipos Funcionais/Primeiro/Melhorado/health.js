@@ -392,7 +392,7 @@ function build_blood_pressure_screen(canvas) {
 
 	blood_pressure_screen.message = canvas.display.rectangle({
 		x: 0,
-		y: blood_pressure_screen.height / 3,
+		y: 0.90 * blood_pressure_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
 		width: 1.25 * blood_pressure_screen.width / 2,
 		height: blood_pressure_screen.height / 4,
@@ -418,6 +418,17 @@ function build_blood_pressure_screen(canvas) {
 
 	blood_pressure_screen.message.addChild(blood_pressure_screen.message_text);
 	blood_pressure_screen.addChild(blood_pressure_screen.message);
+
+	blood_pressure_screen.message
+		.bind('click tap', function() {
+			changeScreen(canvas, build_new_measurement_screen(canvas, 'blood_pressure'));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
 
 	return blood_pressure_screen;
 }
@@ -465,7 +476,7 @@ function build_blood_oxygen_screen(canvas) {
 
 	blood_oxygen_screen.message = canvas.display.rectangle({
 		x: 0,
-		y: blood_oxygen_screen.height / 3,
+		y: 0.90 * blood_oxygen_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
 		width: 1.25 * blood_oxygen_screen.width / 2,
 		height: blood_oxygen_screen.height / 4,
@@ -491,6 +502,17 @@ function build_blood_oxygen_screen(canvas) {
 
 	blood_oxygen_screen.message.addChild(blood_oxygen_screen.message_text);
 	blood_oxygen_screen.addChild(blood_oxygen_screen.message);
+
+	blood_oxygen_screen.message
+		.bind('click tap', function() {
+			changeScreen(canvas, build_new_measurement_screen(canvas, 'blood_oxygen'));
+		})
+		.bind('mouseenter', function() {
+			canvas.mouse.cursor('pointer');
+		})
+		.bind('mouseleave', function() {
+			canvas.mouse.cursor('default');
+		});
 
 	return blood_oxygen_screen;
 }
@@ -1786,4 +1808,76 @@ function build_stop_activity_screen(canvas) {
 		});
 
 	return stop_screen;
+}
+
+function build_new_measurement_screen(canvas, type) {
+	var new_measurement_screen = canvas.display.rectangle({
+		description: descriptions['new_measurement'],
+		description_show: true,
+		template: true,
+		back_page: type,
+		done: false,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+	});
+
+	new_measurement_screen.type_text = canvas.display.text({
+		x: 0,
+		y: -0.60 * new_measurement_screen.height / 2,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 17),
+		text: health[type],
+		fill: white
+	});
+
+	var image_link;
+	switch (type) {
+		case 'heart_rate':
+			image_link = MATERIALS_DIR + '/Heart Rate.png';
+			break;
+		case 'blood_pressure':
+			image_link = MATERIALS_DIR + '/Blood Pressure.png';
+			break;
+		case 'blood_oxygen':
+			image_link = MATERIALS_DIR + '/Blood Oxygen.png';
+			break;
+	}
+
+	new_measurement_screen.image = canvas.display.image({
+		x: 0,
+		y: new_measurement_screen.height / 10,
+		width: new_measurement_screen.width / 3,
+		height: new_measurement_screen.height / 3,
+		origin: { x: 'center', y: 'center' },
+		image: image_link
+	});
+
+	new_measurement_screen.circle = canvas.display.arc({
+		x: 0,
+		y: new_measurement_screen.height / 10,
+		radius: 10 * new_measurement_screen.width / 36,
+		start: 0,
+		end: 0,
+		stroke: '10px #AA5555'
+	});
+
+	new_measurement_screen.done_text = canvas.display.text({
+		x: 0,
+		y: 0.90 * new_measurement_screen.height / 2,
+		origin: { x: 'center', y: 'center' },
+		font: get_size_px(canvas, 19),
+		text: health['done'],
+		fill: white
+	});
+
+	new_measurement_screen.addChild(new_measurement_screen.type_text);
+	new_measurement_screen.addChild(new_measurement_screen.image);
+	new_measurement_screen.addChild(new_measurement_screen.circle);
+
+	return new_measurement_screen;
 }

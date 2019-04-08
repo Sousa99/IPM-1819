@@ -35,7 +35,8 @@ const STRINGS_DESCRIPTIONS = {
 		activity_gym: 'Ginásio',
 		activity_bike: 'Bicicleta',
 		cancel_activity: 'Cancelar Atividade',
-		stop_activity: 'Parar Atividade'
+		stop_activity: 'Parar Atividade',
+		new_measurement: 'Nova Medição'
 	},
 
 	en: {
@@ -75,7 +76,8 @@ const STRINGS_DESCRIPTIONS = {
 		activity_gym: 'Gym',
 		activity_bike: 'Bike',
 		cancel_activity: 'Cancel Activity',
-		stop_activity: 'Stop Activity'
+		stop_activity: 'Stop Activity',
+		new_measurement: 'New Measurement'
 
 	}
 };
@@ -149,6 +151,7 @@ const STRINGS_HEALTH = {
 		hypertension: 'Hipertensão',
 		yes: 'Sim',
 		no: 'Não',
+		done: 'Completo',
 		systolic: 'Sistólica',
 		diastolic: 'Diastólica',
 		report: 'Relatório',
@@ -216,6 +219,7 @@ const STRINGS_HEALTH = {
 		hypertension: 'Hypertension',
 		yes: 'Yes',
 		no: 'No',
+		done: 'Done',
 		systolic: 'Systolic',
 		diastolic: 'Diastolic',
 		report: 'Report',

@@ -102,6 +102,31 @@ function loadCanvas() {
 
 				break;
 
+			case descriptions['new_measurement']:
+				actual_screen.circle.rotation++;
+				actual_screen.circle.end += 2;
+
+				if (actual_screen.circle.end >= 360 && !actual_screen.done) {
+					actual_screen.circle.stroke = '10px #55AA55';
+					actual_screen.done = true;
+					actual_screen.addChild(actual_screen.done_text);
+
+					switch (actual_screen.back_page) {
+						case 'heart_rate':
+							health_information.at_the_moment.heart_rate = MIN_HEART_RATE_AT_THE_MOMENT + Math.floor(Math.random() * (MAX_HEART_RATE_AT_THE_MOMENT - MIN_HEART_RATE_AT_THE_MOMENT))
+							break;
+						case 'blood_pressure':
+							health_information.today.systolic = MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY));
+							health_information.today.diastolic = MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY));
+							break;
+						case 'blood_oxygen':
+							health_information.today.blood_oxygen = (Math.random() / 2) + 0.50;
+							break;
+					}
+				}
+
+				break;
+
 			case descriptions['sos']:
 				if (!sos.active && canvas.mouse.buttonState == 'up') {
 					actual_screen.message_hold.text = health['press_3_seconds'];
