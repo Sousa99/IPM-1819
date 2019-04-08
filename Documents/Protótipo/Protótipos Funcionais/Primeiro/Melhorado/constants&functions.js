@@ -269,7 +269,9 @@ function call_cancel_sos(sos_screen) {
 		sos_screen.message.fill = 'radial-gradient(' + white + ', ' + '#AAAAAA' + ')';
 		sos_screen.message_text.text = health['call_emergency'];
 		sos_screen.message_text.y = -0.35 * sos_screen.height / 10;
+		sos_screen.message_text.fill = black;
 		sos_screen.message_hold.text = health['press_3_seconds'];
+		sos_screen.message_hold.fill = black;
 		sos_screen.message_hold.y = 0.35 * sos_screen.height / 10;
 		frame.emergency = 5;
 	} else {
@@ -277,7 +279,9 @@ function call_cancel_sos(sos_screen) {
 		sos_screen.message.fill = 'radial-gradient(' + '#FF5555' + ', ' + '#bc2b2b' + ')';
 		sos_screen.message_text.text = health['help_on_the_way'];
 		sos_screen.message_text.y = -0.65 * sos_screen.height / 10;
+		sos_screen.message_text.fill = white;
 		sos_screen.message_hold.text = health['press_5_seconds_cancel'];
+		sos_screen.message_hold.fill = white;
 		sos_screen.message_hold.y = 0.5 * sos_screen.height / 10;
 	}
 }
