@@ -187,6 +187,12 @@ function get_qualitative(value) {
 	else return health['excellent'];
 }
 
+function get_qualitative_heart_rate(value) {
+	if (value >= 90) return health['fast_heart_rate'];
+	else if (value >= 70) return health['good_heart_rate'];
+	else return health['slow_heart_rate'];
+}
+
 function get_qualitative_blood_pressure(systolic, diastolic) {
 	if (systolic < 120 && diastolic < 80) return health['normal'];
 	else if (systolic <= 129 && diastolic < 80) return health['elevated'];
@@ -213,7 +219,6 @@ function get_health_info(screen) {
 	} else if (screen == descriptions['energy']) {
 		info.push(health_information.today.calories + ' ' + health['cal']);
 		info.push(health_information.week.calories + ' ' + health['cal']);
-		info.push('TODO');
 	} else if (screen == descriptions['nutrition']) {
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_vitamins']));
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_proteins']));
@@ -221,6 +226,7 @@ function get_health_info(screen) {
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_fats']));
 		info.push(get_qualitative(health_information.at_the_moment['nutrition_calcium']));
 	} else if (screen == descriptions['heart_rate']) {
+		health_information.at_the_moment.heart_rate = MIN_HEART_RATE_AT_THE_MOMENT + Math.floor(Math.random() * (MAX_HEART_RATE_AT_THE_MOMENT - MIN_HEART_RATE_AT_THE_MOMENT))
 		info.push(health_information.at_the_moment['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.today['heart_rate'] + ' ' + health['bpm']);
 		info.push(health_information.week['heart_rate'] + ' ' + health['bpm']);

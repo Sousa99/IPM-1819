@@ -194,7 +194,10 @@ const STRINGS_HEALTH = {
 		share: 'Partilha',
 		invite: 'convite',
 		cancel_activity: 'Deseja mesmo cancelar\na actividade?\n\nIrá perder todo o progresso!',
-		stop_activity: 'Deseja mesmo parar\na actividade?\n\nO progresso será guardado!'
+		stop_activity: 'Deseja mesmo parar\na actividade?\n\nO progresso será guardado!',
+		fast_heart_rate: 'Batimento cardíaco\nmuito acelerado',
+		good_heart_rate: 'Batimento cardíaco\nno nível adequado',
+		slow_heart_rate: 'Batimento cardíaco\nmuito lento'
 	},
 	en: {
 		fitness: 'FITNESS',
@@ -261,7 +264,10 @@ const STRINGS_HEALTH = {
 		share: 'Share',
 		invite: 'invite',
 		cancel_activity: 'Do you really wish to\ncancel activity?\n\nYou will lose all progress!',
-		stop_activity: 'Do you really wish to\nstop this activity?\n\nThe progress will be saved!'
+		stop_activity: 'Do you really wish to\nstop this activity?\n\nThe progress will be saved!',
+		fast_heart_rate: 'Heart Rate\ntoo high',
+		good_heart_rate: 'Heart Rate\nat the right level',
+		slow_heart_rate: 'Heart Rate\ntoo low'
 	}
 };
 

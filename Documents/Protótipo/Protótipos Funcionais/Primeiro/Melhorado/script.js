@@ -112,9 +112,6 @@ function loadCanvas() {
 					actual_screen.addChild(actual_screen.done_text);
 
 					switch (actual_screen.back_page) {
-						case 'heart_rate':
-							health_information.at_the_moment.heart_rate = MIN_HEART_RATE_AT_THE_MOMENT + Math.floor(Math.random() * (MAX_HEART_RATE_AT_THE_MOMENT - MIN_HEART_RATE_AT_THE_MOMENT))
-							break;
 						case 'blood_pressure':
 							health_information.today.systolic = MIN_SYSTOLIC_DAY + Math.floor(Math.random() * (MAX_SYSTOLIC_DAY - MIN_SYSTOLIC_DAY));
 							health_information.today.diastolic = MIN_DIASTOLIC_DAY + Math.floor(Math.random() * (MAX_DIASTOLIC_DAY - MIN_DIASTOLIC_DAY));

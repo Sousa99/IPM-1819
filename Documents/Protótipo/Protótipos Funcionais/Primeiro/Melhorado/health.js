@@ -319,29 +319,30 @@ function build_heart_rate_screen(canvas) {
 
 	heart_rate_screen.message = canvas.display.rectangle({
 		x: 0,
-		y: heart_rate_screen.height / 3,
+		y: 0.90 * heart_rate_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		width: heart_rate_screen.width / 4,
-		height: heart_rate_screen.width / 4,
+		width: 1.25 * heart_rate_screen.width / 2,
+		height: heart_rate_screen.height / 4,
 		borderRadius: 5,
 		fill: white
 	});
-
+	
+	heart_rate_screen.addChild(heart_rate_screen.live);
+	heart_rate_screen.addChild(heart_rate_screen.today);
+	heart_rate_screen.addChild(heart_rate_screen.weekly);
+	
+	var health_info = get_health_info(heart_rate_screen.description);
+	links = add_lines(canvas, heart_rate_screen, -1.5, 2, null, health_info);
+	
 	heart_rate_screen.message_text = canvas.display.text({
 		x: 0,
 		y: 0,
 		origin: { x: 'center', y: 'center' },
+		align: 'center',
 		font: get_size_px(canvas, 17),
-		text: health['good'],
+		text: get_qualitative_heart_rate(health_information.at_the_moment.heart_rate),
 		fill: black
 	});
-
-	heart_rate_screen.addChild(heart_rate_screen.live);
-	heart_rate_screen.addChild(heart_rate_screen.today);
-	heart_rate_screen.addChild(heart_rate_screen.weekly);
-
-	var health_info = get_health_info(heart_rate_screen.description);
-	links = add_lines(canvas, heart_rate_screen, -1.5, 2, null, health_info);
 
 	heart_rate_screen.message.addChild(heart_rate_screen.message_text);
 	heart_rate_screen.addChild(heart_rate_screen.message);
@@ -1017,15 +1018,6 @@ function build_energy_screen(canvas) {
 		fill: white
 	});
 
-	energy_screen.units = canvas.display.text({
-		x: -energy_screen.width / 2 + energy_screen.width / 10,
-		y: +0.5 * energy_screen.height / 10,
-		origin: { x: 'left', y: 'center' },
-		font: get_size_px(canvas, 17),
-		text: health['units'],
-		fill: white
-	});
-
 	switch(language){
 		case 'pt':
 		energy_screen.energy_graphic = canvas.display.image({
@@ -1049,11 +1041,8 @@ function build_energy_screen(canvas) {
 		break;
 	}
 
-
 	energy_screen.addChild(energy_screen.today);
 	energy_screen.addChild(energy_screen.weekly);
-	energy_screen.addChild(energy_screen.units);
-	
 
 	var health_info = get_health_info(energy_screen.description);
 	links = add_lines(canvas, energy_screen, -1.5, 2, null, health_info);
@@ -1837,9 +1826,6 @@ function build_new_measurement_screen(canvas, type) {
 
 	var image_link;
 	switch (type) {
-		case 'heart_rate':
-			image_link = MATERIALS_DIR + '/Heart Rate.png';
-			break;
 		case 'blood_pressure':
 			image_link = MATERIALS_DIR + '/Blood Pressure.png';
 			break;
