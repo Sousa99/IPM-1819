@@ -140,6 +140,9 @@ function loadCanvas() {
 					fitness.duration += 1 / 60;
 				}
 			}
+
+			descriptions_valid = [descriptions['activity_walk'], descriptions['activity_run'], descriptions['activity_gym'], descriptions['activity_bike']]
+			if (counter == 0 && descriptions_valid.includes(actual_screen.description)) changeScreen(canvas, build_start_activity_screen(canvas));
 		}
 
 		if (sos.active) {

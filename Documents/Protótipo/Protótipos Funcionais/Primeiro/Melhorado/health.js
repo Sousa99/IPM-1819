@@ -540,20 +540,20 @@ function build_sleep_time_screen(canvas) {
 		case 'pt':
 		sleep_time_screen.graphic = canvas.display.image({
 			x: 0,
-			y: 1.3 * sleep_time_screen.height / 4,
+			y: 1.2 * sleep_time_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: sleep_time_screen.width / 1.2,
-			height:  sleep_time_screen.width / 3,
+			width: sleep_time_screen.width / 1.4,
+			height:  1.1 * sleep_time_screen.width / 3,
 			image: MATERIALS_DIR + '/sleep_graph_pt.png'
 		});
 		break;
 		case 'en':
 		sleep_time_screen.graphic = canvas.display.image({
 			x: 0,
-			y: 1.3 * sleep_time_screen.height / 4,
+			y: 1.2 * sleep_time_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: sleep_time_screen.width / 1.2,
-			height:  sleep_time_screen.width / 3,
+			width: sleep_time_screen.width / 1.4,
+			height:  1.1 * sleep_time_screen.width / 3,
 			image: MATERIALS_DIR + '/sleep_graph_en.png'
 		});
 		break;
@@ -858,7 +858,7 @@ function build_fitness_screen(canvas) {
 			x: 0,
 			y: 1.3 * fitness_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: fitness_screen.width / 1.4,
+			width: fitness_screen.width / 1.5,
 			height: 0.75 * fitness_screen.width / 3,
 			image: MATERIALS_DIR + '/ftpt.png'
 		});
@@ -868,7 +868,7 @@ function build_fitness_screen(canvas) {
 			x: 0,
 			y: 1.3 * fitness_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: fitness_screen.width / 1.4,
+			width: fitness_screen.width / 1.5,
 			height: 0.75 * fitness_screen.width / 3,
 			image: MATERIALS_DIR + '/ften.png'
 		});
@@ -1008,20 +1008,20 @@ function build_energy_screen(canvas) {
 		case 'pt':
 		energy_screen.energy_graphic = canvas.display.image({
 			x: 0,
-			y: 1.3 * energy_screen.height / 4,
+			y: 1.2 * energy_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: energy_screen.width / 1.2,
-			height:  energy_screen.width / 3,
+			width: energy_screen.width / 1.4,
+			height:  1.1 * energy_screen.width / 3,
 			image: MATERIALS_DIR + '/egpt.png'
 		});
 		break;
 		case 'en':
 		energy_screen.energy_graphic = canvas.display.image({
 			x: 0,
-			y: 1.3 * energy_screen.height / 4,
+			y: 1.2 * energy_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: energy_screen.width / 1.2,
-			height:  energy_screen.width / 3,
+			width: energy_screen.width / 1.4,
+			height:  1.1 * energy_screen.width / 3,
 			image: MATERIALS_DIR + '/egen.png'
 		});
 		break;
