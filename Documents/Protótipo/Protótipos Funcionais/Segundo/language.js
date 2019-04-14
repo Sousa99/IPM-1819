@@ -36,7 +36,9 @@ const STRINGS_DESCRIPTIONS = {
 		activity_bike: 'Bicicleta',
 		cancel_activity: 'Cancelar Atividade',
 		stop_activity: 'Parar Atividade',
-		new_measurement: 'Nova Medição'
+		new_measurement: 'Nova Medição',
+
+		map: 'Mapa'
 	},
 
 	en: {
@@ -77,7 +79,9 @@ const STRINGS_DESCRIPTIONS = {
 		activity_bike: 'Bike',
 		cancel_activity: 'Cancel Activity',
 		stop_activity: 'Stop Activity',
-		new_measurement: 'New Measurement'
+		new_measurement: 'New Measurement',
+
+		map: 'Map'
 	}
 };
 
