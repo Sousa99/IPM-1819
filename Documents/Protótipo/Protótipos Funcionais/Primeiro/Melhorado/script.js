@@ -127,9 +127,9 @@ function loadCanvas() {
 				break;
 
 			case descriptions['sos']:
-				if (!sos.active && canvas.mouse.buttonState == 'up') {
+				if (!sos.active && (canvas.mouse.buttonState == 'up' && canvas.touch.touchState == 'up')) {
 					actual_screen.message_hold.text = health['press_3_seconds'];
-				} else if (sos.active && canvas.mouse.buttonState == 'up') {
+				} else if (sos.active && (canvas.mouse.buttonState == 'up' && canvas.touch.touchState == 'up')) {
 					actual_screen.message_hold.text = health['press_5_seconds_cancel'];
 				}
 		}
