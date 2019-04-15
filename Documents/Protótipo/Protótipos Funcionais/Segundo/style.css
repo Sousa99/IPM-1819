@@ -47,6 +47,7 @@ h2 {
 #mapid {
 	display: none;
 	position: absolute;
+	border-radius: 20px;
 	margin: 0;
 	top: 50%;
 	left: 50%;

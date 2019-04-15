@@ -83,6 +83,21 @@ var health_information = {
 	}
 };
 
+var map_information = {
+	actual_location: [38.736911, -9.138962],
+	type_selected: null,
+	food_beverage: [
+		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]}
+	],
+	accomodation: [
+		{name: 'Alojamento para Todos', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.3]}
+	],
+	tourism: [
+		{name: 'Turismo para Todos', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.2]}
+	]
+
+}
+
 function get_size_px(canvas, px_size) {
 	return px_size + 'px';
 }

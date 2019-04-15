@@ -28,7 +28,7 @@ const STRINGS_DESCRIPTIONS = {
 		energy: 'Energia',
 		activity: 'Atividade',
 		nutrition: 'Nutrição',
-		choose_activity: 'Escolher atividade',
+		choose_activity: 'Escolher Atividade',
 		choose_activity_help: 'Ajuda (Escolha de Atividade)',
 		activity_walk: 'Caminhada',
 		activity_run: 'Corrida',
@@ -38,6 +38,7 @@ const STRINGS_DESCRIPTIONS = {
 		stop_activity: 'Parar Atividade',
 		new_measurement: 'Nova Medição',
 
+		map_type_selection: 'Escolher Tipo',
 		map: 'Mapa'
 	},
 
@@ -65,7 +66,6 @@ const STRINGS_DESCRIPTIONS = {
 		sleep_time: 'Sleep Time',
 		sos: 'SOS',
 		sos_help: 'Help (SOS)',
-
 		fitness: 'Fitness',
 		fitness_help: 'Help (Fitness)',
 		energy: 'Energy',
@@ -81,6 +81,7 @@ const STRINGS_DESCRIPTIONS = {
 		stop_activity: 'Stop Activity',
 		new_measurement: 'New Measurement',
 
+		map_type_selection: 'Choose Type',
 		map: 'Map'
 	}
 };

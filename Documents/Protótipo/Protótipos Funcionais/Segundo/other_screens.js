@@ -180,10 +180,16 @@ function build_frame(canvas) {
 						break;
 				}
 				break;
+			case descriptions['map_type_selection']:
+				changeScreen(canvas, build_menu_screen(canvas));
+				break;
 			case descriptions['map']:
 				var map_html = document.getElementById('mapid');
 				map_html.style.display = 'none';
-				changeScreen(canvas, build_menu_screen(canvas));
+
+				map_information.type_selected = null;
+				map_initialized.remove();
+				changeScreen(canvas, build_map_type_selection_screen(canvas));
 				break;
 		}
 	});
@@ -471,7 +477,7 @@ function build_menu_screen(canvas) {
 
 	menu_screen.maps_menu_button
 		.bind('click tap', function() {
-			changeScreen(canvas, build_map_screen(canvas));
+			changeScreen(canvas, build_map_type_selection_screen(canvas));
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
