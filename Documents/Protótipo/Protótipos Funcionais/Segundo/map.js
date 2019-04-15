@@ -143,7 +143,7 @@ function build_map_screen(canvas) {
         zoom: 15,
         minZoom: 4,
         maxZoom: 18,
-        zoomControl: true
+        zoomControl: false
     });
     
     L.tileLayer('../../../../Materials/Map/Tiles/{z}/{x}/{y}.png', {

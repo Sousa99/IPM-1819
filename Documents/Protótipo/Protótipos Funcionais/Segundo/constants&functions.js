@@ -87,7 +87,8 @@ var map_information = {
 	actual_location: [38.736911, -9.138962],
 	type_selected: null,
 	food_beverage: [
-		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]}
+		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]},
+		{name: 'Comida para Todos 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.3]}
 	],
 	accomodation: [
 		{name: 'Alojamento para Todos', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.3]}
