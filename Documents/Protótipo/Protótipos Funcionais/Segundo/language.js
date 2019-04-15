@@ -39,7 +39,8 @@ const STRINGS_DESCRIPTIONS = {
 		new_measurement: 'Nova Medição',
 
 		map_type_selection: 'Escolher Tipo',
-		map: 'Mapa'
+		map: 'Mapa',
+		places_list: 'Lista de Locais'
 	},
 
 	en: {
@@ -82,7 +83,8 @@ const STRINGS_DESCRIPTIONS = {
 		new_measurement: 'New Measurement',
 
 		map_type_selection: 'Choose Type',
-		map: 'Map'
+		map: 'Map',
+		places_list: 'List of Places'
 	}
 };
 

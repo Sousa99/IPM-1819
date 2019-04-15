@@ -132,6 +132,16 @@ function loadCanvas() {
 				} else if (sos.active && (canvas.mouse.buttonState == 'up' && canvas.touch.touchState == 'up')) {
 					actual_screen.message_hold.text = health['press_5_seconds_cancel'];
 				}
+
+			case descriptions['map']:
+				if (clicked) {
+					var map_html = document.getElementById('mapid');
+					map_html.style.display = 'none';
+					map_initialized.remove();
+					
+					changeScreen(canvas, build_places_list_screen(canvas));
+				}
+				break;
 		}
 
 		if (fitness.started) {

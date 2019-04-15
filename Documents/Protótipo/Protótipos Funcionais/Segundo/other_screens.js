@@ -191,6 +191,10 @@ function build_frame(canvas) {
 				map_initialized.remove();
 				changeScreen(canvas, build_map_type_selection_screen(canvas));
 				break;
+
+			case descriptions['places_list']:
+				changeScreen(canvas, build_map_screen(canvas));
+				break;
 		}
 	});
 
@@ -222,6 +226,10 @@ function build_frame(canvas) {
 	});
 
 	frame.button_minus
+		.bind('click tap', function() {
+			if (actual_screen.description == descriptions['map'])
+				map_initialized.zoomOut();
+		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
 		})
@@ -229,6 +237,10 @@ function build_frame(canvas) {
 			canvas.mouse.cursor('default');
 		});
 	frame.button_plus
+		.bind('click tap', function() {
+			if (actual_screen.description == descriptions['map'])
+				map_initialized.zoomIn();
+		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
 		})
