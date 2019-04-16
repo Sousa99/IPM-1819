@@ -194,6 +194,17 @@ function build_map_screen(canvas) {
 
 	var places_marker_layer = L.layerGroup(places_marker);
 	places_marker_layer.addTo(map_initialized);
+
+	// Only testing out routing to see if it works and its limits!
+	var router = L.Routing.control({
+		waypoints: [
+			L.latLng(map_information.actual_location[0], map_information.actual_location[1]),
+			L.latLng(places[0].location[0], places[0].location[1])
+		],
+
+		createMarker: function() { return null; }
+	}).addTo(map_initialized);
+	router.hide();
 	
 	clicked = false;
 	return map_screen;

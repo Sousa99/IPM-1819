@@ -69,3 +69,8 @@ h2 {
 	cursor: pointer;
 	z-index: 9999999;
 }
+
+/* In the future I think this might not be necessary */
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
