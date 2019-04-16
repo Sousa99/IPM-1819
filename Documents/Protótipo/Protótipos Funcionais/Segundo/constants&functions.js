@@ -158,7 +158,7 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 
 			
 			if (list_link[i] == 'link_arrow') {
-				pub = canvas.display.image({
+				arrow = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
 					y: 0,
 					origin: { x: 'center', y: 'center' },

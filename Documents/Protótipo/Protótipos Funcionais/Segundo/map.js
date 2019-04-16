@@ -229,7 +229,6 @@ function build_places_list_screen(canvas) {
 		var link = [];
 		for (place in places) {
 			options.push(places[place].name);
-			link.push('link_arrow');
 			link.push('link_pub');
 		}
 	
