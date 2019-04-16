@@ -17,7 +17,7 @@ function build_settings_screen(canvas) {
 	});
 
 	var options = [ settings['lock_protection'], settings['language'] ];
-	var link = [ 'link_pub', 'link_pub' ];
+	var link = [ 'link_arrow','link_arrow', 'link_pub','link_pub' ];
 	var links = add_lines(canvas, settings_screen, -2, options, link);
 
 	links[0].bind('click tap', function() {

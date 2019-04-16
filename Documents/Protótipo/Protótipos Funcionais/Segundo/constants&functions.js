@@ -141,6 +141,7 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 
 		if (
 			list_link[i] == 'link' ||
+			list_link[i] == 'link_arrow' ||
 			list_link[i] == 'link_pub' ||
 			list_link[i] == 'link_option' ||
 			list_link[i] == 'link_option_active'
@@ -153,8 +154,20 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 					canvas.mouse.cursor('default');
 				});
 			links.push(box);
+			
 
-			if (list_link[i] == 'link_pub') {
+			
+			if (list_link[i] == 'link_arrow') {
+				pub = canvas.display.image({
+					x: screen.width / 2 - 1 * screen.width / 10,
+					y: 0,
+					origin: { x: 'center', y: 'center' },
+					width: screen.height / 15,
+					height: screen.height / 15,
+					image: MATERIALS_DIR + '/Arrow-White.png'
+				});
+				box.addChild(arrow);
+			}else if (list_link[i] == 'link_pub') {
 				pub = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
 					y: 0,
