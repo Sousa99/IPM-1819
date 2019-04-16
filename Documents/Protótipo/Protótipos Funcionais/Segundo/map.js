@@ -1,9 +1,7 @@
 var map_initialized;
 var clicked;
 
-function onClickButtonList() {
-	clicked = true;
-}
+function onClickButtonList() { clicked = true; }
 
 function build_map_type_selection_screen(canvas) {
     var map_type_selection_screen = canvas.display.rectangle({
@@ -41,7 +39,7 @@ function build_map_type_selection_screen(canvas) {
 		width: map_type_selection_screen.width / 4.75,
 		height: map_type_selection_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Activity-Walk.png'
+		image: MATERIALS_DIR + '/Food-Beverage.png'
 	});
 	map_type_selection_screen.accomodation = canvas.display.image({
 		x: +map_type_selection_screen.width / 6,
@@ -49,7 +47,7 @@ function build_map_type_selection_screen(canvas) {
 		width: map_type_selection_screen.width / 4.75,
 		height: map_type_selection_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Activity-Run.png'
+		image: MATERIALS_DIR + '/Accomodation.png'
 	});
 	map_type_selection_screen.tourism = canvas.display.image({
 		x: -map_type_selection_screen.width / 6,
@@ -57,7 +55,7 @@ function build_map_type_selection_screen(canvas) {
 		width: map_type_selection_screen.width / 4.75,
 		height: map_type_selection_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Activity-Bike.png'
+		image: MATERIALS_DIR + '/Tourism.png'
 	});
 	map_type_selection_screen.travel_route = canvas.display.image({
 		x: +map_type_selection_screen.width / 6,
@@ -65,7 +63,7 @@ function build_map_type_selection_screen(canvas) {
 		width: map_type_selection_screen.width / 4.75,
 		height: map_type_selection_screen.height / 4.75,
 		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Activity-Gym.png'
+		image: MATERIALS_DIR + '/Travel-Route.png'
     });
     
     map_type_selection_screen.addChild(map_type_selection_screen.food_beverage);
@@ -137,11 +135,13 @@ function build_map_screen(canvas) {
 		fill: black
     });
 
+	// Adjustment of container of the map
 	var map_html = document.getElementById('mapid');
 	map_html.style.height = (SIZE_SCREEN + 1) + 'px';
 	map_html.style.width = (SIZE_SCREEN + 1) + 'px';
 	map_html.style.display = 'block';
 	
+	// Initialization of the map itself
 	map_initialized = L.map('mapid', {
 			attributionControl: false,
 			center: map_information.actual_location,
@@ -151,25 +151,51 @@ function build_map_screen(canvas) {
 			zoomControl: false
 	});
 	
+	// layer of the map itself, needs to load various files!
+	L.tileLayer('../../../../Materials/Map/Tiles/{z}/{x}/{y}.png', {
+			maxZoom: 15,
+			minZoom: 4,
+			id: 'mapbox.streets',
+			accessToken: ''
+	}).addTo(map_initialized);
+	/*
 	L.tileLayer('../../../../Materials/Map/Tiles/{z}/{x}/{y}.png', {
 			maxZoom: 15,
 			minZoom: 4
-	}).addTo(map_initialized);
+	}).addTo(map_initialized);*/
 
+	// Creation of icon to mark places!
+	var place_icon = L.icon({
+		iconUrl: MATERIALS_DIR + '/Place-Marker.png',
+		shadowUrl: MATERIALS_DIR + '/Place-Marker-Shadow.png',
+	
+		iconSize: [38, 95],
+		shadowSize: [50, 64],
+		iconAnchor: [22, 94],
+		shadowAnchor: [4, 62],
+		popupAnchor: [-3, -76]
+	})
+
+	// Adding the location of the user itself and a scale of the map
 	L.marker(map_information.actual_location).addTo(map_initialized);
 	L.control.scale({
 		metric: true,
 		imperial: true
 	}).addTo(map_initialized);
 
+	// Adding the various places according to the category chosen by the user
 	const places = map_information[map_information.type_selected];
+	var places_marker = [];
 	for (place in places) {
-			var marker = L.marker(places[place].location).addTo(map_initialized);
+			var marker = L.marker(places[place].location, {icon: place_icon});
 			marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language]);
+			places_marker.push(marker);
 	}
+
+	var places_marker_layer = L.layerGroup(places_marker);
+	places_marker_layer.addTo(map_initialized);
 	
 	clicked = false;
-
 	return map_screen;
 }
 

@@ -402,7 +402,7 @@ function build_menu_screen(canvas) {
 
 	menu_screen.contacts_menu_button = canvas.display.image({
 		x: -menu_screen.width / 3.6,
-		y: -menu_screen.height / 3.6,
+		y: -menu_screen.height / 3.6 + 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
@@ -410,7 +410,7 @@ function build_menu_screen(canvas) {
 	});
 	menu_screen.gallery_menu_button = canvas.display.image({
 		x: 0,
-		y: -menu_screen.height / 3.6,
+		y: -menu_screen.height / 3.6 + 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
@@ -418,7 +418,7 @@ function build_menu_screen(canvas) {
 	});
 	menu_screen.group_menu_button = canvas.display.image({
 		x: menu_screen.width / 3.6,
-		y: -menu_screen.height / 3.6,
+		y: -menu_screen.height / 3.6 + 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
@@ -426,7 +426,7 @@ function build_menu_screen(canvas) {
 	});
 	menu_screen.maps_menu_button = canvas.display.image({
 		x: -menu_screen.width / 3.6,
-		y: 0,
+		y: 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
@@ -434,7 +434,7 @@ function build_menu_screen(canvas) {
 	});
 	menu_screen.camera_menu_button = canvas.display.image({
 		x: 0,
-		y: 0,
+		y: 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
@@ -442,7 +442,7 @@ function build_menu_screen(canvas) {
 	});
 	menu_screen.health_menu_button = canvas.display.image({
 		x: menu_screen.width / 3.6,
-		y: 0,
+		y: 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
@@ -450,7 +450,7 @@ function build_menu_screen(canvas) {
 	});
 	menu_screen.settings_menu_button = canvas.display.image({
 		x: 0,
-		y: menu_screen.height / 3.6,
+		y: menu_screen.height / 3.6 + 10,
 		width: menu_screen.width / 5,
 		height: menu_screen.height / 5,
 		origin: { x: 'center', y: 'center' },
