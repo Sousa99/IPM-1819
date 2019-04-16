@@ -57,7 +57,7 @@ h2 {
 }
 
 #button_place_list {
-	position: absolute;
+	position: fixed;
 	height: 40px;
 	width: 40px;
 	border-radius: 8px;
@@ -67,4 +67,5 @@ h2 {
 	-ms-transform: translate(-60%, -60%);
 	transform: translate(-60%, -60%);
 	cursor: pointer;
+	z-index: 9999999;
 }

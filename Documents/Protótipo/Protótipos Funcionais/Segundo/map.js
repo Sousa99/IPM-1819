@@ -152,11 +152,11 @@ function build_map_screen(canvas) {
 	});
 	
 	// layer of the map itself, needs to load various files!
-	L.tileLayer('../../../../Materials/Map/Tiles/{z}/{x}/{y}.png', {
-			maxZoom: 15,
-			minZoom: 4,
-			id: 'mapbox.streets',
-			accessToken: ''
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		maxZoom: 18,
+		minZoom: 4,
+		id: 'mapbox.streets',
+		accessToken: 'pk.eyJ1Ijoic291c2E5OSIsImEiOiJjanVoYXI3ODcwcW05NDNvM2phNnB3eGF6In0.4u5Q1HN3FiTISIBO2RdR_A'
 	}).addTo(map_initialized);
 	/*
 	L.tileLayer('../../../../Materials/Map/Tiles/{z}/{x}/{y}.png', {
@@ -169,11 +169,11 @@ function build_map_screen(canvas) {
 		iconUrl: MATERIALS_DIR + '/Place-Marker.png',
 		shadowUrl: MATERIALS_DIR + '/Place-Marker-Shadow.png',
 	
-		iconSize: [38, 95],
-		shadowSize: [50, 64],
-		iconAnchor: [22, 94],
-		shadowAnchor: [4, 62],
-		popupAnchor: [-3, -76]
+		iconSize:    [25, 41],
+		iconAnchor:  [12, 41],
+		popupAnchor: [1, -34],
+		tooltipAnchor: [16, -28],
+		shadowSize:  [41, 41]
 	})
 
 	// Adding the location of the user itself and a scale of the map
