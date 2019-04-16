@@ -58,7 +58,7 @@ function build_map_type_selection_screen(canvas) {
 		image: MATERIALS_DIR + '/Tourism.png'
 	});
 	map_type_selection_screen.travel_route = canvas.display.image({
-		x: +map_type_selection_screen.width / 6,
+		x: +map_type_selection_screen.width / 5,
 		y: +map_type_selection_screen.height / 4.75 + 0.1 * map_type_selection_screen.height / 2,
 		width: map_type_selection_screen.width / 4.75,
 		height: map_type_selection_screen.height / 4.75,
@@ -218,7 +218,7 @@ function build_places_list_screen(canvas) {
 		var link = [];
 		for (place in places) {
 			options.push(places[place].name);
-			link.push('link_arrow');
+			link.push('link_pub');
 		}
 	
 		links = add_lines(canvas, places_list_screen, -1, options, link);

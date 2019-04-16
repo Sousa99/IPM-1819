@@ -88,13 +88,20 @@ var map_information = {
 	type_selected: null,
 	food_beverage: [
 		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]},
-		{name: 'Comida para Todos 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.3]}
+		{name: 'Comida para 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.3]},
+		{name: 'Comida para Crianças', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.5]}
 	],
 	accomodation: [
-		{name: 'Alojamento para Todos', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.3]}
+		{name: 'Alojamento de 1 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.3]},
+		{name: 'Alojamento de 2 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.5]},
+		{name: 'Alojamento de 3 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.7]},
+		{name: 'Alojamento de 4 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.9]},
+		{name: 'Alojamento de 5 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.11]}
 	],
 	tourism: [
-		{name: 'Turismo para Todos', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.2]}
+		{name: 'Museus de História', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.2]},
+		{name: 'Museus de Ciência', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.4]},
+		{name: 'Jardins', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.6]}
 	]
 
 }
@@ -134,7 +141,7 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 
 		if (
 			list_link[i] == 'link' ||
-			list_link[i] == 'link_arrow' ||
+			list_link[i] == 'link_pub' ||
 			list_link[i] == 'link_option' ||
 			list_link[i] == 'link_option_active'
 		) {
@@ -147,16 +154,16 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				});
 			links.push(box);
 
-			if (list_link[i] == 'link_arrow') {
-				arrow = canvas.display.image({
+			if (list_link[i] == 'link_pub') {
+				pub = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
 					y: 0,
 					origin: { x: 'center', y: 'center' },
 					width: screen.height / 15,
 					height: screen.height / 15,
-					image: MATERIALS_DIR + '/Arrow-White.png'
+					image: MATERIALS_DIR + '/Public-Transportation.png'
 				});
-				box.addChild(arrow);
+				box.addChild(pub);
 			} else if (list_link[i] == 'link_option' || list_link[i] == 'link_option_active') {
 				circle = canvas.display.ellipse({
 					//active: active_object,
