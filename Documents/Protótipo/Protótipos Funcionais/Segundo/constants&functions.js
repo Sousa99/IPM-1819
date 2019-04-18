@@ -91,7 +91,8 @@ var map_information = {
 	info_place_transportation: 0,
 	times: {
 		food_beverage: [{pt: 'Almoço', en: 'Lunch', description: 'lunch'}, {pt: 'Jantar', en: 'Dinner', description: 'dinner'}],
-		others: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}]
+		accomodation: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}],
+		toruism: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}]
 	},
 	transportations: [
 		{description: 'walking', image: '/Walking.png'},
@@ -212,8 +213,7 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				box.addChild(box_pub);
 				box_pub.addChild(pub);
 			} else if (list_link[i] == 'link_text') {
-				var text_array = map_information.times.others;
-				if (map_information.type_selected == 'food_beverage') text_array = map_information.times.food_beverage;
+				const text_array = map_information.times[map_information.type_selected];
 
 				box_text = canvas.display.rectangle({
 					x: screen.width / 2 - 1.9 * screen.width / 10,

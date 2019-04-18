@@ -109,7 +109,8 @@ function build_map_type_selection_screen(canvas) {
 
     map_type_selection_screen.travel_route
 		.bind('click tap', function() {
-			// TODO
+            // TODO
+            console.log(map_information.planned_route);
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
@@ -280,8 +281,7 @@ function build_place_information_screen(canvas) {
     links = add_lines(canvas, place_information_screen, -2, options, link, null, info);
 
     links[0].bind('click tap', function() {
-        var text_array = map_information.times.others;
-        if (map_information.type_selected == 'food_beverage') text_array = map_information.times.food_beverage;
+        const text_array = map_information.times[map_information.type_selected];
 
         map_information.info_place_time = (map_information.info_place_time + 1) % text_array.length;
         changeScreen(canvas, build_place_information_screen(canvas));
@@ -330,6 +330,24 @@ function build_place_information_screen(canvas) {
 		text: map.add_route,
 		fill: black
     });
+
+    place_information_screen.add_route_button
+        .bind('click tap', function() {
+            const time = map_information.times[map_information.type_selected][map_information.info_place_time];
+            const method_transportation = map_information.transportations[map_information.info_place_transportation];
+
+            map_information.planned_route[time.description] = {
+                place: place,
+                transportation: method_transportation
+            }
+
+        })
+        .bind('mouseenter', function() {
+            canvas.mouse.cursor('pointer');
+        })
+        .bind('mouseleave', function() {
+            canvas.mouse.cursor('default');
+        });
     
     place_information_screen.map_button.addChild(place_information_screen.map_text);
     place_information_screen.add_route_button.addChild(place_information_screen.add_route_text);
