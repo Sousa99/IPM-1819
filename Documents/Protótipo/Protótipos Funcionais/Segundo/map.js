@@ -237,6 +237,7 @@ function build_places_list_screen(canvas) {
         const place = places[link];
         links[link].bind('click tap', function() {
             map_information.info_place = place;
+            map_information.info_place_time = 0;
             map_information.info_place_transportation = 0;
             changeScreen(canvas, build_place_information_screen(canvas));
         })

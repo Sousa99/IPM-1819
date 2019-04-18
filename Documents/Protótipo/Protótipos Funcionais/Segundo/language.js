@@ -247,8 +247,8 @@ const STRINGS_MAP = {
 		location: 'Location:',
 		transportation: 'Transportation:',
 		time: 'Time:',
-		map: 'See on the\nMap',
-		add_route: 'Add to Route'
+		map: 'See on\nthe Map',
+		add_route: 'Add\nto Route'
 	}
 };
 

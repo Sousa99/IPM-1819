@@ -90,17 +90,17 @@ var map_information = {
 	info_place_time: 0,
 	info_place_transportation: 0,
 	times: {
-		food_beverage: [{pt: 'Almoço', en: 'Lunch'}, {pt: 'Jantar', en: 'Dinner'}],
-		others: [{pt: 'Manhã', en: 'Morning'}, {pt: 'Tarde', en: 'Afternoon'}, {pt: 'Noite', en: 'Night'}]
+		food_beverage: [{pt: 'Almoço', en: 'Lunch', description: 'lunch'}, {pt: 'Jantar', en: 'Dinner', description: 'dinner'}],
+		others: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}]
 	},
 	transportations: [
-		{name: 'Walking', image: '/Walking.png'},
-		{name: 'Bike', image: '/Bike.png'},
-		{name: 'Car', image: '/Car.png'},
-		{name: 'Bus', image: '/Bus.png'},
-		{name: 'Metro', image: '/Metro.png'},
-		{name: 'Train', image: '/Train.png'},
-		{name: 'Plane', image: '/Plane.png'}
+		{description: 'walking', image: '/Walking.png'},
+		{description: 'bike', image: '/Bike.png'},
+		{description: 'car', image: '/Car.png'},
+		{description: 'bus', image: '/Bus.png'},
+		{description: 'metro', image: '/Metro.png'},
+		{description: 'train', image: '/Train.png'},
+		{description: 'plane', image: '/Plane.png'}
 	],
 
 	food_beverage: [
@@ -119,7 +119,15 @@ var map_information = {
 		{name: 'Museus de História', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.2]},
 		{name: 'Museus de Ciência', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.4]},
 		{name: 'Jardins', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.6]}
-	]
+	],
+
+	planned_route: {
+		morning: null,
+		lunch: null,
+		afternoon: null,
+		dinner: null,
+		night: null,
+	}
 
 }
 
@@ -184,27 +192,47 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				});
 				box.addChild(arrow);
 			} else if (list_link[i] == 'link_pub') {
-				pub = canvas.display.image({
+				box_pub = canvas.display.rectangle({
 					x: screen.width / 2 - 1 * screen.width / 10,
+					y: 0,
+					origin: { x: 'center', y: 'center' },
+					width: screen.height / 9,
+					height: screen.height / 11,
+					borderRadius: 5,
+					stroke: '2px ' + white
+				});
+				pub = canvas.display.image({
+					x: 0,
 					y: 0,
 					origin: { x: 'center', y: 'center' },
 					width: screen.height / 13,
 					height: screen.height / 13,
 					image: MATERIALS_DIR + map_information.transportations[map_information.info_place_transportation].image
 				});
-				box.addChild(pub);
+				box.addChild(box_pub);
+				box_pub.addChild(pub);
 			} else if (list_link[i] == 'link_text') {
 				var text_array = map_information.times.others;
 				if (map_information.type_selected == 'food_beverage') text_array = map_information.times.food_beverage;
 
-				text = canvas.display.text({
-					x: screen.width / 2 - 0.5 * screen.width / 10,
+				box_text = canvas.display.rectangle({
+					x: screen.width / 2 - 1.9 * screen.width / 10,
 					y: 0,
-					origin: { x: 'right', y: 'center' },
+					origin: { x: 'center', y: 'center' },
+					width: screen.height / 3.5,
+					height: screen.height / 12,
+					borderRadius: 5,
+					stroke: '2px ' + white
+				});
+				text = canvas.display.text({
+					x: 0,
+					y: 0,
+					origin: { x: 'center', y: 'center' },
 					text: text_array[map_information.info_place_time][language],
 					fill: white
 				});
-				box.addChild(text);
+				box_text.addChild(text);
+				box.addChild(box_text);
 
 			} else if (list_link[i] == 'link_option' || list_link[i] == 'link_option_active') {
 				circle = canvas.display.ellipse({
