@@ -86,6 +86,23 @@ var health_information = {
 var map_information = {
 	actual_location: [38.736911, -9.138962],
 	type_selected: null,
+	info_place: null,
+	info_place_time: 0,
+	info_place_transportation: 0,
+	times: {
+		food_beverage: [{pt: 'Almoço', en: 'Lunch'}, {pt: 'Jantar', en: 'Dinner'}],
+		others: [{pt: 'Manhã', en: 'Morning'}, {pt: 'Tarde', en: 'Afternoon'}, {pt: 'Noite', en: 'Night'}]
+	},
+	transportations: [
+		{name: 'Walking', image: '/Walking.png'},
+		{name: 'Bike', image: '/Bike.png'},
+		{name: 'Car', image: '/Car.png'},
+		{name: 'Bus', image: '/Bus.png'},
+		{name: 'Metro', image: '/Metro.png'},
+		{name: 'Train', image: '/Train.png'},
+		{name: 'Plane', image: '/Plane.png'}
+	],
+
 	food_beverage: [
 		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]},
 		{name: 'Comida para 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.3]},
@@ -142,6 +159,7 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 		if (
 			list_link[i] == 'link' ||
 			list_link[i] == 'link_arrow' ||
+			list_link[i] == 'link_text' ||
 			list_link[i] == 'link_pub' ||
 			list_link[i] == 'link_option' ||
 			list_link[i] == 'link_option_active'
@@ -155,8 +173,6 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				});
 			links.push(box);
 			
-
-			
 			if (list_link[i] == 'link_arrow') {
 				arrow = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
@@ -167,19 +183,31 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 					image: MATERIALS_DIR + '/Arrow-White.png'
 				});
 				box.addChild(arrow);
-			}else if (list_link[i] == 'link_pub') {
+			} else if (list_link[i] == 'link_pub') {
 				pub = canvas.display.image({
 					x: screen.width / 2 - 1 * screen.width / 10,
 					y: 0,
 					origin: { x: 'center', y: 'center' },
-					width: screen.height / 15,
-					height: screen.height / 15,
-					image: MATERIALS_DIR + '/Public-Transportation.png'
+					width: screen.height / 13,
+					height: screen.height / 13,
+					image: MATERIALS_DIR + map_information.transportations[map_information.info_place_transportation].image
 				});
 				box.addChild(pub);
+			} else if (list_link[i] == 'link_text') {
+				var text_array = map_information.times.others;
+				if (map_information.type_selected == 'food_beverage') text_array = map_information.times.food_beverage;
+
+				text = canvas.display.text({
+					x: screen.width / 2 - 0.5 * screen.width / 10,
+					y: 0,
+					origin: { x: 'right', y: 'center' },
+					text: text_array[map_information.info_place_time][language],
+					fill: white
+				});
+				box.addChild(text);
+
 			} else if (list_link[i] == 'link_option' || list_link[i] == 'link_option_active') {
 				circle = canvas.display.ellipse({
-					//active: active_object,
 					x: screen.width / 2 - 1 * screen.width / 10,
 					y: 0,
 					radius: screen.height / 30,

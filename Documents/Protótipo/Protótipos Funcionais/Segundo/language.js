@@ -40,7 +40,8 @@ const STRINGS_DESCRIPTIONS = {
 
 		map_type_selection: 'Escolher Tipo',
 		map: 'Mapa',
-		places_list: 'Lista de Locais'
+		places_list: 'Lista de Locais',
+		place_information: 'Informação Local'
 	},
 
 	en: {
@@ -84,61 +85,8 @@ const STRINGS_DESCRIPTIONS = {
 
 		map_type_selection: 'Choose Type',
 		map: 'Map',
-		places_list: 'List of Places'
-	}
-};
-
-const STRINGS_OTHERS = {
-	pt: {
-		friends_group: 'GRUPO DE AMIGOS',
-		help_health:
-			'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão lateral direito\nsuperior.\n\nPara bloqueio do dispositivo\npremir botão direito lateral\ninferior.',
-		help_sos:
-			'Premir o botão circular para estar\nsempre em modo SOS.\n\nAtravés do botão retangular que\nindica o tempo de atraso de\nemergência, pode mudar esse\ntempo premindo algumas vezes\naté a opção que preferir.',
-		help_fitness:
-			'Premir cada uma das setas para\nobter mais informações sobre\ncada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão lateral direito\nsuperior.\n\nPara bloqueio do dispositivo\npremir botão direito lateral\ninferior.',
-		help_choose_activity:
-			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.'
-	},
-	en: {
-		friends_group: 'FRIENDS GROUP',
-		help_health:
-			'Press each arrow to have more\ninformation about each option.\n\nIf you want to go back press the\nupper right side button.\n\nAnd to lock screen, press the\nlower right side button.',
-		help_sos:
-			'Press the circle button to always\nbe in SOS mode.\n\nThrough the rectangle button that\nhas the emergency delay time,\nyou can change this number.\nClick until you reach the prefered\noption.',
-		help_fitness:
-			'Press each arrow to have more\ninformation about each option.\n\nIf you want to go back press the\nupper right side button.\n\nAnd to lock screen, press the\nlower right side button.',
-		help_choose_activity:
-			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.'
-	}
-};
-
-const STRINGS_SETTINGS = {
-	pt: {
-		lock_protection: 'Proteção de Ecrã',
-		language: 'Língua',
-		portuguese: 'Português',
-		english: 'Inglês',
-		message_changed_language: 'Mudou a língua\npredefinida para\nPortuguês',
-		none: 'Nenhuma',
-		pin: 'PIN',
-		pattern: 'Padrão',
-		fingerprint: 'Impressão Digital',
-		message_changed_lock: 'Mudou o tipo de\nbloqueio do dispositivo',
-		touch_screen_to_unlock: 'Toque no ecrã para desbloquear'
-	},
-	en: {
-		lock_protection: 'Screen Lock',
-		language: 'Language',
-		portuguese: 'Portuguese',
-		english: 'English',
-		message_changed_language: 'Changed predefined\nlanguage to\nEnglish',
-		none: 'None',
-		pin: 'PIN',
-		pattern: 'Pattern',
-		fingerprint: 'Fingerprint',
-		message_changed_lock: 'Changed predefined\nlock method',
-		touch_screen_to_unlock: 'Touch the screen to unlock device'
+		places_list: 'List of Places',
+		place_information: 'Local Information'
 	}
 };
 
@@ -285,27 +233,93 @@ const STRINGS_HEALTH = {
 	}
 };
 
+const STRINGS_MAP = {
+	pt: {
+		description: 'Descrição:',
+		location: 'Localização:',
+		transportation: 'Transportação:',
+		time: 'Tempo:',
+		map: 'Ver\nno Mapa',
+		add_route: 'Adicionar\na Rota'
+	},
+	en: {
+		description: 'Description:',
+		location: 'Location:',
+		transportation: 'Transportation:',
+		time: 'Time:',
+		map: 'See on the\nMap',
+		add_route: 'Add to Route'
+	}
+};
+
+const STRINGS_SETTINGS = {
+	pt: {
+		lock_protection: 'Proteção de Ecrã',
+		language: 'Língua',
+		portuguese: 'Português',
+		english: 'Inglês',
+		message_changed_language: 'Mudou a língua\npredefinida para\nPortuguês',
+		none: 'Nenhuma',
+		pin: 'PIN',
+		pattern: 'Padrão',
+		fingerprint: 'Impressão Digital',
+		message_changed_lock: 'Mudou o tipo de\nbloqueio do dispositivo',
+		touch_screen_to_unlock: 'Toque no ecrã para desbloquear'
+	},
+	en: {
+		lock_protection: 'Screen Lock',
+		language: 'Language',
+		portuguese: 'Portuguese',
+		english: 'English',
+		message_changed_language: 'Changed predefined\nlanguage to\nEnglish',
+		none: 'None',
+		pin: 'PIN',
+		pattern: 'Pattern',
+		fingerprint: 'Fingerprint',
+		message_changed_lock: 'Changed predefined\nlock method',
+		touch_screen_to_unlock: 'Touch the screen to unlock device'
+	}
+};
+
+const STRINGS_OTHERS = {
+	pt: {
+		friends_group: 'GRUPO DE AMIGOS',
+		help_health:
+			'Premir cada uma das setas\npara obter mais informações\nsobre cada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão lateral direito\nsuperior.\n\nPara bloqueio do dispositivo\npremir botão direito lateral\ninferior.',
+		help_sos:
+			'Premir o botão circular para estar\nsempre em modo SOS.\n\nAtravés do botão retangular que\nindica o tempo de atraso de\nemergência, pode mudar esse\ntempo premindo algumas vezes\naté a opção que preferir.',
+		help_fitness:
+			'Premir cada uma das setas para\nobter mais informações sobre\ncada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão lateral direito\nsuperior.\n\nPara bloqueio do dispositivo\npremir botão direito lateral\ninferior.',
+		help_choose_activity:
+			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.'
+	},
+	en: {
+		friends_group: 'FRIENDS GROUP',
+		help_health:
+			'Press each arrow to have more\ninformation about each option.\n\nIf you want to go back press the\nupper right side button.\n\nAnd to lock screen, press the\nlower right side button.',
+		help_sos:
+			'Press the circle button to always\nbe in SOS mode.\n\nThrough the rectangle button that\nhas the emergency delay time,\nyou can change this number.\nClick until you reach the prefered\noption.',
+		help_fitness:
+			'Press each arrow to have more\ninformation about each option.\n\nIf you want to go back press the\nupper right side button.\n\nAnd to lock screen, press the\nlower right side button.',
+		help_choose_activity:
+			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.'
+	}
+};
+
 var language;
 var descriptions;
-var others;
-var settings;
 var health;
+var map;
+var settings;
+var others;
 
 change_language('pt');
 function change_language(change) {
 	language = change;
-	switch (change) {
-		case 'pt':
-			descriptions = STRINGS_DESCRIPTIONS.pt;
-			others = STRINGS_OTHERS.pt;
-			settings = STRINGS_SETTINGS.pt;
-			health = STRINGS_HEALTH.pt;
-			break;
-		case 'en':
-			descriptions = STRINGS_DESCRIPTIONS.en;
-			others = STRINGS_OTHERS.en;
-			settings = STRINGS_SETTINGS.en;
-			health = STRINGS_HEALTH.en;
-			break;
-	}
+	descriptions = STRINGS_DESCRIPTIONS[language];
+	health = STRINGS_HEALTH[language];
+	map = STRINGS_MAP[language];
+	settings = STRINGS_SETTINGS[language];
+	others = STRINGS_OTHERS[language];
+
 }

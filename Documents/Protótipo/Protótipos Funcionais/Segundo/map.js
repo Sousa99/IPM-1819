@@ -143,12 +143,12 @@ function build_map_screen(canvas) {
 	
 	// Initialization of the map itself
 	map_initialized = L.map('mapid', {
-			attributionControl: false,
-			center: map_information.actual_location,
-			zoom: 15,
-			minZoom: 4,
-			maxZoom: 18,
-			zoomControl: false
+        attributionControl: false,
+        center: map_information.actual_location,
+        zoom: 15,
+        minZoom: 4,
+        maxZoom: 18,
+        zoomControl: false
 	});
 	
 	// layer of the map itself, needs to load various files!
@@ -224,15 +224,116 @@ function build_places_list_screen(canvas) {
 		fill: black
 		});
 
-		const places = map_information[map_information.type_selected];
-		var options = [];
-		var link = [];
-		for (place in places) {
-			options.push(places[place].name);
-			link.push('link_pub');
-		}
-	
-		links = add_lines(canvas, places_list_screen, -1, options, link);
-	
+    const places = map_information[map_information.type_selected];
+    var options = [];
+    var link = [];
+    for (place in places) {
+        options.push(places[place].name);
+        link.push('link_arrow');
+    }
+
+    links = add_lines(canvas, places_list_screen, -2, options, link);
+    for (link in links) {
+        const place = places[link];
+        links[link].bind('click tap', function() {
+            map_information.info_place = place;
+            map_information.info_place_transportation = 0;
+            changeScreen(canvas, build_place_information_screen(canvas));
+        })
+    }
+
 	return places_list_screen;
+}
+
+function build_place_information_screen(canvas) {
+	var place_information_screen = canvas.display.rectangle({
+		description: descriptions['place_information'],
+		description_show: false,
+		template: false,
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		origin: { x: 'center', y: 'center' },
+		width: SIZE_SCREEN,
+		height: SIZE_SCREEN,
+		borderRadius: 20,
+		fill: black
+        });
+        
+    const place = map_information.info_place;
+
+    var name = canvas.display.text({
+        x: 0,
+        y: - SIZE_SCREEN / 2 / 8 * 6,
+        origin: { x: 'center', y: 'center' },
+        family: '7Segments',
+        font: get_size_px(canvas, 19),
+        text: place.name,
+        fill: white
+    });
+    place_information_screen.addChild(name);
+
+    var options = [map.description, map.location, map.time, map.transportation];
+    var link = ['text', 'text', 'link_text', 'link_pub'];
+    var info = [place.description[language], place.location, null, null];
+
+    links = add_lines(canvas, place_information_screen, -2, options, link, null, info);
+
+    links[0].bind('click tap', function() {
+        var text_array = map_information.times.others;
+        if (map_information.type_selected == 'food_beverage') text_array = map_information.times.food_beverage;
+
+        map_information.info_place_time = (map_information.info_place_time + 1) % text_array.length;
+        changeScreen(canvas, build_place_information_screen(canvas));
+    });
+    links[1].bind('click tap', function() {
+        map_information.info_place_transportation = (map_information.info_place_transportation + 1) % map_information.transportations.length;
+        changeScreen(canvas, build_place_information_screen(canvas));
+    });
+
+    place_information_screen.map_button = canvas.display.rectangle({
+		x: -0.41 * place_information_screen.width / 2,
+		y: 1.25 * place_information_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: 0.8 * place_information_screen.width / 2,
+		height: 0.6 * place_information_screen.width / 3,
+		borderBottomLeftRadius: 5,
+		borderTopLeftRadius: 5,
+		fill: 'radial-gradient(' + white + ', ' + '#aaaaaa' + ')'
+	});
+	place_information_screen.add_route_button = canvas.display.rectangle({
+		x: 0.41 * place_information_screen.width / 2,
+		y: 1.25 * place_information_screen.height / 4,
+		origin: { x: 'center', y: 'center' },
+		width: 0.8 * place_information_screen.width / 2,
+		height: 0.6 * place_information_screen.width / 3,
+		borderBottomRightRadius: 5,
+		borderTopRightRadius: 5,
+		fill: 'radial-gradient(' + white + ', ' + '#aaaaaa' + ')'
+	});
+
+	place_information_screen.map_text = canvas.display.text({
+		x: 0,
+		y: 0,
+		origin: { x: 'center', y: 'center' },
+        align: 'center',
+		font: get_size_px(canvas, 17),
+		text: map.map,
+		fill: black
+	});
+	place_information_screen.add_route_text = canvas.display.text({
+		x: 0,
+		y: 0,
+        origin: { x: 'center', y: 'center' },
+        align: 'center',
+		font: get_size_px(canvas, 17),
+		text: map.add_route,
+		fill: black
+    });
+    
+    place_information_screen.map_button.addChild(place_information_screen.map_text);
+    place_information_screen.add_route_button.addChild(place_information_screen.add_route_text);
+    place_information_screen.addChild(place_information_screen.map_button);
+    place_information_screen.addChild(place_information_screen.add_route_button);
+
+	return place_information_screen;
 }

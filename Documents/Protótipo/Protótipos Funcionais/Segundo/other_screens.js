@@ -195,6 +195,9 @@ function build_frame(canvas) {
 			case descriptions['places_list']:
 				changeScreen(canvas, build_map_screen(canvas));
 				break;
+			case descriptions['place_information']:
+				changeScreen(canvas, build_places_list_screen(canvas));
+				break;
 		}
 	});
 
@@ -222,6 +225,14 @@ function build_frame(canvas) {
 
 	var non_lockables = [ descriptions['main'], descriptions['changed_language'], descriptions['changed_lock'] ];
 	frame.button_lock.bind('click tap', function() {
+		if (actual_screen.description == descriptions['map']) {
+			var map_html = document.getElementById('mapid');
+			map_html.style.display = 'none';
+
+			map_information.type_selected = null;
+			map_initialized.remove();
+		}
+
 		if (!non_lockables.includes(actual_screen.description)) changeScreen(canvas, build_main_screen(canvas));
 	});
 
