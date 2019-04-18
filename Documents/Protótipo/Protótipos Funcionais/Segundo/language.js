@@ -41,7 +41,8 @@ const STRINGS_DESCRIPTIONS = {
 		map_type_selection: 'Escolher Tipo',
 		map: 'Mapa',
 		places_list: 'Lista de Locais',
-		place_information: 'Informação Local'
+		place_information: 'Informação Local',
+		route_plan: 'Rota Planeada'
 	},
 
 	en: {
@@ -86,7 +87,8 @@ const STRINGS_DESCRIPTIONS = {
 		map_type_selection: 'Choose Type',
 		map: 'Map',
 		places_list: 'List of Places',
-		place_information: 'Local Information'
+		place_information: 'Local Information',
+		route_plan: 'Planned Route'
 	}
 };
 

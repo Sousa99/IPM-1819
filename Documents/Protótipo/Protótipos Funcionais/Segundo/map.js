@@ -109,8 +109,7 @@ function build_map_type_selection_screen(canvas) {
 
     map_type_selection_screen.travel_route
 		.bind('click tap', function() {
-            // TODO
-            console.log(map_information.planned_route);
+            changeScreen(canvas, build_route_plan_screen(canvas));
 		})
 		.bind('mouseenter', function() {
 			canvas.mouse.cursor('pointer');
@@ -355,4 +354,70 @@ function build_place_information_screen(canvas) {
     place_information_screen.addChild(place_information_screen.add_route_button);
 
 	return place_information_screen;
+}
+
+function build_route_plan_screen(canvas) {
+    var route_plan_screen = canvas.display.rectangle({
+        description: descriptions['route_plan'],
+        description_show: true,
+        template: false,
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        origin: { x: 'center', y: 'center' },
+        width: SIZE_SCREEN,
+        height: SIZE_SCREEN,
+        borderRadius: 20,
+        fill: black
+        });
+    
+    const startpoint = -2;
+    const lines = 5;
+    console.log(map_information.planned_route);
+
+    for (var i = 0; i < lines + 1; i++) {
+        var line = canvas.display.line({
+            start: {
+                x: -route_plan_screen.width / 2 + route_plan_screen.width / 20,
+                y: (i + startpoint - 0.5) * route_plan_screen.height / 10
+            },
+            end: {
+                x: route_plan_screen.width / 2 - route_plan_screen.width / 20,
+                y: (i + startpoint - 0.5) * route_plan_screen.height / 10
+            },
+            stroke: '1px ' + white,
+            cap: 'round'
+        });
+        route_plan_screen.addChild(line);
+    }
+    
+    var line = canvas.display.line({
+        start: {
+            x: - route_plan_screen.width / 10,
+            y: (startpoint - 0.9) * route_plan_screen.height / 10
+        },
+        end: {
+            x: - route_plan_screen.width / 10,
+            y: (lines + startpoint - 0.1) * route_plan_screen.height / 10
+        },
+        stroke: '1px ' + white,
+        cap: 'round'
+    });
+    route_plan_screen.addChild(line);
+    
+    var line = canvas.display.line({
+        start: {
+            x: route_plan_screen.width / 2 - route_plan_screen.width / 5,
+            y: (startpoint - 0.9) * route_plan_screen.height / 10
+        },
+        end: {
+            x: route_plan_screen.width / 2 - route_plan_screen.width / 5,
+            y: (lines + startpoint - 0.1) * route_plan_screen.height / 10
+        },
+        stroke: '1px ' + white,
+        cap: 'round'
+    });
+    route_plan_screen.addChild(line);
+    
+
+    return route_plan_screen;
 }
