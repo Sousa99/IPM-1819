@@ -92,7 +92,7 @@ var map_information = {
 	times: {
 		food_beverage: [{pt: 'Almoço', en: 'Lunch', description: 'lunch'}, {pt: 'Jantar', en: 'Dinner', description: 'dinner'}],
 		accomodation: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}],
-		toruism: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}]
+		tourism: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}]
 	},
 	transportations: [
 		{description: 'walking', image: '/Walking.png'},
@@ -107,14 +107,16 @@ var map_information = {
 	food_beverage: [
 		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]},
 		{name: 'Comida para 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.3]},
-		{name: 'Comida para Crianças', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.5]}
+		{name: 'Comida para Crianças', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.5]},
+		{name: 'Fast Food', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.7]},
+		{name: 'Sushi', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.9]},
 	],
 	accomodation: [
-		{name: 'Alojamento de 1 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.3]},
-		{name: 'Alojamento de 2 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.5]},
-		{name: 'Alojamento de 3 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.7]},
-		{name: 'Alojamento de 4 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.9]},
-		{name: 'Alojamento de 5 *', description: {pt: 'Hotel 5', en: 'Hotel 5'}, location: [38.7, -9.11]}
+		{name: 'Alojamento de *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.3]},
+		{name: 'Alojamento de * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.5]},
+		{name: 'Alojamento de * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.7]},
+		{name: 'Alojamento de * * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.9]},
+		{name: 'Alojamento de * * * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.11]}
 	],
 	tourism: [
 		{name: 'Museus de História', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.2]},

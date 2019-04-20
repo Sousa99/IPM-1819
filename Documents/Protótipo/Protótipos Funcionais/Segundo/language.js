@@ -42,7 +42,8 @@ const STRINGS_DESCRIPTIONS = {
 		map: 'Mapa',
 		places_list: 'Lista de Locais',
 		place_information: 'Informação Local',
-		route_plan: 'Rota Planeada'
+		route_plan: 'Rota Planeada',
+		saved_travel_route: 'Rota Guardada'
 	},
 
 	en: {
@@ -88,7 +89,8 @@ const STRINGS_DESCRIPTIONS = {
 		map: 'Map',
 		places_list: 'List of Places',
 		place_information: 'Local Information',
-		route_plan: 'Planned Route'
+		route_plan: 'Planned Route',
+		saved_travel_route: 'Saved Route'
 	}
 };
 
@@ -242,7 +244,10 @@ const STRINGS_MAP = {
 		transportation: 'Transportação:',
 		time: 'Tempo:',
 		map: 'Ver\nno Mapa',
-		add_route: 'Adicionar\na Rota'
+		add_route: 'Adicionar\na Rota',
+		saved_travel_route: ' A sua rota\nfoi guardada\ncom sucesso!',
+		show: 'Mostrar',
+		change: 'Mudar'
 	},
 	en: {
 		description: 'Description:',
@@ -250,7 +255,10 @@ const STRINGS_MAP = {
 		transportation: 'Transportation:',
 		time: 'Time:',
 		map: 'See on\nthe Map',
-		add_route: 'Add\nto Route'
+		add_route: 'Add\nto Route',
+		saved_travel_route: ' Your route\nwas saved\nsuccessfully!',
+		show: 'Show',
+		change: 'Change'
 	}
 };
 
