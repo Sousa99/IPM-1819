@@ -421,7 +421,7 @@ function build_saved_travel_route_screen(canvas) {
 	
 		saved_travel_route_screen.show_button.addChild(saved_travel_route_screen.show_text);
 		saved_travel_route_screen.change_button.addChild(saved_travel_route_screen.change_text);
-		saved_travel_route_screen.addChild(stop_screen.show_button);
+		saved_travel_route_screen.addChild(saved_travel_route_screen.show_button);
 		saved_travel_route_screen.addChild(saved_travel_route_screen.change_button);
 		saved_travel_route_screen.addChild(saved_travel_route_screen.message);
 	
