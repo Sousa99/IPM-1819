@@ -623,6 +623,62 @@ function build_my_travel_route_screen(canvas) {
 
 		my_travel_route_screen.addChild(my_travel_route_screen.night_info_text);
 	}
+
+	if (map_information.planned_route.morning != null){
+		my_travel_route_screen.morning_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
+			y: -0.6 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			image: map_information.planned_route.morning.transportation.image
+		});
+
+		my_travel_route_screen.addChild(my_travel_route_screen.morning_pub);
+	}
+	
+
+	if (map_information.planned_route.lunch != null){
+		my_travel_route_screen.lunch_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
+			y: -0.3 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			image: map_information.planned_route.lunch.transportation.image
+		});
+
+		my_travel_route_screen.addChild(my_travel_route_screen.lunch_pub);
+	}
+
+	if (map_information.planned_route.afternoon != null){
+		my_travel_route_screen.afternoon_info_text = canvas.display.image({
+			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
+			y: 0 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			image: map_information.planned_route.afternoon.transportation.image
+		});
+
+		my_travel_route_screen.addChild(my_travel_route_screen.afternoon_pub);
+	}
+	
+	if (map_information.planned_route.dinner != null){
+		my_travel_route_screen.dinner_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
+			y: 0.3 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			image: map_information.planned_route.dinner.transportation.image,
+		});
+
+		my_travel_route_screen.addChild(my_travel_route_screen.dinner_pub);
+	}
+
+	if (map_information.planned_route.night != null){
+		my_travel_route_screen.night_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
+			y: 0.6 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			image: map_information.planned_route.night.transportation.image
+		});
+
+		my_travel_route_screen.addChild(my_travel_route_screen.night_pub);
+	}
 	
 
 	my_travel_route_screen.addChild(my_travel_route_screen.morning_text);

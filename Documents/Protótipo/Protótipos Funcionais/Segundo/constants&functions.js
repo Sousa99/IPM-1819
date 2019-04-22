@@ -91,8 +91,8 @@ var map_information = {
 	info_place_transportation: 0,
 	times: {
 		food_beverage: [{pt: 'Almoço', en: 'Lunch', description: 'lunch'}, {pt: 'Jantar', en: 'Dinner', description: 'dinner'}],
-		accomodation: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}],
-		tourism: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}, {pt: 'Noite', en: 'Night', description: 'night'}]
+		accomodation: [ {pt: 'Noite', en: 'Night', description: 'night'}],
+		tourism: [{pt: 'Manhã', en: 'Morning', description: 'morning'}, {pt: 'Tarde', en: 'Afternoon', description: 'afternoon'}]
 	},
 	transportations: [
 		{description: 'walking', image: '/Walking.png'},
