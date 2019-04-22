@@ -202,10 +202,10 @@ function build_frame(canvas) {
 				changeScreen(canvas, build_map_type_selection_screen(canvas));
 				break;
 			case descriptions['saved_travel_route']:
-				changeScreen(canvas, build_saved_travel_route_screen(canvas));
+				changeScreen(canvas, build_map_type_selection_screen(canvas));
 				break;
 			case descriptions['my_travel_route']:
-				changeScreen(canvas, build_my_travel_route_screen(canvas));
+				changeScreen(canvas, build_map_type_selection_screen(canvas));
 				break;
 				
 		}

@@ -43,7 +43,6 @@ const STRINGS_DESCRIPTIONS = {
 		places_list: 'Lista de Locais',
 		place_information: 'Informação Local',
 		my_travel_route: ' A Minha Rota de Viagem',
-		route_plan: 'Rota Planeada',
 		saved_travel_route: 'Rota Guardada'
 	},
 
@@ -91,7 +90,6 @@ const STRINGS_DESCRIPTIONS = {
 		places_list: 'List of Places',
 		place_information: 'Local Information',
 		my_travel_route: ' My Travel Route',
-		route_plan: 'Planned Route',
 		saved_travel_route: 'Saved Route'
 	}
 };
