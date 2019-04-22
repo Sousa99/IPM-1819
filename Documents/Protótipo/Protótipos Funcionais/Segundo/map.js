@@ -339,7 +339,7 @@ function build_place_information_screen(canvas) {
                 place: place,
                 transportation: method_transportation
 			}
-			changeScreen(canvas, build_saved_travel_route_screen(canvas));
+			changeScreen(canvas, build_changed_travel_route_screen(canvas));
 	
         })
         .bind('mouseenter', function() {
@@ -357,9 +357,9 @@ function build_place_information_screen(canvas) {
 	return place_information_screen;
 }
 
-function build_saved_travel_route_screen(canvas) {
-	var saved_travel_route_screen = canvas.display.rectangle({
-		description: descriptions['saved_travel_route'],
+function build_changed_travel_route_screen(canvas) {
+	var changed_travel_route_screen = canvas.display.rectangle({
+		description: descriptions['changed_travel_route'],
 		description_show: true,
 		template: false,
 		x: canvas.width / 2,
@@ -372,71 +372,60 @@ function build_saved_travel_route_screen(canvas) {
 		});
 
 	
-		saved_travel_route_screen.message = canvas.display.text({
+		changed_travel_route_screen.message = canvas.display.text({
 			x: 0,
 			y: 0,
 			origin: { x: 'center', y: 'center' },
 			align: 'center',
 			font: get_size_px(canvas, 17),
-			text: map['saved_travel_route'],
+			text: map['changed_travel_route'],
 			fill: white
 		});
 	
-		saved_travel_route_screen.show_button = canvas.display.rectangle({
-			x: +0.41 * saved_travel_route_screen.width / 2,
-			y: 1.25 * saved_travel_route_screen.height / 4,
+		changed_travel_route_screen.yes_button = canvas.display.rectangle({
+			x: +0.41 * changed_travel_route_screen.width / 2,
+			y: 1.25 * changed_travel_route_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: 0.8 * saved_travel_route_screen.width / 4,
-			height: 0.6 * saved_travel_route_screen.width / 6,
+			width: 0.8 * changed_travel_route_screen.width / 4,
+			height: 0.6 * changed_travel_route_screen.width / 6,
 			borderRadius: 5,
 			fill: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'
 		});
-		saved_travel_route_screen.show_text = canvas.display.text({
+		changed_travel_route_screen.yes_text = canvas.display.text({
 			x: 0,
 			y: 0,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 16),
-			text: map['show'],
+			text: map['yes'],
 			fill: black
 		});
 	
-		saved_travel_route_screen.change_button = canvas.display.rectangle({
-			x: -0.41 * saved_travel_route_screen.width / 2,
-			y: 1.25 * saved_travel_route_screen.height / 4,
+		changed_travel_route_screen.no_button = canvas.display.rectangle({
+			x: -0.41 * changed_travel_route_screen.width / 2,
+			y: 1.25 * changed_travel_route_screen.height / 4,
 			origin: { x: 'center', y: 'center' },
-			width: 0.8 * saved_travel_route_screen.width / 4,
-			height: 0.6 * saved_travel_route_screen.width / 6,
+			width: 0.8 * changed_travel_route_screen.width / 4,
+			height: 0.6 * changed_travel_route_screen.width / 6,
 			borderRadius: 5,
 			borderTopLeftRadius: 5,
 			fill: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'
 		});
-		saved_travel_route_screen.change_text = canvas.display.text({
+		changed_travel_route_screen.no_text = canvas.display.text({
 			x: 0,
 			y: 0,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 17),
-			text: map['change'],
+			text: map['no'],
 			fill: black
 		});
 	
-		saved_travel_route_screen.show_button.addChild(saved_travel_route_screen.show_text);
-		saved_travel_route_screen.change_button.addChild(saved_travel_route_screen.change_text);
-		saved_travel_route_screen.addChild(saved_travel_route_screen.show_button);
-		saved_travel_route_screen.addChild(saved_travel_route_screen.change_button);
-		saved_travel_route_screen.addChild(saved_travel_route_screen.message);
+		changed_travel_route_screen.yes_button.addChild(changed_travel_route_screen.yes_text);
+		changed_travel_route_screen.no_button.addChild(changed_travel_route_screen.no_text);
+		changed_travel_route_screen.addChild(changed_travel_route_screen.yes_button);
+		changed_travel_route_screen.addChild(changed_travel_route_screen.no_button);
+		changed_travel_route_screen.addChild(changed_travel_route_screen.message);
 	
-		saved_travel_route_screen.show_button
-			.bind('click tap', function() {
-				changeScreen(canvas, build_my_travel_route_screen(canvas));
-			})
-			.bind('mouseenter', function() {
-				canvas.mouse.cursor('pointer');
-			})
-			.bind('mouseleave', function() {
-				canvas.mouse.cursor('default');
-			});
-	
-		saved_travel_route_screen.change_button
+		changed_travel_route_screen.yes_button
 			.bind('click tap', function() {
 				changeScreen(canvas, build_place_information_screen(canvas));
 			})
@@ -446,9 +435,20 @@ function build_saved_travel_route_screen(canvas) {
 			.bind('mouseleave', function() {
 				canvas.mouse.cursor('default');
 			});
+	
+		changed_travel_route_screen.no_button
+			.bind('click tap', function() {
+				changeScreen(canvas, build_map_type_selection_screen(canvas));
+			})
+			.bind('mouseenter', function() {
+				canvas.mouse.cursor('pointer');
+			})
+			.bind('mouseleave', function() {
+				canvas.mouse.cursor('default');
+			});
 
 
-	return saved_travel_route_screen;
+	return changed_travel_route_screen;
 }
 
 function build_my_travel_route_screen(canvas) {
@@ -633,4 +633,3 @@ function build_my_travel_route_screen(canvas) {
 	
     return my_travel_route_screen;
 }
-

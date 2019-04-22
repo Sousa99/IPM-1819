@@ -43,7 +43,7 @@ const STRINGS_DESCRIPTIONS = {
 		places_list: 'Lista de Locais',
 		place_information: 'Informação Local',
 		my_travel_route: ' A Minha Rota de Viagem',
-		saved_travel_route: 'Rota Guardada'
+		changed_travel_route: 'Rota Alterada'
 	},
 
 	en: {
@@ -90,7 +90,7 @@ const STRINGS_DESCRIPTIONS = {
 		places_list: 'List of Places',
 		place_information: 'Local Information',
 		my_travel_route: ' My Travel Route',
-		saved_travel_route: 'Saved Route'
+		changed_travel_route: 'Changed Route'
 	}
 };
 
@@ -245,9 +245,9 @@ const STRINGS_MAP = {
 		time: 'Tempo:',
 		map: 'Ver\nno Mapa',
 		add_route: 'Adicionar\na Rota',
-		saved_travel_route: ' A sua rota\nfoi guardada\ncom sucesso!',
-		show: 'Mostrar',
-		change: 'Mudar',
+		changed_travel_route: 'Deseja mesmo alterar\na rota criada?',
+		yes: 'Sim',
+		no: 'Não',
 		morning: 'Manhã',
 		lunch: 'Almoço',
 		afternoon: 'Tarde',
@@ -261,9 +261,9 @@ const STRINGS_MAP = {
 		time: 'Time:',
 		map: 'See on\nthe Map',
 		add_route: 'Add\nto Route',
-		saved_travel_route: ' Your route\nwas saved\nsuccessfully!',
-		show: 'Show',
-		change: 'Change',
+		changed_travel_route: ' Do you wish to\nchange the created route?',
+		yes: 'Yes',
+		no: 'No',
 		morning: 'Morning',
 		lunch: 'Lunch',
 		afternoon: 'Afternoon',
