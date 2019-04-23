@@ -259,8 +259,8 @@ function build_place_information_screen(canvas) {
 		borderRadius: 20,
 		fill: black
         });
-        
-    const place = map_information.info_place;
+
+	const place = map_information.info_place;
 
     var name = canvas.display.text({
         x: 0,
@@ -332,15 +332,7 @@ function build_place_information_screen(canvas) {
 
     place_information_screen.add_route_button
         .bind('click tap', function() {
-            const time = map_information.times[map_information.type_selected][map_information.info_place_time];
-            const method_transportation = map_information.transportations[map_information.info_place_transportation];
-
-            map_information.planned_route[time.description] = {
-                place: place,
-                transportation: method_transportation
-			}
 			changeScreen(canvas, build_changed_travel_route_screen(canvas));
-	
         })
         .bind('mouseenter', function() {
             canvas.mouse.cursor('pointer');
@@ -371,7 +363,6 @@ function build_changed_travel_route_screen(canvas) {
 		fill: black
 		});
 
-	
 		changed_travel_route_screen.message = canvas.display.text({
 			x: 0,
 			y: 0,
@@ -427,7 +418,16 @@ function build_changed_travel_route_screen(canvas) {
 	
 		changed_travel_route_screen.yes_button
 			.bind('click tap', function() {
-				changeScreen(canvas, build_place_information_screen(canvas));
+				const place = map_information.info_place;
+				const time = map_information.times[map_information.type_selected][map_information.info_place_time];
+            	const method_transportation = map_information.transportations[map_information.info_place_transportation];
+
+				map_information.planned_route[time.description] = {
+					place: place,
+					transportation: method_transportation
+				}
+
+				changeScreen(canvas, build_map_type_selection_screen(canvas));
 			})
 			.bind('mouseenter', function() {
 				canvas.mouse.cursor('pointer');
@@ -438,7 +438,7 @@ function build_changed_travel_route_screen(canvas) {
 	
 		changed_travel_route_screen.no_button
 			.bind('click tap', function() {
-				changeScreen(canvas, build_map_type_selection_screen(canvas));
+				changeScreen(canvas, build_place_information_screen(canvas));
 			})
 			.bind('mouseenter', function() {
 				canvas.mouse.cursor('pointer');
@@ -467,7 +467,6 @@ function build_my_travel_route_screen(canvas) {
     
     const startpoint = -2;
     const lines = 5;
-    console.log(map_information.planned_route);
 
     for (var i = 0; i < lines + 1; i++) {
         var line = canvas.display.line({
@@ -568,7 +567,17 @@ function build_my_travel_route_screen(canvas) {
 			fill: white
 		});
 
+		my_travel_route_screen.morning_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 2 - 2.5 * my_travel_route_screen.width / 20,
+			y: -0.6 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			width: my_travel_route_screen.height / 11,
+			height: my_travel_route_screen.height / 12,
+			image: MATERIALS_DIR + map_information.planned_route.morning.transportation.image
+		});
+
 		my_travel_route_screen.addChild(my_travel_route_screen.morning_info_text);
+		my_travel_route_screen.addChild(my_travel_route_screen.morning_pub);
 	}
 	
 
@@ -582,7 +591,17 @@ function build_my_travel_route_screen(canvas) {
 			fill: white
 		});
 
+		my_travel_route_screen.lunch_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 2 - 2.5 * my_travel_route_screen.width / 20,
+			y: -0.3 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			width: my_travel_route_screen.height / 11,
+			height: my_travel_route_screen.height / 12,
+			image: MATERIALS_DIR + map_information.planned_route.lunch.transportation.image
+		});
+
 		my_travel_route_screen.addChild(my_travel_route_screen.lunch_info_text);
+		my_travel_route_screen.addChild(my_travel_route_screen.lunch_pub);
 	}
 
 	if (map_information.planned_route.afternoon != null){
@@ -595,7 +614,17 @@ function build_my_travel_route_screen(canvas) {
 			fill: white
 		});
 
+		my_travel_route_screen.afternoon_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 2 - 2.5 * my_travel_route_screen.width / 20,
+			y: 0 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			width: my_travel_route_screen.height / 11,
+			height: my_travel_route_screen.height / 12,
+			image: MATERIALS_DIR + map_information.planned_route.afternoon.transportation.image
+		});
+
 		my_travel_route_screen.addChild(my_travel_route_screen.afternoon_info_text);
+		my_travel_route_screen.addChild(my_travel_route_screen.afternoon_pub);
 	}
 	
 	if (map_information.planned_route.dinner != null){
@@ -608,7 +637,17 @@ function build_my_travel_route_screen(canvas) {
 			fill: white
 		});
 
+		my_travel_route_screen.dinner_pub = canvas.display.image({
+			x: my_travel_route_screen.width / 2 - 2.5 * my_travel_route_screen.width / 20,
+			y: 0.3 * my_travel_route_screen.height / 3,
+			origin: { x: 'center', y: 'center' },
+			width: my_travel_route_screen.height / 11,
+			height: my_travel_route_screen.height / 12,
+			image: MATERIALS_DIR + map_information.planned_route.dinner.transportation.image,
+		});
+
 		my_travel_route_screen.addChild(my_travel_route_screen.dinner_info_text);
+		my_travel_route_screen.addChild(my_travel_route_screen.dinner_pub);
 	}
 
 	if (map_information.planned_route.night != null){
@@ -621,65 +660,18 @@ function build_my_travel_route_screen(canvas) {
 			fill: white
 		});
 
-		my_travel_route_screen.addChild(my_travel_route_screen.night_info_text);
-	}
-
-	if (map_information.planned_route.morning != null){
-		my_travel_route_screen.morning_pub = canvas.display.image({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
-			y: -0.6 * my_travel_route_screen.height / 3,
-			origin: { x: 'center', y: 'center' },
-			image: map_information.planned_route.morning.transportation.image
-		});
-
-		my_travel_route_screen.addChild(my_travel_route_screen.morning_pub);
-	}
-	
-
-	if (map_information.planned_route.lunch != null){
-		my_travel_route_screen.lunch_pub = canvas.display.image({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
-			y: -0.3 * my_travel_route_screen.height / 3,
-			origin: { x: 'center', y: 'center' },
-			image: map_information.planned_route.lunch.transportation.image
-		});
-
-		my_travel_route_screen.addChild(my_travel_route_screen.lunch_pub);
-	}
-
-	if (map_information.planned_route.afternoon != null){
-		my_travel_route_screen.afternoon_info_text = canvas.display.image({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
-			y: 0 * my_travel_route_screen.height / 3,
-			origin: { x: 'center', y: 'center' },
-			image: map_information.planned_route.afternoon.transportation.image
-		});
-
-		my_travel_route_screen.addChild(my_travel_route_screen.afternoon_pub);
-	}
-	
-	if (map_information.planned_route.dinner != null){
-		my_travel_route_screen.dinner_pub = canvas.display.image({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
-			y: 0.3 * my_travel_route_screen.height / 3,
-			origin: { x: 'center', y: 'center' },
-			image: map_information.planned_route.dinner.transportation.image,
-		});
-
-		my_travel_route_screen.addChild(my_travel_route_screen.dinner_pub);
-	}
-
-	if (map_information.planned_route.night != null){
 		my_travel_route_screen.night_pub = canvas.display.image({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 10,
+			x: my_travel_route_screen.width / 2 - 2.5 * my_travel_route_screen.width / 20,
 			y: 0.6 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
-			image: map_information.planned_route.night.transportation.image
+			width: my_travel_route_screen.height / 11,
+			height: my_travel_route_screen.height / 12,
+			image: MATERIALS_DIR + map_information.planned_route.night.transportation.image
 		});
 
+		my_travel_route_screen.addChild(my_travel_route_screen.night_info_text);
 		my_travel_route_screen.addChild(my_travel_route_screen.night_pub);
 	}
-	
 
 	my_travel_route_screen.addChild(my_travel_route_screen.morning_text);
 	my_travel_route_screen.addChild(my_travel_route_screen.lunch_text);
