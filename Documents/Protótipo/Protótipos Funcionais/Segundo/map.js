@@ -486,11 +486,11 @@ function build_my_travel_route_screen(canvas) {
     
     var line = canvas.display.line({
         start: {
-            x: - my_travel_route_screen.width / 10,
+            x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 4,
             y: (startpoint - 0.9) * my_travel_route_screen.height / 10
         },
         end: {
-            x: - my_travel_route_screen.width / 10,
+            x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 4,
             y: (lines + startpoint - 0.1) * my_travel_route_screen.height / 10
         },
         stroke: '1px ' + white,
@@ -513,46 +513,46 @@ function build_my_travel_route_screen(canvas) {
     my_travel_route_screen.addChild(line);
 	
 	my_travel_route_screen.morning_text = canvas.display.text({
-		x: - 1.1 * my_travel_route_screen.width / 4,
+		x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 20 + my_travel_route_screen.width / 10,
 		y: -0.6 * my_travel_route_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 17),
+		font: get_size_px(canvas, 15),
 		text: map['morning'],
 		fill: white
 	});
 
 	my_travel_route_screen.lunch_text = canvas.display.text({
-		x: - 1.1 * my_travel_route_screen.width / 4,
+		x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 20 + my_travel_route_screen.width / 10,
 		y: -0.3 * my_travel_route_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 17),
+		font: get_size_px(canvas, 15),
 		text: map['lunch'],
 		fill: white
 	});
 
 	my_travel_route_screen.afternoon_text = canvas.display.text({
-		x: - 1.1 * my_travel_route_screen.width / 4,
+		x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 20 + my_travel_route_screen.width / 10,
 		y: 0 * my_travel_route_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 17),
+		font: get_size_px(canvas, 15),
 		text: map['afternoon'],
 		fill: white
 	});
 
 	my_travel_route_screen.dinner_text = canvas.display.text({
-		x: - 1.1 * my_travel_route_screen.width / 4,
+		x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 20 + my_travel_route_screen.width / 10,
 		y:  0.3 * my_travel_route_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 17),
+		font: get_size_px(canvas, 15),
 		text: map['dinner'],
 		fill: white
 	});
 
 	my_travel_route_screen.night_text = canvas.display.text({
-		x: - 1.1 * my_travel_route_screen.width / 4,
+		x: - my_travel_route_screen.width / 2 + my_travel_route_screen.width / 20 + my_travel_route_screen.width / 10,
 		y: 0.6 * my_travel_route_screen.height / 3,
 		origin: { x: 'center', y: 'center' },
-		font: get_size_px(canvas, 17),
+		font: get_size_px(canvas, 15),
 		text: map['night'],
 		fill: white
 	});
@@ -562,7 +562,7 @@ function build_my_travel_route_screen(canvas) {
 			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
 			y: -0.6 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
-			font: get_size_px(canvas, 12),
+			font: get_size_px(canvas, 15),
 			text: map_information.planned_route.morning.place.name,
 			fill: white
 		});
@@ -586,7 +586,7 @@ function build_my_travel_route_screen(canvas) {
 			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
 			y: -0.3 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
-			font: get_size_px(canvas, 12),
+			font: get_size_px(canvas, 15),
 			text: map_information.planned_route.lunch.place.name,
 			fill: white
 		});
@@ -609,7 +609,7 @@ function build_my_travel_route_screen(canvas) {
 			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
 			y: 0 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
-			font: get_size_px(canvas, 12),
+			font: get_size_px(canvas, 15),
 			text: map_information.planned_route.afternoon.place.name,
 			fill: white
 		});
@@ -632,7 +632,7 @@ function build_my_travel_route_screen(canvas) {
 			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
 			y:  0.3 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
-			font: get_size_px(canvas, 12),
+			font: get_size_px(canvas, 15),
 			text: map_information.planned_route.dinner.place.name,
 			fill: white
 		});
@@ -655,7 +655,7 @@ function build_my_travel_route_screen(canvas) {
 			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
 			y: 0.6 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
-			font: get_size_px(canvas, 10),
+			font: get_size_px(canvas, 15),
 			text: map_information.planned_route.night.place.name,
 			fill: white
 		});
