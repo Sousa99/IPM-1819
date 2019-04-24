@@ -36,9 +36,9 @@ function build_language_settings_screen(canvas) {
 			changeScreen(canvas, build_changed_language_screen(canvas))
 			setTimeout(function() {
 				changeScreen(canvas, build_language_settings_screen(canvas))
-			}, 1500);
+			}, 1500)
 		}
-	});
+	})
 	links[1].bind('click tap', function() {
 		if (!links[1].active) {
 			change_language('en')
@@ -83,7 +83,7 @@ function build_lock_settings_screen(canvas) {
 				changeScreen(canvas, build_lock_settings_screen(canvas))
 			}, 1500)
 		}
-	});
+	})
 	links[1].bind('click tap', function() {
 		if (!links[1].active) {
 			lock_screen_type = 'pin'
@@ -93,7 +93,7 @@ function build_lock_settings_screen(canvas) {
 				changeScreen(canvas, build_lock_settings_screen(canvas))
 			}, 1500)
 		}
-	});
+	})
 	links[2].bind('click tap', function() {
 		if (!links[2].active) {
 			lock_screen_type = 'pattern'
@@ -103,7 +103,7 @@ function build_lock_settings_screen(canvas) {
 				changeScreen(canvas, build_lock_settings_screen(canvas))
 			}, 1500)
 		}
-	});
+	})
 	links[3].bind('click tap', function() {
 		if (!links[3].active) {
 			lock_screen_type = 'fingerprint'
@@ -191,7 +191,7 @@ function build_lock_screen_pin(canvas) {
 	}
 
 	for (var i = 0; i < 9; i++) {
-		const value = i;
+		const value = i
 		links[value].bind('click tap', function() {
 			if (lock_screen.attempt.length < 4) {
 				circles[lock_screen.attempt.length].fill = white
@@ -238,7 +238,7 @@ function build_lock_screen_pattern(canvas) {
 
 	color = '#4593c6'
 	for (var i = 0; i < 9; i++) {
-		const value = i;
+		const value = i
 		links[i].bind('mousemove touchmove', function() {
 			if (lock_screen.active && !links[value].active) {
 				links[value].active = true
