@@ -86,7 +86,7 @@ function loadCanvas() {
 				else if (canvas.mouse.buttonState == 'up' || canvas.touch.touchState == 'up') {
 					changeScreen(canvas, build_lock_screen(canvas));
 				}
-
+				
 				if (actual_screen.attempt == code) changeScreen(canvas, build_menu_screen(canvas));
 				break;
 
