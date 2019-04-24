@@ -92,7 +92,7 @@ const STRINGS_DESCRIPTIONS = {
 		my_travel_route: ' My Travel Route',
 		changed_travel_route: 'Changed Route'
 	}
-};
+}
 
 const STRINGS_HEALTH = {
 	pt: {
@@ -235,7 +235,7 @@ const STRINGS_HEALTH = {
 		good_heart_rate: 'Heart Rate\nat the right level',
 		slow_heart_rate: 'Heart Rate\ntoo low'
 	}
-};
+}
 
 const STRINGS_MAP = {
 	pt: {
@@ -270,7 +270,7 @@ const STRINGS_MAP = {
 		dinner: 'Dinner',
 		night: 'Night'
 	}
-};
+}
 
 const STRINGS_SETTINGS = {
 	pt: {
@@ -299,7 +299,7 @@ const STRINGS_SETTINGS = {
 		message_changed_lock: 'Changed predefined\nlock method',
 		touch_screen_to_unlock: 'Touch the screen to unlock device'
 	}
-};
+}
 
 const STRINGS_OTHERS = {
 	pt: {
@@ -324,22 +324,21 @@ const STRINGS_OTHERS = {
 		help_choose_activity:
 			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.'
 	}
-};
+}
 
-var language;
-var descriptions;
-var health;
-var map;
-var settings;
-var others;
+var language
+var descriptions
+var health
+var map
+var settings
+var others
 
-change_language('pt');
+change_language('pt')
 function change_language(change) {
-	language = change;
-	descriptions = STRINGS_DESCRIPTIONS[language];
-	health = STRINGS_HEALTH[language];
-	map = STRINGS_MAP[language];
-	settings = STRINGS_SETTINGS[language];
-	others = STRINGS_OTHERS[language];
-
+	language = change
+	descriptions = STRINGS_DESCRIPTIONS[language]
+	health = STRINGS_HEALTH[language]
+	map = STRINGS_MAP[language]
+	settings = STRINGS_SETTINGS[language]
+	others = STRINGS_OTHERS[language]
 }
