@@ -559,7 +559,7 @@ function build_my_travel_route_screen(canvas) {
 
 	if (map_information.planned_route.morning != null){
 		my_travel_route_screen.morning_info_text = canvas.display.text({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
+			x: my_travel_route_screen.width / 40,
 			y: -0.6 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 15),
@@ -583,7 +583,7 @@ function build_my_travel_route_screen(canvas) {
 
 	if (map_information.planned_route.lunch != null){
 		my_travel_route_screen.lunch_info_text = canvas.display.text({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
+			x: my_travel_route_screen.width / 40,
 			y: -0.3 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 15),
@@ -606,7 +606,7 @@ function build_my_travel_route_screen(canvas) {
 
 	if (map_information.planned_route.afternoon != null){
 		my_travel_route_screen.afternoon_info_text = canvas.display.text({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
+			x: my_travel_route_screen.width / 40,
 			y: 0 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 15),
@@ -629,7 +629,7 @@ function build_my_travel_route_screen(canvas) {
 	
 	if (map_information.planned_route.dinner != null){
 		my_travel_route_screen.dinner_info_text = canvas.display.text({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
+			x: my_travel_route_screen.width / 40,
 			y:  0.3 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 15),
@@ -652,7 +652,7 @@ function build_my_travel_route_screen(canvas) {
 
 	if (map_information.planned_route.night != null){
 		my_travel_route_screen.night_info_text = canvas.display.text({
-			x: my_travel_route_screen.width / 4 - my_travel_route_screen.width / 7,
+			x: my_travel_route_screen.width / 40,
 			y: 0.6 * my_travel_route_screen.height / 3,
 			origin: { x: 'center', y: 'center' },
 			font: get_size_px(canvas, 15),
