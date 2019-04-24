@@ -1,10 +1,9 @@
 function build_frame(canvas) {
-	var frame = build_screen(canvas, false, false, [SIZE_SCREEN + SIZE_FRAME, SIZE_SCREEN + SIZE_FRAME], gray_frame)
+	var frame = build_screen(canvas, undefined, false, false, [SIZE_SCREEN + SIZE_FRAME, SIZE_SCREEN + SIZE_FRAME], gray_frame)
 	frame.emergency = 5
 	
 	frame.camera = build_ellipse(canvas, [0, - 73 / 150 * frame.height], frame.height / 85, 'radial-gradient(' + white + ', ' + black + ')')
 	frame.button_plus = build_rectangle(canvas, [- 37 / 70 * frame.width, - 4 / 10 * frame.height], [1/ 25 * frame.width, 3 / 20 * frame.height], ['left', 'top'], gray_frame, [10, 0, 0, 0])
-	console.log('Ola2')
 	frame.symbol_plus = build_text(canvas, [2, 2], ['left', 'top'], undefined, get_size_px(canvas, 16), '+')
 	frame.button_minus = build_rectangle(canvas, [- 37 / 70 * frame.width, - 6 / 25 * frame.height], [1/ 25 * frame.width, 3 / 20 * frame.height], ['left', 'top'], gray_frame, [0, 0, 10, 0])
 	frame.symbol_minus = build_text(canvas, [2, frame.button_minus.height - 2], ['left', 'bottom'], undefined, get_size_px(canvas, 16), '-')
@@ -183,20 +182,20 @@ function build_frame(canvas) {
 		if (!non_lockables.includes(actual_screen.description)) changeScreen(canvas, build_main_screen(canvas))
 	})
 	
-	object_clickable(canvas, frame.button_minus);
+	object_clickable(canvas, frame.button_minus)
 	frame.button_minus.bind('click tap', function() {
 		if (actual_screen.description == descriptions['map'])
 		map_initialized.zoomOut()
 	})
 	
-	object_clickable(canvas, frame.button_plus);
+	object_clickable(canvas, frame.button_plus)
 	frame.button_plus.bind('click tap', function() {
 		if (actual_screen.description == descriptions['map'])
 		map_initialized.zoomIn()
 	})
 	
-	object_clickable(canvas, frame.button_back);
-	object_clickable(canvas, frame.button_lock);
+	object_clickable(canvas, frame.button_back)
+	object_clickable(canvas, frame.button_lock)
 	
 	frame.addChild(frame.camera)
 	frame.button_plus.addChild(frame.symbol_plus)
@@ -218,221 +217,73 @@ function build_template(canvas) {
 		origin: { x: 'center', y: 'center' },
 		width: SIZE_SCREEN,
 		height: 20
-	});
-	template.time = canvas.display.text({
-		x: template.width / 2 - template.width / 10,
-		y: 0,
-		origin: { x: 'center', y: 'center' },
-		family: '7Segments',
-		font: get_size_px(canvas, 12),
-		fill: white
-	});
+	})
 
-	template.battery = canvas.display.image({
-		x: -template.width / 2 + template.width / 12 + 30,
-		y: 0,
-		width: 20,
-		height: 20,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Battery.png'
-	});
+	template.time = build_text(canvas, [ 2 / 5 * template.width, 0], undefined, undefined, get_size_px(canvas, 12), undefined, white)
+	template.battery = build_image(canvas, [ - 5 / 12 * template.width + 30, 0], [20, 20], undefined, MATERIALS_DIR + '/Battery.png')
+	template.wifi = build_image(canvas, [ - 5 / 12 * template.width, 0], [20, 20], undefined, MATERIALS_DIR + '/Wifi.png')
 
-	template.wifi = canvas.display.image({
-		x: -template.width / 2 + template.width / 12,
-		y: 0,
-		width: 20,
-		height: 20,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Wifi.png'
-	});
+	template.addChild(template.time)
+	template.addChild(template.battery)
+	template.addChild(template.wifi)
 
-	template.addChild(template.time);
-	template.addChild(template.battery);
-	template.addChild(template.wifi);
-
-	return template;
+	return template
 }
 
 function build_main_screen(canvas) {
-	var main_screen = canvas.display.rectangle({
-		description: descriptions['main'],
-		description_show: false,
-		template: false,
-		x: canvas.width / 2,
-		y: canvas.height / 2,
-		origin: { x: 'center', y: 'center' },
-		width: SIZE_SCREEN,
-		height: SIZE_SCREEN,
-		borderRadius: 20,
-		fill: black
-	});
+	var main_screen = build_screen(canvas, descriptions['main'], false, false, undefined, undefined)
 
-	main_screen.date = canvas.display.text({
-		x: 0,
-		y: -main_screen.height / 2 + main_screen.height / 10,
-		origin: { x: 'center', y: 'center' },
-		family: '7Segments',
-		font: get_size_px(canvas, 16),
-		fill: white
-	});
-	main_screen.time = canvas.display.text({
-		x: 0,
-		y: 0,
-		origin: { x: 'center', y: 'center' },
-		family: '7Segments',
-		font: get_size_px(canvas, 50),
-		fill: white
-	});
+	main_screen.date = build_text(canvas, [0, - 2 / 5 * main_screen.height], undefined, undefined, get_size_px(canvas, 16), undefined, white)
+	main_screen.time = build_text(canvas , undefined, undefined, undefined, get_size_px(canvas, 50), undefined, white)
+	main_screen.number_friends = build_text(canvas, [0, 3 / 8 * main_screen.height], undefined, undefined, get_size_px(canvas, 20), friendsgroup.length, white)
+	main_screen.friends = build_text(canvas, [0, 9 / 20 * main_screen.height], undefined, undefined, get_size_px(canvas, 10), others['friends_group'], white)
 
-	main_screen.number_friends = canvas.display.text({
-		x: 0,
-		y: main_screen.height / 2 - 2.5 * main_screen.height / 20,
-		origin: { x: 'center', y: 'center' },
-		family: '7Segments',
-		font: get_size_px(canvas, 20),
-		fill: white,
-		text: friendsgroup.length
-	});
-	main_screen.friends = canvas.display.text({
-		x: 0,
-		y: main_screen.height / 2 - main_screen.height / 20,
-		origin: { x: 'center', y: 'center' },
-		family: '7Segments',
-		font: get_size_px(canvas, 10),
-		fill: white,
-		text: others['friends_group']
-	});
+	main_screen.addChild(main_screen.date)
+	main_screen.addChild(main_screen.time)
+	main_screen.addChild(main_screen.number_friends)
+	main_screen.addChild(main_screen.friends)
 
-	main_screen.addChild(main_screen.date);
-	main_screen.addChild(main_screen.time);
-	main_screen.addChild(main_screen.number_friends);
-	main_screen.addChild(main_screen.friends);
+	object_clickable(canvas, main_screen)
+	main_screen.bind('click tap', function() {
+		changeScreen(canvas, build_lock_screen(canvas))
+	})
 
-	main_screen
-		.bind('click tap', function() {
-			changeScreen(canvas, build_lock_screen(canvas));
-		})
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
-
-	return main_screen;
+	return main_screen
 }
 
 function build_menu_screen(canvas) {
-	var menu_screen = canvas.display.rectangle({
-		description: descriptions['menu'],
-		description_show: false,
-		template: true,
-		x: canvas.width / 2,
-		y: canvas.height / 2,
-		origin: { x: 'center', y: 'center' },
-		width: SIZE_SCREEN,
-		height: SIZE_SCREEN,
-		borderRadius: 20,
-		fill: black
-	});
+	var menu_screen = build_screen(canvas, descriptions['menu'], false, true, undefined)
 
-	menu_screen.contacts_menu_button = canvas.display.image({
-		x: -menu_screen.width / 3.6,
-		y: -menu_screen.height / 3.6 + 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Contacts.png'
-	});
-	menu_screen.gallery_menu_button = canvas.display.image({
-		x: 0,
-		y: -menu_screen.height / 3.6 + 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Gallery.png'
-	});
-	menu_screen.group_menu_button = canvas.display.image({
-		x: menu_screen.width / 3.6,
-		y: -menu_screen.height / 3.6 + 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Group.png'
-	});
-	menu_screen.maps_menu_button = canvas.display.image({
-		x: -menu_screen.width / 3.6,
-		y: 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Maps.png'
-	});
-	menu_screen.camera_menu_button = canvas.display.image({
-		x: 0,
-		y: 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Camera.png'
-	});
-	menu_screen.health_menu_button = canvas.display.image({
-		x: menu_screen.width / 3.6,
-		y: 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Health.png'
-	});
-	menu_screen.settings_menu_button = canvas.display.image({
-		x: 0,
-		y: menu_screen.height / 3.6 + 10,
-		width: menu_screen.width / 5,
-		height: menu_screen.height / 5,
-		origin: { x: 'center', y: 'center' },
-		image: MATERIALS_DIR + '/Settings.png'
-	});
+	menu_screen.contacts_menu_button = build_image(canvas, [ - 5 / 18 * menu_screen.width, - 5 / 18 * menu_screen.height + 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Contacts.png')
+	menu_screen.gallery_menu_button = build_image(canvas, [ 0, - 5 / 18 * menu_screen.height + 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Gallery.png')
+	menu_screen.group_menu_button = build_image(canvas, [ 5 / 18 * menu_screen.width, - 5 / 18 * menu_screen.height + 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Group.png')
+	menu_screen.maps_menu_button = build_image(canvas, [ - 5 / 18 * menu_screen.width, 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Maps.png')
+	menu_screen.camera_menu_button = build_image(canvas, [ 0, 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Camera.png')
+	menu_screen.health_menu_button = build_image(canvas, [ 5 / 18 * menu_screen.width, 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Health.png')
+	menu_screen.settings_menu_button = build_image(canvas, [ 0, 5 / 18 * menu_screen.height + 10], [menu_screen.width / 5, menu_screen.height / 5], undefined, MATERIALS_DIR + '/Settings.png')
 
-	menu_screen.addChild(menu_screen.contacts_menu_button);
-	menu_screen.addChild(menu_screen.gallery_menu_button);
-	menu_screen.addChild(menu_screen.group_menu_button);
-	menu_screen.addChild(menu_screen.maps_menu_button);
-	menu_screen.addChild(menu_screen.camera_menu_button);
-	menu_screen.addChild(menu_screen.health_menu_button);
-	menu_screen.addChild(menu_screen.settings_menu_button);
+	menu_screen.addChild(menu_screen.contacts_menu_button)
+	menu_screen.addChild(menu_screen.gallery_menu_button)
+	menu_screen.addChild(menu_screen.group_menu_button)
+	menu_screen.addChild(menu_screen.maps_menu_button)
+	menu_screen.addChild(menu_screen.camera_menu_button)
+	menu_screen.addChild(menu_screen.health_menu_button)
+	menu_screen.addChild(menu_screen.settings_menu_button)
 
-	menu_screen.settings_menu_button
-		.bind('click tap', function() {
-			changeScreen(canvas, build_settings_screen(canvas));
-		})
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
+	object_clickable(canvas, menu_screen.settings_menu_button)
+	menu_screen.settings_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_settings_screen(canvas))
+	})
 
-	menu_screen.health_menu_button
-		.bind('click tap', function() {
-			changeScreen(canvas, build_health_screen(canvas));
-		})
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
+	object_clickable(canvas, menu_screen.health_menu_button)
+	menu_screen.health_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_health_screen(canvas))
+	})
 
-	menu_screen.maps_menu_button
-		.bind('click tap', function() {
-			changeScreen(canvas, build_map_type_selection_screen(canvas));
-		})
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
+	object_clickable(canvas, menu_screen.maps_menu_button)
+	menu_screen.maps_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_map_type_selection_screen(canvas))
+	})
 
-	return menu_screen;
+	return menu_screen
 }
