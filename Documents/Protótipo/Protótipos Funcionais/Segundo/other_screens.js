@@ -13,21 +13,10 @@ function build_frame(canvas) {
 		fill: gray_frame
 	});
 
-	frame.camera = canvas.display.ellipse({
-		x: 0,
-		y: -frame.height / 2 + frame.height / 75,
-		radius: frame.height / 85,
-		fill: 'radial-gradient(' + white + ', ' + black + ')'
-	});
-
-	frame.button_plus = canvas.display.rectangle({
-		x: -frame.width / 2 - frame.width / 35,
-		y: -frame.height / 2 + frame.height / 10,
-		width: 2 * frame.width / 50,
-		height: 1.5 * frame.height / 10,
-		fill: gray_frame,
-		borderTopLeftRadius: 10
-	});
+	frame.camera = build_ellipse(canvas, [null, - 73 / 150 * frame.height], frame.height / 85, 'radial-gradient(' + white + ', ' + black + ')')
+	frame.button_plus = build_rectangle(canvas, [- 37 / 70 * frame.width, - 4 / 10 * frame.height], [1/ 25 * frame.width, 3 / 10 * frame.height], gray_frame, null, [10, null, null, null])
+	console.log(frame.button_plus)
+	
 	frame.symbol_plus = canvas.display.text({
 		x: 2,
 		y: 2,
