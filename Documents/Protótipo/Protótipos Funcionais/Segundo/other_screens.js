@@ -1,286 +1,212 @@
 function build_frame(canvas) {
-	var frame = canvas.display.rectangle({
-		description: descriptions['frame'],
-		description_show: false,
-		template: false,
-		emergency: 5,
-		x: canvas.width / 2,
-		y: canvas.height / 2,
-		origin: { x: 'center', y: 'center' },
-		width: SIZE_SCREEN + SIZE_FRAME,
-		height: SIZE_SCREEN + SIZE_FRAME,
-		borderRadius: 20,
-		fill: gray_frame
-	});
-
-	frame.camera = build_ellipse(canvas, [null, - 73 / 150 * frame.height], frame.height / 85, 'radial-gradient(' + white + ', ' + black + ')')
-	frame.button_plus = build_rectangle(canvas, [- 37 / 70 * frame.width, - 4 / 10 * frame.height], [1/ 25 * frame.width, 3 / 10 * frame.height], gray_frame, null, [10, null, null, null])
-	console.log(frame.button_plus)
+	var frame = build_screen(canvas, false, false, [SIZE_SCREEN + SIZE_FRAME, SIZE_SCREEN + SIZE_FRAME], gray_frame)
+	frame.emergency = 5
 	
-	frame.symbol_plus = canvas.display.text({
-		x: 2,
-		y: 2,
-		origin: { x: 'left', y: 'top' },
-		family: '7Segments',
-		font: get_size_px(canvas, 16),
-		text: '+',
-		fill: black
-	});
-	frame.button_minus = canvas.display.rectangle({
-		x: -frame.width / 2 - frame.width / 35,
-		y: -frame.height / 2 + (2.5 + 0.1) * frame.height / 10,
-		width: 2 * frame.width / 50,
-		height: 1.5 * frame.height / 10,
-		fill: gray_frame,
-		borderBottomLeftRadius: 10
-	});
-	frame.symbol_minus = canvas.display.text({
-		x: 2,
-		y: frame.button_minus.height - 2,
-		origin: { x: 'left', y: 'bottom' },
-		family: '7Segments',
-		font: get_size_px(canvas, 16),
-		text: '-',
-		fill: black
-	});
-
-	frame.button_back = canvas.display.rectangle({
-		x: frame.width / 2 - 1,
-		y: -frame.height / 2 + frame.height / 10,
-		width: 2 * frame.width / 50,
-		height: 1.5 * frame.height / 10,
-		fill: gray_frame,
-		borderTopRightRadius: 10,
-		borderBottomRightRadius: 10
-	});
-	frame.button_lock = canvas.display.rectangle({
-		x: frame.width / 2 - 1,
-		y: frame.height / 2 - frame.height / 10 - 1.5 * frame.height / 10,
-		width: 2 * frame.width / 50,
-		height: 1.5 * frame.height / 10,
-		fill: gray_frame,
-		borderTopRightRadius: 10,
-		borderBottomRightRadius: 10
-	});
-
+	frame.camera = build_ellipse(canvas, [0, - 73 / 150 * frame.height], frame.height / 85, 'radial-gradient(' + white + ', ' + black + ')')
+	frame.button_plus = build_rectangle(canvas, [- 37 / 70 * frame.width, - 4 / 10 * frame.height], [1/ 25 * frame.width, 3 / 20 * frame.height], ['left', 'top'], gray_frame, [10, 0, 0, 0])
+	console.log('Ola2')
+	frame.symbol_plus = build_text(canvas, [2, 2], ['left', 'top'], undefined, get_size_px(canvas, 16), '+')
+	frame.button_minus = build_rectangle(canvas, [- 37 / 70 * frame.width, - 6 / 25 * frame.height], [1/ 25 * frame.width, 3 / 20 * frame.height], ['left', 'top'], gray_frame, [0, 0, 10, 0])
+	frame.symbol_minus = build_text(canvas, [2, frame.button_minus.height - 2], ['left', 'bottom'], undefined, get_size_px(canvas, 16), '-')
+	frame.button_back = build_rectangle(canvas, [frame.width / 2 - 1, - 2 / 5 * frame.height], [frame.width / 25, 3 / 20 * frame.height], ['left', 'top'], gray_frame, [0, 10, 0, 10])
+	frame.button_lock = build_rectangle(canvas, [frame.width / 2 - 1, 1 / 4 * frame.height], [frame.width / 25, 3 / 20 * frame.height], ['left', 'top'], gray_frame, [0, 10, 0, 10])
+	
 	frame.button_back.bind('click tap', function() {
 		switch (actual_screen.description) {
 			case descriptions['menu']:
-				changeScreen(canvas, build_main_screen(canvas));
-				break;
+			changeScreen(canvas, build_main_screen(canvas))
+			break
 			case descriptions['settings']:
-				changeScreen(canvas, build_menu_screen(canvas));
-				break;
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
 			case descriptions['language_settings']:
-				changeScreen(canvas, build_settings_screen(canvas));
-				break;
+			changeScreen(canvas, build_settings_screen(canvas))
+			break
 			case descriptions['lock_settings']:
-				changeScreen(canvas, build_settings_screen(canvas));
-				break;
+			changeScreen(canvas, build_settings_screen(canvas))
+			break
 			case descriptions['no_lock']:
-				changeScreen(canvas, build_main_screen(canvas));
-				break;
+			changeScreen(canvas, build_main_screen(canvas))
+			break
 			case descriptions['pin_lock']:
-				changeScreen(canvas, build_main_screen(canvas));
-				break;
+			changeScreen(canvas, build_main_screen(canvas))
+			break
 			case descriptions['pattern_lock']:
-				changeScreen(canvas, build_main_screen(canvas));
-				break;
+			changeScreen(canvas, build_main_screen(canvas))
+			break
 			case descriptions['fingerprint_lock']:
-				changeScreen(canvas, build_main_screen(canvas));
-				break;
+			changeScreen(canvas, build_main_screen(canvas))
+			break
 			case descriptions['health']:
-				changeScreen(canvas, build_menu_screen(canvas));
-				break;
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
 			case descriptions['health_help']:
-				changeScreen(canvas, build_health_screen(canvas));
-				break;
+			changeScreen(canvas, build_health_screen(canvas))
+			break
 			case descriptions['heart_rate']:
-				changeScreen(canvas, build_health_screen(canvas));
-				break;
+			changeScreen(canvas, build_health_screen(canvas))
+			break
 			case descriptions['blood_pressure']:
-				changeScreen(canvas, build_health_screen(canvas));
-				break;
+			changeScreen(canvas, build_health_screen(canvas))
+			break
 			case descriptions['blood_oxygen']:
-				changeScreen(canvas, build_health_screen(canvas));
-				break;
+			changeScreen(canvas, build_health_screen(canvas))
+			break
 			case descriptions['sleep_time']:
-				changeScreen(canvas, build_health_screen(canvas));
-				break;
+			changeScreen(canvas, build_health_screen(canvas))
+			break
 			case descriptions['sos']:
-				changeScreen(canvas, build_menu_screen(canvas));
-				break;
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
 			case descriptions['sos_help']:
-				changeScreen(canvas, build_sos_screen(canvas));
-				break;
+			changeScreen(canvas, build_sos_screen(canvas))
+			break
 			case descriptions['fitness']:
-				changeScreen(canvas, build_menu_screen(canvas));
-				break;
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
 			case descriptions['fitness_help']:
-				changeScreen(canvas, build_fitness_screen(canvas));
-				break;
+			changeScreen(canvas, build_fitness_screen(canvas))
+			break
 			case descriptions['energy']:
-				changeScreen(canvas, build_fitness_screen(canvas));
-				break;
+			changeScreen(canvas, build_fitness_screen(canvas))
+			break
 			case descriptions['activity']:
-				changeScreen(canvas, build_fitness_screen(canvas));
-				break;
+			changeScreen(canvas, build_fitness_screen(canvas))
+			break
 			case descriptions['nutrition']:
-				changeScreen(canvas, build_fitness_screen(canvas));
-				break;
+			changeScreen(canvas, build_fitness_screen(canvas))
+			break
 			case descriptions['choose_activity']:
-				changeScreen(canvas, build_activity_screen(canvas));
-				break;
+			changeScreen(canvas, build_activity_screen(canvas))
+			break
 			case descriptions['choose_activity_help']:
-				changeScreen(canvas, build_choose_activity_screen(canvas));
-				break;
+			changeScreen(canvas, build_choose_activity_screen(canvas))
+			break
 			case descriptions['activity_walk']:
-				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
-				else changeScreen(canvas, build_choose_activity_screen(canvas));
-				break;
+			if (fitness.started) changeScreen(canvas, build_activity_screen(canvas))
+			else changeScreen(canvas, build_choose_activity_screen(canvas))
+			break
 			case descriptions['activity_run']:
-				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
-				else changeScreen(canvas, build_choose_activity_screen(canvas));
-				break;
+			if (fitness.started) changeScreen(canvas, build_activity_screen(canvas))
+			else changeScreen(canvas, build_choose_activity_screen(canvas))
+			break
 			case descriptions['activity_gym']:
-				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
-				else changeScreen(canvas, build_choose_activity_screen(canvas));
-				break;
+			if (fitness.started) changeScreen(canvas, build_activity_screen(canvas))
+			else changeScreen(canvas, build_choose_activity_screen(canvas))
+			break
 			case descriptions['activity_bike']:
-				if (fitness.started) changeScreen(canvas, build_activity_screen(canvas));
-				else changeScreen(canvas, build_choose_activity_screen(canvas));
-				break;
+			if (fitness.started) changeScreen(canvas, build_activity_screen(canvas))
+			else changeScreen(canvas, build_choose_activity_screen(canvas))
+			break
 			case descriptions['cancel_activity']:
-				changeScreen(canvas, build_start_activity_screen(canvas));
-				break;
+			changeScreen(canvas, build_start_activity_screen(canvas))
+			break
 			case descriptions['stop_activity']:
-				changeScreen(canvas, build_start_activity_screen(canvas));
-				break;
+			changeScreen(canvas, build_start_activity_screen(canvas))
+			break
 			case descriptions['new_measurement']:
-				switch (actual_screen.back_page) {
-					case 'heart_rate':
-						changeScreen(canvas, build_heart_rate_screen(canvas));
-						break;
-					case 'blood_pressure':
-						changeScreen(canvas, build_blood_pressure_screen(canvas));
-						break;
-					case 'blood_oxygen':
-						changeScreen(canvas, build_blood_oxygen_screen(canvas));
-						break;
-				}
-				break;
+			switch (actual_screen.back_page) {
+				case 'heart_rate':
+				changeScreen(canvas, build_heart_rate_screen(canvas))
+				break
+				case 'blood_pressure':
+				changeScreen(canvas, build_blood_pressure_screen(canvas))
+				break
+				case 'blood_oxygen':
+				changeScreen(canvas, build_blood_oxygen_screen(canvas))
+				break
+			}
+			break
 			case descriptions['map_type_selection']:
-				changeScreen(canvas, build_menu_screen(canvas));
-				break;
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
 			case descriptions['map']:
-				var map_html = document.getElementById('mapid');
-				map_html.style.display = 'none';
-
-				map_information.type_selected = null;
-				map_initialized.remove();
-				changeScreen(canvas, build_map_type_selection_screen(canvas));
-				break;
-
+			var map_html = document.getElementById('mapid')
+			map_html.style.display = 'none'
+			
+			map_information.type_selected = null
+			map_initialized.remove()
+			changeScreen(canvas, build_map_type_selection_screen(canvas))
+			break
+			
 			case descriptions['places_list']:
-				changeScreen(canvas, build_map_screen(canvas));
-				break;
+			changeScreen(canvas, build_map_screen(canvas))
+			break
 			case descriptions['place_information']:
-				changeScreen(canvas, build_places_list_screen(canvas));
-				break;
+			changeScreen(canvas, build_places_list_screen(canvas))
+			break
 			case descriptions['route_plan']:
-				changeScreen(canvas, build_map_type_selection_screen(canvas));
-				break;
+			changeScreen(canvas, build_map_type_selection_screen(canvas))
+			break
 			case descriptions['changed_travel_route']:
-				changeScreen(canvas, build_map_type_selection_screen(canvas));
-				break;
+			changeScreen(canvas, build_map_type_selection_screen(canvas))
+			break
 			case descriptions['my_travel_route']:
-				changeScreen(canvas, build_map_type_selection_screen(canvas));
-				break;
-				
+			changeScreen(canvas, build_map_type_selection_screen(canvas))
+			break
+			
 		}
-	});
-
+	})
+	
 	frame.button_back.bind('mousedown touchstart', function() {
 		var check = function() {
 			if (canvas.mouse.buttonState == 'down' || canvas.touch.touchState == 'down') {
 				if (frame.emergency == 1) {
-					canvas.mouse.cancel();
-					canvas.touch.cancel();
-					sos_screen = build_sos_screen(canvas);
-					changeScreen(canvas, sos_screen);
-					call_cancel_sos(sos_screen);
+					canvas.mouse.cancel()
+					canvas.touch.cancel()
+					sos_screen = build_sos_screen(canvas)
+					changeScreen(canvas, sos_screen)
+					call_cancel_sos(sos_screen)
 				}
-
-				frame.emergency -= 1;
+				
+				frame.emergency -= 1
 			}
-		};
-
-		setTimeout(check, 1000);
-		setTimeout(check, 2000);
-		setTimeout(check, 3000);
-		setTimeout(check, 4000);
-		setTimeout(check, 5000);
-	});
-
-	var non_lockables = [ descriptions['main'], descriptions['changed_language'], descriptions['changed_lock'] ];
+		}
+		
+		setTimeout(check, 1000)
+		setTimeout(check, 2000)
+		setTimeout(check, 3000)
+		setTimeout(check, 4000)
+		setTimeout(check, 5000)
+	})
+	
+	var non_lockables = [ descriptions['main'], descriptions['changed_language'], descriptions['changed_lock'] ]
 	frame.button_lock.bind('click tap', function() {
 		if (actual_screen.description == descriptions['map']) {
-			var map_html = document.getElementById('mapid');
-			map_html.style.display = 'none';
-
-			map_information.type_selected = null;
-			map_initialized.remove();
+			var map_html = document.getElementById('mapid')
+			map_html.style.display = 'none'
+			
+			map_information.type_selected = null
+			map_initialized.remove()
 		}
-
-		if (!non_lockables.includes(actual_screen.description)) changeScreen(canvas, build_main_screen(canvas));
-	});
-
-	frame.button_minus
-		.bind('click tap', function() {
-			if (actual_screen.description == descriptions['map'])
-				map_initialized.zoomOut();
-		})
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
-	frame.button_plus
-		.bind('click tap', function() {
-			if (actual_screen.description == descriptions['map'])
-				map_initialized.zoomIn();
-		})
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
-	frame.button_back
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
-	frame.button_lock
-		.bind('mouseenter', function() {
-			canvas.mouse.cursor('pointer');
-		})
-		.bind('mouseleave', function() {
-			canvas.mouse.cursor('default');
-		});
-
-	frame.addChild(frame.camera);
-	frame.button_plus.addChild(frame.symbol_plus);
-	frame.button_minus.addChild(frame.symbol_minus);
-	frame.addChild(frame.button_plus);
-	frame.addChild(frame.button_minus);
-	frame.addChild(frame.button_back);
-	frame.addChild(frame.button_lock);
-
-	return frame;
+		
+		if (!non_lockables.includes(actual_screen.description)) changeScreen(canvas, build_main_screen(canvas))
+	})
+	
+	object_clickable(canvas, frame.button_minus);
+	frame.button_minus.bind('click tap', function() {
+		if (actual_screen.description == descriptions['map'])
+		map_initialized.zoomOut()
+	})
+	
+	object_clickable(canvas, frame.button_plus);
+	frame.button_plus.bind('click tap', function() {
+		if (actual_screen.description == descriptions['map'])
+		map_initialized.zoomIn()
+	})
+	
+	object_clickable(canvas, frame.button_back);
+	object_clickable(canvas, frame.button_lock);
+	
+	frame.addChild(frame.camera)
+	frame.button_plus.addChild(frame.symbol_plus)
+	frame.button_minus.addChild(frame.symbol_minus)
+	frame.addChild(frame.button_plus)
+	frame.addChild(frame.button_minus)
+	frame.addChild(frame.button_back)
+	frame.addChild(frame.button_lock)
+	
+	return frame
 }
 
 function build_template(canvas) {
