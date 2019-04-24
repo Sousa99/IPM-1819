@@ -12,7 +12,18 @@ function build_text(canvas, [x, y] = [0, 0], [x_origin, y_origin] = ['center', '
     return text
 }
 
-function build_rectangle(canvas, [x, y] = [0, 0], [width, height] = [5, 5], [x_origin, y_origin] = ['center', 'center'], fill = white, borders) {
+function build_line(canvas, [x_start, y_start] = [0, 0], [x_end, y_end] = [400, 400], stroke = get_size_px(canvas, 1) + ' ' + white, cap = 'round') {
+    var line = canvas.display.line({
+        start: { x: x_start, y: y_start },
+        end: { x: x_end, y: y_end },
+        stroke: stroke,
+        cap: cap
+    })
+
+    return line
+}
+
+function build_rectangle(canvas, [x, y] = [0, 0], [width, height] = [5, 5], [x_origin, y_origin] = ['center', 'center'], fill = white, borders, stroke = '') {
     if (borders == undefined) [borderTopLeftRadius, borderTopRightRadius, borderBottomLeftRadius, borderBottomRightRadius] = [0, 0, 0, 0]
     else [borderTopLeftRadius, borderTopRightRadius, borderBottomLeftRadius, borderBottomRightRadius] = borders
     
@@ -27,6 +38,7 @@ function build_rectangle(canvas, [x, y] = [0, 0], [width, height] = [5, 5], [x_o
         borderTopRightRadius: borderTopRightRadius,
         borderBottomLeftRadius: borderBottomLeftRadius,
         borderBottomRightRadius: borderBottomRightRadius,
+        stroke: stroke
     })
 
     return rectangle
