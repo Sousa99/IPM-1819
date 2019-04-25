@@ -209,15 +209,9 @@ function build_frame(canvas) {
 }
 
 function build_template(canvas) {
-	var template = canvas.display.rectangle({
-		description: descriptions['template'],
-		description_show: false,
-		x: canvas.width / 2,
-		y: canvas.height / 2 - 0.9 * SIZE_SCREEN / 2,
-		origin: { x: 'center', y: 'center' },
-		width: SIZE_SCREEN,
-		height: 20
-	})
+	var template = build_rectangle(canvas, [canvas.width / 2, canvas.height / 2 - 9 / 20 * SIZE_SCREEN], [SIZE_SCREEN, 20], undefined, '')
+	template.description = descriptions['template']
+	template.description_show = false
 
 	template.time = build_text(canvas, [ 2 / 5 * template.width, 0], undefined, undefined, get_size_px(canvas, 12), undefined, white)
 	template.battery = build_image(canvas, [ - 5 / 12 * template.width + 30, 0], [20, 20], undefined, MATERIALS_DIR + '/Battery.png')
