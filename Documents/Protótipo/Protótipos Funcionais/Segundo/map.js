@@ -2,7 +2,6 @@ var map_initialized
 var clicked
 
 function onClickButtonList() { clicked = true }
-function onClickButtonHelp() { clicked = true }
 
 function build_map_type_selection_screen(canvas) {
 	var map_type_selection_screen = build_screen(canvas, descriptions['map_type_selection'], true, true)
@@ -173,7 +172,6 @@ function build_places_help_screen(canvas) {
 
 	return places_list_help_screen
 }
-
 
 function build_place_information_screen(canvas) {
 	var place_information_screen = build_screen(canvas, descriptions['place_information'], false, false)
