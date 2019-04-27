@@ -41,6 +41,7 @@ const STRINGS_DESCRIPTIONS = {
 		map_type_selection: 'Escolher Tipo',
 		map: 'Mapa',
 		places_list: 'Lista de Locais',
+		places_help:'Ajuda (Rota de viagem)',
 		place_information: 'Informação Local',
 		my_travel_route: ' A Minha Rota de Viagem',
 		changed_travel_route: 'Rota Alterada'
@@ -88,6 +89,7 @@ const STRINGS_DESCRIPTIONS = {
 		map_type_selection: 'Choose Type',
 		map: 'Map',
 		places_list: 'List of Places',
+		places_help:'Help (Travel route)',
 		place_information: 'Local Information',
 		my_travel_route: ' My Travel Route',
 		changed_travel_route: 'Changed Route'
@@ -311,7 +313,9 @@ const STRINGS_OTHERS = {
 		help_fitness:
 			'Premir cada uma das setas para\nobter mais informações sobre\ncada uma opções dadas.\n\nSe necessitar de voltar para trás\npremir botão lateral direito\nsuperior.\n\nPara bloqueio do dispositivo\npremir botão direito lateral\ninferior.',
 		help_choose_activity:
-			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.'
+			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.',
+		help_places:
+			'\nPremir uma das 4 opções.\n\nEm cada uma, escolha\na altura do dia que\nquer realizar a atividade\ne o meio de transporte\nque pretende usar para\nse dirigir para esse local.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
@@ -322,7 +326,9 @@ const STRINGS_OTHERS = {
 		help_fitness:
 			'Press each arrow to have more\ninformation about each option.\n\nIf you want to go back press the\nupper right side button.\n\nAnd to lock screen, press the\nlower right side button.',
 		help_choose_activity:
-			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.'
+			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.',
+			help_places:
+			'\nPress one of the 4 options.\n\nEach one, choose\na time of day that\nyou want to do the activity\nand the public transportation\nthat you want to use to\ngo to this local.'
 	}
 }
 

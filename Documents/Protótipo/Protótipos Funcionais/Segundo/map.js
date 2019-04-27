@@ -2,6 +2,7 @@ var map_initialized
 var clicked
 
 function onClickButtonList() { clicked = true }
+function onClickButtonHelp() { clicked = true }
 
 function build_map_type_selection_screen(canvas) {
 	var map_type_selection_screen = build_screen(canvas, descriptions['map_type_selection'], true, true)
@@ -51,6 +52,7 @@ function build_map_type_selection_screen(canvas) {
 function build_map_screen(canvas) {
 	var map_screen = build_screen(canvas, descriptions['map'], false, false)
 
+	
 	// Adjustment of container of the map
 	var map_html = document.getElementById('mapid')
 	map_html.style.height = (SIZE_SCREEN + 1) + 'px'
@@ -123,13 +125,22 @@ function build_map_screen(canvas) {
 	router.hide()
 	
 	clicked = false
+
 	return map_screen
 }
 
 function build_places_list_screen(canvas) {
 	var places_list_screen = build_screen(canvas, descriptions['places_list'], true, false)
 
-    const places = map_information[map_information.type_selected]
+	places_list_screen.places_list_help_button = build_image(canvas, [2 / 5 * places_list_screen.width, 2 / 5 * places_list_screen.height], [places_list_screen.width / 10, places_list_screen.height / 10], undefined, MATERIALS_DIR + '/Help.png')
+	places_list_screen.circle_places_list_help_button = build_ellipse(canvas, [2 / 5 * places_list_screen.width, 2 / 5 * places_list_screen.height], places_list_screen.width / 15, black)
+	
+	object_clickable(canvas, places_list_screen.places_list_help_button)
+	places_list_screen.places_list_help_button.bind('click tap', function() {
+		changeScreen(canvas, build_places_help_screen(canvas))
+	})
+	
+	const places = map_information[map_information.type_selected]
     var options = []
     var link = []
     for (place in places) {
@@ -146,10 +157,23 @@ function build_places_list_screen(canvas) {
             map_information.info_place_transportation = 0
             changeScreen(canvas, build_place_information_screen(canvas))
         })
-    }
+	}
+	 
+	
+	places_list_screen.addChild(places_list_screen.places_list_help_button)
 
 	return places_list_screen
 }
+
+function build_places_help_screen(canvas) {
+	var places_list_help_screen = build_screen(canvas, descriptions['places_help'], true, true)
+
+	places_list_help_screen.help_text = build_text(canvas, [- 9 / 20 * places_list_help_screen.width, 19 / 440 * places_list_help_screen.height], ['left', 'center'], 'left', get_size_px(canvas, 17), others['help_places'], white)
+	places_list_help_screen.addChild(places_list_help_screen.help_text)
+
+	return places_list_help_screen
+}
+
 
 function build_place_information_screen(canvas) {
 	var place_information_screen = build_screen(canvas, descriptions['place_information'], false, false)

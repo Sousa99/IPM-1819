@@ -143,6 +143,10 @@ function build_frame(canvas) {
 			case descriptions['my_travel_route']:
 			changeScreen(canvas, build_map_type_selection_screen(canvas))
 			break
+			case descriptions['places_help']:
+			changeScreen(canvas, build_places_list_screen(canvas))
+			break
+			
 			
 		}
 	})
