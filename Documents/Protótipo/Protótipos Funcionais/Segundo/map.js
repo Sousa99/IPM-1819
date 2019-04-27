@@ -186,6 +186,11 @@ function build_place_information_screen(canvas) {
 		changeScreen(canvas, build_changed_travel_route_screen(canvas))
 	})
 
+	object_clickable(canvas, place_information_screen.map_button)
+    place_information_screen.map_button.bind('click tap', function() {
+		changeScreen(canvas, build_map_screen(canvas))
+	})
+
     place_information_screen.map_button.addChild(place_information_screen.map_text)
     place_information_screen.add_route_button.addChild(place_information_screen.add_route_text)
     place_information_screen.addChild(place_information_screen.map_button)

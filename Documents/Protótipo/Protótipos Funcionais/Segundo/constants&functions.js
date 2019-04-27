@@ -105,23 +105,23 @@ var map_information = {
 	],
 
 	food_beverage: [
-		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.1]},
-		{name: 'Comida para 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.3]},
-		{name: 'Comida para Crianças', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.5]},
-		{name: 'Fast Food', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.7]},
-		{name: 'Sushi', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.7, -9.9]},
+		{name: 'Comida para Todos', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.65, -9.2]},
+		{name: 'Comida para 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.8, -9.37]},
+		{name: 'Comida para Crianças', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.72, -9.35]},
+		{name: 'Fast Food', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.75, -9.25]},
+		{name: 'Sushi', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.73, -9.13]},
 	],
 	accomodation: [
-		{name: 'Alojamento de *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.3]},
-		{name: 'Alojamento de * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.5]},
-		{name: 'Alojamento de * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.7]},
-		{name: 'Alojamento de * * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.9]},
-		{name: 'Alojamento de * * * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.7, -9.11]}
+		{name: 'Alojamento de *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.90, -9.2]},
+		{name: 'Alojamento de * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.80, -9.35]},
+		{name: 'Alojamento de * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.71, -9.3]},
+		{name: 'Alojamento de * * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.73, -9.14]},
+		{name: 'Alojamento de * * * * *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.71, -9.13]}
 	],
 	tourism: [
 		{name: 'Museus de História', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.2]},
-		{name: 'Museus de Ciência', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.4]},
-		{name: 'Jardins', description: {pt: 'Monumento', en: 'Monument'}, location: [38.7, -9.6]}
+		{name: 'Museus de Ciência', description: {pt: 'Monumento', en: 'Monument'}, location: [38.69, -9.3]},
+		{name: 'Jardins', description: {pt: 'Monumento', en: 'Monument'}, location: [38.8, -9.4]}
 	],
 
 	planned_route: {
