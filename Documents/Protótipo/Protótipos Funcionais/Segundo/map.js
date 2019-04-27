@@ -16,7 +16,7 @@ function build_map_type_selection_screen(canvas) {
 	map_type_selection_screen.food_beverage = build_image(canvas, [- map_type_selection_screen.width / 7, - 23 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Food-Beverage.png')
 	map_type_selection_screen.accomodation = build_image(canvas, [map_type_selection_screen.width / 6, - 23 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Accomodation.png')
 	map_type_selection_screen.tourism = build_image(canvas, [- map_type_selection_screen.width / 6, 99 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Tourism.png')
-	map_type_selection_screen.travel_route = build_image(canvas, [map_type_selection_screen.width / 5, 99 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Travel-Route.png')
+	map_type_selection_screen.travel_route = build_image(canvas, [map_type_selection_screen.width / 5,99 / 380 * map_type_selection_screen.height], [4 / 19* map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Travel-Route.png')
     
     map_type_selection_screen.addChild(map_type_selection_screen.food_beverage)
     map_type_selection_screen.addChild(map_type_selection_screen.accomodation)
@@ -265,6 +265,12 @@ function build_changed_travel_route_screen(canvas) {
 function build_my_travel_route_screen(canvas) {
 	var my_travel_route_screen = build_screen(canvas, descriptions['my_travel_route'], true, false)
 	
+	my_travel_route_screen.my_travel_route_screen_history_button = build_image(canvas, [2 / 5 * my_travel_route_screen.width, 2 / 5 * my_travel_route_screen.height], [my_travel_route_screen.width / 10, my_travel_route_screen.height / 10], undefined, MATERIALS_DIR + '/History.png')
+	object_clickable(canvas, my_travel_route_screen.my_travel_route_screen_history_button)
+	my_travel_route_screen.my_travel_route_screen_history_button.bind('click tap', function() {
+		changeScreen(canvas, build_history_screen(canvas))
+	})
+	
 	const planned_route = map_information.planned_route
 	const lines = Object.keys(planned_route).length
 	const startpoint = -2
@@ -295,6 +301,28 @@ function build_my_travel_route_screen(canvas) {
 			my_travel_route_screen.addChild(transportation)
 		}
 	}
+
+	my_travel_route_screen.addChild(my_travel_route_screen.my_travel_route_screen_history_button)
 	
     return my_travel_route_screen
+}
+
+function build_history_screen(canvas) {
+	var history_screen = build_screen(canvas, descriptions['places_history'], true, true)
+
+	const lines = 5
+	const startpoint = -2
+
+    for (var i = 0; i < lines + 1; i++) {
+		var line = build_line(canvas, [- 9 / 20 * history_screen.width, (i + startpoint - 0.5) * history_screen.height / 10], [9 / 20 * history_screen.width, (i + startpoint - 0.5) * history_screen.height / 10])
+        history_screen.addChild(line)
+    }
+	
+	var line = build_line(canvas, [- history_screen.width / 4, (startpoint - 0.9) *history_screen.height / 10], [- history_screen.width / 4, (lines + startpoint - 0.1) * history_screen.height / 10])
+    history_screen.addChild(line)
+    
+	var line = build_line(canvas, [3 / 10 * history_screen.width, (startpoint - 0.9) * history_screen.height / 10], [3 / 10 * history_screen.width, (lines + startpoint - 0.1) * history_screen.height / 10])
+	history_screen.addChild(line)
+
+	return history_screen
 }

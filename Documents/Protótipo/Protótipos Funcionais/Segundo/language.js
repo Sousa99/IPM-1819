@@ -44,7 +44,8 @@ const STRINGS_DESCRIPTIONS = {
 		places_help:'Ajuda (Rota de viagem)',
 		place_information: 'Informação Local',
 		my_travel_route: ' A Minha Rota de Viagem',
-		changed_travel_route: 'Rota Alterada'
+		changed_travel_route: 'Rota Alterada',
+		places_history: 'Histórico de viagens'
 	},
 
 	en: {
@@ -92,7 +93,8 @@ const STRINGS_DESCRIPTIONS = {
 		places_help:'Help (Travel route)',
 		place_information: 'Local Information',
 		my_travel_route: ' My Travel Route',
-		changed_travel_route: 'Changed Route'
+		changed_travel_route: 'Changed Route',
+		places_history:'Travel history'
 	}
 }
 
