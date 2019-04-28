@@ -99,6 +99,9 @@ function build_map_screen(canvas, place_selected, route = false) {
 
 	var places_marker = []
 	if (place_selected == undefined && !route) {
+		var button_html = document.getElementById('button_place_list')
+		button_html.style.display = 'block'
+
 		// Adding the various places according to the category chosen by the user
 		const places = map_information[map_information.type_selected]
 		for (place in places) {
@@ -113,30 +116,40 @@ function build_map_screen(canvas, place_selected, route = false) {
 		})
 	
 	} else if (route) {
-		// TODO
-		const places = place_selected
-		for (place in places) {
-				var marker = L.marker(places[place].location, {icon: place_icon})
-				marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language])
+		const planned_route = map_information.planned_route
+		var waypoints = [map_information.actual_location]
+
+		var button_html = document.getElementById('button_place_list')
+		button_html.style.display = 'none'
+		map_information.showing_route = true
+
+		for (index in Object.keys(planned_route)) {
+			const time_name = Object.keys(planned_route)[index]
+			const time = planned_route[time_name]
+			
+			if (time != null){
+				const place = time.place
+				
+				var marker = L.marker(place.location, {icon: place_icon})
+				marker.bindPopup('<b>' + place.name + '</b><br>' + place.description[language])
 				places_marker.push(marker)
+
+				waypoints.push(place.location)
+			}
 		}
 
-		var marker = L.marker(place_selected.location, {icon: place_icon})
-		marker.bindPopup('<b>' + place_selected.name + '</b><br>' + place_selected.description[language])
-		places_marker.push(marker)
-
 		var router = L.Routing.control({
-			waypoints: [
-				L.latLng(map_information.actual_location[0], map_information.actual_location[1]),
-				L.latLng(place_selected.location[0], place_selected.location[1])
-			],
-			
+			waypoints: waypoints,
 			createMarker: function() { return null },
 			fitSelectedRoutes: 'true'
 		}).addTo(map_initialized)
 		router.hide()
 
 	} else {
+		console.log('Oi')
+		var button_html = document.getElementById('button_place_list')
+		button_html.style.display = 'none'
+
 		var marker = L.marker(place_selected.location, {icon: place_icon})
 		marker.bindPopup('<b>' + place_selected.name + '</b><br>' + place_selected.description[language])
 		places_marker.push(marker)
@@ -340,6 +353,9 @@ function build_my_travel_route_screen(canvas) {
 	my_travel_route_screen.addChild(my_travel_route_screen.map_button)
 
 	object_clickable(canvas, my_travel_route_screen.map_button)
+	my_travel_route_screen.map_button.bind('click tap', function() {
+		changeScreen(canvas, build_map_screen(canvas, undefined, true))
+	})
 
 	my_travel_route_screen.addChild(my_travel_route_screen.my_travel_route_screen_history_button)
 	

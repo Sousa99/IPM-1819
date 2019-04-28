@@ -124,7 +124,10 @@ function build_frame(canvas) {
 			map_html.style.display = 'none'
 			map_initialized.remove()
 			
-			if (map_information.info_place == null) {
+			if (map_information.showing_route) {
+				map_information.showing_route = false
+				changeScreen(canvas, build_my_travel_route_screen(canvas))
+			} else if (map_information.info_place == null) {
 				map_information.type_selected = null
 				changeScreen(canvas, build_map_type_selection_screen(canvas))
 			} else changeScreen(canvas, build_place_information_screen(canvas))
