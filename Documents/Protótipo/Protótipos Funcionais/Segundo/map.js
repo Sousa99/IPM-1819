@@ -1,6 +1,10 @@
 var map_initialized
 var clicked
 
+var routes = {
+	'actual_location': {}
+}
+
 function onClickButtonList() { clicked = true }
 
 function build_map_type_selection_screen(canvas) {
@@ -146,7 +150,6 @@ function build_map_screen(canvas, place_selected, route = false) {
 		router.hide()
 
 	} else {
-		console.log('Oi')
 		var button_html = document.getElementById('button_place_list')
 		button_html.style.display = 'none'
 
@@ -156,14 +159,20 @@ function build_map_screen(canvas, place_selected, route = false) {
 
 		var router = L.Routing.control({
 			waypoints: [
-				L.latLng(map_information.actual_location[0], map_information.actual_location[1]),
-				L.latLng(place_selected.location[0], place_selected.location[1])
+				map_information.actual_location,
+				place_selected.location
 			],
 			
 			createMarker: function() { return null },
 			fitSelectedRoutes: 'true'
-		}).addTo(map_initialized)
+		})
+
+		router.addTo(map_initialized)
 		router.hide()
+
+		// Trying to save information
+		routes['actual_location'][place_selected.name] = router
+		console.log(routes)
 	}
 
 	var places_marker_layer = L.layerGroup(places_marker)
@@ -185,7 +194,12 @@ function build_places_list_screen(canvas) {
 		changeScreen(canvas, build_places_help_screen(canvas))
 	})
 	
-	const places = map_information[map_information.type_selected]
+	const places = map_information[map_information.type_selected].sort(function(a, b){
+		const distance_a = L.latLng(a.location).distanceTo(L.latLng(map_information.actual_location))
+		const distance_b = L.latLng(b.location).distanceTo(L.latLng(map_information.actual_location))
+		return distance_a - distance_b
+	})
+
     var options = []
     var link = []
     for (place in places) {
@@ -223,11 +237,16 @@ function build_place_information_screen(canvas) {
 
 	const place = map_information.info_place
 	var name = build_text(canvas, [0, - 3 / 8 * SIZE_SCREEN], undefined, undefined, get_size_px(canvas, 19), place.name, white)
-    place_information_screen.addChild(name)
+	place_information_screen.addChild(name)
+	
+	const distance_to_place = Math.floor(L.latLng(place.location).distanceTo(L.latLng(map_information.actual_location)))
+	var distance_text
+	if (distance_to_place < 1000) distance_text = distance_to_place + ' m'
+	else distance_text = distance_to_place / 1000 + ' Km'
 
-    var options = [map.description, map.location, map.time, map.transportation]
+    var options = [map.description, map.distance, map.time, map.transportation]
     var link = ['text', 'text', 'link_text', 'link_pub']
-    var info = [place.description[language], place.location, null, null]
+    var info = [place.description[language], distance_text, null, null]
 
     links = add_lines(canvas, place_information_screen, -2, options, link, null, info)
 

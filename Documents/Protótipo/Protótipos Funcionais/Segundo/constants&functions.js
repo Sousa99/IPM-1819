@@ -110,7 +110,7 @@ var map_information = {
 		{name: 'Comida para 2', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.8, -9.37]},
 		{name: 'Comida para Crianças', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.72, -9.35]},
 		{name: 'Fast Food', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.75, -9.25]},
-		{name: 'Sushi', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.73, -9.13]},
+		{name: 'Sushi', description: {pt: 'Restaurante', en: 'Restaurant'}, location: [38.732, -9.139]},
 	],
 	accomodation: [
 		{name: 'Alojamento de *', description: {pt: 'Hotel', en: 'Hotel'}, location: [38.90, -9.2]},

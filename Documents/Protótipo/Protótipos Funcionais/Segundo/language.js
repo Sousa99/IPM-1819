@@ -245,6 +245,7 @@ const STRINGS_MAP = {
 	pt: {
 		description: 'Descrição:',
 		location: 'Localização:',
+		distance: 'Distância',
 		transportation: 'Transportação:',
 		time: 'Tempo:',
 		map: 'Ver\nno Mapa',
@@ -262,6 +263,7 @@ const STRINGS_MAP = {
 	en: {
 		description: 'Description:',
 		location: 'Location:',
+		distance: 'Distance',
 		transportation: 'Transportation:',
 		time: 'Time:',
 		map: 'See on\nthe Map',
