@@ -48,7 +48,7 @@ function build_map_type_selection_screen(canvas) {
     return map_type_selection_screen
 }
 
-function build_map_screen(canvas, place_selected) {
+function build_map_screen(canvas, place_selected, route = false) {
 	var map_screen = build_screen(canvas, descriptions['map'], false, false)
 	var center = map_information.actual_location
 
@@ -77,11 +77,6 @@ function build_map_screen(canvas, place_selected) {
 		id: 'mapbox.streets',
 		accessToken: 'pk.eyJ1Ijoic291c2E5OSIsImEiOiJjanVoYXI3ODcwcW05NDNvM2phNnB3eGF6In0.4u5Q1HN3FiTISIBO2RdR_A'
 	}).addTo(map_initialized)
-	/*
-	L.tileLayer('../../../../Materials/Map/Tiles/{z}/{x}/{y}.png', {
-			maxZoom: 15,
-			minZoom: 4
-	}).addTo(map_initialized)*/
 
 	// Creation of icon to mark places!
 	var place_icon = L.icon({
@@ -103,7 +98,7 @@ function build_map_screen(canvas, place_selected) {
 	}).addTo(map_initialized)
 
 	var places_marker = []
-	if (place_selected == undefined) {
+	if (place_selected == undefined && !route) {
 		// Adding the various places according to the category chosen by the user
 		const places = map_information[map_information.type_selected]
 		for (place in places) {
@@ -116,7 +111,31 @@ function build_map_screen(canvas, place_selected) {
 			if (map_initialized.getZoom() < 9) map_initialized.removeLayer(places_marker_layer)
 			else map_initialized.addLayer(places_marker_layer)
 		})
-		
+	
+	} else if (route) {
+		// TODO
+		const places = place_selected
+		for (place in places) {
+				var marker = L.marker(places[place].location, {icon: place_icon})
+				marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language])
+				places_marker.push(marker)
+		}
+
+		var marker = L.marker(place_selected.location, {icon: place_icon})
+		marker.bindPopup('<b>' + place_selected.name + '</b><br>' + place_selected.description[language])
+		places_marker.push(marker)
+
+		var router = L.Routing.control({
+			waypoints: [
+				L.latLng(map_information.actual_location[0], map_information.actual_location[1]),
+				L.latLng(place_selected.location[0], place_selected.location[1])
+			],
+			
+			createMarker: function() { return null },
+			fitSelectedRoutes: 'true'
+		}).addTo(map_initialized)
+		router.hide()
+
 	} else {
 		var marker = L.marker(place_selected.location, {icon: place_icon})
 		marker.bindPopup('<b>' + place_selected.name + '</b><br>' + place_selected.description[language])
@@ -315,6 +334,13 @@ function build_my_travel_route_screen(canvas) {
 		}
 	}
 
+	my_travel_route_screen.map_button = build_rectangle(canvas, [0, 25 / 64 * my_travel_route_screen.height], [7 / 12 * my_travel_route_screen.width, my_travel_route_screen.width / 7], undefined, 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')', [5, 5, 5, 5])
+	my_travel_route_screen.map_text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 17), map['show_map'], white)
+	my_travel_route_screen.map_button.addChild(my_travel_route_screen.map_text)
+	my_travel_route_screen.addChild(my_travel_route_screen.map_button)
+
+	object_clickable(canvas, my_travel_route_screen.map_button)
+
 	my_travel_route_screen.addChild(my_travel_route_screen.my_travel_route_screen_history_button)
 	
     return my_travel_route_screen
@@ -322,8 +348,9 @@ function build_my_travel_route_screen(canvas) {
 
 function build_history_screen(canvas) {
 	var history_screen = build_screen(canvas, descriptions['places_history'], true, true)
+	const trips = map_information.trips
 
-	const lines = 5
+	const lines = trips.length
 	const startpoint = -2
 
     for (var i = 0; i < lines + 1; i++) {
@@ -331,11 +358,22 @@ function build_history_screen(canvas) {
         history_screen.addChild(line)
     }
 	
-	var line = build_line(canvas, [- history_screen.width / 4, (startpoint - 0.9) *history_screen.height / 10], [- history_screen.width / 4, (lines + startpoint - 0.1) * history_screen.height / 10])
-    history_screen.addChild(line)
-    
-	var line = build_line(canvas, [3 / 10 * history_screen.width, (startpoint - 0.9) * history_screen.height / 10], [3 / 10 * history_screen.width, (lines + startpoint - 0.1) * history_screen.height / 10])
+	var line = build_line(canvas, [2 / 11 * history_screen.width, (startpoint - 0.9) *history_screen.height / 10],  [2 / 11 * history_screen.width, (lines + startpoint - 0.1) * history_screen.height / 10])
 	history_screen.addChild(line)
+	
+	for (index in trips) {
+		const place_name = trips[index].place
+		const time = trips[index].date[language]
+
+		console.log(place_name)
+		console.log(time)
+
+		name_place = build_text(canvas, [- 9 / 20 * history_screen.width, (index - 2) / 10 * history_screen.height], ['left', 'center'], 'left', get_size_px(canvas, 15), place_name, white)
+		date = build_text(canvas, [9 / 20 * history_screen.width, (index - 2) / 10 * history_screen.height], ['right', 'center'], 'right', get_size_px(canvas, 15), time, white)
+		
+		history_screen.addChild(name_place)
+		history_screen.addChild(date)
+	}
 
 	return history_screen
 }

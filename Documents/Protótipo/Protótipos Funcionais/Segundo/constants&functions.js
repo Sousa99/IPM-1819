@@ -130,7 +130,14 @@ var map_information = {
 		afternoon: null,
 		dinner: null,
 		night: null,
-	}
+	},
+
+	trips: [
+		{place: 'Portugal, Trancoso', date: {en: 'Jan 17', pt: 'Jan 17'}},
+		{place: 'Portugal, Almada', date: {en: 'Mar 17', pt: 'Mar 17'}},
+		{place: 'Portugal, Castelo Branco', date: {en: 'Dec 17', pt: 'Dez 17'}},
+		{place: 'USA, Florida - Miami', date: {en: 'Oct 18', pt: 'Out 18'}},
+	]
 
 }
 

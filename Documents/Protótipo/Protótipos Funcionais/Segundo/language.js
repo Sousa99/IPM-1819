@@ -256,7 +256,8 @@ const STRINGS_MAP = {
 		lunch: 'Almoço',
 		afternoon: 'Tarde',
 		dinner: 'Jantar',
-		night: 'Noite'
+		night: 'Noite',
+		show_map: 'Mostrar no Mapa'
 	},
 	en: {
 		description: 'Description:',
@@ -272,7 +273,8 @@ const STRINGS_MAP = {
 		lunch: 'Lunch',
 		afternoon: 'Afternoon',
 		dinner: 'Dinner',
-		night: 'Night'
+		night: 'Night',
+		show_map: 'Show on Map'
 	}
 }
 
