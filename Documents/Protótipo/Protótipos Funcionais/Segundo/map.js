@@ -184,7 +184,7 @@ function build_map_screen(canvas, place_selected, route = false) {
 }
 
 function build_places_list_screen(canvas) {
-	var places_list_screen = build_screen(canvas, descriptions['places_list'], true, false)
+	var places_list_screen = build_screen(canvas, descriptions['places_list'], true, true)
 
 	places_list_screen.places_list_help_button = build_image(canvas, [2 / 5 * places_list_screen.width, 2 / 5 * places_list_screen.height], [places_list_screen.width / 10, places_list_screen.height / 10], undefined, MATERIALS_DIR + '/Help.png')
 	places_list_screen.circle_places_list_help_button = build_ellipse(canvas, [2 / 5 * places_list_screen.width, 2 / 5 * places_list_screen.height], places_list_screen.width / 15, black)
