@@ -139,7 +139,8 @@ function build_frame(canvas) {
 			break
 			case descriptions['place_information']:
 			map_information.info_place = null
-			changeScreen(canvas, build_places_list_screen(canvas))
+			if (map_information.back_to_map) changeScreen(canvas, build_map_screen(canvas))
+			else changeScreen(canvas, build_places_list_screen(canvas))
 			break
 			case descriptions['route_plan']:
 			changeScreen(canvas, build_map_type_selection_screen(canvas))

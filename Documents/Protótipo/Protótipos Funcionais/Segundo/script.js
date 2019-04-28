@@ -125,8 +125,37 @@ function loadCanvas() {
 					map_html.style.display = 'none'
 					map_initialized.remove()
 					
+					map_information.back_to_map = false
 					changeScreen(canvas, build_places_list_screen(canvas))
+
 				}
+
+				var anchors = document.getElementsByClassName('leaflet-popup')
+				for(var i = 0; i < anchors.length; i++) {
+					var anchor = anchors[i]
+					anchor.onmouseover = function() { canvas.mouse.cursor('pointer') }
+					anchor.onclick = function() {
+						const content = anchor.getElementsByClassName('leaflet-popup-content')[0].innerHTML
+						const name = content.split('<br>')[0].replace(/<\/?b>/g,'')
+						const description = content.split('<br>')[1]
+
+						const places = map_information[map_information.type_selected]
+						for (place in places) {
+							if (places[place].name == name && places[place].description[language] == description){
+								var map_html = document.getElementById('mapid')
+								map_html.style.display = 'none'
+								map_initialized.remove()
+
+								map_information.info_place = places[place]
+								map_information.info_place_time = 0
+								map_information.info_place_transportation = 0
+								map_information.back_to_map = true
+								changeScreen(canvas, build_place_information_screen(canvas))
+							}
+						}
+					}
+				}
+				
 				break
 		}
 
