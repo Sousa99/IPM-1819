@@ -239,7 +239,9 @@ function build_place_information_screen(canvas) {
 	var name = build_text(canvas, [0, - 3 / 8 * SIZE_SCREEN], undefined, undefined, get_size_px(canvas, 19), place.name, white)
 	place_information_screen.addChild(name)
 	
-	const distance_to_place = Math.floor(L.latLng(place.location).distanceTo(L.latLng(map_information.actual_location)))
+	const deviation_transportation = (map_information.info_place_transportation * 243) % 184
+	const distance_to_place = Math.floor(L.latLng(place.location).distanceTo(L.latLng(map_information.actual_location))) + deviation_transportation
+
 	var distance_text
 	if (distance_to_place < 1000) distance_text = distance_to_place + ' m'
 	else distance_text = distance_to_place / 1000 + ' Km'
@@ -259,7 +261,11 @@ function build_place_information_screen(canvas) {
 		})
 	
     links[1].bind('click tap', function() {
-        map_information.info_place_transportation = (map_information.info_place_transportation + 1) % map_information.transportations.length
+		var limit = map_information.transportations.length
+		if (distance_to_place < 700) limit = 2
+		else if (distance_to_place < 4000) limit = 5
+
+        map_information.info_place_transportation = (map_information.info_place_transportation + 1) % limit
         changeScreen(canvas, build_place_information_screen(canvas))
     })
 

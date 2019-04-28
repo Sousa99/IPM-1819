@@ -102,7 +102,6 @@ var map_information = {
 		{description: 'bus', image: '/Bus.png'},
 		{description: 'metro', image: '/Metro.png'},
 		{description: 'train', image: '/Train.png'},
-		{description: 'plane', image: '/Plane.png'}
 	],
 
 	food_beverage: [
