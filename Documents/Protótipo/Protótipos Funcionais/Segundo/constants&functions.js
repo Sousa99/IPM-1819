@@ -182,6 +182,12 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				box_text.addChild(text)
 				box.addChild(box_text)
 
+				if (text_array.length == 1) {
+					box_text.stroke = ''
+					text.origin = {x: 'left', y: 'center'}
+					object_non_clickable(canvas, box)
+				}
+
 			} else if (list_link[i] == 'link_option' || list_link[i] == 'link_option_active') {
 				circle = build_ellipse(canvas, [2 / 5 * screen.width, 0], screen.width / 30, '', get_size_px(canvas, 2) + ' ' + white)
 

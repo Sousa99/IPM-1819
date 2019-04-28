@@ -122,22 +122,23 @@ function build_frame(canvas) {
 			case descriptions['map']:
 			var map_html = document.getElementById('mapid')
 			map_html.style.display = 'none'
-			
-			map_information.type_selected = null
 			map_initialized.remove()
-			changeScreen(canvas, build_map_type_selection_screen(canvas))
+			
+			if (map_information.info_place == null) {
+				map_information.type_selected = null
+				changeScreen(canvas, build_map_type_selection_screen(canvas))
+			} else changeScreen(canvas, build_place_information_screen(canvas))
+
 			break
 			
 			case descriptions['places_list']:
 			changeScreen(canvas, build_map_screen(canvas))
 			break
 			case descriptions['place_information']:
+			map_information.info_place = null
 			changeScreen(canvas, build_places_list_screen(canvas))
 			break
 			case descriptions['route_plan']:
-			changeScreen(canvas, build_map_type_selection_screen(canvas))
-			break
-			case descriptions['changed_travel_route']:
 			changeScreen(canvas, build_map_type_selection_screen(canvas))
 			break
 			case descriptions['my_travel_route']:
@@ -149,7 +150,6 @@ function build_frame(canvas) {
 			case descriptions['places_history']:
 			changeScreen(canvas, build_my_travel_route_screen(canvas))
 			break
-			
 			
 		}
 	})

@@ -98,3 +98,11 @@ function object_clickable(canvas, object) {
         canvas.mouse.cursor('default')
     })
 }
+
+function object_non_clickable(canvas, object) {
+    object.bind('mouseenter', function() {
+        canvas.mouse.cursor('default')
+    }).bind('mouseleave', function() {
+        canvas.mouse.cursor('default')
+    })
+}

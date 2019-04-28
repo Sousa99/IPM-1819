@@ -317,7 +317,7 @@ const STRINGS_OTHERS = {
 		help_choose_activity:
 			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.',
 		help_places:
-			'\nPremir uma das 4 opções.\n\nEm cada uma, escolha\na altura do dia que\nquer realizar a atividade\ne o meio de transporte\nque pretende usar para\nse dirigir para esse local.'
+			'Premir uma das 4 opções.\n\nEm cada uma, escolha a altura\ndo dia que quer realizar a\natividade e o meio de transporte\nque pretende usar para se dirigir\npara esse local.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
@@ -329,8 +329,8 @@ const STRINGS_OTHERS = {
 			'Press each arrow to have more\ninformation about each option.\n\nIf you want to go back press the\nupper right side button.\n\nAnd to lock screen, press the\nlower right side button.',
 		help_choose_activity:
 			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.',
-			help_places:
-			'\nPress one of the 4 options.\n\nEach one, choose\na time of day that\nyou want to do the activity\nand the public transportation\nthat you want to use to\ngo to this local.'
+		help_places:
+			'Press one of the 4 options.\n\nEach one, choose a time of day\nthat you want to do the activity\nand the public transportation that\nyou want to use to go to this\nlocal.'
 	}
 }
 

@@ -15,7 +15,7 @@ function build_map_type_selection_screen(canvas) {
 	map_type_selection_screen.food_beverage = build_image(canvas, [- map_type_selection_screen.width / 7, - 23 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Food-Beverage.png')
 	map_type_selection_screen.accomodation = build_image(canvas, [map_type_selection_screen.width / 6, - 23 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Accomodation.png')
 	map_type_selection_screen.tourism = build_image(canvas, [- map_type_selection_screen.width / 6, 99 / 380 * map_type_selection_screen.height], [4 / 19 * map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Tourism.png')
-	map_type_selection_screen.travel_route = build_image(canvas, [map_type_selection_screen.width / 5,99 / 380 * map_type_selection_screen.height], [4 / 19* map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Travel-Route.png')
+	map_type_selection_screen.travel_route = build_image(canvas, [map_type_selection_screen.width / 6, 99 / 380 * map_type_selection_screen.height], [4 / 19* map_type_selection_screen.width, 4 / 19 * map_type_selection_screen.height], undefined, MATERIALS_DIR + '/Travel-Route.png')
     
     map_type_selection_screen.addChild(map_type_selection_screen.food_beverage)
     map_type_selection_screen.addChild(map_type_selection_screen.accomodation)
@@ -48,9 +48,11 @@ function build_map_type_selection_screen(canvas) {
     return map_type_selection_screen
 }
 
-function build_map_screen(canvas) {
+function build_map_screen(canvas, place_selected) {
 	var map_screen = build_screen(canvas, descriptions['map'], false, false)
+	var center = map_information.actual_location
 
+	if (place_selected != undefined) center = place_selected.location
 	
 	// Adjustment of container of the map
 	var map_html = document.getElementById('mapid')
@@ -61,8 +63,8 @@ function build_map_screen(canvas) {
 	// Initialization of the map itself
 	map_initialized = L.map('mapid', {
         attributionControl: false,
-        center: map_information.actual_location,
-        zoom: 15,
+        center: center,
+        zoom: 14,
         minZoom: 4,
         maxZoom: 18,
         zoomControl: false
@@ -100,28 +102,40 @@ function build_map_screen(canvas) {
 		imperial: true
 	}).addTo(map_initialized)
 
-	// Adding the various places according to the category chosen by the user
-	const places = map_information[map_information.type_selected]
 	var places_marker = []
-	for (place in places) {
-			var marker = L.marker(places[place].location, {icon: place_icon})
-			marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language])
-			places_marker.push(marker)
+	if (place_selected == undefined) {
+		// Adding the various places according to the category chosen by the user
+		const places = map_information[map_information.type_selected]
+		for (place in places) {
+				var marker = L.marker(places[place].location, {icon: place_icon})
+				marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language])
+				places_marker.push(marker)
+		}
+		
+		map_initialized.on('zoomend', function() {
+			if (map_initialized.getZoom() < 9) map_initialized.removeLayer(places_marker_layer)
+			else map_initialized.addLayer(places_marker_layer)
+		})
+		
+	} else {
+		var marker = L.marker(place_selected.location, {icon: place_icon})
+		marker.bindPopup('<b>' + place_selected.name + '</b><br>' + place_selected.description[language])
+		places_marker.push(marker)
+
+		var router = L.Routing.control({
+			waypoints: [
+				L.latLng(map_information.actual_location[0], map_information.actual_location[1]),
+				L.latLng(place_selected.location[0], place_selected.location[1])
+			],
+			
+			createMarker: function() { return null },
+			fitSelectedRoutes: 'true'
+		}).addTo(map_initialized)
+		router.hide()
 	}
 
 	var places_marker_layer = L.layerGroup(places_marker)
 	places_marker_layer.addTo(map_initialized)
-
-	// Only testing out routing to see if it works and its limits!
-	var router = L.Routing.control({
-		waypoints: [
-			L.latLng(map_information.actual_location[0], map_information.actual_location[1]),
-			L.latLng(places[0].location[0], places[0].location[1])
-		],
-
-		createMarker: function() { return null }
-	}).addTo(map_initialized)
-	router.hide()
 	
 	clicked = false
 
@@ -157,7 +171,6 @@ function build_places_list_screen(canvas) {
             changeScreen(canvas, build_place_information_screen(canvas))
         })
 	}
-	 
 	
 	places_list_screen.addChild(places_list_screen.places_list_help_button)
 
@@ -186,12 +199,14 @@ function build_place_information_screen(canvas) {
 
     links = add_lines(canvas, place_information_screen, -2, options, link, null, info)
 
-    links[0].bind('click tap', function() {
-        const text_array = map_information.times[map_information.type_selected]
+	if (map_information.type_selected != 'accomodation')
+		links[0].bind('click tap', function() {
+			const text_array = map_information.times[map_information.type_selected]
 
-        map_information.info_place_time = (map_information.info_place_time + 1) % text_array.length
-        changeScreen(canvas, build_place_information_screen(canvas))
-    })
+			map_information.info_place_time = (map_information.info_place_time + 1) % text_array.length
+			changeScreen(canvas, build_place_information_screen(canvas))
+		})
+	
     links[1].bind('click tap', function() {
         map_information.info_place_transportation = (map_information.info_place_transportation + 1) % map_information.transportations.length
         changeScreen(canvas, build_place_information_screen(canvas))
@@ -210,7 +225,7 @@ function build_place_information_screen(canvas) {
 
 	object_clickable(canvas, place_information_screen.map_button)
     place_information_screen.map_button.bind('click tap', function() {
-		changeScreen(canvas, build_map_screen(canvas))
+		changeScreen(canvas, build_map_screen(canvas, place))
 	})
 
     place_information_screen.map_button.addChild(place_information_screen.map_text)
@@ -261,7 +276,7 @@ function build_changed_travel_route_screen(canvas) {
 }
 
 function build_my_travel_route_screen(canvas) {
-	var my_travel_route_screen = build_screen(canvas, descriptions['my_travel_route'], true, false)
+	var my_travel_route_screen = build_screen(canvas, descriptions['my_travel_route'], true, true)
 	
 	my_travel_route_screen.my_travel_route_screen_history_button = build_image(canvas, [2 / 5 * my_travel_route_screen.width, 2 / 5 * my_travel_route_screen.height], [my_travel_route_screen.width / 10, my_travel_route_screen.height / 10], undefined, MATERIALS_DIR + '/History.png')
 	object_clickable(canvas, my_travel_route_screen.my_travel_route_screen_history_button)
