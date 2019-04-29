@@ -395,7 +395,7 @@ function build_my_travel_route_screen(canvas) {
 	my_travel_route_screen.addChild(line)
 
 	for (index in Object.keys(planned_route)) {
-		var box = build_rectangle(canvas, [0, (parseInt(index) + startpoint) * my_travel_route_screen.height / 10], [9 / 10 * my_travel_route_screen.width, my_travel_route_screen.height / 10], undefined, '#AAAA00')
+		var box = build_rectangle(canvas, [0, (parseInt(index) + startpoint) * my_travel_route_screen.height / 10], [9 / 10 * my_travel_route_screen.width, my_travel_route_screen.height / 10], undefined, '')
 		
 		const time_name = Object.keys(planned_route)[index]
 		const time = planned_route[time_name]
@@ -410,7 +410,6 @@ function build_my_travel_route_screen(canvas) {
 			object_clickable(canvas, box)
 			box.bind('click tap', function() {
 				const click_place = time.place
-				const time_day = index
 				
 				map_information.info_place = click_place
 				map_information.info_place_time = 0
