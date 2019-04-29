@@ -121,8 +121,8 @@ var map_information = {
 	],
 	tourism: [
 		{name: 'Terreiro do Paço', description: {pt: 'Monumento', en: 'Monument'}, location: [38.708265, -9.136827]},
-		{name: 'Pavilhão do Conhecimento', description: {pt: 'Museu de Ciência', en: 'Science Museum'}, location: [38.761766, -9.096073]},
-		{name: 'Gulbenkian Garden', description: {pt: 'Jardim Português', en: 'Portuguese Garden'}, location: [38.738026, -9.155014]}
+		{name: 'Museu Ciência Viva', description: {pt: 'Museu de Ciência', en: 'Science Museum'}, location: [38.761766, -9.096073]},
+		{name: 'Gulbenkian', description: {pt: 'Jardim Português', en: 'Portuguese Garden'}, location: [38.738026, -9.155014]}
 	],
 
 	planned_route: {
