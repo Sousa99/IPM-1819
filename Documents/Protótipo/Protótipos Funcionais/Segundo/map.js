@@ -1,11 +1,13 @@
 var map_initialized
 var clicked
+var clicked_help
 
 var routes = {
 	'actual_location': {}
 }
 
 function onClickButtonList() { clicked = true }
+function onClickButtonHelp() { clicked_help = true }
 
 function build_map_type_selection_screen(canvas) {
 	var map_type_selection_screen = build_screen(canvas, descriptions['map_type_selection'], true, true)
@@ -116,13 +118,18 @@ function build_map_screen(canvas, place_selected, route = false) {
 	if (place_selected == undefined && !route) {
 		var button_html = document.getElementById('button_place_list')
 		button_html.style.display = 'block'
+		var button_html = document.getElementById('button_map_help')
+		button_html.style.display = 'block'
 
 		// Adding the various places according to the category chosen by the user
 		const places = map_information[map_information.type_selected]
 		for (place in places) {
-				var marker = L.marker(places[place].location, {icon: place_icon})
-				marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language])
-				places_marker.push(marker)
+			const place_marker = places[place]
+			var marker = L.marker(places[place].location, {icon: place_icon})
+
+			marker.bindPopup('<b>' + places[place].name + '</b><br>' + places[place].description[language])
+			marker.place = place_marker
+			places_marker.push(marker)
 		}
 		
 		map_initialized.on('zoomend', function() {
@@ -135,6 +142,8 @@ function build_map_screen(canvas, place_selected, route = false) {
 		var waypoints = [map_information.actual_location]
 
 		var button_html = document.getElementById('button_place_list')
+		button_html.style.display = 'none'
+		var button_html = document.getElementById('button_map_help')
 		button_html.style.display = 'none'
 		map_information.showing_route = true
 
@@ -163,6 +172,8 @@ function build_map_screen(canvas, place_selected, route = false) {
 	} else {
 		var button_html = document.getElementById('button_place_list')
 		button_html.style.display = 'none'
+		var button_html = document.getElementById('button_map_help')
+		button_html.style.display = 'none'
 
 		var marker = L.marker(place_selected.location, {icon: place_icon})
 		marker.bindPopup('<b>' + place_selected.name + '</b><br>' + place_selected.description[language])
@@ -180,16 +191,33 @@ function build_map_screen(canvas, place_selected, route = false) {
 
 		router.addTo(map_initialized)
 		router.hide()
-
-		// Trying to save information
-		routes['actual_location'][place_selected.name] = router
-		console.log(routes)
 	}
 
 	var places_marker_layer = L.layerGroup(places_marker)
-	places_marker_layer.addTo(map_initialized)
+
+	for (marker in places_marker) {
+		places_marker[marker].on("click", function(e) {
+			console.log(e)
+			const place = e.target.place
 	
+			if (place) {
+				var map_html = document.getElementById('mapid')
+				map_html.style.display = 'none'
+				map_initialized.remove()
+			
+				map_information.info_place = place
+				map_information.info_place_time = 0
+				map_information.info_place_transportation = 0
+				map_information.back_to_map = true
+				changeScreen(canvas, build_place_information_screen(canvas))
+				
+			}
+		})
+	}
+
+	places_marker_layer.addTo(map_initialized)
 	clicked = false
+	clicked_help = false
 
 	return map_screen
 }
@@ -428,4 +456,13 @@ function build_history_screen(canvas) {
 	}
 
 	return history_screen
+}
+
+function build_map_help_screen(canvas) {
+	var map_help_screen = build_screen(canvas, descriptions['map_help'], true, true)
+
+	map_help_screen.help_text = build_text(canvas, [- 9 / 20 * map_help_screen.width, 19 / 440 * map_help_screen.height], ['left', 'center'], 'left', get_size_px(canvas, 17), others['help_map'], white)
+	map_help_screen.addChild(map_help_screen.help_text)
+
+	return map_help_screen
 }

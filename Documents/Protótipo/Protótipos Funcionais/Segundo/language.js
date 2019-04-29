@@ -41,11 +41,12 @@ const STRINGS_DESCRIPTIONS = {
 		map_type_selection: 'Escolher Tipo',
 		map: 'Mapa',
 		places_list: 'Lista de Locais',
-		places_help:'Ajuda (Rota de viagem)',
+		places_help:'Ajuda (Rota de Viagem)',
 		place_information: 'Informação Local',
 		my_travel_route: ' A Minha Rota de Viagem',
 		changed_travel_route: 'Rota Alterada',
-		places_history: 'Histórico de viagens'
+		places_history: 'Histórico de viagens',
+		map_help:'Ajuda (Mapa)',
 	},
 
 	en: {
@@ -90,11 +91,12 @@ const STRINGS_DESCRIPTIONS = {
 		map_type_selection: 'Choose Type',
 		map: 'Map',
 		places_list: 'List of Places',
-		places_help:'Help (Travel route)',
+		places_help:'Help (Travel Route)',
 		place_information: 'Local Information',
 		my_travel_route: ' My Travel Route',
 		changed_travel_route: 'Changed Route',
-		places_history:'Travel history'
+		places_history:'Travel history',
+		map_help:'Help (Map)'
 	}
 }
 
@@ -321,7 +323,9 @@ const STRINGS_OTHERS = {
 		help_choose_activity:
 			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.',
 		help_places:
-			'Premir uma das opções.\n\nEscolha a altura do dia em que\nquer realizar a atividade e o meio\nde transporte que pretende usar\npara se dirigir para esse local.'
+			'Premir uma das opções.\n\nEscolha a altura do dia em que\nquer realizar a atividade e o meio\nde transporte que pretende usar\npara se dirigir para esse local.',
+		help_map:
+			'O marcador azul mostra onde\nestá.\n\nEscolha um dos locais marcados\npara para ver mais informação\ne adicionar à sua rota planeada,\nou então clique no botão do\ncanto superior direito para mudar\npara \'Modo Lista\'.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
@@ -334,7 +338,9 @@ const STRINGS_OTHERS = {
 		help_choose_activity:
 			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.',
 		help_places:
-			'Press one of the options.\n\nChoose a time of day in which\nyou want to do the activity and\nthe public transportation that you\nwant to use to go to this place.'
+			'Press one of the options.\n\nChoose a time of day in which\nyou want to do the activity and\nthe public transportation that you\nwant to use to go to this place.',
+		help_map:
+			'The blue marker shows where\nyou are.\n\nEither choose one of the marked\nplaces on the map in order to\nsee more information or add to\nplanned route, or change into\n\'List Mode\' by clicking in the\nbutton on the top right corner.'
 	}
 }
 
