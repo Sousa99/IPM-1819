@@ -38,7 +38,7 @@ const STRINGS_DESCRIPTIONS = {
 		stop_activity: 'Parar Atividade',
 		new_measurement: 'Nova Medição',
 
-		map_type_selection:  '\nQual opção pretende\nescolher?',
+		map_type_selection:  '\nQue opção pretende\nescolher?',
 		map: 'Mapa',
 		places_list: 'Lista de Locais',
 		places_help:'Ajuda (Rota de Viagem)',
@@ -89,7 +89,7 @@ const STRINGS_DESCRIPTIONS = {
 		stop_activity: 'Stop Activity',
 		new_measurement: 'New Measurement',
 
-		map_type_selection: '\nWhat activity do\nyou want?',
+		map_type_selection: '\nWhich option do\nyou choose?',
 		map: 'Map',
 		places_list: 'List of Places',
 		places_help:'Help (Travel Route)',
