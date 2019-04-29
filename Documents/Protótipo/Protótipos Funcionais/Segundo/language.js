@@ -321,7 +321,7 @@ const STRINGS_OTHERS = {
 		help_choose_activity:
 			'\nPremir uma das 4 opções.\nCada uma destas corresponde a\numa atividade.\n\nPor fim, tem 2 opções:\n\nCancelar a atividade: o\nprogresso não será guardado.\n\nParar a atividade: o progresso\nserá guardado.',
 		help_places:
-			'Premir uma das 4 opções.\n\nEm cada uma, escolha a altura\ndo dia que quer realizar a\natividade e o meio de transporte\nque pretende usar para se dirigir\npara esse local.'
+			'Premir uma das opções.\n\nEscolha a altura do dia em que\nquer realizar a atividade e o meio\nde transporte que pretende usar\npara se dirigir para esse local.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
@@ -334,7 +334,7 @@ const STRINGS_OTHERS = {
 		help_choose_activity:
 			'\nPress one of the 4 options.\nEach option corresponds to one\nactivity.\n\nFinally,you have 2 options:\n\nCancel the activity: the\nprogress won\'t be saved.\n\nStop the activity: the progress\nwill be saved.',
 		help_places:
-			'Press one of the 4 options.\n\nEach one, choose a time of day\nthat you want to do the activity\nand the public transportation that\nyou want to use to go to this\nlocal.'
+			'Press one of the options.\n\nChoose a time of day in which\nyou want to do the activity and\nthe public transportation that you\nwant to use to go to this place.'
 	}
 }
 

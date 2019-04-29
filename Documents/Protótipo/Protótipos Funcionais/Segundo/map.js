@@ -68,16 +68,16 @@ function build_map_screen(canvas, place_selected, route = false) {
 	map_initialized = L.map('mapid', {
 		attributionControl: false,
 		center: center,
-		zoom: 14,
-        minZoom: 9,
+		zoom: 15,
+        minZoom: 8,
         maxZoom: 16,
 		zoomControl: false,
-		maxBoundsViscosity: 0.80
+		maxBoundsViscosity: 0.85
 	})
 
-	map_initialized.setView(center, 9)
+	map_initialized.setView(center, 8)
 	map_initialized.setMaxBounds(map_initialized.getBounds())
-	map_initialized.setView(center, 14)
+	map_initialized.setView(center, 15)
 
 	/*
 	// layer of the map itself, needs to load various files!
@@ -88,7 +88,7 @@ function build_map_screen(canvas, place_selected, route = false) {
 		accessToken: 'pk.eyJ1Ijoic291c2E5OSIsImEiOiJjanVoYXI3ODcwcW05NDNvM2phNnB3eGF6In0.4u5Q1HN3FiTISIBO2RdR_A'
 	}).addTo(map_initialized)*/
 
-	L.tileLayer(MATERIALS_DIR + '/Map/Atlas - Lisbon/{z}/{x}/{y}.png', {
+	L.tileLayer(MATERIALS_DIR + '/Map/Google Maps/{z}/{x}/{y}.png', {
 		maxZoom: 16,
 		minZoom: 4,  
 	}).addTo(map_initialized);
