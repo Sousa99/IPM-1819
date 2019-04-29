@@ -445,15 +445,22 @@ function build_history_screen(canvas) {
 		const place_name = trips[index].place
 		const time = trips[index].date[language]
 
-		console.log(place_name)
-		console.log(time)
-
 		name_place = build_text(canvas, [- 9 / 20 * history_screen.width, (index - 2) / 10 * history_screen.height], ['left', 'center'], 'left', get_size_px(canvas, 15), place_name, white)
 		date = build_text(canvas, [9 / 20 * history_screen.width, (index - 2) / 10 * history_screen.height], ['right', 'center'], 'right', get_size_px(canvas, 15), time, white)
 		
 		history_screen.addChild(name_place)
 		history_screen.addChild(date)
 	}
+
+	history_screen.map_button = build_rectangle(canvas, [0, 25 / 64 * history_screen.height], [7 / 12 * history_screen.width, history_screen.width / 7], undefined, 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')', [5, 5, 5, 5])
+	history_screen.map_text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 17), map['show_map'], white)
+	history_screen.map_button.addChild(history_screen.map_text)
+	history_screen.addChild(history_screen.map_button)
+
+	object_clickable(canvas, history_screen.map_button)
+	history_screen.map_button.bind('click tap', function() {
+		changeScreen(canvas, build_map_world_screen(canvas))
+	})
 
 	return history_screen
 }
@@ -465,4 +472,86 @@ function build_map_help_screen(canvas) {
 	map_help_screen.addChild(map_help_screen.help_text)
 
 	return map_help_screen
+}
+
+function build_map_world_screen(canvas) {
+	var map_screen = build_screen(canvas, descriptions['map_world'], false, false)
+	var southWest = L.latLng(-90, -180)
+	var northEast = L.latLng(90, 180)
+
+	var center = map_information.actual_location
+	
+	// Adjustment of container of the map
+	var map_html = document.getElementById('mapid')
+	map_html.style.height = (SIZE_SCREEN + 1) + 'px'
+	map_html.style.width = (SIZE_SCREEN + 1) + 'px'
+	map_html.style.display = 'block'
+
+	var button_html = document.getElementById('button_place_list')
+	button_html.style.display = 'none'
+	var button_html = document.getElementById('button_map_help')
+	button_html.style.display = 'none'
+
+	// Initialization of the map itself
+	map_initialized = L.map('mapid', {
+		attributionControl: false,
+		center: center,
+		zoom: 1,
+        minZoom: 1,
+        maxZoom: 4,
+		zoomControl: false,
+		maxBoundsViscosity: 1
+	})
+
+	map_initialized.setMaxBounds(L.latLngBounds(southWest, northEast))
+
+	/*
+	// layer of the map itself, needs to load various files!
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		maxZoom: 18,
+		minZoom: 4,
+		id: 'mapbox.streets',
+		accessToken: 'pk.eyJ1Ijoic291c2E5OSIsImEiOiJjanVoYXI3ODcwcW05NDNvM2phNnB3eGF6In0.4u5Q1HN3FiTISIBO2RdR_A'
+	}).addTo(map_initialized)*/
+
+	L.tileLayer(MATERIALS_DIR + '/Map/Google Maps/{z}/{x}/{y}.png', {
+		maxZoom: 4,
+		minZoom: 0,  
+	}).addTo(map_initialized);
+
+	// Creation of icon to mark places!
+	var place_icon = L.icon({
+		iconUrl: MATERIALS_DIR + '/Place-Marker.png',
+		shadowUrl: MATERIALS_DIR + '/Place-Marker-Shadow.png',
+	
+		iconSize:    [25, 41],
+		iconAnchor:  [12, 41],
+		popupAnchor: [1, -34],
+		tooltipAnchor: [16, -28],
+		shadowSize:  [41, 41]
+	})
+
+	// Adding the location of the user itself and a scale of the map
+	L.marker(map_information.actual_location).addTo(map_initialized)
+	L.control.scale({
+		metric: true,
+		imperial: true
+	}).addTo(map_initialized)
+
+	var places_marker = []
+	// Adding the various places visited by user
+	const places = map_information.trips
+	for (place in places) {
+		const place_marker = places[place]
+		var marker = L.marker(places[place].location, {icon: place_icon})
+
+		marker.bindPopup('<b>' + places[place].place + '</b><br>' + places[place].date[language])
+		marker.place = place_marker
+		places_marker.push(marker)
+	}
+	
+	var places_marker_layer = L.layerGroup(places_marker)
+	places_marker_layer.addTo(map_initialized)
+
+	return map_screen
 }

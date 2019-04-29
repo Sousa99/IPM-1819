@@ -134,11 +134,11 @@ var map_information = {
 	},
 
 	trips: [
-		{place: 'Suíça, Alpes Suíços', date: {en: 'Dec 16', pt: 'Dez 16'}},
-		{place: 'Portugal, Almada', date: {en: 'Mar 17', pt: 'Mar 17'}},
-		{place: 'Portugal, Trancoso', date: {en: 'Aug 17', pt: 'Ago 17'}},
-		{place: 'Portugal, Castelo Branco', date: {en: 'Nov 17', pt: 'Nov 17'}},
-		{place: 'USA, Florida - Miami', date: {en: 'Oct 18', pt: 'Out 18'}},
+		{place: 'Suíça, Alpes Suíços', date: {en: 'Dec 16', pt: 'Dez 16'}, location: [46.560130, 8.560373]},
+		{place: 'Portugal, Almada', date: {en: 'Mar 17', pt: 'Mar 17'}, location: [38.676136, -9.165770]},
+		{place: 'Portugal, Trancoso', date: {en: 'Aug 17', pt: 'Ago 17'}, location: [40.778771, -7.349299]},
+		{place: 'Portugal, Castelo Branco', date: {en: 'Nov 17', pt: 'Nov 17'}, location: [39.819882, -7.496810]},
+		{place: 'USA, Florida - Miami', date: {en: 'Oct 18', pt: 'Out 18'}, location: [25.761588, -80.198323]},
 	]
 
 }

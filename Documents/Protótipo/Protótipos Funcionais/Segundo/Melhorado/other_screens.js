@@ -157,6 +157,13 @@ function build_frame(canvas) {
 			case descriptions['map_help']:
 			changeScreen(canvas, build_map_screen(canvas))
 			break
+			case descriptions['map_world']:
+			var map_html = document.getElementById('mapid')
+			map_html.style.display = 'none'
+			map_initialized.remove()
+
+			changeScreen(canvas, build_history_screen(canvas))
+			break
 			
 		}
 	})
