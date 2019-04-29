@@ -66,21 +66,32 @@ function build_map_screen(canvas, place_selected, route = false) {
 	
 	// Initialization of the map itself
 	map_initialized = L.map('mapid', {
-        attributionControl: false,
-        center: center,
-        zoom: 14,
-        minZoom: 4,
-        maxZoom: 18,
-        zoomControl: false
+		attributionControl: false,
+		center: center,
+		zoom: 15,
+        minZoom: 8,
+        maxZoom: 16,
+		zoomControl: false,
+		maxBoundsViscosity: 0.85
 	})
-	
+
+	map_initialized.setView(center, 8)
+	map_initialized.setMaxBounds(map_initialized.getBounds())
+	map_initialized.setView(center, 15)
+
+	/*
 	// layer of the map itself, needs to load various files!
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 		maxZoom: 18,
 		minZoom: 4,
 		id: 'mapbox.streets',
 		accessToken: 'pk.eyJ1Ijoic291c2E5OSIsImEiOiJjanVoYXI3ODcwcW05NDNvM2phNnB3eGF6In0.4u5Q1HN3FiTISIBO2RdR_A'
-	}).addTo(map_initialized)
+	}).addTo(map_initialized)*/
+
+	L.tileLayer(MATERIALS_DIR + '/Map/Google Maps/{z}/{x}/{y}.png', {
+		maxZoom: 16,
+		minZoom: 4,  
+	}).addTo(map_initialized);
 
 	// Creation of icon to mark places!
 	var place_icon = L.icon({
