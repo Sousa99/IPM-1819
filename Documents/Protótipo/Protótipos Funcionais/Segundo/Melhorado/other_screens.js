@@ -135,6 +135,7 @@ function build_frame(canvas) {
 			break
 			
 			case descriptions['places_list']:
+			if (map_information.type_selected = null) changeScreen(canvas, build_my_travel_route_screen(canvas))
 			changeScreen(canvas, build_map_screen(canvas))
 			break
 			case descriptions['place_information']:

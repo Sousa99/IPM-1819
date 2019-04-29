@@ -106,23 +106,23 @@ var map_information = {
 	],
 
 	food_beverage: [
-		{name: 'Restaurante da Tia Bé', description: {pt: 'Restaurante Familiar', en: 'Family Restaurant'}, location: [38.673146, -9.154413]},
-		{name: 'O Rialva', description: {pt: 'Perfeito para dois', en: 'Perfect for dates'}, location: [38.735299, -9.140949]},
-		{name: 'Casa das Maçãs', description: {pt: 'Restaurante Familiar', en: 'Family Restaurant'}, location: [38.710346, -9.159832]},
-		{name: 'McDonald\'s', description: {pt: 'Fast Food', en: 'Fast Food'}, location: [38.696943, -9.203295]},
-		{name: 'Osaka', description: {pt: 'Sushi Restaurante', en: 'Sushi Restaurant'}, location: [38.732021, -9.139097]},
+		{name: 'Restaurante da Tia Bé', description: {pt: 'Restaurante Familiar', en: 'Family Restaurant'}, location: [38.673146, -9.154413], type: 'food_beverage'},
+		{name: 'O Rialva', description: {pt: 'Perfeito para dois', en: 'Perfect for dates'}, location: [38.735299, -9.140949], type: 'food_beverage'},
+		{name: 'Casa das Maçãs', description: {pt: 'Restaurante Familiar', en: 'Family Restaurant'}, location: [38.710346, -9.159832], type: 'food_beverage'},
+		{name: 'McDonald\'s', description: {pt: 'Fast Food', en: 'Fast Food'}, location: [38.696943, -9.203295], type: 'food_beverage'},
+		{name: 'Osaka', description: {pt: 'Sushi Restaurante', en: 'Sushi Restaurant'}, location: [38.732021, -9.139097], type: 'food_beverage'},
 	],
 	accomodation: [
-		{name: 'Alcains Hostel', description: {pt: 'Hostel', en: 'Hotel'}, location: [38.724037, -9.150388]},
-		{name: 'Travellers House', description: {pt: 'Hotel 2*', en: 'Hotel 2*'}, location: [38.714412, -9.299829]},
-		{name: 'Inatel Oeiras', description: {pt: 'Hotel 3*', en: 'Hotel 3*'}, location: [38.723801, -9.131637]},
-		{name: 'Mercury Lisboa Hotel', description: {pt: 'Hotel 4*', en: 'Hotel 4*'}, location: [38.713387, -9.125331]},
-		{name: 'Pestana Hotel', description: {pt: 'Hotel 5*', en: 'Hotel *'}, location: [38.693974, -9.211130]}
+		{name: 'Alcains Hostel', description: {pt: 'Hostel', en: 'Hotel'}, location: [38.724037, -9.150388], type: 'accomodation'},
+		{name: 'Travellers House', description: {pt: 'Hotel 2*', en: 'Hotel 2*'}, location: [38.714412, -9.299829], type: 'accomodation'},
+		{name: 'Inatel Oeiras', description: {pt: 'Hotel 3*', en: 'Hotel 3*'}, location: [38.723801, -9.131637], type: 'accomodation'},
+		{name: 'Mercury Lisboa Hotel', description: {pt: 'Hotel 4*', en: 'Hotel 4*'}, location: [38.713387, -9.125331], type: 'accomodation'},
+		{name: 'Pestana Hotel', description: {pt: 'Hotel 5*', en: 'Hotel *'}, location: [38.693974, -9.211130], type: 'accomodation'}
 	],
 	tourism: [
-		{name: 'Terreiro do Paço', description: {pt: 'Monumento', en: 'Monument'}, location: [38.708265, -9.136827]},
-		{name: 'Museu Ciência Viva', description: {pt: 'Museu de Ciência', en: 'Science Museum'}, location: [38.761766, -9.096073]},
-		{name: 'Gulbenkian', description: {pt: 'Jardim Português', en: 'Portuguese Garden'}, location: [38.738026, -9.155014]}
+		{name: 'Terreiro do Paço', description: {pt: 'Monumento', en: 'Monument'}, location: [38.708265, -9.136827], type: 'tourism'},
+		{name: 'Museu Ciência Viva', description: {pt: 'Museu de Ciência', en: 'Science Museum'}, location: [38.761766, -9.096073], type: 'tourism'},
+		{name: 'Gulbenkian', description: {pt: 'Jardim Português', en: 'Portuguese Garden'}, location: [38.738026, -9.155014], type: 'tourism'}
 	],
 
 	planned_route: {

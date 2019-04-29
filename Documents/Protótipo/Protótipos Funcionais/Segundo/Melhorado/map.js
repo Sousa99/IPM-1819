@@ -197,7 +197,6 @@ function build_map_screen(canvas, place_selected, route = false) {
 
 	for (marker in places_marker) {
 		places_marker[marker].on("click", function(e) {
-			console.log(e)
 			const place = e.target.place
 	
 			if (place) {
@@ -386,8 +385,8 @@ function build_my_travel_route_screen(canvas) {
 
     for (var i = 0; i < lines + 1; i++) {
 		var line = build_line(canvas, [- 9 / 20 * my_travel_route_screen.width, (i + startpoint - 0.5) * my_travel_route_screen.height / 10], [9 / 20 * my_travel_route_screen.width, (i + startpoint - 0.5) * my_travel_route_screen.height / 10])
-        my_travel_route_screen.addChild(line)
-    }
+		my_travel_route_screen.addChild(line)
+	}
 	
 	var line = build_line(canvas, [- my_travel_route_screen.width / 4, (startpoint - 0.9) * my_travel_route_screen.height / 10], [- my_travel_route_screen.width / 4, (lines + startpoint - 0.1) * my_travel_route_screen.height / 10])
     my_travel_route_screen.addChild(line)
@@ -396,19 +395,35 @@ function build_my_travel_route_screen(canvas) {
 	my_travel_route_screen.addChild(line)
 
 	for (index in Object.keys(planned_route)) {
+		var box = build_rectangle(canvas, [0, (parseInt(index) + startpoint) * my_travel_route_screen.height / 10], [9 / 10 * my_travel_route_screen.width, my_travel_route_screen.height / 10], undefined, '#AAAA00')
+		
 		const time_name = Object.keys(planned_route)[index]
 		const time = planned_route[time_name]
 		
-		time_text = build_text(canvas, [- 7 / 20 * my_travel_route_screen.width, (index - 2) / 10 * my_travel_route_screen.height], undefined, undefined, get_size_px(canvas, 15), map[time_name], white)
-		my_travel_route_screen.addChild(time_text)
-
+		time_text = build_text(canvas, [- 7 / 20 * my_travel_route_screen.width, 0], undefined, undefined, get_size_px(canvas, 15), map[time_name], white)
+		box.addChild(time_text)
+		
 		if (map_information.planned_route[time_name] != null){
-			name_place = build_text(canvas, [my_travel_route_screen.width / 40, (index - 2) / 10 * my_travel_route_screen.height], undefined, undefined, get_size_px(canvas, 15), time.place.name, white)
-			transportation = build_image(canvas, [3 / 8 * my_travel_route_screen.width, (index - 2) / 10 * my_travel_route_screen.height], [my_travel_route_screen.width / 11, my_travel_route_screen.height / 12], undefined, MATERIALS_DIR + time.transportation.image)
+			name_place = build_text(canvas, [my_travel_route_screen.width / 40, 0], undefined, undefined, get_size_px(canvas, 15), time.place.name, white)
+			transportation = build_image(canvas, [3 / 8 * my_travel_route_screen.width, 0], [my_travel_route_screen.width / 11, my_travel_route_screen.height / 12], undefined, MATERIALS_DIR + time.transportation.image)
 			
-			my_travel_route_screen.addChild(name_place)
-			my_travel_route_screen.addChild(transportation)
+			object_clickable(canvas, box)
+			box.bind('click tap', function() {
+				const click_place = time.place
+				const time_day = index
+				
+				map_information.info_place = click_place
+				map_information.info_place_time = 0
+				map_information.info_place_transportation = 0
+				map_information.type_selected = click_place.type
+				changeScreen(canvas, build_place_information_screen(canvas))
+			})
+
+			box.addChild(name_place)
+			box.addChild(transportation)
 		}
+
+		my_travel_route_screen.addChild(box)
 	}
 
 	my_travel_route_screen.map_button = build_rectangle(canvas, [0, 25 / 64 * my_travel_route_screen.height], [7 / 12 * my_travel_route_screen.width, my_travel_route_screen.width / 7], undefined, 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')', [5, 5, 5, 5])
