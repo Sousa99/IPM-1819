@@ -1,6 +1,9 @@
 function build_contacts_screen(canvas){
     var contacts_screen = build_screen(canvas, descriptions['contacts'], false, true)
+    contacts_screen.contacts_image = build_image(canvas, [contacts_screen.width / 40, - contacts_screen.height / 40], [contacts_screen.width / 10, contacts_screen.height / 10], undefined, MATERIALS_DIR + '/Contacts.png')
+    
 
+    contacts_screen.contacts_image.addChild(contacts_screen.contacts_image)
     return contacts_screen
 } 
 
