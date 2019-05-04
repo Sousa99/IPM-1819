@@ -2,7 +2,7 @@ const white = '#FFFFFF'
 const black = '#000000'
 const gray_frame = '#7F7F7F'
 
-const MATERIALS_DIR = '../../../../../Materials'
+const MATERIALS_DIR = '../../../../Materials'
 
 const RADIUS_WORKZONE = 320
 const SIZE_FRAME = 15

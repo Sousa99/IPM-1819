@@ -29,10 +29,10 @@ function loadCanvas() {
 	canvas.width = window.innerWidth
 	canvas.height = window.innerHeight
 
-	/*var canvas = oCanvas.create({
+	var canvas = oCanvas.create({
 		canvas: '#workzone',
 		fps: fps
-	})*/
+	})
 	
 	var center = build_ellipse(canvas, [canvas.width / 2, canvas.height / 2], RADIUS_WORKZONE, white)
 	canvas.addChild(center)
