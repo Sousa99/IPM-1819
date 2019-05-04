@@ -164,6 +164,8 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 		if (
 			list_link[i] == 'link' ||
 			list_link[i] == 'link_arrow' ||
+			list_link[i] == 'link_delete_contact' ||
+			list_link[i] == 'link_add_contact' ||
 			list_link[i] == 'link_text' ||
 			list_link[i] == 'link_pub' ||
 			list_link[i] == 'link_option' ||
@@ -182,6 +184,19 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 
 				box.addChild(box_pub)
 				box_pub.addChild(pub)
+			
+			} else if (list_link[i] == 'link_delete_contact') {
+				box_delete_contact = build_rectangle(canvas, [4 * screen.width / 10, 0], [screen.width / 9, screen.height / 11], undefined, '', [5, 5, 5, 5], get_size_px(canvas, 2) + ' ' + white)
+				delete_contact = build_image(canvas, undefined, [screen.width / 13, screen.height / 13], undefined, MATERIALS_DIR + '/Delete_contact.png')
+
+				box.addChild(box_delete_contact)
+				box_delete_contact.addChild(delete_contact)
+			}else if (list_link[i] == 'link_add_contact') {
+				box_add_contact = build_rectangle(canvas, [4 * screen.width / 10, 0], [screen.width / 9, screen.height / 11], undefined, '', [5, 5, 5, 5], get_size_px(canvas, 2) + ' ' + white)
+				add_contact = build_image(canvas, undefined, [screen.width / 13, screen.height / 13], undefined, MATERIALS_DIR + '/Add_contact.png')
+
+				box.addChild(box_add_contact)
+				box_add_contact.addChild(add_contact)
 			} else if (list_link[i] == 'link_text') {
 				const text_array = map_information.times[map_information.type_selected]
 

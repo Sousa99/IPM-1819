@@ -47,7 +47,16 @@ const STRINGS_DESCRIPTIONS = {
 		changed_travel_route: 'Rota Alterada',
 		places_history: 'Histórico de viagens',
 		map_help:'Ajuda (Mapa)',
-		map_world:'Mapa Mundo'
+		map_world:'Mapa Mundo',
+
+		groups: 'Grupos',
+		group_help: 'Ajuda (Grupo)',
+		see_group: 'Ver Grupo',
+		edit_group: 'Editar Grupo',
+
+		contacts:'Contactos',
+		add_contact: 'Adicionar Contacto',
+
 	},
 
 	en: {
@@ -98,7 +107,16 @@ const STRINGS_DESCRIPTIONS = {
 		changed_travel_route: 'Changed Route',
 		places_history:'Travel history',
 		map_help:'Help (Map)',
-		map_world:'World Map'
+		map_world:'World Map',
+
+		groups: 'Groups',
+		group_help: 'Help (Group)',
+		see_group: 'See Group',
+		edit_group: 'Edit Group',
+
+		contacts: 'Contacts',
+		add_contact: 'Add Contact',
+		
 	}
 }
 
@@ -284,6 +302,32 @@ const STRINGS_MAP = {
 	}
 }
 
+const STRINGS_GROUP_AND_CONTACTS = {
+	pt:{
+		contact_1:'Contacto 1',
+		contact_2:'Contacto 2',
+		contact_3:'Contacto 3',
+		contact_4:'Contacto 4',
+		contact_5:'Contacto 5',
+		contact_6:'Contacto 6',
+		contact_7:'Contacto 7',
+		contact_8:'Contacto 8',
+		add_contact:'Adicionar contacto',
+	},
+
+	en:{
+		contact_1:'Contact 1',
+		contact_2:'Contact 2',
+		contact_3:'Contact 3',
+		contact_4:'Contact 4',
+		contact_5:'Contact 5',
+		contact_6:'Contact 6',
+		contact_7:'Contact 7',
+		contact_8:'Contact 8',
+		add_contact: 'Add contact',
+	}
+}
+
 const STRINGS_SETTINGS = {
 	pt: {
 		lock_protection: 'Proteção de Ecrã',
@@ -327,7 +371,8 @@ const STRINGS_OTHERS = {
 		help_places:
 			'Premir uma das opções.\n\nEscolha a altura do dia em que\nquer realizar a atividade e o meio\nde transporte que pretende usar\npara se dirigir para esse local.',
 		help_map:
-			'O marcador azul mostra onde\nestá.\n\nEscolha um dos locais marcados\npara para ver mais informação\ne adicionar à sua rota planeada,\nou então clique no botão do\ncanto superior direito para mudar\npara \'Modo Lista\'.'
+			'O marcador azul mostra onde\nestá.\n\nEscolha um dos locais marcados\npara para ver mais informação\ne adicionar à sua rota planeada,\nou então clique no botão do\ncanto superior direito para mudar\npara \'Modo Lista\'.',
+		help_group:''
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
@@ -342,7 +387,8 @@ const STRINGS_OTHERS = {
 		help_places:
 			'Press one of the options.\n\nChoose a time of day in which\nyou want to do the activity and\nthe public transportation that you\nwant to use to go to this place.',
 		help_map:
-			'The blue marker shows where\nyou are.\n\nEither choose one of the marked\nplaces on the map in order to\nsee more information or add to\nplanned route, or change into\n\'List Mode\' by clicking in the\nbutton on the top right corner.'
+			'The blue marker shows where\nyou are.\n\nEither choose one of the marked\nplaces on the map in order to\nsee more information or add to\nplanned route, or change into\n\'List Mode\' by clicking in the\nbutton on the top right corner.',
+		help_group:''
 	}
 }
 

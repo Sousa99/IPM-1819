@@ -165,7 +165,23 @@ function build_frame(canvas) {
 
 			changeScreen(canvas, build_history_screen(canvas))
 			break
-			
+			case descriptions['group']:
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
+			case descriptions['see_and_edit_group']:
+			changeScreen(canvas, build_group_screen(canvas))
+			break
+			case descriptions['see_group']:
+			changeScreen(canvas, build_group_screen(canvas))
+			break
+			case descriptions['edit_group']:
+			changeScreen(canvas, build_see_and_edit_group_screen(canvas))
+			break
+
+			case descriptions['contacts']:
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
+
 		}
 	})
 	
@@ -300,6 +316,17 @@ function build_menu_screen(canvas) {
 	menu_screen.maps_menu_button.bind('click tap', function() {
 		changeScreen(canvas, build_map_type_selection_screen(canvas))
 	})
+
+	object_clickable(canvas, menu_screen.group_menu_button)
+	menu_screen.group_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_group_screen(canvas))
+	})
+
+	object_clickable(canvas, menu_screen.contacts_menu_button)
+	menu_screen.contacts_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_contacts_screen(canvas))
+	})
+
 
 	return menu_screen
 }
