@@ -1,9 +1,16 @@
 function build_contacts_screen(canvas){
     var contacts_screen = build_screen(canvas, descriptions['contacts'], false, true)
-    contacts_screen.contacts_image = build_image(canvas, [contacts_screen.width / 40, - contacts_screen.height / 40], [contacts_screen.width / 10, contacts_screen.height / 10], undefined, MATERIALS_DIR + '/Contacts.png')
+    contacts_screen.image = build_image(canvas, [contacts_screen.width / 30, - contacts_screen.height / 5], [contacts_screen.width / 3, contacts_screen.height / 3], undefined, MATERIALS_DIR + '/Person_contacts.png')
     
 
-    contacts_screen.contacts_image.addChild(contacts_screen.contacts_image)
+    contacts_screen.addChild(contacts_screen.image)
+
+    var options = [ contacts['name'], contacts['phone'], contacts['birthday'],  ]
+	
+
+	links = add_lines(canvas, group_screen, -1, options, undefined, undefined)
+    
+
     return contacts_screen
 } 
 

@@ -302,7 +302,7 @@ const STRINGS_MAP = {
 	}
 }
 
-const STRINGS_GROUP_AND_CONTACTS = {
+const STRINGS_GROUP = {
 	pt:{
 		contact_1:'Contacto 1',
 		contact_2:'Contacto 2',
@@ -325,6 +325,20 @@ const STRINGS_GROUP_AND_CONTACTS = {
 		contact_7:'Contact 7',
 		contact_8:'Contact 8',
 		add_contact: 'Add contact',
+	}
+}
+
+const STRINGS_CONTACTS = {
+	pt:{
+		name:'Nome',
+		phone:'Telemóvel',
+		birthday:'Data de Nascimento',	
+	},
+
+	en:{
+		name:'Name',
+		phone:'Phone number',
+		birthday:'Birthday',
 	}
 }
 
