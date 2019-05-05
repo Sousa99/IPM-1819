@@ -192,7 +192,13 @@ function build_frame(canvas) {
 			changeScreen(canvas, build_see_and_edit_group_screen(canvas))
 			break
 
-			case descriptions['contacts']:
+			case descriptions['camera_photo']:
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
+			case descriptions['camera_video']:
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
+			case descriptions['camera_stream']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
 
@@ -339,6 +345,11 @@ function build_menu_screen(canvas) {
 	object_clickable(canvas, menu_screen.contacts_menu_button)
 	menu_screen.contacts_menu_button.bind('click tap', function() {
 		changeScreen(canvas, build_contacts_screen(canvas))
+	})
+
+	object_clickable(canvas, menu_screen.camera_menu_button)
+	menu_screen.camera_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_photo_screen(canvas))
 	})
 
 

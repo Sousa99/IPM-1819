@@ -54,11 +54,15 @@ const STRINGS_DESCRIPTIONS = {
 		see_group: 'Ver Grupo',
 		edit_group: 'Editar Grupo',
 
-		contacts:'Contactos',
+		contacts: 'Contactos',
 		contact: 'Contacto',
 		add_contact_group: 'Adicionar ao Grupo',
 		remove_contact_group: 'Remover do Grupo',
 		add_contact: 'Adicionar Contacto',
+
+		camera_photo: 'Camera Photo',
+		camera_video: 'Camera Video',
+		camera_stream: 'Camera Stream',
 
 	},
 
@@ -121,8 +125,11 @@ const STRINGS_DESCRIPTIONS = {
 		contact: 'Contact',
 		add_contact_group: 'Add Contact to Group',
 		remove_contact_group: 'Remove Contact from Group',
-		add_contact: 'Add Contact'
-		
+		add_contact: 'Add Contact',
+
+		camera_photo: 'Camera Photo',
+		camera_video: 'Camera Video',
+		camera_stream: 'Camera Stream',
 	}
 }
 
@@ -360,6 +367,26 @@ const STRINGS_CONTACTS = {
 	}
 }
 
+const STRINGS_CAMERA = {
+	pt: {
+		camera_photo: 'PHOTO',
+		camera_video: 'VIDEO',
+		camera_stream: 'STREAM',
+		tap_camera_photo: 'CARREGUE NO ECRÃ\nPARA TIRAR FOTO',
+		tap_camera_video: 'CARREGUE NO ECRÃ\nPARA GRAVAR VIDEO',
+		tap_camera_stream: 'CARREGUE NO ECRÃ\nPARA COMEÇAR DIRETO'
+	},
+
+	en: {
+		camera_photo: 'PHOTO',
+		camera_video: 'VIDEO',
+		camera_stream: 'STREAM',
+		tap_camera_photo: 'TOUCH THE SCREEN\nTO TAKE PHOTO',
+		tap_camera_video: 'TOUCH THE SCREEN\nTO RECORD VIDEO',
+		tap_camera_stream: 'TOUCH THE SCREEN\nTO START LIVE'
+	}
+}
+
 const STRINGS_SETTINGS = {
 	pt: {
 		lock_protection: 'Proteção de Ecrã',
@@ -430,6 +457,7 @@ var health
 var map
 var group
 var contacts
+var camera
 var settings
 var others
 
@@ -441,6 +469,7 @@ function change_language(change) {
 	map = STRINGS_MAP[language]
 	group = STRINGS_GROUP[language]
 	contacts = STRINGS_CONTACTS[language]
+	camera = STRINGS_CAMERA[language]
 	settings = STRINGS_SETTINGS[language]
 	others = STRINGS_OTHERS[language]
 }
