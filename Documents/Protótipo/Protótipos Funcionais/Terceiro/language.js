@@ -49,7 +49,7 @@ const STRINGS_DESCRIPTIONS = {
 		map_help:'Ajuda (Mapa)',
 		map_world:'Mapa Mundo',
 
-		groups: 'Grupos',
+		group: 'Grupo',
 		group_help: 'Ajuda (Grupo)',
 		see_group: 'Ver Grupo',
 		edit_group: 'Editar Grupo',
@@ -109,7 +109,7 @@ const STRINGS_DESCRIPTIONS = {
 		map_help:'Help (Map)',
 		map_world:'World Map',
 
-		groups: 'Groups',
+		group: 'Group',
 		group_help: 'Help (Group)',
 		see_group: 'See Group',
 		edit_group: 'Edit Group',
@@ -410,6 +410,8 @@ var language
 var descriptions
 var health
 var map
+var group
+var contacts
 var settings
 var others
 
@@ -419,6 +421,8 @@ function change_language(change) {
 	descriptions = STRINGS_DESCRIPTIONS[language]
 	health = STRINGS_HEALTH[language]
 	map = STRINGS_MAP[language]
+	group = STRINGS_GROUP[language]
+	contacts = STRINGS_CONTACTS[language]
 	settings = STRINGS_SETTINGS[language]
 	others = STRINGS_OTHERS[language]
 }

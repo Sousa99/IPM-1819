@@ -1,5 +1,5 @@
 function build_group_screen(canvas){
-    var group_screen = build_screen(canvas, descriptions['group'], false, true)
+    var group_screen = build_screen(canvas, descriptions['group'], true, true)
 
     //circulo de contactos
 
