@@ -162,9 +162,16 @@ function build_frame(canvas) {
 			var map_html = document.getElementById('mapid')
 			map_html.style.display = 'none'
 			map_initialized.remove()
-
 			changeScreen(canvas, build_history_screen(canvas))
 			break
+
+			case descriptions['contacts']:
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
+			case descriptions['contact']:
+			changeScreen(canvas, build_contacts_screen(canvas))
+			break
+
 			case descriptions['group']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
@@ -177,11 +184,6 @@ function build_frame(canvas) {
 			case descriptions['edit_group']:
 			changeScreen(canvas, build_see_and_edit_group_screen(canvas))
 			break
-
-			case descriptions['contacts']:
-			changeScreen(canvas, build_menu_screen(canvas))
-			break
-
 		}
 	})
 	

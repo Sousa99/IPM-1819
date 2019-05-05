@@ -143,6 +143,32 @@ var map_information = {
 
 }
 
+var contacts_information = {
+	actual_contact: undefined,
+
+	contacts_list: [
+		{
+			name: 'Rodrigo Sousa',
+			fullname: 'Rodrigo Borges Pessoa de Sousa',
+			phone: '925429077',
+			birthday: { abbrev: '14/03/1999', day: 14, month: 3, year: 1999},
+			image: undefined
+		}, {
+			name: 'Isabel Soares',
+			fullname: 'Isabel dos Santos Ramos Soares',
+			phone: '924742123',
+			birthday: { abbrev: '14 + 2/03/1999', day: 16, month: 3, year: 1999},
+			image: undefined
+		}, {
+			name: 'Tiago Afonso',
+			fullname: 'Tiago NO LO SEI :( Afonso',
+			phone: '934567843',
+			birthday: { abbrev: '31/05/1999', day: 31, month: 5, year: 1999},
+			image: undefined
+		}
+	]
+}
+
 function get_size_px(canvas, px_size) {
 	return px_size + 'px'
 }
@@ -226,6 +252,7 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				}
 			}
 		} else if (list_link[i] == 'text') {
+			console.log(list_info[i])
 			info = build_text(canvas, [9 / 20 * screen.width, 0], ['right', 'center'], undefined, undefined, list_info[i], white)
 			box.addChild(info)
 		}
