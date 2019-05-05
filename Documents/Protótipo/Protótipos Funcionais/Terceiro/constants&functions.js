@@ -149,7 +149,7 @@ var contacts_information = {
 
 	contacts_list: [
 		{
-			name: 'Rodrigo 🤓 Sousa',
+			name: 'Rodrigo Sousa',
 			fullname: 'Rodrigo Borges Pessoa de Sousa',
 			phone: '925429077',
 			birthday: { abbrev: '14/03/1999', day: 14, month: 3, year: 1999},
