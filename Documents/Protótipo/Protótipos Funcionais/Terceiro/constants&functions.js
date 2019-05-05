@@ -145,6 +145,7 @@ var map_information = {
 
 var contacts_information = {
 	actual_contact: undefined,
+	group: [],
 
 	contacts_list: [
 		{
@@ -152,21 +153,29 @@ var contacts_information = {
 			fullname: 'Rodrigo Borges Pessoa de Sousa',
 			phone: '925429077',
 			birthday: { abbrev: '14/03/1999', day: 14, month: 3, year: 1999},
-			image: undefined
+			image: undefined,
+			on_group: true
 		}, {
 			name: 'Isabel Soares',
 			fullname: 'Isabel dos Santos Ramos Soares',
 			phone: '924742123',
 			birthday: { abbrev: '14 + 2/03/1999', day: 16, month: 3, year: 1999},
-			image: undefined
+			image: undefined,
+			on_group: false
 		}, {
 			name: 'Tiago Afonso',
 			fullname: 'Tiago NO LO SEI :( Afonso',
 			phone: '934567843',
 			birthday: { abbrev: '31/05/1999', day: 31, month: 5, year: 1999},
-			image: undefined
+			image: undefined,
+			on_group: false
 		}
 	]
+}
+
+for (contact_index in contacts_information.contacts_list) {
+	if (contacts_information.contacts_list[contact_index].on_group)
+		contacts_information.group.push(contacts_information.contacts_list[contact_index])
 }
 
 function get_size_px(canvas, px_size) {

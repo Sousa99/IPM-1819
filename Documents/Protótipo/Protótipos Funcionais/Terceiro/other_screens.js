@@ -269,7 +269,7 @@ function build_main_screen(canvas) {
 
 	main_screen.date = build_text(canvas, [0, - 2 / 5 * main_screen.height], undefined, undefined, get_size_px(canvas, 16), undefined, white)
 	main_screen.time = build_text(canvas , undefined, undefined, undefined, get_size_px(canvas, 50), undefined, white)
-	main_screen.number_friends = build_text(canvas, [0, 3 / 8 * main_screen.height], undefined, undefined, get_size_px(canvas, 20), friendsgroup.length, white)
+	main_screen.number_friends = build_text(canvas, [0, 3 / 8 * main_screen.height], undefined, undefined, get_size_px(canvas, 20), contacts_information.group.length, white)
 	main_screen.friends = build_text(canvas, [0, 9 / 20 * main_screen.height], undefined, undefined, get_size_px(canvas, 10), others['friends_group'], white)
 
 	main_screen.addChild(main_screen.date)

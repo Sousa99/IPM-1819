@@ -2,7 +2,6 @@ var actual_screen
 var template
 var frame
 var description_bar
-var friendsgroup = []
 
 const fps = 60
 var counter = 0
