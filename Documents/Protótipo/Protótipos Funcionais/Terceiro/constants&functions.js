@@ -149,7 +149,7 @@ var contacts_information = {
 
 	contacts_list: [
 		{
-			name: 'Rodrigo Sousa',
+			name: 'Rodrigo 🤓 Sousa',
 			fullname: 'Rodrigo Borges Pessoa de Sousa',
 			phone: '925429077',
 			birthday: { abbrev: '14/03/1999', day: 14, month: 3, year: 1999},
@@ -157,20 +157,20 @@ var contacts_information = {
 			on_group: true
 		}, {
 			name: 'Isabel Soares',
-			fullname: 'Isabel dos Santos Ramos Soares',
+			fullname: 'Isabel Santos Ramos Soares',
 			phone: '924742123',
-			birthday: { abbrev: '14 + 2/03/1999', day: 16, month: 3, year: 1999},
+			birthday: { abbrev: '16/03/1999', day: 16, month: 3, year: 1999},
 			image: undefined,
 			on_group: false
 		}, {
 			name: 'Tiago Afonso',
-			fullname: 'Tiago NO LO SEI :( Afonso',
+			fullname: 'Tiago Francisco Duarte Afonso',
 			phone: '934567843',
 			birthday: { abbrev: '31/05/1999', day: 31, month: 5, year: 1999},
 			image: undefined,
 			on_group: false
 		}
-	]
+	] 
 }
 
 for (contact_index in contacts_information.contacts_list) {

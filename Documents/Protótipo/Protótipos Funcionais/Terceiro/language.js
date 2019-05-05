@@ -55,7 +55,6 @@ const STRINGS_DESCRIPTIONS = {
 		edit_group: 'Editar Grupo',
 
 		contacts:'Contactos',
-		contact: 'Contacto',
 		add_contact: 'Adicionar Contacto',
 
 	},
@@ -116,7 +115,6 @@ const STRINGS_DESCRIPTIONS = {
 		edit_group: 'Edit Group',
 
 		contacts: 'Contacts',
-		contact: 'Contact',
 		add_contact: 'Add Contact',
 		
 	}
