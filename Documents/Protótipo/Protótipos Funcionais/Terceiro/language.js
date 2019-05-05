@@ -56,6 +56,8 @@ const STRINGS_DESCRIPTIONS = {
 
 		contacts:'Contactos',
 		contact: 'Contacto',
+		add_contact_group: 'Adicionar ao Grupo',
+		remove_contact_group: 'Remover do Grupo',
 		add_contact: 'Adicionar Contacto',
 
 	},
@@ -117,7 +119,9 @@ const STRINGS_DESCRIPTIONS = {
 
 		contacts: 'Contacts',
 		contact: 'Contact',
-		add_contact: 'Add Contact',
+		add_contact_group: 'Add Contact to Group',
+		remove_contact_group: 'Remove Contact from Group',
+		add_contact: 'Add Contact'
 		
 	}
 }
@@ -334,13 +338,25 @@ const STRINGS_CONTACTS = {
 	pt:{
 		name:'Nome',
 		phone:'Telemóvel',
-		birthday:'Data de Nascimento',	
+		birthday:'Data de Nascimento',
+		add_contact_group: 'Adicionar ao Grupo',
+		add_contact_group_verification: 'Deseja mesmo adicionar o\ncontacto ao grupo?',
+		remove_contact_group: 'Remover do Grupo',
+		remove_contact_group_verification: 'Deseja mesmo remover o\ncontacto do grupo?',
+		yes: 'Sim',
+		no: 'Não',
 	},
 
 	en:{
 		name:'Name',
 		phone:'Phone number',
 		birthday:'Birthday',
+		add_contact_group: 'Add to Group',
+		add_contact_group_verification: 'Do you really wish to add\ncontact to the group?',
+		remove_contact_group: 'Remove from Group',
+		remove_contact_group_verification: 'Do you really wish to\nremove contact from group?',
+		yes: 'Yes',
+		no: 'No',
 	}
 }
 

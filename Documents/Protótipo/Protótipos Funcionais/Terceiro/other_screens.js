@@ -171,6 +171,12 @@ function build_frame(canvas) {
 			case descriptions['contact']:
 			changeScreen(canvas, build_contacts_screen(canvas))
 			break
+			case descriptions['add_contact_group']:
+			changeScreen(canvas, build_contact_screen(canvas))
+			break
+			case descriptions['remove_contact_group']:
+			changeScreen(canvas, build_contact_screen(canvas))
+			break
 
 			case descriptions['group']:
 			changeScreen(canvas, build_menu_screen(canvas))
