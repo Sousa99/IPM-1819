@@ -261,7 +261,6 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				}
 			}
 		} else if (list_link[i] == 'text') {
-			console.log(list_info[i])
 			info = build_text(canvas, [9 / 20 * screen.width, 0], ['right', 'center'], undefined, undefined, list_info[i], white)
 			box.addChild(info)
 		}

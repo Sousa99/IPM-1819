@@ -1,7 +1,37 @@
 function build_group_screen(canvas){
-    var group_screen = build_screen(canvas, descriptions['group'], true, true)
+	var group_screen = build_screen(canvas, descriptions['group'], false, true)
+	
+	var number_group = contacts_information.group.length
+	var radius = 100
+	
+	var circle = build_ellipse(canvas, undefined, radius, white, get_size_px(canvas, 5) + ' #5151e8')
+	circle.opacity = 0.75
+	group_screen.addChild(circle)
+	
+	if (number_group <= 1) radius = 0
+	else {
+		var number = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 75), number_group, '#5151e8')
+		group_screen.addChild(number)
+	}
 
-    //circulo de contactos
+    for (contact_index in contacts_information.group) {
+		const contact = contacts_information.group[contact_index]
+
+		var x = radius * Math.cos((contact_index * 2/number_group + 1/2) * Math.PI)
+		var y = radius * Math.sin((contact_index * 2/number_group + 1/2) * Math.PI)
+		var path_image
+		if (contact.image == undefined) path_image = MATERIALS_DIR + '/Person_contacts.png'
+		else path_image = MATERIALS_DIR + contact.image
+
+
+		var image = build_image(canvas, [x, y], [group_screen.width / 6, group_screen.height / 6], undefined, path_image)
+		group_screen.addChild(image)
+		object_clickable(canvas, image)
+		image.bind('click tap', function() {
+			contacts_information.actual_contact = contact
+			changeScreen(canvas, build_contact_screen(canvas))
+		})
+	}
 
     
 
