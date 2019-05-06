@@ -152,21 +152,21 @@ var contacts_information = {
 			name: 'Rodrigo Sousa',
 			fullname: 'Rodrigo Borges Pessoa de Sousa',
 			phone: '+351 925 429 077',
-			birthday: { abbrev: '14 /03 /1999', day: 14, month: 3, year: 1999},
+			birthday: { abbrev: '14 / 03 /1999', day: 14, month: 3, year: 1999},
 			image: '/Contacts/Rodrigo.png',
 			on_group: true
 		}, {
 			name: 'Isabel Soares',
 			fullname: 'Isabel Santos Ramos Soares',
 			phone: '+351 924 742 123',
-			birthday: { abbrev: '16 /03 /1999', day: 16, month: 3, year: 1999},
+			birthday: { abbrev: '16 / 03 /1999', day: 16, month: 3, year: 1999},
 			image: '/Contacts/Isabel.png',
 			on_group: false
 		}, {
 			name: 'Tiago Afonso',
 			fullname: 'Tiago Francisco Duarte Afonso',
 			phone: '+351 934 567 843',
-			birthday: { abbrev: '31 /05 /1999', day: 31, month: 5, year: 1999},
+			birthday: { abbrev: '31 / 05 /2000', day: 31, month: 5, year: 2000},
 			image: '/Contacts/Tiago.png',
 			on_group: false
 		}
