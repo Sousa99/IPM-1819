@@ -1,6 +1,8 @@
 function build_contacts_screen(canvas){
     var contacts_screen = build_screen(canvas, descriptions['contacts'], true, true)
 
+    contacts_information.back_screen = 'Contacts'
+
     contacts_screen.image = build_image(canvas, [0, - contacts_screen.height / 10], [contacts_screen.width / 3, contacts_screen.height / 3], undefined, MATERIALS_DIR + '/Person_contacts.png')
     contacts_screen.addChild(contacts_screen.image)
 
@@ -94,7 +96,10 @@ function build_add_group_contact_screen(canvas) {
         contacts_information.contacts_list[index].on_group = true
 
         contacts_information.group.push(contacts_information.actual_contact)
-		changeScreen(canvas, build_contacts_screen(canvas))
+		if (contacts_information.back_screen == 'Group')
+            changeScreen(canvas, build_group_screen(canvas))
+        else if (contacts_information.back_screen == 'Contacts')
+            changeScreen(canvas, build_contacts_screen(canvas))
 	})
 
 	object_clickable(canvas, add_group_contact_screen.no_button)
@@ -130,7 +135,10 @@ function build_remove_group_contact_screen(canvas) {
         var index =  contacts_information.contacts_list.indexOf(contacts_information.actual_contact)
         contacts_information.contacts_list[index].on_group = false
 
-		changeScreen(canvas, build_contacts_screen(canvas))
+        if (contacts_information.back_screen == 'Group')
+            changeScreen(canvas, build_group_screen(canvas))
+        else if (contacts_information.back_screen == 'Contacts')
+            changeScreen(canvas, build_contacts_screen(canvas))
 	})
 
 	object_clickable(canvas, remove_group_contact_screen.no_button)

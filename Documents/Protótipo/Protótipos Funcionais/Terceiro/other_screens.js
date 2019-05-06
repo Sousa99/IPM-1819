@@ -170,7 +170,10 @@ function build_frame(canvas) {
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
 			case descriptions['contact']:
-			changeScreen(canvas, build_contacts_screen(canvas))
+			if (contacts_information.back_screen == 'Group')
+				changeScreen(canvas, build_group_screen(canvas))
+			else if (contacts_information.back_screen == 'Contacts')
+				changeScreen(canvas, build_contacts_screen(canvas))
 			break
 			case descriptions['add_contact_group']:
 			changeScreen(canvas, build_contact_screen(canvas))

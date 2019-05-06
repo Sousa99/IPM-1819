@@ -137,6 +137,15 @@ function loadCanvas() {
 				}
 				
 				break
+
+			case descriptions['group']:
+				for (people_index in actual_screen.people){
+					var people = actual_screen.people[people_index]
+					people.angle += 0
+					people.x = actual_screen.radius * Math.cos(people.angle)
+					people.y = actual_screen.radius * Math.sin(people.angle)
+				}
+				break
 		}
 
 		if (fitness.started) {

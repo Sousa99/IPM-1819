@@ -325,7 +325,8 @@ const STRINGS_GROUP = {
 		contact_6:'Contacto 6',
 		contact_7:'Contacto 7',
 		contact_8:'Contacto 8',
-		add_contact:'Adicionar contacto',
+		add_contact:'Adicionar Contacto',
+		empty_group: 'Grupo Vazio',
 	},
 
 	en:{
@@ -337,7 +338,8 @@ const STRINGS_GROUP = {
 		contact_6:'Contact 6',
 		contact_7:'Contact 7',
 		contact_8:'Contact 8',
-		add_contact: 'Add contact',
+		add_contact: 'Add Contact',
+		empty_group: 'Empty Group',
 	}
 }
 

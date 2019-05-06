@@ -145,6 +145,7 @@ var map_information = {
 
 var contacts_information = {
 	actual_contact: undefined,
+	back_screen: undefined,
 	group: [],
 
 	contacts_list: [
