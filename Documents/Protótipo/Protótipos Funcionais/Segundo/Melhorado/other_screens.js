@@ -206,13 +206,13 @@ function build_frame(canvas) {
 	
 	object_clickable(canvas, frame.button_minus)
 	frame.button_minus.bind('click tap', function() {
-		if (actual_screen.description == descriptions['map'])
+		if (actual_screen.description == descriptions['map'] || actual_screen.description == descriptions['map_world'])
 		map_initialized.zoomOut()
 	})
 	
 	object_clickable(canvas, frame.button_plus)
 	frame.button_plus.bind('click tap', function() {
-		if (actual_screen.description == descriptions['map'])
+		if (actual_screen.description == descriptions['map'] || actual_screen.description == descriptions['map_world'])
 		map_initialized.zoomIn()
 	})
 	
