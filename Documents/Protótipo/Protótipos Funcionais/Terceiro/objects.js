@@ -69,14 +69,21 @@ function build_arc(canvas, [x, y] = [0, 0], radius = 2, [start, end] = [0, 180],
     return arc
 }
 
-function build_image(canvas, [x, y] = [0, 0], [width, height] = 'TODO', [x_origin, y_origin] = ['center', 'center'], path) {
+function build_image(canvas, [x, y] = [0, 0], [width, height] = 'TODO', [x_origin, y_origin] = ['center', 'center'], path, borders) {
+    if (borders == undefined) [borderTopLeftRadius, borderTopRightRadius, borderBottomLeftRadius, borderBottomRightRadius] = [0, 0, 0, 0]
+    else [borderTopLeftRadius, borderTopRightRadius, borderBottomLeftRadius, borderBottomRightRadius] = borders
+    
     var image = canvas.display.image({
         x: x,
         y: y,
         width: width,
         height: height,
         origin: {x: x_origin, y: y_origin },
-        image: path
+        image: path,
+        borderTopLeftRadius: borderTopLeftRadius,
+        borderTopRightRadius: borderTopRightRadius,
+        borderBottomLeftRadius: borderBottomLeftRadius,
+        borderBottomRightRadius: borderBottomRightRadius,
     })
 
     return image

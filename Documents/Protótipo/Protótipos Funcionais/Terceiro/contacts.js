@@ -39,15 +39,15 @@ function build_contacts_screen(canvas){
 }
 
 function build_contact_screen(canvas) {
-    var contact_screen = build_screen(canvas, descriptions['contact'], true, true)
+    var contact_screen = build_screen(canvas, descriptions['contact'], false, true)
     var contact = contacts_information.actual_contact
 
-    if (contact.image == undefined) contact.image = 'Isabel.jpeg'
+    if (contact.image == undefined) contact.image = 'Person_contacts.png'
 
-    contact_screen.image = build_image(canvas, [0, - contact_screen.height / 10], [contact_screen.width / 3, contact_screen.height / 3], undefined, MATERIALS_DIR + '/' + contact.image)
+    contact_screen.image = build_image(canvas, [0, - contact_screen.height / 5], [contact_screen.width / 2.5, contact_screen.height / 2.5], undefined, MATERIALS_DIR + '/' + contact.image)
     contact_screen.addChild(contact_screen.image)
 
-    var options = [undefined, undefined, undefined]//[ contacts['name'], contacts['phone'], contacts['birthday'],  ]
+    var options = [undefined, undefined, undefined] // contacts['name'], contacts['phone'], contacts['birthday']
     var link = ['text', 'text', 'text']
     var info = [ contact.fullname, contact.phone, contact.birthday.abbrev]
 
@@ -63,7 +63,7 @@ function build_contact_screen(canvas) {
     contact_screen.addChild(contact_screen.button)
     
     object_clickable(canvas, contact_screen.button)
-    contact_screen.bind('click tap', function() {
+    contact_screen.button.bind('click tap', function() {
         if (contact.on_group) changeScreen(canvas, build_remove_group_contact_screen(canvas))
         else changeScreen(canvas, build_add_group_contact_screen(canvas))
     })
