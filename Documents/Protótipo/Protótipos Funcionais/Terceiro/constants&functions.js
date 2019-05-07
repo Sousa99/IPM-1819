@@ -174,7 +174,7 @@ var contacts_information = {
 			name: 'Tiago Barroso',
 			fullname: 'Tiago Miguel Agostinho Barroso',
 			phone: '+351 916 789 234',
-			birthday: { abbrev: '01 / 01 / 2009', day: 1, month: 1, year: 2009},
+			birthday: { abbrev: '11 / 01 / 1990', day: 11, month: 1, year: 1990},
 			image: '/Contacts/Tiago Barroso.png',
 			on_group: true
 		}
