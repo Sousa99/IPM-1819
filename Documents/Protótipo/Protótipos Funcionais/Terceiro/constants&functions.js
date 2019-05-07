@@ -170,6 +170,13 @@ var contacts_information = {
 			birthday: { abbrev: '31 / 05 /2000', day: 31, month: 5, year: 2000},
 			image: '/Contacts/Tiago.png',
 			on_group: false
+		},{
+			name: 'Maria Correia',
+			fullname: 'Maria do Céu Correia',
+			phone: '+351 916 789 234',
+			birthday: { abbrev: '26 / 08 / 1960', day: 26, month: 8, year: 1960},
+			image: '/Contacts/Maria.png',
+			on_group: true
 		}, {
 			name: 'Tiago Barroso',
 			fullname: 'Tiago Miguel Agostinho Barroso',
