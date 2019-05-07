@@ -27,17 +27,18 @@ function build_group_screen(canvas){
 		if (contact.image == undefined) path_image = MATERIALS_DIR + '/Person_contacts.png'
 		else path_image = MATERIALS_DIR + contact.image
 
-
-		var image = build_image(canvas, [x, y], [group_screen.width / 6, group_screen.height / 6], undefined, path_image)
-		image.angle = (contact_index * 2/number_group + 1/2) * Math.PI
-		group_screen.addChild(image)
-		object_clickable(canvas, image)
-		image.bind('click tap', function() {
+		var square = build_rectangle(canvas, [x, y], [group_screen.width / 6 + 6, group_screen.height / 6 + 6], undefined, '#34bbed', [10, 10, 10, 10])
+		var image = build_image(canvas, undefined, [group_screen.width / 6, group_screen.height / 6], undefined, path_image)
+		square.angle = (contact_index * 2/number_group + 1/2) * Math.PI
+		square.addChild(image)
+		group_screen.addChild(square)
+		object_clickable(canvas, square)
+		square.bind('click tap', function() {
 			contacts_information.actual_contact = contact
 			changeScreen(canvas, build_contact_screen(canvas))
 		})
 
-		group_screen.people.push(image)
+		group_screen.people.push(square)
 	}
 
     
