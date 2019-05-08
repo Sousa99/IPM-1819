@@ -49,6 +49,9 @@ function build_contact_screen(canvas) {
     contact_screen.image = build_image(canvas, [0, - contact_screen.height / 5], [contact_screen.width / 2.5, contact_screen.height / 2.5], undefined, MATERIALS_DIR + '/' + contact.image)
     contact_screen.addChild(contact_screen.image)
 
+    contact_screen.location_image_button = build_image(canvas, [contact_screen.width /2.5, - contact_screen.height / 3], [contact_screen.width / 8, contact_screen.height / 8], undefined, MATERIALS_DIR + '/Location_point.png')
+    contact_screen.addChild(contact_screen.location_image_button)
+
     var options = [undefined, undefined, undefined] // contacts['name'], contacts['phone'], contacts['birthday']
     var link = ['text', 'text', 'text']
     var info = [ contact.fullname, contact.phone, contact.birthday.abbrev]
@@ -69,6 +72,11 @@ function build_contact_screen(canvas) {
         if (contact.on_group) changeScreen(canvas, build_remove_group_contact_screen(canvas))
         else changeScreen(canvas, build_add_group_contact_screen(canvas))
     })
+
+    object_clickable(canvas, contact_screen.location_image_button)
+	contact_screen.location_image_button.bind('click tap', function() {
+		changeScreen(canvas, build_sharing_location_settings_screen(canvas))
+	})
 
     return contact_screen
 }
