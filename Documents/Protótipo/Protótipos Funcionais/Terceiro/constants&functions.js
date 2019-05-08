@@ -148,6 +148,8 @@ var contacts_information = {
 	back_screen: undefined,
 	group: [],
 
+	processing: [],
+
 	contacts_list: [
 		{
 			name: 'Rodrigo Sousa',
@@ -236,17 +238,13 @@ function add_lines(canvas, screen, startpoint, list_option, list_link, list_imag
 				box_pub.addChild(pub)
 			
 			} else if (list_link[i] == 'link_delete_contact') {
-				box_delete_contact = build_rectangle(canvas, [4 * screen.width / 10, 0], [screen.width / 9, screen.height / 11], undefined, '', [5, 5, 5, 5], get_size_px(canvas, 2) + ' ' + white)
-				delete_contact = build_image(canvas, undefined, [screen.width / 13, screen.height / 13], undefined, MATERIALS_DIR + '/Delete_contact.png')
+				delete_contact = build_image(canvas, [4 * screen.width / 10, 0], [screen.width / 13, screen.height / 13], undefined, MATERIALS_DIR + '/Delete_contact.png')
 
-				box.addChild(box_delete_contact)
-				box_delete_contact.addChild(delete_contact)
+				box.addChild(delete_contact)
 			}else if (list_link[i] == 'link_add_contact') {
-				box_add_contact = build_rectangle(canvas, [4 * screen.width / 10, 0], [screen.width / 9, screen.height / 11], undefined, '', [5, 5, 5, 5], get_size_px(canvas, 2) + ' ' + white)
-				add_contact = build_image(canvas, undefined, [screen.width / 13, screen.height / 13], undefined, MATERIALS_DIR + '/Add_contact.png')
+				add_contact = build_image(canvas, [4 * screen.width / 10, 0], [screen.width / 13, screen.height / 13], undefined, MATERIALS_DIR + '/Add_contact.png')
 
-				box.addChild(box_add_contact)
-				box_add_contact.addChild(add_contact)
+				box.addChild(add_contact)
 			} else if (list_link[i] == 'link_text') {
 				const text_array = map_information.times[map_information.type_selected]
 

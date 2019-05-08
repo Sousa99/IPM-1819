@@ -188,6 +188,15 @@ function build_frame(canvas) {
 			case descriptions['group']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
+			case descriptions['group_help']:
+			changeScreen(canvas, build_group_screen(canvas))
+			break
+			case descriptions['group_add']:
+			changeScreen(canvas, build_group_screen(canvas))
+			break
+			case descriptions['make_changes']:
+			changeScreen(canvas, build_add_contact_group_screen(canvas))
+			break
 			case descriptions['see_and_edit_group']:
 			changeScreen(canvas, build_group_screen(canvas))
 			break

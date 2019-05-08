@@ -52,12 +52,14 @@ const STRINGS_DESCRIPTIONS = {
 
 		group: 'Grupo',
 		group_help: 'Ajuda (Grupo)',
+		group_add: 'Adicionar ao Grupo',
+		group_make_changes: 'Realizar Alterações',
 		see_group: 'Ver Grupo',
 		edit_group: 'Editar Grupo',
 
 		contacts: 'Contactos',
 		contact: 'Contacto',
-		add_contact_group: 'Adicionar ao Grupo',
+		add_contact_group: 'Adicionar Contacto ao Grupo',
 		remove_contact_group: 'Remover do Grupo',
 		add_contact: 'Adicionar Contacto',
 
@@ -120,12 +122,14 @@ const STRINGS_DESCRIPTIONS = {
 
 		group: 'Group',
 		group_help: 'Help (Group)',
+		group_add: 'Add to the Group',
 		see_group: 'See Group',
 		edit_group: 'Edit Group',
 
 		contacts: 'Contacts',
 		contact: 'Contact',
 		add_contact_group: 'Add Contact to Group',
+		group_make_changes: 'Execute Changes',
 		remove_contact_group: 'Remove Contact from Group',
 		add_contact: 'Add Contact',
 
@@ -329,6 +333,10 @@ const STRINGS_GROUP = {
 		contact_8:'Contacto 8',
 		add_contact:'Adicionar Contacto',
 		empty_group: 'Grupo Vazio',
+		make_changes: 'Fazer Alterações',
+		make_changes_verification: 'Deseja mesmo realizar estas\nalterações ao grupo?',
+		yes: 'Sim',
+		no: 'Não',
 	},
 
 	en:{
@@ -342,6 +350,10 @@ const STRINGS_GROUP = {
 		contact_8:'Contact 8',
 		add_contact: 'Add Contact',
 		empty_group: 'Empty Group',
+		make_changes: 'Make Changes',
+		make_changes_verification: 'Do you really wish to make\nthis changes to the group?',
+		yes: 'Yes',
+		no: 'No',
 	}
 }
 
