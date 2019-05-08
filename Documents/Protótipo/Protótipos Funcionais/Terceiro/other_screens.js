@@ -36,6 +36,9 @@ function build_frame(canvas) {
 			case descriptions['fingerprint_lock']:
 			changeScreen(canvas, build_main_screen(canvas))
 			break
+			case descriptions['sharing_location']:
+			changeScreen(canvas, build_main_screen(canvas))
+			break
 			case descriptions['health']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break

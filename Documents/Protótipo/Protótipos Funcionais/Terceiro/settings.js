@@ -5,8 +5,8 @@ var code = '1234'
 function build_settings_screen(canvas) {
 	var settings_screen = build_screen(canvas, descriptions['settings'], true, true)
 
-	var options = [ settings['lock_protection'], settings['language'] ]
-	var link = [ 'link_arrow', 'link_arrow', 'link_pub', 'link_pub' ]
+	var options = [ settings['lock_protection'], settings['language'], settings['location_service'] ]
+	var link = [ 'link_arrow', 'link_arrow', 'link_arrow', 'link_pub' ]
 	var links = add_lines(canvas, settings_screen, -2, options, link)
 
 	links[0].bind('click tap', function() {
@@ -14,6 +14,9 @@ function build_settings_screen(canvas) {
 	})
 	links[1].bind('click tap', function() {
 		changeScreen(canvas, build_language_settings_screen(canvas))
+	})
+	links[2].bind('click tap', function() {
+		changeScreen(canvas, build_sharing_location_settings_screen(canvas))
 	})
 
 	return settings_screen
@@ -271,4 +274,27 @@ function build_lock_screen_fingerprint(canvas) {
 	})
 
 	return lock_screen
+}
+
+function build_sharing_location_settings_screen(canvas){
+	var sharing_location_screen = build_screen(canvas, descriptions['sharing_location'], true, false)
+
+	
+	var options = [ settings['sharing_location']]
+	var link = [ 'link' ]
+	links = add_lines(canvas, sharing_location_screen, -1, options, link)
+
+	sharing_location_screen.sharing_location_box = build_ellipse(canvas, [2 / 5 * sharing_location_screen.width, 0], sharing_location_screen.width / 30, '', get_size_px(canvas, 2) + ' ' + white)
+	links[0].addChild(sharing_location_screen.sharing_location_box)
+
+	sharing_location_screen.sharing_location_box_tick = build_image(canvas, [sharing_location_screen.width / 40, - sharing_location_screen.height / 40], [sharing_location_screen.width / 10, sharing_location_screen.height / 10], undefined, MATERIALS_DIR + '/Tick.png')
+	if (sharing_location_screen.sharing_location_screen_text) sharing_location_screen.sharing_location_screen_box.addChild(sharing_location_screen.sharing_location_screen_box_tick)
+	
+	object_clickable(canvas, links[0])
+	links[0].bind('click tap', function() {
+		sharing_location_screen.sharing_location_screen_text = !sharing_location_screen.sharing_location_screen_text
+		if (sharing_location_screen.sharing_location_screen_text) sharing_location_screen.sharing_location_screen_box.addChild(sharing_location_screen.sharing_location_screen_box_tick)
+		else sharing_location_screen.sharing_location_screen_box.removeChild(sharing_location_screen.sharing_location_screen_box_tick)
+	})
+	return sharing_location_screen 
 }

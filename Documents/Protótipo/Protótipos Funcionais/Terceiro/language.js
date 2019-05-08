@@ -14,6 +14,7 @@ const STRINGS_DESCRIPTIONS = {
 		pin_lock: 'PIN',
 		pattern_lock: 'Padrão',
 		fingerprint_lock: 'Impressão Digital',
+		sharing_location: 'Partilha de localização',
 
 		health: 'Saúde',
 		health_help: 'Ajuda (Saúde)',
@@ -81,6 +82,7 @@ const STRINGS_DESCRIPTIONS = {
 		pin_lock: 'PIN',
 		pattern_lock: 'Pattern Lock',
 		fingerprint_lock: 'Fingerprint Lock',
+		sharing_location: 'Sharing Location',
 
 		health: 'Health',
 		health_help: 'Help (Health)',
@@ -401,7 +403,9 @@ const STRINGS_SETTINGS = {
 		pattern: 'Padrão',
 		fingerprint: 'Impressão Digital',
 		message_changed_lock: 'Mudou o tipo de\nbloqueio do dispositivo',
-		touch_screen_to_unlock: 'Toque no ecrã para desbloquear'
+		touch_screen_to_unlock: 'Toque no ecrã para desbloquear',
+		location_service: 'Serviços de localização',
+		sharing_location: 'Partilha de localização',
 	},
 	en: {
 		lock_protection: 'Screen Lock',
@@ -414,7 +418,9 @@ const STRINGS_SETTINGS = {
 		pattern: 'Pattern',
 		fingerprint: 'Fingerprint',
 		message_changed_lock: 'Changed predefined\nlock method',
-		touch_screen_to_unlock: 'Touch the screen to unlock device'
+		touch_screen_to_unlock: 'Touch the screen to unlock device',
+		location_service: 'Location Service',
+		sharing_location: 'Sharing location',
 	}
 }
 
