@@ -51,12 +51,13 @@ const STRINGS_DESCRIPTIONS = {
 
 		group: 'Grupo',
 		group_help: 'Ajuda (Grupo)',
+		group_add: 'Adicionar ao Grupo',
 		see_group: 'Ver Grupo',
 		edit_group: 'Editar Grupo',
 
 		contacts: 'Contactos',
 		contact: 'Contacto',
-		add_contact_group: 'Adicionar ao Grupo',
+		add_contact_group: 'Adicionar Contacto ao Grupo',
 		remove_contact_group: 'Remover do Grupo',
 		add_contact: 'Adicionar Contacto',
 
@@ -118,6 +119,7 @@ const STRINGS_DESCRIPTIONS = {
 
 		group: 'Group',
 		group_help: 'Help (Group)',
+		group_add: 'Add to the Group',
 		see_group: 'See Group',
 		edit_group: 'Edit Group',
 
