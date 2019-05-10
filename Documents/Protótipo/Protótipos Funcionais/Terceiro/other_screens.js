@@ -173,15 +173,18 @@ function build_frame(canvas) {
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
 			case descriptions['contact']:
+			contacts_information.index = 0
 			if (contacts_information.back_screen == 'Group')
 				changeScreen(canvas, build_group_screen(canvas))
 			else if (contacts_information.back_screen == 'Contacts')
 				changeScreen(canvas, build_contacts_screen(canvas))
 			break
 			case descriptions['add_contact_group']:
+			contacts_information.index = 0
 			changeScreen(canvas, build_contact_screen(canvas))
 			break
 			case descriptions['remove_contact_group']:
+			contacts_information.index = 0
 			changeScreen(canvas, build_contact_screen(canvas))
 			break
 
@@ -359,6 +362,7 @@ function build_menu_screen(canvas) {
 
 	object_clickable(canvas, menu_screen.contacts_menu_button)
 	menu_screen.contacts_menu_button.bind('click tap', function() {
+		contacts_information.index = 0
 		changeScreen(canvas, build_contacts_screen(canvas))
 	})
 

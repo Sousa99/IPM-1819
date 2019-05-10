@@ -197,9 +197,30 @@ function loadCanvas() {
 			template.time.text = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2)
 
 		if (canvas.mouse.buttonState == 'up') frame.emergency = 5
-
-		// TODO: Check if it's needed to update drawing of number of friend group
 	})
 
 	canvas.timeline.start()
+
+	var canvas_element = document.getElementById('workzone');
+
+	canvas_element.addEventListener("wheel", event => {
+		const delta = Math.sign(event.deltaY)
+		var last_index = contacts_information.index
+		contacts_information.index += delta
+
+		
+		if (actual_screen.description == descriptions['contacts']) {
+			if(contacts_information.index < 0){
+				contacts_information.index = 0
+			} else if(contacts_information.index > contacts_information.contacts_list.length - actual_screen.max_shown){
+				contacts_information.index = contacts_information.contacts_list.length - actual_screen.max_shown
+			}
+
+			console.log(contacts_information.index, contacts_information.contacts_list.length - actual_screen.max_shown)
+
+			if (contacts_information.index != last_index)
+				changeScreen(canvas, build_contacts_screen(canvas))
+			
+		}
+	})
 }

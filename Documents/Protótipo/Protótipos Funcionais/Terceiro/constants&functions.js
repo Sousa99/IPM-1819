@@ -150,6 +150,8 @@ var contacts_information = {
 
 	processing: [],
 
+	index: 0,
+
 	contacts_list: [
 		{
 			name: 'Rodrigo Sousa',
@@ -185,6 +187,27 @@ var contacts_information = {
 			phone: '+351 916 789 234',
 			birthday: { abbrev: '11 / 01 / 1990', day: 11, month: 1, year: 1990},
 			image: '/Contacts/Tiago Barroso.png',
+			on_group: true
+		}, {
+			name: 'João Balão',
+			fullname: 'João Filipe Santos Balão',
+			phone: '+351 938 909 234',
+			birthday: { abbrev: '05 / 07 / 2011', day: 5, month: 7, year: 2011},
+			image: '/Contacts/João.png',
+			on_group: true
+		}, {
+			name: 'Marilyn Monroe',
+			fullname: 'Marylin Monroe',
+			phone: '+351 926 229 334',
+			birthday: { abbrev: '01 / 06 / 1926', day: 1, month: 6, year: 1926},
+			image: '/Contacts/Marilyn-Monroe.png',
+			on_group: true
+		}, {
+			name: 'Brie Larson',
+			fullname: 'Brianne Sidonie Desaulniers',
+			phone: '+351 916 555 234',
+			birthday: { abbrev: '01 / 10 / 1989', day: 01, month: 10, year: 1989},
+			image: '/Contacts/Brie Larson.png',
 			on_group: true
 		}
 	] 

@@ -1,12 +1,21 @@
 function build_contacts_screen(canvas){
     var contacts_screen = build_screen(canvas, descriptions['contacts'], true, true)
+    contacts_screen.max_shown = 5
+
+    if(contacts_information.index < 0){
+        contacts_information.index = 0
+    } else if(contacts_information.index > contacts_information.contacts_list.length - actual_screen.max_shown){
+        contacts_information.index = contacts_information.contacts_list.length - actual_screen.max_shown
+    }
 
     contacts_information.back_screen = 'Contacts'
 
     contacts_screen.image = build_image(canvas, [0, - contacts_screen.height / 10], [contacts_screen.width / 3, contacts_screen.height / 3], undefined, MATERIALS_DIR + '/Person_contacts.png')
     contacts_screen.addChild(contacts_screen.image)
 
+
     const contacts_list = contacts_information.contacts_list.sort(function(a, b){
+
 		const name_a = a.name
         const name_b = b.name
 
@@ -18,8 +27,8 @@ function build_contacts_screen(canvas){
     var options = []
     var link = []
     var profile_pics = []
-    for (contact_index in contacts_list) {
-        const contact = contacts_list[contact_index]
+    for (var i = 0; i < contacts_screen.max_shown; i++) {
+        const contact = contacts_list[i+ contacts_information.index]
 
         options.push(contact.name)
         link.push('link_arrow')
@@ -30,7 +39,10 @@ function build_contacts_screen(canvas){
 
     links = add_lines(canvas, contacts_screen, 0, options, link, profile_pics)
     for (link_index in links) {
-        const contact = contacts_list[link_index]
+        console.log("Link_index: " + link_index)
+        console.log("Contacts Index: " + contacts_information.index)
+        console.log(Number(link_index) + contacts_information.index)
+        const contact = contacts_list[Number(link_index) + contacts_information.index]
         links[link_index].bind('click tap', function() {
             contacts_information.actual_contact = contact
             changeScreen(canvas, build_contact_screen(canvas))
