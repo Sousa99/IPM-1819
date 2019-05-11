@@ -46,12 +46,15 @@ function build_camera_template(canvas, screen, active) {
 
 function build_photo_screen(canvas){
     var photo_screen = build_screen(canvas, descriptions['camera_photo'], false, false)
-	var camera = camera_information.actual_camera
+	var camera_info = camera_information.actual_camera
 	
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
 	
-	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer.png')
+	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer-on.png')
+	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer-off.png')
  	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Automatic-flash.png')
+ 	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Flash-off.png')
+ 	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Flash-on.png')
 	
 	photo_screen.addChild(background)
 	photo_screen.addChild(photo_screen.timer)
@@ -87,8 +90,11 @@ function build_video_screen(canvas){
     var video_screen = build_screen(canvas, descriptions['camera_video'], false, false)
     
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
- 	video_screen.timer  = build_image(canvas, [ -3.5 *video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /8, video_screen.height/8], undefined, MATERIALS_DIR + '/Timer.png')
+ 	video_screen.timer  = build_image(canvas, [ -3.5 *video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /8, video_screen.height/8], undefined, MATERIALS_DIR + '/Timer-on.png')
+ 	video_screen.timer  = build_image(canvas, [ -3.5 *video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /8, video_screen.height/8], undefined, MATERIALS_DIR + '/Timer-off.png')
  	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Automatic-flash.png')
+ 	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Flash-on.png')
+ 	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Flash-off.png')
 	
 	video_screen.addChild(background)
 	video_screen.addChild(video_screen.timer)
