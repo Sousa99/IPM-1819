@@ -150,6 +150,9 @@ function build_make_changes_screen(canvas) {
 
 	object_clickable(canvas, make_changes_screen.yes_button)
 	make_changes_screen.yes_button.bind('click tap', function() {
+		for (contact_index in contacts_information.processing)
+			contacts_information.processing[contact_index].on_group = true
+
 		contacts_information.group = contacts_information.group.concat(contacts_information.processing)
 		contacts_information.processing = []
         changeScreen(canvas, build_group_screen(canvas))

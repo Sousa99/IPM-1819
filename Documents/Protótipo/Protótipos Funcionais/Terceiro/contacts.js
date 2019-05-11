@@ -124,7 +124,7 @@ function build_add_group_contact_screen(canvas) {
 
 	object_clickable(canvas, add_group_contact_screen.no_button)
 	add_group_contact_screen.no_button.bind('click tap', function() {
-		changeScreen(canvas, build_place_information_screen(canvas))
+		changeScreen(canvas, build_contact_screen(canvas))
 	})
 
     return add_group_contact_screen
