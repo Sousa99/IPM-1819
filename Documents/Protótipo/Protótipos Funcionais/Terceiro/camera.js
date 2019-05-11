@@ -48,7 +48,13 @@ function build_photo_screen(canvas){
     var photo_screen = build_screen(canvas, descriptions['camera_photo'], false, false)
     
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
-    photo_screen.addChild(background)
+	
+	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer.png')
+ 	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Automatic-flash.png')
+	
+	photo_screen.addChild(background)
+	photo_screen.addChild(photo_screen.timer)
+	photo_screen.addChild(photo_screen.flash)
 
     photo_screen.box_text = build_ellipse(canvas, [0, photo_screen.height / 8], 90, white)
     photo_screen.box_text.opacity = 0.65
@@ -65,13 +71,19 @@ function build_video_screen(canvas){
     var video_screen = build_screen(canvas, descriptions['camera_video'], false, false)
     
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
-    video_screen.addChild(background)
+ 	video_screen.timer  = build_image(canvas, [ -3.5 *video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /8, video_screen.height/8], undefined, MATERIALS_DIR + '/Timer.png')
+ 	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Automatic-flash.png')
+	
+	video_screen.addChild(background)
+	video_screen.addChild(video_screen.timer)
+	video_screen.addChild(video_screen.flash)
 
     video_screen.box_text = build_ellipse(canvas, [0, video_screen.height / 8], 90, white)
     video_screen.box_text.opacity = 0.65
     video_screen.text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 15), camera['tap_camera_video'], '#000000')
     video_screen.box_text.addChild(video_screen.text)
-    video_screen.addChild(video_screen.box_text)
+	video_screen.addChild(video_screen.box_text)
+	
     
     build_camera_template(canvas, video_screen, 2)
 
