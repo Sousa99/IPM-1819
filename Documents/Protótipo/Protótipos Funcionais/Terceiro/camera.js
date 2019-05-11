@@ -46,42 +46,54 @@ function build_camera_template(canvas, screen, active) {
 
 function build_photo_screen(canvas){
     var photo_screen = build_screen(canvas, descriptions['camera_photo'], false, false)
-	var camera_info = camera_information.actual_camera
 	
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
 	
-	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer-on.png')
-	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer-off.png')
- 	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Automatic-flash.png')
- 	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Flash-off.png')
- 	photo_screen.flash  = build_image(canvas, [-2.25*photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /10, photo_screen.height/10], undefined, MATERIALS_DIR + '/Flash-on.png')
-	
 	photo_screen.addChild(background)
-	photo_screen.addChild(photo_screen.timer)
-	photo_screen.addChild(photo_screen.flash)
-
+	
     photo_screen.box_text = build_ellipse(canvas, [0, photo_screen.height / 8], 90, white)
     photo_screen.box_text.opacity = 0.65
     photo_screen.text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 15), camera['tap_camera_photo'], '#000000')
     photo_screen.box_text.addChild(photo_screen.text)
     photo_screen.addChild(photo_screen.box_text)
-
+	
 	build_camera_template(canvas, photo_screen, 0)
-
-	var button_charactheristics_photo_flash
-    if (photo.flash_on) button_charactheristics_photo_flash = {text: camera.flash_off, colour: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'}
-    else button_charactheristics_photo_flash = {text: camera.flash_on, colour: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'}
-
-    photo_screen.button = build_rectangle(canvas, [0, 25 / 64 * photo_screen.height], [7 / 12 * photo_screen.width, photo_screen.width / 7], undefined, button_charactheristics_photo_flash.colour, [5, 5, 5, 5])
-	photo_screen.button_text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 17), button_charactheristics_photo_flash.text, white)
-	photo_screen.button.addChild(photo_screen.button_text)
-    photo_screen.addChild(photo_screen.button)
+	
+	var path_img_flash = MATERIALS_DIR + camera_information.paths_img_flash[camera_information.flash]
+	var path_img_timer
+	if (camera_information.timer == 0 ) path_img_timer = MATERIALS_DIR + camera_information.paths_img_timer[0]
+	else path_img_timer = MATERIALS_DIR + camera_information.paths_img_timer[1]
+	
+	photo_screen.bubble_timer = build_ellipse(canvas, [ -2.75 *photo_screen.width /8, 3.25* photo_screen.height/8], photo_screen.width / 13, white)
+	photo_screen.timer  = build_image(canvas, undefined, [photo_screen.width /9, photo_screen.height/9], undefined, path_img_timer)
+	
+	photo_screen.bubble_flash = build_ellipse(canvas, [ 2.75*photo_screen.width /8, 3.25* photo_screen.height/8], photo_screen.width / 13, white)
+	photo_screen.flash  = build_image(canvas, undefined, [photo_screen.width /9, photo_screen.height/9], undefined, path_img_flash)
     
-    object_clickable(canvas, photo_screen.button)
-    photo_screen.button.bind('click tap', function() {
-        if (photo.flash_on) changeScreen(canvas, build_main_screen(canvas))
-        else changeScreen(canvas, build_photo_screen(canvas))
+    object_clickable(canvas, photo_screen.bubble_flash)
+    photo_screen.bubble_flash.bind('click tap', function() {
+		camera_information.flash = (camera_information.flash + 1) % camera_information.paths_img_flash.length
+        changeScreen(canvas, build_photo_screen(canvas))
+	})
+	
+    object_clickable(canvas, photo_screen.bubble_timer)
+    photo_screen.bubble_timer.bind('click tap', function() {
+		camera_information.timer = (camera_information.timer + 1) % camera_information.timers.length
+        changeScreen(canvas, build_photo_screen(canvas))
     })
+	
+	photo_screen.bubble_timer.opacity = 0.65
+	photo_screen.bubble_flash.opacity = 0.65
+
+	photo_screen.bubble_timer.addChild(photo_screen.timer)
+	photo_screen.addChild(photo_screen.bubble_timer)
+	photo_screen.bubble_flash.addChild(photo_screen.flash)
+	photo_screen.addChild(photo_screen.bubble_flash)
+
+	if (camera_information.timer != 0) {
+		photo_screen.timer_text  = build_text(canvas, [0, photo_screen.height / 80], undefined, undefined, 'bold ' + get_size_px(10), camera_information.timers[camera_information.timer], black)
+		photo_screen.bubble_timer.addChild(photo_screen.timer_text)
+	}
 
     return photo_screen
 }
@@ -90,15 +102,8 @@ function build_video_screen(canvas){
     var video_screen = build_screen(canvas, descriptions['camera_video'], false, false)
     
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
- 	video_screen.timer  = build_image(canvas, [ -3.5 *video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /8, video_screen.height/8], undefined, MATERIALS_DIR + '/Timer-on.png')
- 	video_screen.timer  = build_image(canvas, [ -3.5 *video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /8, video_screen.height/8], undefined, MATERIALS_DIR + '/Timer-off.png')
- 	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Automatic-flash.png')
- 	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Flash-on.png')
- 	video_screen.flash  = build_image(canvas, [-2.25*video_screen.width /8, 3.25* video_screen.height/8], [video_screen. width /10, video_screen.height/10], undefined, MATERIALS_DIR + '/Flash-off.png')
 	
 	video_screen.addChild(background)
-	video_screen.addChild(video_screen.timer)
-	video_screen.addChild(video_screen.flash)
 
     video_screen.box_text = build_ellipse(canvas, [0, video_screen.height / 8], 90, white)
     video_screen.box_text.opacity = 0.65
@@ -106,8 +111,43 @@ function build_video_screen(canvas){
     video_screen.box_text.addChild(video_screen.text)
 	video_screen.addChild(video_screen.box_text)
 	
+	build_camera_template(canvas, video_screen, 2)
+	
+	var path_img_flash = MATERIALS_DIR + camera_information.paths_img_flash[camera_information.flash]
+	var path_img_timer
+	if (camera_information.timer == 0 ) path_img_timer = MATERIALS_DIR + camera_information.paths_img_timer[0]
+	else path_img_timer = MATERIALS_DIR + camera_information.paths_img_timer[1]
+	
+	video_screen.bubble_timer = build_ellipse(canvas, [ -2.75 *video_screen.width /8, 3.25* video_screen.height/8], video_screen.width / 13, white)
+	video_screen.timer  = build_image(canvas, undefined, [video_screen.width /9, video_screen.height/9], undefined, path_img_timer)
+	
+	video_screen.bubble_flash = build_ellipse(canvas, [ 2.75*video_screen.width /8, 3.25* video_screen.height/8], video_screen.width / 13, white)
+	video_screen.flash  = build_image(canvas, undefined, [video_screen.width /9, video_screen.height/9], undefined, path_img_flash)
     
-    build_camera_template(canvas, video_screen, 2)
+    object_clickable(canvas, video_screen.bubble_flash)
+    video_screen.bubble_flash.bind('click tap', function() {
+		camera_information.flash = (camera_information.flash + 1) % camera_information.paths_img_flash.length
+        changeScreen(canvas, build_video_screen(canvas))
+	})
+	
+    object_clickable(canvas, video_screen.bubble_timer)
+    video_screen.bubble_timer.bind('click tap', function() {
+		camera_information.timer = (camera_information.timer + 1) % camera_information.timers.length
+        changeScreen(canvas, build_video_screen(canvas))
+    })
+	
+	video_screen.bubble_timer.opacity = 0.65
+	video_screen.bubble_flash.opacity = 0.65
+
+	video_screen.bubble_timer.addChild(video_screen.timer)
+	video_screen.addChild(video_screen.bubble_timer)
+	video_screen.bubble_flash.addChild(video_screen.flash)
+	video_screen.addChild(video_screen.bubble_flash)
+
+	if (camera_information.timer != 0) {
+		video_screen.timer_text  = build_text(canvas, [0, video_screen.height / 80], undefined, undefined, 'bold ' + get_size_px(10), camera_information.timers[camera_information.timer], black)
+		video_screen.bubble_timer.addChild(video_screen.timer_text)
+	}
 
     return video_screen
 }

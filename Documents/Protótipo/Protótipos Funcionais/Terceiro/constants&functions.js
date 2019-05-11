@@ -214,8 +214,11 @@ var contacts_information = {
 }
 
 var camera_information = {
-	timer : false,
-	flash: false
+	paths_img_timer: ['/Timer-off.png', '/Timer-on.png'],
+	timers: [undefined, 3, 5, 10],
+	paths_img_flash: ['/Flash-off.png', '/Automatic-flash.png', '/Flash-on.png'],
+	timer: 0,
+	flash: 0
 }
 
 for (contact_index in contacts_information.contacts_list) {
