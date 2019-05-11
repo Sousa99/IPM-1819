@@ -46,7 +46,8 @@ function build_camera_template(canvas, screen, active) {
 
 function build_photo_screen(canvas){
     var photo_screen = build_screen(canvas, descriptions['camera_photo'], false, false)
-    
+	var camera = camera_information.actual_camera
+	
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
 	
 	photo_screen.timer  = build_image(canvas, [ -3.5 *photo_screen.width /8, 3.25* photo_screen.height/8], [photo_screen. width /8, photo_screen.height/8], undefined, MATERIALS_DIR + '/Timer.png')
@@ -62,8 +63,23 @@ function build_photo_screen(canvas){
     photo_screen.box_text.addChild(photo_screen.text)
     photo_screen.addChild(photo_screen.box_text)
 
-    build_camera_template(canvas, photo_screen, 0)
+	build_camera_template(canvas, photo_screen, 0)
+
+	var button_charactheristics_photo_flash
+    if (photo.flash_on) button_charactheristics_photo_flash = {text: camera.flash_off, colour: 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')'}
+    else button_charactheristics_photo_flash = {text: camera.flash_on, colour: 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')'}
+
+    photo_screen.button = build_rectangle(canvas, [0, 25 / 64 * photo_screen.height], [7 / 12 * photo_screen.width, photo_screen.width / 7], undefined, button_charactheristics_photo_flash.colour, [5, 5, 5, 5])
+	photo_screen.button_text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 17), button_charactheristics_photo_flash.text, white)
+	photo_screen.button.addChild(photo_screen.button_text)
+    photo_screen.addChild(photo_screen.button)
     
+    object_clickable(canvas, photo_screen.button)
+    photo_screen.button.bind('click tap', function() {
+        if (photo.flash_on) changeScreen(canvas, build_main_screen(canvas))
+        else changeScreen(canvas, build_photo_screen(canvas))
+    })
+
     return photo_screen
 }
 

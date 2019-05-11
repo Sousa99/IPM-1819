@@ -213,6 +213,11 @@ var contacts_information = {
 	] 
 }
 
+var camera_information = {
+	timer : false,
+	flash: false
+}
+
 for (contact_index in contacts_information.contacts_list) {
 	if (contacts_information.contacts_list[contact_index].on_group)
 		contacts_information.group.push(contacts_information.contacts_list[contact_index])
