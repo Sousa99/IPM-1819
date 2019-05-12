@@ -163,8 +163,8 @@ var contacts_information = {
 			birthday: { abbrev: '14 / 03 /1999', day: 14, month: 3, year: 1999},
 			image: '/Contacts/Rodrigo.png',
 			on_group: true,
-			location: undefined,
-			sharing: undefined
+			location: [38.643653, -9.156195],
+			sharing: 'group'
 		}, {
 			name: 'Isabel Soares',
 			fullname: 'Isabel Santos Ramos Soares',
@@ -190,8 +190,8 @@ var contacts_information = {
 			birthday: { abbrev: '26 / 08 / 1960', day: 26, month: 8, year: 1960},
 			image: '/Contacts/Maria.png',
 			on_group: false,
-			location: undefined,
-			sharing: undefined
+			location: [38.720830, -9.142705],
+			sharing: 'group'
 		}, {
 			name: 'Tiago Barroso',
 			fullname: 'Tiago Miguel Agostinho Barroso',
@@ -199,8 +199,8 @@ var contacts_information = {
 			birthday: { abbrev: '11 / 01 / 1990', day: 11, month: 1, year: 1990},
 			image: '/Contacts/Tiago Barroso.png',
 			on_group: false,
-			location: undefined,
-			sharing: undefined
+			location: [38.624062, -8.912193],
+			sharing: 'group'
 		}, {
 			name: 'João Balão',
 			fullname: 'João Filipe Santos Balão',
@@ -208,8 +208,8 @@ var contacts_information = {
 			birthday: { abbrev: '05 / 07 / 2011', day: 5, month: 7, year: 2011},
 			image: '/Contacts/João.png',
 			on_group: false,
-			location: undefined,
-			sharing: undefined
+			location: [38.772809, -9.151705],
+			sharing: 'contacts'
 		}, {
 			name: 'Marilyn Monroe',
 			fullname: 'Marylin Monroe',
@@ -217,8 +217,8 @@ var contacts_information = {
 			birthday: { abbrev: '01 / 06 / 1926', day: 1, month: 6, year: 1926},
 			image: '/Contacts/Marilyn-Monroe.png',
 			on_group: false,
-			location: undefined,
-			sharing: undefined
+			location: [34.062060, -118.365102],
+			sharing: 'group'
 		}, {
 			name: 'Brie Larson',
 			fullname: 'Brianne Sidonie Desaulniers',
@@ -226,8 +226,8 @@ var contacts_information = {
 			birthday: { abbrev: '01 / 10 / 1989', day: 01, month: 10, year: 1989},
 			image: '/Contacts/Brie Larson.png',
 			on_group: false,
-			location: undefined,
-			sharing: undefined
+			location: [38.575374, -121.479286],
+			sharing: 'contacts'
 		}
 	] 
 }
