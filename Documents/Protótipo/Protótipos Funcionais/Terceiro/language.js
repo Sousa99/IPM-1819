@@ -419,6 +419,9 @@ const STRINGS_SETTINGS = {
 		touch_screen_to_unlock: 'Toque no ecrã para desbloquear',
 		location_service: 'Serviços de localização',
 		sharing_location: 'Partilha de localização',
+		sharing_with: 'Partilha com:',
+		contacts: 'Contactos',
+		group: 'Grupo'
 	},
 	en: {
 		lock_protection: 'Screen Lock',
@@ -434,6 +437,9 @@ const STRINGS_SETTINGS = {
 		touch_screen_to_unlock: 'Touch the screen to unlock device',
 		location_service: 'Location Service',
 		sharing_location: 'Sharing location',
+		sharing_with: 'Sharing with:',
+		contacts: 'Contacts',
+		group: 'Group'
 	}
 }
 

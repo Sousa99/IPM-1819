@@ -84,6 +84,9 @@ var health_information = {
 }
 
 var map_information = {
+	sharing_location: true,
+	sharing_location_index: 0,
+
 	actual_location: [38.736911, -9.138962],
 	showing_route: false,
 	back_to_map: false,

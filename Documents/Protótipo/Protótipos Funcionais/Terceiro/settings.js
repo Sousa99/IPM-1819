@@ -6,7 +6,7 @@ function build_settings_screen(canvas) {
 	var settings_screen = build_screen(canvas, descriptions['settings'], true, true)
 
 	var options = [ settings['lock_protection'], settings['language'], settings['location_service'] ]
-	var link = [ 'link_arrow', 'link_arrow', 'link_arrow', 'link_pub' ]
+	var link = [ 'link_arrow', 'link_arrow', 'link_arrow' ]
 	var links = add_lines(canvas, settings_screen, -2, options, link)
 
 	links[0].bind('click tap', function() {
@@ -277,24 +277,46 @@ function build_lock_screen_fingerprint(canvas) {
 }
 
 function build_sharing_location_settings_screen(canvas){
-	var sharing_location_screen = build_screen(canvas, descriptions['sharing_location'], true, false)
-
+	var sharing_location_screen = build_screen(canvas, descriptions['sharing_location'], true, true)
 	
+	const text_array = [settings['contacts'], settings['group']]
 	var options = [ settings['sharing_location']]
 	var link = [ 'link' ]
+	
+	if (map_information.sharing_location) {
+		options.push(settings['sharing_with'])
+		link.push('link')
+	}
+	
 	links = add_lines(canvas, sharing_location_screen, -1, options, link)
-
+	
 	sharing_location_screen.sharing_location_box = build_ellipse(canvas, [2 / 5 * sharing_location_screen.width, 0], sharing_location_screen.width / 30, '', get_size_px(canvas, 2) + ' ' + white)
 	links[0].addChild(sharing_location_screen.sharing_location_box)
 
+	if (map_information.sharing_location) {
+		box_text = build_rectangle(canvas, [31 * sharing_location_screen.width / 100, 0], [2 / 7 * sharing_location_screen.width, sharing_location_screen.height / 12], undefined, '', [5, 5, 5, 5], get_size_px(canvas, 2) + ' ' + white)
+		text = build_text(canvas, undefined, undefined, undefined, undefined, text_array[map_information.sharing_location_index], white)
+
+		box_text.addChild(text)
+		links[1].addChild(box_text)
+	}
+
 	sharing_location_screen.sharing_location_box_tick = build_image(canvas, [sharing_location_screen.width / 40, - sharing_location_screen.height / 40], [sharing_location_screen.width / 10, sharing_location_screen.height / 10], undefined, MATERIALS_DIR + '/Tick.png')
-	if (sharing_location_screen.sharing_location_screen_text) sharing_location_screen.sharing_location_screen_box.addChild(sharing_location_screen.sharing_location_screen_box_tick)
+	if (map_information.sharing_location) sharing_location_screen.sharing_location_box.addChild(sharing_location_screen.sharing_location_box_tick)
 	
 	object_clickable(canvas, links[0])
 	links[0].bind('click tap', function() {
-		sharing_location_screen.sharing_location_screen_text = !sharing_location_screen.sharing_location_screen_text
-		if (sharing_location_screen.sharing_location_screen_text) sharing_location_screen.sharing_location_screen_box.addChild(sharing_location_screen.sharing_location_screen_box_tick)
-		else sharing_location_screen.sharing_location_screen_box.removeChild(sharing_location_screen.sharing_location_screen_box_tick)
+		map_information.sharing_location =! map_information.sharing_location
+		changeScreen(canvas, build_sharing_location_settings_screen(canvas))
 	})
+
+	if (map_information.sharing_location) {
+		object_clickable(canvas, links[0])
+		links[1].bind('click tap', function() {
+			map_information.sharing_location_index = (map_information.sharing_location_index + 1) % text_array.length
+			changeScreen(canvas, build_sharing_location_settings_screen(canvas))
+		})
+	}
+
 	return sharing_location_screen 
 }

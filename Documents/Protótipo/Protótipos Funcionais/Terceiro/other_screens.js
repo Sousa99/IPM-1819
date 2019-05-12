@@ -37,7 +37,7 @@ function build_frame(canvas) {
 			changeScreen(canvas, build_main_screen(canvas))
 			break
 			case descriptions['sharing_location']:
-			changeScreen(canvas, build_main_screen(canvas))
+			changeScreen(canvas, build_settings_screen(canvas))
 			break
 			case descriptions['health']:
 			changeScreen(canvas, build_menu_screen(canvas))
