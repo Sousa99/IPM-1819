@@ -227,6 +227,9 @@ function build_frame(canvas) {
 			case descriptions['camera_stream']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
+			case descriptions['gallery']:
+			changeScreen(canvas, build_menu_screen(canvas))
+			break
 
 		}
 	})
@@ -377,6 +380,11 @@ function build_menu_screen(canvas) {
 	object_clickable(canvas, menu_screen.camera_menu_button)
 	menu_screen.camera_menu_button.bind('click tap', function() {
 		changeScreen(canvas, build_photo_screen(canvas))
+	})
+
+	object_clickable(canvas, menu_screen.gallery_menu_button)
+	menu_screen.gallery_menu_button.bind('click tap', function() {
+		changeScreen(canvas, build_gallery_screen(canvas))
 	})
 
 

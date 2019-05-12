@@ -69,6 +69,8 @@ const STRINGS_DESCRIPTIONS = {
 		camera_video: 'Câmara Vídeo',
 		camera_stream: 'Câmara Stream',
 
+		gallery: 'Galeria'
+
 	},
 
 	en: {
@@ -140,6 +142,8 @@ const STRINGS_DESCRIPTIONS = {
 		camera_photo: 'Camera Photo',
 		camera_video: 'Camera Video',
 		camera_stream: 'Camera Stream',
+
+		gallery: 'Gallery'
 	}
 }
 
