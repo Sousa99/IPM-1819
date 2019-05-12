@@ -64,7 +64,7 @@ const STRINGS_DESCRIPTIONS = {
 		remove_contact_group: 'Remover do Grupo',
 		add_contact: 'Adicionar Contacto',
 
-		
+		camera: 'Câmara',
 		camera_photo: 'Câmara Foto',
 		camera_video: 'Câmara Vídeo',
 		camera_stream: 'Câmara Stream',
@@ -136,6 +136,7 @@ const STRINGS_DESCRIPTIONS = {
 		remove_contact_group: 'Remove Contact from Group',
 		add_contact: 'Add Contact',
 
+		camera: 'Camera',
 		camera_photo: 'Camera Photo',
 		camera_video: 'Camera Video',
 		camera_stream: 'Camera Stream',

@@ -215,7 +215,9 @@ function build_frame(canvas) {
 			case descriptions['edit_group']:
 			changeScreen(canvas, build_see_and_edit_group_screen(canvas))
 			break
-
+			case descriptions['camera']:
+			changeScreen(canvas, build_camera_screen(canvas))
+			break
 			case descriptions['camera_photo']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
