@@ -162,56 +162,72 @@ var contacts_information = {
 			phone: '+351 925 429 077',
 			birthday: { abbrev: '14 / 03 /1999', day: 14, month: 3, year: 1999},
 			image: '/Contacts/Rodrigo.png',
-			on_group: true
+			on_group: true,
+			location: undefined,
+			sharing: undefined
 		}, {
 			name: 'Isabel Soares',
 			fullname: 'Isabel Santos Ramos Soares',
 			phone: '+351 924 742 123',
 			birthday: { abbrev: '16 / 03 /1999', day: 16, month: 3, year: 1999},
 			image: '/Contacts/Isabel.png',
-			on_group: false
+			on_group: true,
+			location: [38.735169, -9.139221],
+			sharing: 'group'
 		}, {
 			name: 'Tiago Afonso',
 			fullname: 'Tiago Francisco Duarte Afonso',
 			phone: '+351 934 567 843',
 			birthday: { abbrev: '31 / 05 /2000', day: 31, month: 5, year: 2000},
 			image: '/Contacts/Tiago.png',
-			on_group: false
+			on_group: true,
+			location: [38.748446, -9.151558],
+			sharing: 'contacts'
 		},{
 			name: 'Maria Correia',
 			fullname: 'Maria do Céu Correia',
 			phone: '+351 916 789 234',
 			birthday: { abbrev: '26 / 08 / 1960', day: 26, month: 8, year: 1960},
 			image: '/Contacts/Maria.png',
-			on_group: true
+			on_group: false,
+			location: undefined,
+			sharing: undefined
 		}, {
 			name: 'Tiago Barroso',
 			fullname: 'Tiago Miguel Agostinho Barroso',
 			phone: '+351 916 789 234',
 			birthday: { abbrev: '11 / 01 / 1990', day: 11, month: 1, year: 1990},
 			image: '/Contacts/Tiago Barroso.png',
-			on_group: true
+			on_group: false,
+			location: undefined,
+			sharing: undefined
 		}, {
 			name: 'João Balão',
 			fullname: 'João Filipe Santos Balão',
 			phone: '+351 938 909 234',
 			birthday: { abbrev: '05 / 07 / 2011', day: 5, month: 7, year: 2011},
 			image: '/Contacts/João.png',
-			on_group: true
+			on_group: false,
+			location: undefined,
+			sharing: undefined
 		}, {
 			name: 'Marilyn Monroe',
 			fullname: 'Marylin Monroe',
 			phone: '+351 926 229 334',
 			birthday: { abbrev: '01 / 06 / 1926', day: 1, month: 6, year: 1926},
 			image: '/Contacts/Marilyn-Monroe.png',
-			on_group: true
+			on_group: false,
+			location: undefined,
+			sharing: undefined
 		}, {
 			name: 'Brie Larson',
 			fullname: 'Brianne Sidonie Desaulniers',
 			phone: '+351 916 555 234',
 			birthday: { abbrev: '01 / 10 / 1989', day: 01, month: 10, year: 1989},
 			image: '/Contacts/Brie Larson.png',
-			on_group: true
+			on_group: false,
+			location: undefined,
+			sharing: undefined
 		}
 	] 
 }

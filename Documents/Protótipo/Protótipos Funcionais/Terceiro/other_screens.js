@@ -179,6 +179,12 @@ function build_frame(canvas) {
 			else if (contacts_information.back_screen == 'Contacts')
 				changeScreen(canvas, build_contacts_screen(canvas))
 			break
+			case descriptions['map_contact']:
+			var map_html = document.getElementById('mapid')
+			map_html.style.display = 'none'
+			map_initialized.remove()
+			changeScreen(canvas, build_contact_screen(canvas))
+			break
 			case descriptions['add_contact_group']:
 			contacts_information.index = 0
 			changeScreen(canvas, build_contact_screen(canvas))

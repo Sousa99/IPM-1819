@@ -39,9 +39,6 @@ function build_contacts_screen(canvas){
 
     links = add_lines(canvas, contacts_screen, 0, options, link, profile_pics)
     for (link_index in links) {
-        console.log("Link_index: " + link_index)
-        console.log("Contacts Index: " + contacts_information.index)
-        console.log(Number(link_index) + contacts_information.index)
         const contact = contacts_list[Number(link_index) + contacts_information.index]
         links[link_index].bind('click tap', function() {
             contacts_information.actual_contact = contact
@@ -61,8 +58,16 @@ function build_contact_screen(canvas) {
     contact_screen.image = build_image(canvas, [0, - contact_screen.height / 5], [contact_screen.width / 2.5, contact_screen.height / 2.5], undefined, MATERIALS_DIR + '/' + contact.image)
     contact_screen.addChild(contact_screen.image)
 
-    contact_screen.location_image_button = build_image(canvas, [contact_screen.width /2.5, - contact_screen.height / 3], [contact_screen.width / 8, contact_screen.height / 8], undefined, MATERIALS_DIR + '/Location_point.png')
-    contact_screen.addChild(contact_screen.location_image_button)
+
+    if (contact.sharing == 'contacts' || (contact.sharing == 'group' && contact.on_group)) {
+        contact_screen.location_image_button = build_image(canvas, [contact_screen.width /2.5, - contact_screen.height / 3], [contact_screen.width / 8, contact_screen.height / 8], undefined, MATERIALS_DIR + '/Location_point.png')
+        contact_screen.addChild(contact_screen.location_image_button)
+
+        object_clickable(canvas, contact_screen.location_image_button)
+	    contact_screen.location_image_button.bind('click tap', function() {
+		    changeScreen(canvas, build_map_contact_screen(canvas))
+	    })
+    }
 
     var options = [undefined, undefined, undefined] // contacts['name'], contacts['phone'], contacts['birthday']
     var link = ['text', 'text', 'text']
@@ -84,11 +89,6 @@ function build_contact_screen(canvas) {
         if (contact.on_group) changeScreen(canvas, build_remove_group_contact_screen(canvas))
         else changeScreen(canvas, build_add_group_contact_screen(canvas))
     })
-
-    object_clickable(canvas, contact_screen.location_image_button)
-	contact_screen.location_image_button.bind('click tap', function() {
-		changeScreen(canvas, build_sharing_location_settings_screen(canvas))
-	})
 
     return contact_screen
 }
@@ -128,6 +128,83 @@ function build_add_group_contact_screen(canvas) {
 	})
 
     return add_group_contact_screen
+}
+
+function build_map_contact_screen(canvas) {
+    var map_screen = build_screen(canvas, descriptions['map_contact'], false, false)
+	var center = map_information.actual_location
+	
+	// Adjustment of container of the map
+	var map_html = document.getElementById('mapid')
+	map_html.style.height = (SIZE_SCREEN + 1) + 'px'
+	map_html.style.width = (SIZE_SCREEN + 1) + 'px'
+	map_html.style.display = 'block'
+	
+	// Initialization of the map itself
+	map_initialized = L.map('mapid', {
+		attributionControl: false,
+		center: center,
+		zoom: 15,
+        minZoom: 8,
+        maxZoom: 16,
+		zoomControl: false,
+		maxBoundsViscosity: 0.85
+	})
+
+	map_initialized.setView(center, 8)
+	map_initialized.setMaxBounds(map_initialized.getBounds())
+	map_initialized.setView(center, 15)
+
+	L.tileLayer(MATERIALS_DIR + '/Map/Google Maps/{z}/{x}/{y}.png', {
+		maxZoom: 16,
+		minZoom: 4,  
+	}).addTo(map_initialized);
+
+	// Creation of icon to mark places!
+	var place_icon = L.icon({
+		iconUrl: MATERIALS_DIR + '/Place-Marker.png',
+		shadowUrl: MATERIALS_DIR + '/Place-Marker-Shadow.png',
+	
+		iconSize:    [25, 41],
+		iconAnchor:  [12, 41],
+		popupAnchor: [1, -34],
+		tooltipAnchor: [16, -28],
+		shadowSize:  [41, 41]
+	})
+
+	// Adding the location of the user itself and a scale of the map
+	L.marker(map_information.actual_location).addTo(map_initialized)
+	L.control.scale({
+		metric: true,
+		imperial: true
+	}).addTo(map_initialized)
+
+	var places_marker = []
+    var button_html = document.getElementById('button_place_list')
+    button_html.style.display = 'none'
+    var button_html = document.getElementById('button_map_help')
+    button_html.style.display = 'none'
+
+    var marker = L.marker(contacts_information.actual_contact.location, {icon: place_icon})
+    places_marker.push(marker)
+
+    var router = L.Routing.control({
+        waypoints: [
+            map_information.actual_location,
+            contacts_information.actual_contact.location
+        ],
+        
+        createMarker: function() { return null },
+        fitSelectedRoutes: 'true'
+    })
+
+    router.addTo(map_initialized)
+    router.hide()
+
+    var places_marker_layer = L.layerGroup(places_marker)
+	places_marker_layer.addTo(map_initialized)
+
+	return map_screen
 }
 
 function build_remove_group_contact_screen(canvas) {

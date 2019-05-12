@@ -216,8 +216,6 @@ function loadCanvas() {
 				contacts_information.index = contacts_information.contacts_list.length - actual_screen.max_shown
 			}
 
-			console.log(contacts_information.index, contacts_information.contacts_list.length - actual_screen.max_shown)
-
 			if (contacts_information.index != last_index)
 				changeScreen(canvas, build_contacts_screen(canvas))
 			

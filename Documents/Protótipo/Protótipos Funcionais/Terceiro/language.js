@@ -60,6 +60,7 @@ const STRINGS_DESCRIPTIONS = {
 		contacts: 'Contactos',
 		contact: 'Contacto',
 		add_contact_group: 'Adicionar Contacto ao Grupo',
+		map_contact: 'Contacto no Mapa',
 		remove_contact_group: 'Remover do Grupo',
 		add_contact: 'Adicionar Contacto',
 
@@ -130,6 +131,7 @@ const STRINGS_DESCRIPTIONS = {
 		contacts: 'Contacts',
 		contact: 'Contact',
 		add_contact_group: 'Add Contact to Group',
+		map_contact: 'Contact on the Map',
 		group_make_changes: 'Execute Changes',
 		remove_contact_group: 'Remove Contact from Group',
 		add_contact: 'Add Contact',
@@ -324,14 +326,6 @@ const STRINGS_MAP = {
 
 const STRINGS_GROUP = {
 	pt:{
-		contact_1:'Contacto 1',
-		contact_2:'Contacto 2',
-		contact_3:'Contacto 3',
-		contact_4:'Contacto 4',
-		contact_5:'Contacto 5',
-		contact_6:'Contacto 6',
-		contact_7:'Contacto 7',
-		contact_8:'Contacto 8',
 		add_contact:'Adicionar Contacto',
 		empty_group: 'Grupo Vazio',
 		make_changes: 'Fazer Alterações',
@@ -341,14 +335,6 @@ const STRINGS_GROUP = {
 	},
 
 	en:{
-		contact_1:'Contact 1',
-		contact_2:'Contact 2',
-		contact_3:'Contact 3',
-		contact_4:'Contact 4',
-		contact_5:'Contact 5',
-		contact_6:'Contact 6',
-		contact_7:'Contact 7',
-		contact_8:'Contact 8',
 		add_contact: 'Add Contact',
 		empty_group: 'Empty Group',
 		make_changes: 'Make Changes',
