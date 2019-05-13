@@ -54,6 +54,25 @@ function build_photo_screen(canvas){
 	fake_flash.x = 0
 	fake_flash.y = 0
 	
+	// Grab elements, create settings, etc.
+	var video = document.getElementById('video');
+	video.style.display = 'block'
+
+	// Get access to the camera!
+	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		// Not adding `{ audio: true }` since we only want video now
+		navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+			//video.src = window.URL.createObjectURL(stream);
+			video.srcObject = stream;
+       		video.play();
+		});
+	 
+		// Elements for taking the snapshot
+		//var canvas = document.getElementById('canvas');
+		//var context = canvas.getContext('2d');
+		var video = document.getElementById('video');
+	}
+
 	photo_screen.addChild(background)
 	
     photo_screen.box_text = build_ellipse(canvas, [0, photo_screen.height / 8], 90, white)
@@ -258,7 +277,7 @@ function build_video_screen(canvas) {
 function build_stream_screen(canvas){
     var stream_screen = build_screen(canvas, descriptions['camera_stream'], false, false)
     
-    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
+    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View - Stream.png')
     stream_screen.addChild(background)
 
     stream_screen.box_text = build_ellipse(canvas, [0, stream_screen.height / 8], 90, white)
@@ -319,6 +338,7 @@ function build_stream_screen(canvas){
 function build_camera_screen(canvas){
 	// Grab elements, create settings, etc.
 	var video = document.getElementById('video');
+	video.style.display = 'block'
 
 	// Get access to the camera!
 	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -327,17 +347,12 @@ function build_camera_screen(canvas){
 			//video.src = window.URL.createObjectURL(stream);
 			video.srcObject = stream;
        		video.play();
-	});
+		});
 	 
-	// Elements for taking the snapshot
-	var canvas = document.getElementById('canvas');
-	var context = canvas.getContext('2d');
-	var video = document.getElementById('video');
-
-	// Trigger photo take
-	document.getElementById("snap").addEventListener("click", function() {
-		context.drawImage(video, 0, 0, 640, 480);
-	});
-}
+		// Elements for taking the snapshot
+		//var canvas = document.getElementById('canvas');
+		//var context = canvas.getContext('2d');
+		var video = document.getElementById('video');
+	}
 
 }
