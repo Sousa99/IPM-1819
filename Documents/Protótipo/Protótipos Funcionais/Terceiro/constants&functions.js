@@ -252,7 +252,8 @@ var gallery_information = {
 			'/Gallery/Trancoso.jpeg', 
 			'/Gallery/Castelo Branco.jpg', 
 			'/Gallery/Swiss Alps.jpg', 
-			'/Gallery/Florida.jpg'],
+			'/Gallery/Florida.jpg',
+			'/Gallery/Fake View.png'],
 		videos: []
 	}
 }
