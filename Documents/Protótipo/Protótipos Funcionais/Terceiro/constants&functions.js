@@ -191,7 +191,7 @@ var contacts_information = {
 			image: '/Contacts/Maria.png',
 			on_group: false,
 			location: [38.720830, -9.142705],
-			sharing: 'group'
+			sharing: undefined
 		}, {
 			name: 'Tiago Barroso',
 			fullname: 'Tiago Miguel Agostinho Barroso',
@@ -209,7 +209,7 @@ var contacts_information = {
 			image: '/Contacts/João.png',
 			on_group: false,
 			location: [38.772809, -9.151705],
-			sharing: 'contacts'
+			sharing: undefined
 		}, {
 			name: 'Marilyn Monroe',
 			fullname: 'Marylin Monroe',
@@ -233,11 +233,23 @@ var contacts_information = {
 }
 
 var camera_information = {
+	on_progress: false,
 	paths_img_timer: ['/Timer-off.png', '/Timer-on.png'],
-	timers: [undefined, 3, 5, 10],
+	timers: [0, 3, 5, 10],
 	paths_img_flash: ['/Flash-off.png', '/Automatic-flash.png', '/Flash-on.png'],
 	timer: 0,
 	flash: 0
+}
+
+var gallery_information = {
+	gallery: {
+		images: ['/Gallery/Almada.JPG', 
+			'/Gallery/Trancoso.jpeg', 
+			'/Gallery/Castelo Branco.jpg', 
+			'/Gallery/Swiss Alps.jpg', 
+			'/Gallery/Florida.jpg'],
+		videos: []
+	}
 }
 
 for (contact_index in contacts_information.contacts_list) {

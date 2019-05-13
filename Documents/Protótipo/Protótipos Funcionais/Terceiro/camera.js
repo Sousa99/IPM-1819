@@ -42,12 +42,17 @@ function build_camera_template(canvas, screen, active) {
 			changeScreen(canvas, build_video_screen(canvas))
 		})
 	}
+
+	return links
 }
 
 function build_photo_screen(canvas){
     var photo_screen = build_screen(canvas, descriptions['camera_photo'], false, false)
 	
     var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
+	var fake_flash = build_screen(canvas, '', false, false, undefined, white)
+	fake_flash.x = 0
+	fake_flash.y = 0
 	
 	photo_screen.addChild(background)
 	
@@ -57,7 +62,7 @@ function build_photo_screen(canvas){
     photo_screen.box_text.addChild(photo_screen.text)
     photo_screen.addChild(photo_screen.box_text)
 	
-	build_camera_template(canvas, photo_screen, 0)
+	var links = build_camera_template(canvas, photo_screen, 0)
 	
 	var path_img_flash = MATERIALS_DIR + camera_information.paths_img_flash[camera_information.flash]
 	var path_img_timer
@@ -68,7 +73,7 @@ function build_photo_screen(canvas){
 	photo_screen.timer  = build_image(canvas, undefined, [photo_screen.width /9, photo_screen.height/9], undefined, path_img_timer)
 	
 	photo_screen.bubble_flash = build_ellipse(canvas, [ 2.75*photo_screen.width /8, 3.25* photo_screen.height/8], photo_screen.width / 13, white)
-	photo_screen.flash  = build_image(canvas, undefined, [photo_screen.width /9, photo_screen.height/9], undefined, path_img_flash)
+	photo_screen.flash  = build_image(canvas, undefined, [photo_screen.width /10, photo_screen.height/10], undefined, path_img_flash)
     
     object_clickable(canvas, photo_screen.bubble_flash)
     photo_screen.bubble_flash.bind('click tap', function() {
@@ -91,17 +96,65 @@ function build_photo_screen(canvas){
 	photo_screen.addChild(photo_screen.bubble_flash)
 
 	if (camera_information.timer != 0) {
-		photo_screen.timer_text  = build_text(canvas, [0, photo_screen.height / 80], undefined, undefined, 'bold ' + get_size_px(10), camera_information.timers[camera_information.timer], black)
+		photo_screen.timer_text  = build_text(canvas, [0, photo_screen.height / 80], undefined, undefined, 'bold ' + get_size_px(canvas, 15), camera_information.timers[camera_information.timer], black)
 		photo_screen.bubble_timer.addChild(photo_screen.timer_text)
 	}
+
+	object_clickable(canvas, photo_screen.box_text)
+	photo_screen.box_text.bind('click tap', function() {
+		photo_screen.removeChild(links[0])
+		photo_screen.removeChild(links[1])
+		photo_screen.removeChild(links[2])
+
+		photo_screen.removeChild(photo_screen.bubble_timer)
+		photo_screen.removeChild(photo_screen.bubble_flash)
+
+		photo_screen.box_text.x = 0
+		photo_screen.box_text.y = 0
+		photo_screen.text.text = ''
+
+		camera_information.on_progress = true
+
+		function decrease_timer(time) {
+			if (time > 0) {
+				photo_screen.text.text = time
+				photo_screen.text.font = 'bold ' + get_size_px(canvas, 90)
+				decrease_timer_timeout(time - 1)
+			} else if (time == 0) {
+				photo_screen.removeChild(photo_screen.box_text)
+
+				if (camera_information.flash == 2) {
+					photo_screen.removeChild(background)
+					photo_screen.addChild(fake_flash)
+				}
+
+				decrease_timer_timeout(time - 1)
+			} else {
+				changeScreen(canvas, build_photo_screen(canvas))
+				camera_information.on_progress = false
+				gallery_information.gallery.images.push('/Fake View.png')
+			}
+		}
+
+		function decrease_timer_timeout(time) {
+			setTimeout(function() {
+				decrease_timer(time)
+			}, 1000)
+		}
+
+		decrease_timer(camera_information.timers[camera_information.timer])
+	})
 
     return photo_screen
 }
 
-function build_video_screen(canvas){
+function build_video_screen(canvas) {
     var video_screen = build_screen(canvas, descriptions['camera_video'], false, false)
     
-    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
+	var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
+	var fake_flash = build_screen(canvas, '', false, false, undefined, white)
+	fake_flash.x = 0
+	fake_flash.y = 0
 	
 	video_screen.addChild(background)
 
@@ -111,7 +164,7 @@ function build_video_screen(canvas){
     video_screen.box_text.addChild(video_screen.text)
 	video_screen.addChild(video_screen.box_text)
 	
-	build_camera_template(canvas, video_screen, 2)
+	var links = build_camera_template(canvas, video_screen, 2)
 	
 	var path_img_flash = MATERIALS_DIR + camera_information.paths_img_flash[camera_information.flash]
 	var path_img_timer
@@ -122,7 +175,7 @@ function build_video_screen(canvas){
 	video_screen.timer  = build_image(canvas, undefined, [video_screen.width /9, video_screen.height/9], undefined, path_img_timer)
 	
 	video_screen.bubble_flash = build_ellipse(canvas, [ 2.75*video_screen.width /8, 3.25* video_screen.height/8], video_screen.width / 13, white)
-	video_screen.flash  = build_image(canvas, undefined, [video_screen.width /9, video_screen.height/9], undefined, path_img_flash)
+	video_screen.flash  = build_image(canvas, undefined, [video_screen.width /10, video_screen.height/10], undefined, path_img_flash)
     
     object_clickable(canvas, video_screen.bubble_flash)
     video_screen.bubble_flash.bind('click tap', function() {
@@ -149,7 +202,57 @@ function build_video_screen(canvas){
 		video_screen.bubble_timer.addChild(video_screen.timer_text)
 	}
 
-    return video_screen
+	video_screen.stop_button = build_image(canvas, [0, video_screen.height / 2 - 30], [video_screen.width / 5, video_screen.height / 5], undefined, MATERIALS_DIR + '/Stop Recording.png')
+
+	object_clickable(canvas, video_screen.box_text)
+	video_screen.box_text.bind('click tap', function() {
+		video_screen.removeChild(links[0])
+		video_screen.removeChild(links[1])
+		video_screen.removeChild(links[2])
+
+		video_screen.removeChild(video_screen.bubble_timer)
+		video_screen.removeChild(video_screen.bubble_flash)
+
+		video_screen.box_text.x = 0
+		video_screen.box_text.y = 0
+		video_screen.text.text = ''
+
+		camera_information.on_progress = true
+
+		function decrease_timer(time) {
+			if (time > 0) {
+				video_screen.text.text = time
+				video_screen.text.font = 'bold ' + get_size_px(canvas, 90)
+				decrease_timer_timeout(time - 1)
+			} else if (time == 0) {
+				video_screen.removeChild(video_screen.box_text)
+
+				if (camera_information.flash == 2) {
+					video_screen.removeChild(background)
+					video_screen.addChild(fake_flash)
+				}
+
+				video_screen.addChild(video_screen.stop_button)
+			}
+		}
+
+		function decrease_timer_timeout(time) {
+			setTimeout(function() {
+				decrease_timer(time)
+			}, 1000)
+		}
+
+		decrease_timer(camera_information.timers[camera_information.timer])
+	})
+
+	object_clickable(canvas, video_screen.stop_button)
+	video_screen.stop_button.bind('click tap', function() {
+		camera_information.on_progress = false
+		gallery_information.gallery.images.push('/Fake View.png')
+		changeScreen(canvas, build_video_screen(canvas))
+	})
+	
+	return video_screen
 }
 
 function build_stream_screen(canvas){
@@ -164,7 +267,47 @@ function build_stream_screen(canvas){
     stream_screen.box_text.addChild(stream_screen.text)
     stream_screen.addChild(stream_screen.box_text)
 
-    build_camera_template(canvas, stream_screen, 1)
+	var links = build_camera_template(canvas, stream_screen, 1)
+	
+	stream_screen.stop_button = build_image(canvas, [0, stream_screen.height / 2 - 30], [stream_screen.width / 5, stream_screen.height / 5], undefined, MATERIALS_DIR + '/Stop Recording.png')
+
+	object_clickable(canvas, stream_screen.box_text)
+	stream_screen.box_text.bind('click tap', function() {
+		stream_screen.removeChild(links[0])
+		stream_screen.removeChild(links[1])
+		stream_screen.removeChild(links[2])
+
+		stream_screen.box_text.x = 0
+		stream_screen.box_text.y = 0
+		stream_screen.text.text = ''
+
+		camera_information.on_progress = true
+		
+		function timer(time) {
+			if (time > 0) {
+				stream_screen.text.text = time
+				stream_screen.text.font = 'bold ' + get_size_px(canvas, 90)
+				timer_timeout(time - 1)
+			} else if (time == 0) {
+				stream_screen.removeChild(stream_screen.box_text)
+				stream_screen.addChild(stream_screen.stop_button)
+			}
+		}
+
+		function timer_timeout(time) {
+			setTimeout(function() {
+				timer(time)
+			}, 1000)
+		}
+
+		timer(5)
+	})
+
+	object_clickable(canvas, stream_screen.stop_button)
+	stream_screen.stop_button.bind('click tap', function() {
+		camera_information.on_progress = false
+		changeScreen(canvas, build_stream_screen(canvas))
+	})
 
     return stream_screen
 }

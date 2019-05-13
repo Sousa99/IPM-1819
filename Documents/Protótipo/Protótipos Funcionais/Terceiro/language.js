@@ -380,18 +380,18 @@ const STRINGS_CAMERA = {
 		camera_photo: 'PHOTO',
 		camera_video: 'VIDEO',
 		camera_stream: 'STREAM',
-		tap_camera_photo: 'CARREGUE NO ECRÃ\nPARA TIRAR FOTO',
-		tap_camera_video: 'CARREGUE NO ECRÃ\nPARA GRAVAR VIDEO',
-		tap_camera_stream: 'CARREGUE NO ECRÃ\nPARA COMEÇAR DIRETO'
+		tap_camera_photo: 'CARREGUE PARA\nTIRAR FOTO',
+		tap_camera_video: 'CARREGUE PARA\nGRAVAR VIDEO',
+		tap_camera_stream: 'CARREGUE PARA\nCOMEÇAR DIRETO'
 	},
 
 	en: {
 		camera_photo: 'PHOTO',
 		camera_video: 'VIDEO',
 		camera_stream: 'STREAM',
-		tap_camera_photo: 'TOUCH THE SCREEN\nTO TAKE PHOTO',
-		tap_camera_video: 'TOUCH THE SCREEN\nTO RECORD VIDEO',
-		tap_camera_stream: 'TOUCH THE SCREEN\nTO START LIVE'
+		tap_camera_photo: 'TOUCH TO\nTAKE PHOTO',
+		tap_camera_video: 'TOUCH TO\nRECORD VIDEO',
+		tap_camera_stream: 'TOUCH TO\nSTART LIVE'
 	}
 }
 

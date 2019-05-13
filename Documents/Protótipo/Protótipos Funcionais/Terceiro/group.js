@@ -9,11 +9,10 @@ function build_group_screen(canvas){
 	var circle = build_ellipse(canvas, undefined, group_screen.radius, black, get_size_px(canvas, 5) + ' #34bbed')
 	group_screen.addChild(circle)
 	
-	if (number_group == 1) group_screen.radius = 0
-	else if (number_group > 1 ){
+	if (number_group > 1 ){
 		var number = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 75), number_group, '#34bbed')
 		group_screen.addChild(number)
-	} else {
+	} else if (number_group == 0) {
 		var number = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 30), group['empty_group'], '#34bbed')
 		group_screen.addChild(number)
 	}

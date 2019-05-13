@@ -219,18 +219,20 @@ function build_frame(canvas) {
 			changeScreen(canvas, build_camera_screen(canvas))
 			break
 			case descriptions['camera_photo']:
-			changeScreen(canvas, build_menu_screen(canvas))
+			if (!camera_information.on_progress)
+				changeScreen(canvas, build_menu_screen(canvas))
 			break
 			case descriptions['camera_video']:
-			changeScreen(canvas, build_menu_screen(canvas))
+			if (!camera_information.on_progress)
+				changeScreen(canvas, build_menu_screen(canvas))
 			break
 			case descriptions['camera_stream']:
-			changeScreen(canvas, build_menu_screen(canvas))
+			if (!camera_information.on_progress)
+				changeScreen(canvas, build_menu_screen(canvas))
 			break
 			case descriptions['gallery']:
 			changeScreen(canvas, build_menu_screen(canvas))
 			break
-
 		}
 	})
 	
@@ -256,7 +258,7 @@ function build_frame(canvas) {
 		setTimeout(check, 5000)
 	})
 	
-	var non_lockables = [ descriptions['main'], descriptions['changed_language'], descriptions['changed_lock'] ]
+	var non_lockables = [ descriptions['main'], descriptions['changed_language'], descriptions['changed_lock'], descriptions['camera_photo'], descriptions['camera_video'], descriptions['camera_stream']]
 	frame.button_lock.bind('click tap', function() {
 		if (actual_screen.description == descriptions['map']) {
 			var map_html = document.getElementById('mapid')
@@ -266,7 +268,9 @@ function build_frame(canvas) {
 			map_initialized.remove()
 		}
 		
-		if (!non_lockables.includes(actual_screen.description)) changeScreen(canvas, build_main_screen(canvas))
+		if (([descriptions['camera_photo'], descriptions['camera_video'], descriptions['camera_stream']].includes(actual_screen.description) && !camera_information.on_progress) ||
+			!non_lockables.includes(actual_screen.description))
+				changeScreen(canvas, build_main_screen(canvas))
 	})
 	
 	object_clickable(canvas, frame.button_minus)
