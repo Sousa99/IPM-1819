@@ -36,10 +36,24 @@ function changeScreen(canvas, new_screen) {
 			contacts_information.positon = undefined
 
 			if (Math.abs(variation) > actual_screen.height / 10) {
-				console.log(contacts_information)
 				contacts_information.index -= Math.floor(variation / (actual_screen.height / 10))
-				console.log(contacts_information)
 				canvas.mouse.cancel()
+
+				if (actual_screen.description == descriptions['contacts'])
+					changeScreen(canvas, build_contacts_screen(canvas))
+				else if (actual_screen.description == descriptions['group_add'])
+					changeScreen(canvas, build_add_contact_group_screen(canvas))
+			}
+		})
+
+		actual_screen.bind('touchstop', function() {
+			var final_position = canvas.touch.y
+			const variation = final_position - contacts_information.positon
+			contacts_information.positon = undefined
+
+			if (Math.abs(variation) > actual_screen.height / 10) {
+				contacts_information.index -= Math.floor(variation / (actual_screen.height / 10))
+				canvas.touch.cancel()
 
 				if (actual_screen.description == descriptions['contacts'])
 					changeScreen(canvas, build_contacts_screen(canvas))
