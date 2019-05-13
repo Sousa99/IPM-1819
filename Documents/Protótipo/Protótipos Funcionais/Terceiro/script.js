@@ -51,7 +51,7 @@ function loadCanvas() {
 
 	canvas.setLoop(function() {
 		var d = new Date()
-		counter = (counter + 1) % fps
+		counter ++
 
 		switch (actual_screen.description) {
 			case descriptions['main']:
@@ -146,32 +146,78 @@ function loadCanvas() {
 					people.y = actual_screen.radius * Math.sin(people.angle)
 				}
 				break
+			
+			case descriptions['camera_stream']:
+				if (counter % (fps * 15) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
+					const contact_group_index = Math.floor(Math.random() * contacts_information.group.length)
+					const contact = contacts_information.group[contact_group_index]
+
+					const message_index = Math.floor(Math.random() * contacts_information.messages.length)
+					const message = contacts_information.messages[message_index]
+
+					if (camera_information.streaming_messages.length < 5) {
+						const index = camera_information.streaming_messages.length
+
+						var box = build_rectangle(canvas, [- actual_screen.width / 2 - 1, (index - 2) * actual_screen.height / 10], [actual_screen.width * 2 / 3, actual_screen.height / 10], ['left', 'center'], '#AAAAAA', [0, 20, 0, 20], 'outside ' + get_size_px(canvas, 1) + ' ' + black)
+						box.opacity = 0.50
+
+						var text = build_text(canvas, [- actual_screen.width / 2 + 35, (index - 2) * actual_screen.height / 10], ['left', 'center'], undefined, get_size_px(canvas, 15), message, black)
+						var image = build_image(canvas, [- actual_screen.width / 2 + 15, (index - 2) * actual_screen.height / 10], [25, 25], undefined, MATERIALS_DIR + contact.image)
+
+						camera_information.streaming_messages.push([image, text])
+						actual_screen.addChild(box)
+						actual_screen.addChild(text)
+						actual_screen.addChild(image)
+					} else {
+						for (var comments_index = 0; comments_index < 5; comments_index++) {
+							actual_screen.removeChild(camera_information.streaming_messages[comments_index][0])
+							actual_screen.removeChild(camera_information.streaming_messages[comments_index][1])
+						}
+
+						camera_information.streaming_messages.shift()
+
+						var text = build_text(canvas, undefined, ['left', 'center'], undefined, get_size_px(canvas, 15), message, black)
+						var image = build_image(canvas, undefined, [25, 25], undefined, MATERIALS_DIR + contact.image)
+						camera_information.streaming_messages[4] = [image, text]
+
+						for (var comments_index = 0; comments_index < 5; comments_index++) {
+							camera_information.streaming_messages[comments_index][0].x = - actual_screen.width / 2 + 15
+							camera_information.streaming_messages[comments_index][0].y = (comments_index - 2) * actual_screen.height / 10
+
+							camera_information.streaming_messages[comments_index][1].x = - actual_screen.width / 2 + 35
+							camera_information.streaming_messages[comments_index][1].y = (comments_index - 2) * actual_screen.height / 10
+
+							actual_screen.addChild(camera_information.streaming_messages[comments_index][0])
+							actual_screen.addChild(camera_information.streaming_messages[comments_index][1])
+						}
+					}
+				}
 		}
 
 		if (fitness.started) {
 			if (fitness.type == 'activity_walk') {
-				if (counter == 0) {
+				if (counter % fps == 0) {
 					fitness.distance += 0.001
 					fitness.calories += 5
 					fitness.steps += 1
 					fitness.duration += 1 / 60
 				}
 			} else if (fitness.type == 'activity_run') {
-				if (counter == 0) {
+				if (counter % fps  == 0) {
 					fitness.distance += 0.002
 					fitness.calories += 8
 					fitness.steps += 4
 					fitness.duration += 1 / 60
 				}
 			} else if (fitness.type == 'activity_gym') {
-				if (counter == 0) {
+				if (counter % fps  == 0) {
 					fitness.distance += 0.001
 					fitness.calories += 10
 					fitness.steps += 6
 					fitness.duration += 1 / 60
 				}
 			} else if (fitness.type == 'activity_bike') {
-				if (counter == 0) {
+				if (counter % fps  == 0) {
 					fitness.distance += 0.005
 					fitness.calories += 10
 					fitness.steps += 0
@@ -186,7 +232,7 @@ function loadCanvas() {
 				descriptions['activity_bike']
 			]
 
-			if (counter == 0 && descriptions_valid.includes(actual_screen.description))
+			if (counter % fps  == 0 && descriptions_valid.includes(actual_screen.description))
 				changeScreen(canvas, build_start_activity_screen(canvas))
 		}
 

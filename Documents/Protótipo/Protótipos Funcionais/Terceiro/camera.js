@@ -291,6 +291,8 @@ function build_stream_screen(canvas){
 			} else if (time == 0) {
 				stream_screen.removeChild(stream_screen.box_text)
 				stream_screen.addChild(stream_screen.stop_button)
+
+				camera_information.streaming = true
 			}
 		}
 
@@ -306,6 +308,8 @@ function build_stream_screen(canvas){
 	object_clickable(canvas, stream_screen.stop_button)
 	stream_screen.stop_button.bind('click tap', function() {
 		camera_information.on_progress = false
+		camera_information.streaming = false
+		camera_information.streaming_messages = []
 		changeScreen(canvas, build_stream_screen(canvas))
 	})
 

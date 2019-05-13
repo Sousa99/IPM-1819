@@ -154,6 +154,7 @@ var contacts_information = {
 	processing: [],
 
 	index: 0,
+	messages: ['Sooo beautiful!', 'Wow, que giro'],
 
 	contacts_list: [
 		{
@@ -234,6 +235,10 @@ var contacts_information = {
 
 var camera_information = {
 	on_progress: false,
+	streaming: false,
+
+	streaming_messages: [],
+
 	paths_img_timer: ['/Timer-off.png', '/Timer-on.png'],
 	timers: [0, 3, 5, 10],
 	paths_img_flash: ['/Flash-off.png', '/Automatic-flash.png', '/Flash-on.png'],
