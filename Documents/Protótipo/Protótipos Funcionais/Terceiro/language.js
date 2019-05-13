@@ -449,7 +449,8 @@ const STRINGS_OTHERS = {
 			'Premir uma das opções.\n\nEscolha a altura do dia em que\nquer realizar a atividade e o meio\nde transporte que pretende usar\npara se dirigir para esse local.',
 		help_map:
 			'O marcador azul mostra onde\nestá.\n\nEscolha um dos locais marcados\npara para ver mais informação\ne adicionar à sua rota planeada,\nou então clique no botão do\ncanto superior direito para mudar\npara \'Modo Lista\'.',
-		help_group:''
+		help_group:
+			'Permite gerir o seu grupo. \n\nPremir num contacto permite \nver as suas informações e se \neste disponibilizar, permite ver \na sua localização.'
 	},
 	en: {
 		friends_group: 'FRIENDS GROUP',
@@ -465,7 +466,8 @@ const STRINGS_OTHERS = {
 			'Press one of the options.\n\nChoose a time of day in which\nyou want to do the activity and\nthe public transportation that you\nwant to use to go to this place.',
 		help_map:
 			'The blue marker shows where\nyou are.\n\nEither choose one of the marked\nplaces on the map in order to\nsee more information or add to\nplanned route, or change into\n\'List Mode\' by clicking in the\nbutton on the top right corner.',
-		help_group:''
+		help_group:
+			'Allows you to manage your \ngroup. \n\nPress one of the contacts \nto check its information \nand if given permission, allows\nyou to see its current location.'
 	}
 }
 
