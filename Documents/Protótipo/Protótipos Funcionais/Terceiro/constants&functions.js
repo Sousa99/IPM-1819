@@ -249,11 +249,11 @@ var camera_information = {
 
 var gallery_information = {
 	gallery: ['/Gallery/Almada.JPG', 
-	'/Gallery/Trancoso.jpeg', 
+	'/Gallery/Trancoso.jpg', 
 	'/Gallery/Castelo Branco.jpg', 
 	'/Gallery/Swiss Alps.jpg', 
 	'/Gallery/Florida.jpg',
-	'/Gallery/Fofinhos.jpeg']
+	'/Gallery/Fofinhos.png']
 }
 
 for (contact_index in contacts_information.contacts_list) {

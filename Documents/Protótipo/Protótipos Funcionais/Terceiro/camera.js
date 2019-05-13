@@ -151,7 +151,7 @@ function build_photo_screen(canvas){
 function build_video_screen(canvas) {
     var video_screen = build_screen(canvas, descriptions['camera_video'], false, false)
     
-	var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
+	var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View - Video.png')
 	var fake_flash = build_screen(canvas, '', false, false, undefined, white)
 	fake_flash.x = 0
 	fake_flash.y = 0
@@ -248,7 +248,7 @@ function build_video_screen(canvas) {
 	object_clickable(canvas, video_screen.stop_button)
 	video_screen.stop_button.bind('click tap', function() {
 		camera_information.on_progress = false
-		gallery_information.gallery.push('/Fake View.png')
+		gallery_information.gallery.push('/Fake View - Video.png')
 		changeScreen(canvas, build_video_screen(canvas))
 	})
 	
@@ -258,7 +258,7 @@ function build_video_screen(canvas) {
 function build_stream_screen(canvas){
     var stream_screen = build_screen(canvas, descriptions['camera_stream'], false, false)
     
-    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View.png')
+    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View - Stream.png')
     stream_screen.addChild(background)
 
     stream_screen.box_text = build_ellipse(canvas, [0, stream_screen.height / 8], 90, white)
