@@ -72,6 +72,12 @@ function build_add_contact_group_screen(canvas) {
 	var add_screen = build_screen(canvas, descriptions['group_add'], true, true)
 	add_screen.max_shown = 3
 
+	if(contacts_information.index < 0){
+		contacts_information.index = 0
+	} else if(contacts_information.index > (contacts_information.contacts_list.length - contacts_information.group.length) - actual_screen.max_shown){
+		contacts_information.index = (contacts_information.contacts_list.length - contacts_information.group.length) - actual_screen.max_shown
+	}
+
 	add_screen.image = build_image(canvas, [0, - add_screen.height / 10], [add_screen.width / 3, add_screen.height / 3], undefined, MATERIALS_DIR + '/Person_contacts.png')
     add_screen.addChild(add_screen.image)
 
