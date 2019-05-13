@@ -155,7 +155,7 @@ var contacts_information = {
 
 	index: 0,
 	positon: undefined,
-	messages: ['Sooo beautiful!', 'Wow, que giro'],
+	messages: ['Sooo beautiful!', 'Wow, que giro','😍','😜','👌','👍','❤'],
 
 	contacts_list: [
 		{
