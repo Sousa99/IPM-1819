@@ -218,7 +218,7 @@ var contacts_information = {
 			birthday: { abbrev: '01 / 06 / 1926', day: 1, month: 6, year: 1926},
 			image: '/Contacts/Marilyn-Monroe.png',
 			on_group: false,
-			location: [34.062060, -9.151005],
+			location: [38.562060, -9.151405],
 			sharing: 'group'
 		}, {
 			name: 'Brie Larson',
