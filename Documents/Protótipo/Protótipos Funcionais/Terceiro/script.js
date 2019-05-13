@@ -189,7 +189,7 @@ function loadCanvas() {
 				break
 			
 			case descriptions['camera_stream']:
-				if (counter % (fps * 15) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
+				if (counter % (fps * 4) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
 					const contact_group_index = Math.floor(Math.random() * contacts_information.group.length)
 					const contact = contacts_information.group[contact_group_index]
 
@@ -199,7 +199,7 @@ function loadCanvas() {
 					if (camera_information.streaming_messages.length < 5) {
 						const index = camera_information.streaming_messages.length
 
-						var box = build_rectangle(canvas, [- actual_screen.width / 2 - 1, (index - 2) * actual_screen.height / 10], [actual_screen.width * 2 / 3, actual_screen.height / 10], ['left', 'center'], '#AAAAAA', [0, 20, 0, 20], 'outside ' + get_size_px(canvas, 1) + ' ' + black)
+						var box = build_rectangle(canvas, [- actual_screen.width / 2 - 1, (index - 2) * actual_screen.height / 10], [actual_screen.width * 2 / 3, actual_screen.height / 10], ['left', 'center'], white, [0, 20, 0, 20], 'outside ' + get_size_px(canvas, 1) + ' ' + black)
 						box.opacity = 0.50
 
 						var text = build_text(canvas, [- actual_screen.width / 2 + 35, (index - 2) * actual_screen.height / 10], ['left', 'center'], undefined, get_size_px(canvas, 15), message, black)
