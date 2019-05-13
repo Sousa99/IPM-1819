@@ -252,7 +252,8 @@ var gallery_information = {
 	'/Gallery/Trancoso.jpeg', 
 	'/Gallery/Castelo Branco.jpg', 
 	'/Gallery/Swiss Alps.jpg', 
-	'/Gallery/Florida.jpg']
+	'/Gallery/Florida.jpg',
+	'/Gallery/Fofinhos.jpeg']
 }
 
 for (contact_index in contacts_information.contacts_list) {
