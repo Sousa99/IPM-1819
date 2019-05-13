@@ -132,7 +132,7 @@ function build_photo_screen(canvas){
 			} else {
 				changeScreen(canvas, build_photo_screen(canvas))
 				camera_information.on_progress = false
-				gallery_information.gallery.images.push('/Fake View.png')
+				gallery_information.gallery.push('/Fake View.png')
 			}
 		}
 
@@ -248,7 +248,7 @@ function build_video_screen(canvas) {
 	object_clickable(canvas, video_screen.stop_button)
 	video_screen.stop_button.bind('click tap', function() {
 		camera_information.on_progress = false
-		gallery_information.gallery.images.push('/Fake View.png')
+		gallery_information.gallery.push('/Fake View.png')
 		changeScreen(canvas, build_video_screen(canvas))
 	})
 	

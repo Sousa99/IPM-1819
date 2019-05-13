@@ -247,14 +247,11 @@ var camera_information = {
 }
 
 var gallery_information = {
-	gallery: {
-		images: ['/Gallery/Almada.JPG', 
-			'/Gallery/Trancoso.jpeg', 
-			'/Gallery/Castelo Branco.jpg', 
-			'/Gallery/Swiss Alps.jpg', 
-			'/Gallery/Florida.jpg'],
-		videos: []
-	}
+	gallery: ['/Gallery/Almada.JPG', 
+	'/Gallery/Trancoso.jpeg', 
+	'/Gallery/Castelo Branco.jpg', 
+	'/Gallery/Swiss Alps.jpg', 
+	'/Gallery/Florida.jpg']
 }
 
 for (contact_index in contacts_information.contacts_list) {
