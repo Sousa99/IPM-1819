@@ -102,47 +102,52 @@ function build_photo_screen(canvas){
 
 	object_clickable(canvas, photo_screen.box_text)
 	photo_screen.box_text.bind('click tap', function() {
-		photo_screen.removeChild(links[0])
-		photo_screen.removeChild(links[1])
-		photo_screen.removeChild(links[2])
+		if (!camera_information.on_progress) {
+			object_non_clickable(canvas, photo_screen.box_text)
 
-		photo_screen.removeChild(photo_screen.bubble_timer)
-		photo_screen.removeChild(photo_screen.bubble_flash)
-
-		photo_screen.box_text.x = 0
-		photo_screen.box_text.y = 0
-		photo_screen.text.text = ''
-
-		camera_information.on_progress = true
-
-		function decrease_timer(time) {
-			if (time > 0) {
-				photo_screen.text.text = time
-				photo_screen.text.font = 'bold ' + get_size_px(canvas, 90)
-				decrease_timer_timeout(time - 1)
-			} else if (time == 0) {
-				photo_screen.removeChild(photo_screen.box_text)
-
-				if (camera_information.flash == 2) {
-					photo_screen.removeChild(background)
-					photo_screen.addChild(fake_flash)
+			photo_screen.removeChild(links[0])
+			photo_screen.removeChild(links[1])
+			photo_screen.removeChild(links[2])
+	
+			photo_screen.removeChild(photo_screen.bubble_timer)
+			photo_screen.removeChild(photo_screen.bubble_flash)
+	
+			photo_screen.box_text.x = 0
+			photo_screen.box_text.y = 0
+			photo_screen.text.text = ''
+	
+			camera_information.on_progress = true
+	
+			function decrease_timer(time) {
+				if (time > 0) {
+					photo_screen.text.text = time
+					photo_screen.text.font = 'bold ' + get_size_px(canvas, 90)
+					decrease_timer_timeout(time - 1)
+				} else if (time == 0) {
+					photo_screen.removeChild(photo_screen.box_text)
+	
+					if (camera_information.flash == 2) {
+						photo_screen.removeChild(background)
+						photo_screen.addChild(fake_flash)
+					}
+	
+					decrease_timer_timeout(time - 1)
+				} else {
+					changeScreen(canvas, build_photo_screen(canvas))
+					camera_information.on_progress = false
+					gallery_information.gallery.push('/Fake View.png')
 				}
-
-				decrease_timer_timeout(time - 1)
-			} else {
-				changeScreen(canvas, build_photo_screen(canvas))
-				camera_information.on_progress = false
-				gallery_information.gallery.push('/Fake View.png')
 			}
+	
+			function decrease_timer_timeout(time) {
+				setTimeout(function() {
+					decrease_timer(time)
+				}, 1000)
+			}
+	
+			decrease_timer(camera_information.timers[camera_information.timer])
 		}
 
-		function decrease_timer_timeout(time) {
-			setTimeout(function() {
-				decrease_timer(time)
-			}, 1000)
-		}
-
-		decrease_timer(camera_information.timers[camera_information.timer])
 	})
 
     return photo_screen
@@ -206,43 +211,46 @@ function build_video_screen(canvas) {
 
 	object_clickable(canvas, video_screen.box_text)
 	video_screen.box_text.bind('click tap', function() {
-		video_screen.removeChild(links[0])
-		video_screen.removeChild(links[1])
-		video_screen.removeChild(links[2])
+		if (!camera_information.on_progress) {
+			object_non_clickable(canvas, video_screen.box_text)
+			video_screen.removeChild(links[0])
+			video_screen.removeChild(links[1])
+			video_screen.removeChild(links[2])
 
-		video_screen.removeChild(video_screen.bubble_timer)
-		video_screen.removeChild(video_screen.bubble_flash)
+			video_screen.removeChild(video_screen.bubble_timer)
+			video_screen.removeChild(video_screen.bubble_flash)
 
-		video_screen.box_text.x = 0
-		video_screen.box_text.y = 0
-		video_screen.text.text = ''
+			video_screen.box_text.x = 0
+			video_screen.box_text.y = 0
+			video_screen.text.text = ''
 
-		camera_information.on_progress = true
+			camera_information.on_progress = true
 
-		function decrease_timer(time) {
-			if (time > 0) {
-				video_screen.text.text = time
-				video_screen.text.font = 'bold ' + get_size_px(canvas, 90)
-				decrease_timer_timeout(time - 1)
-			} else if (time == 0) {
-				video_screen.removeChild(video_screen.box_text)
+			function decrease_timer(time) {
+				if (time > 0) {
+					video_screen.text.text = time
+					video_screen.text.font = 'bold ' + get_size_px(canvas, 90)
+					decrease_timer_timeout(time - 1)
+				} else if (time == 0) {
+					video_screen.removeChild(video_screen.box_text)
 
-				if (camera_information.flash == 2) {
-					video_screen.removeChild(background)
-					video_screen.addChild(fake_flash)
+					if (camera_information.flash == 2) {
+						video_screen.removeChild(background)
+						video_screen.addChild(fake_flash)
+					}
+
+					video_screen.addChild(video_screen.stop_button)
 				}
-
-				video_screen.addChild(video_screen.stop_button)
 			}
-		}
 
-		function decrease_timer_timeout(time) {
-			setTimeout(function() {
-				decrease_timer(time)
-			}, 1000)
-		}
+			function decrease_timer_timeout(time) {
+				setTimeout(function() {
+					decrease_timer(time)
+				}, 1000)
+			}
 
-		decrease_timer(camera_information.timers[camera_information.timer])
+			decrease_timer(camera_information.timers[camera_information.timer])
+		}
 	})
 
 	object_clickable(canvas, video_screen.stop_button)
@@ -273,36 +281,39 @@ function build_stream_screen(canvas){
 
 	object_clickable(canvas, stream_screen.box_text)
 	stream_screen.box_text.bind('click tap', function() {
-		stream_screen.removeChild(links[0])
-		stream_screen.removeChild(links[1])
-		stream_screen.removeChild(links[2])
+		if (!camera_information.on_progress) {
+			object_non_clickable(canvas, stream_screen.box_text)
+			stream_screen.removeChild(links[0])
+			stream_screen.removeChild(links[1])
+			stream_screen.removeChild(links[2])
 
-		stream_screen.box_text.x = 0
-		stream_screen.box_text.y = 0
-		stream_screen.text.text = ''
+			stream_screen.box_text.x = 0
+			stream_screen.box_text.y = 0
+			stream_screen.text.text = ''
 
-		camera_information.on_progress = true
-		
-		function timer(time) {
-			if (time > 0) {
-				stream_screen.text.text = time
-				stream_screen.text.font = 'bold ' + get_size_px(canvas, 90)
-				timer_timeout(time - 1)
-			} else if (time == 0) {
-				stream_screen.removeChild(stream_screen.box_text)
-				stream_screen.addChild(stream_screen.stop_button)
+			camera_information.on_progress = true
+			
+			function timer(time) {
+				if (time > 0) {
+					stream_screen.text.text = time
+					stream_screen.text.font = 'bold ' + get_size_px(canvas, 90)
+					timer_timeout(time - 1)
+				} else if (time == 0) {
+					stream_screen.removeChild(stream_screen.box_text)
+					stream_screen.addChild(stream_screen.stop_button)
 
-				camera_information.streaming = true
+					camera_information.streaming = true
+				}
 			}
-		}
 
-		function timer_timeout(time) {
-			setTimeout(function() {
-				timer(time)
-			}, 1000)
-		}
+			function timer_timeout(time) {
+				setTimeout(function() {
+					timer(time)
+				}, 1000)
+			}
 
-		timer(5)
+			timer(5)
+		}
 	})
 
 	object_clickable(canvas, stream_screen.stop_button)
