@@ -46,7 +46,7 @@ function changeScreen(canvas, new_screen) {
 			}
 		})
 
-		actual_screen.bind('touchstop', function() {
+		actual_screen.bind('touchend', function() {
 			var final_position = canvas.touch.y
 			const variation = final_position - contacts_information.positon
 			contacts_information.positon = undefined
