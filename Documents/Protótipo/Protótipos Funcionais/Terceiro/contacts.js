@@ -28,7 +28,7 @@ function build_contacts_screen(canvas){
     var link = []
     var profile_pics = []
     for (var i = 0; i < contacts_screen.max_shown; i++) {
-        const contact = contacts_list[i+ contacts_information.index]
+        const contact = contacts_list[i + Math.floor(contacts_information.index)]
 
         options.push(contact.name)
         link.push('link_arrow')
@@ -39,7 +39,7 @@ function build_contacts_screen(canvas){
 
     links = add_lines(canvas, contacts_screen, 0, options, link, profile_pics)
     for (link_index in links) {
-        const contact = contacts_list[Number(link_index) + contacts_information.index]
+        const contact = contacts_list[Number(link_index) + Math.floor(contacts_information.index)]
         links[link_index].bind('click tap', function() {
             contacts_information.actual_contact = contact
             changeScreen(canvas, build_contact_screen(canvas))

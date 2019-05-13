@@ -70,6 +70,7 @@ function build_group_help_screen(canvas){
 
 function build_add_contact_group_screen(canvas) {
 	var add_screen = build_screen(canvas, descriptions['group_add'], true, true)
+	add_screen.max_shown = 3
 
 	add_screen.image = build_image(canvas, [0, - add_screen.height / 10], [add_screen.width / 3, add_screen.height / 3], undefined, MATERIALS_DIR + '/Person_contacts.png')
     add_screen.addChild(add_screen.image)
@@ -88,8 +89,8 @@ function build_add_contact_group_screen(canvas) {
     var options = []
     var link = []
     var profile_pics = []
-    for (contact_index in contacts_list) {
-        const contact = contacts_list[contact_index]
+    for (var i = 0; i < add_screen.max_shown; i++) {
+        const contact = contacts_list[i + Math.floor(contacts_information.index)]
 
 		options.push(contact.name)
 		if (contacts_information.processing.includes(contact)) link.push('link_delete_contact')
@@ -101,7 +102,7 @@ function build_add_contact_group_screen(canvas) {
 
     links = add_lines(canvas, add_screen, 0, options, link, profile_pics)
     for (link_index in links) {
-        const contact = contacts_list[link_index]
+        const contact = contacts_list[Number(link_index) + Math.floor(contacts_information.index)]
         links[link_index].bind('click tap', function() {
 			if (contacts_information.processing.includes(contact))
 				contacts_information.processing.splice(contacts_information.processing.indexOf(contact), 1);

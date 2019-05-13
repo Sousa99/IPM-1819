@@ -252,7 +252,7 @@ function loadCanvas() {
 	canvas_element.addEventListener("wheel", event => {
 		const delta = Math.sign(event.deltaY)
 		var last_index = contacts_information.index
-		contacts_information.index += delta
+		contacts_information.index += delta * 0.25
 
 		
 		if (actual_screen.description == descriptions['contacts']) {
@@ -262,8 +262,20 @@ function loadCanvas() {
 				contacts_information.index = contacts_information.contacts_list.length - actual_screen.max_shown
 			}
 
-			if (contacts_information.index != last_index)
+			if (Math.floor(contacts_information.index) != Math.floor(last_index))
 				changeScreen(canvas, build_contacts_screen(canvas))
+			
+		}
+
+		if (actual_screen.description == descriptions['group_add']) {
+			if(contacts_information.index < 0){
+				contacts_information.index = 0
+			} else if(contacts_information.index > (contacts_information.contacts_list.length - contacts_information.group.length) - actual_screen.max_shown){
+				contacts_information.index = (contacts_information.contacts_list.length - contacts_information.group.length) - actual_screen.max_shown
+			}
+
+			if (Math.floor(contacts_information.index) != Math.floor(last_index))
+				changeScreen(canvas, build_add_contact_group_screen(canvas))
 			
 		}
 	})
