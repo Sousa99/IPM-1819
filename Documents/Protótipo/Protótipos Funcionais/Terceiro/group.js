@@ -49,7 +49,7 @@ function build_group_screen(canvas){
 	})
 
 	group_screen.add_button = build_image(canvas, [- 2 / 5 * group_screen.width, 2 / 5 * group_screen.height], [group_screen.width / 10, group_screen.height / 10], undefined, MATERIALS_DIR + '/Add_contact.png')
-	group_screen.addChild(group_screen.add_button)
+	if (contacts_information.contacts_list.length != contacts_information.group.length) group_screen.addChild(group_screen.add_button)
 	
 	object_clickable(canvas, group_screen.add_button)
 	group_screen.add_button.bind('click tap', function() {
