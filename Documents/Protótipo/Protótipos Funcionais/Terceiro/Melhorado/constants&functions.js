@@ -239,6 +239,7 @@ var camera_information = {
 	streaming: false,
 
 	streaming_messages: [],
+	streaming_hearts: [],
 
 	paths_img_timer: ['/Timer-off.png', '/Timer-on.png'],
 	timers: [0, 3, 5, 10],

@@ -232,6 +232,47 @@ function loadCanvas() {
 							actual_screen.addChild(camera_information.streaming_messages[comments_index][1])
 						}
 					}
+				} if (counter % (fps * 2) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
+					const number_hearts = Math.floor(Math.random() * 10)
+
+					for (var i = 0; i < number_hearts; i++) {
+						const living_time = Math.floor(Math.random() * 5)
+						const images = ['/Red Heart.png', '/Yellow Heart.png', '/Orange Heart.png', '/Blue Heart.png', '/Purple Heart.png', '/Green Heart.png']
+						const image_heart = images[Math.floor(Math.random() * images.length)]
+						const heart_speed = [Math.random() * 0.1 - 0.05, - Math.random() * 1 - 0.7]
+						const size = Math.random() * 20 + 20
+
+						var heart = build_image(canvas, [ actual_screen.width / 2 - 25 - Math.random() * 10, actual_screen.height / 2 - 25 + Math.random() * 10], [size, size], undefined, MATERIALS_DIR + image_heart)
+						heart.time = living_time
+						heart.speed = heart_speed
+
+						camera_information.streaming_hearts.push(heart)
+						actual_screen.addChild(heart)
+					}
+				} if (counter % (fps * 1) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
+					for (heart_index in camera_information.streaming_hearts) {
+						const heart_object = camera_information.streaming_hearts[heart_index]
+
+						heart_object.time -= 1
+						if (heart_object.time <= 0) {
+							actual_screen.removeChild(heart_object)
+							var index = camera_information.streaming_hearts.indexOf(heart_object)
+							camera_information.streaming_hearts.splice(index, 1)
+						}
+					}
+				}
+
+				for (heart_index in camera_information.streaming_hearts) {
+					const heart_object = camera_information.streaming_hearts[heart_index]
+					heart_object.x += heart_object.speed[0]
+					heart_object.y += heart_object.speed[1]
+
+					console.log(heart_object.y)
+					if (heart_object.y <= - actual_screen.height / 2 + 25) {
+						actual_screen.removeChild(heart_object)
+						var index = camera_information.streaming_hearts.indexOf(heart_object)
+						camera_information.streaming_hearts.splice(index, 1)
+					}
 				}
 		}
 
