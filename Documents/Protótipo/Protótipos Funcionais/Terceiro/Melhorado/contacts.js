@@ -86,6 +86,7 @@ function build_contact_screen(canvas) {
     
     object_clickable(canvas, contact_screen.button)
     contact_screen.button.bind('click tap', function() {
+        console.log()
         if (contact.on_group) changeScreen(canvas, build_remove_group_contact_screen(canvas))
         else changeScreen(canvas, build_add_group_contact_screen(canvas))
     })
@@ -128,6 +129,45 @@ function build_add_group_contact_screen(canvas) {
 	})
 
     return add_group_contact_screen
+}
+
+function build_remove_group_contact_screen(canvas) {	
+	var remove_group_contact_screen = build_screen(canvas, descriptions['remove_contact_group'], true, false)	
+
+ 	remove_group_contact_screen.message = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 17), contacts['remove_contact_group_verification'], white)	
+
+ 	remove_group_contact_screen.yes_button = build_rectangle(canvas, [41 / 200 * remove_group_contact_screen.width, 5 / 16 * remove_group_contact_screen.height], [1 / 5 * remove_group_contact_screen.width, 1 / 10 * remove_group_contact_screen.height ], undefined, 'radial-gradient(' + '#55AA55' + ', ' + '#2bbc2b' + ')', [5, 5, 5, 5])	
+	remove_group_contact_screen.no_button = build_rectangle(canvas, [- 41 / 200 * remove_group_contact_screen.width, 5 / 16 * remove_group_contact_screen.height], [1 / 5 * remove_group_contact_screen.width, 1 / 10 * remove_group_contact_screen.height ], undefined, 'radial-gradient(' + '#AA5555' + ', ' + '#bc2b2b' + ')', [5, 5, 5, 5])	
+
+ 	remove_group_contact_screen.yes_text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 16), contacts['yes'], black)	
+	remove_group_contact_screen.no_text = build_text(canvas, undefined, undefined, undefined, get_size_px(canvas, 16), contacts['no'], black)	
+
+ 	remove_group_contact_screen.yes_button.addChild(remove_group_contact_screen.yes_text)	
+	remove_group_contact_screen.no_button.addChild(remove_group_contact_screen.no_text)	
+	remove_group_contact_screen.addChild(remove_group_contact_screen.yes_button)	
+	remove_group_contact_screen.addChild(remove_group_contact_screen.no_button)	
+	remove_group_contact_screen.addChild(remove_group_contact_screen.message)	
+
+ 	object_clickable(canvas, remove_group_contact_screen.yes_button)	
+	remove_group_contact_screen.yes_button.bind('click tap', function() {	
+        var index = contacts_information.group.indexOf(contacts_information.actual_contact)	
+        contacts_information.group.splice(index, 1)	
+
+         var index =  contacts_information.contacts_list.indexOf(contacts_information.actual_contact)	
+        contacts_information.contacts_list[index].on_group = false	
+
+         if (contacts_information.back_screen == 'Group')	
+            changeScreen(canvas, build_group_screen(canvas))	
+        else if (contacts_information.back_screen == 'Contacts')	
+            changeScreen(canvas, build_contacts_screen(canvas))	
+	})	
+
+ 	object_clickable(canvas, remove_group_contact_screen.no_button)	
+	remove_group_contact_screen.no_button.bind('click tap', function() {	
+		changeScreen(canvas, build_contact_screen(canvas))	
+	})	
+
+     return remove_group_contact_screen	
 }
 
 function build_map_contact_screen(canvas) {
