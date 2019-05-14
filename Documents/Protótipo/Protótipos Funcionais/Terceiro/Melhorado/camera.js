@@ -266,7 +266,7 @@ function build_video_screen(canvas) {
 function build_stream_screen(canvas){
     var stream_screen = build_screen(canvas, descriptions['camera_stream'], false, false)
     
-    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View - Stream.png')
+    var background = build_image(canvas, undefined, [SIZE_SCREEN + 1, SIZE_SCREEN + 1], undefined, MATERIALS_DIR + '/Fake View - Stream2.png')
     stream_screen.addChild(background)
 
     stream_screen.box_text = build_ellipse(canvas, [0, stream_screen.height / 8], 90, white)

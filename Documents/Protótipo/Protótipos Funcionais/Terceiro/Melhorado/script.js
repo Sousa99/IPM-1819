@@ -232,12 +232,12 @@ function loadCanvas() {
 							actual_screen.addChild(camera_information.streaming_messages[comments_index][1])
 						}
 					}
-				} if (counter % (fps * 2) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
-					const number_hearts = Math.floor(Math.random() * 10)
+				} if (counter % (fps * 0.5) == 0 && camera_information.on_progress && camera_information.streaming && contacts_information.group.length > 0) {
+					const number_hearts = Math.floor(Math.random() * 4)
 
 					for (var i = 0; i < number_hearts; i++) {
 						const living_time = Math.floor(Math.random() * 5)
-						const images = ['/Red Heart.png', '/Yellow Heart.png', '/Orange Heart.png', '/Blue Heart.png', '/Purple Heart.png', '/Green Heart.png']
+						const images = ['/Red Heart.png'] // '/Yellow Heart.png', '/Orange Heart.png', '/Blue Heart.png', '/Purple Heart.png', '/Green Heart.png'
 						const image_heart = images[Math.floor(Math.random() * images.length)]
 						const heart_speed = [Math.random() * 0.1 - 0.05, - Math.random() * 1 - 0.7]
 						const size = Math.random() * 20 + 20
