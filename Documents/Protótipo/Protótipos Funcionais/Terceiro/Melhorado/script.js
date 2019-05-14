@@ -266,8 +266,7 @@ function loadCanvas() {
 					const heart_object = camera_information.streaming_hearts[heart_index]
 					heart_object.x += heart_object.speed[0]
 					heart_object.y += heart_object.speed[1]
-
-					console.log(heart_object.y)
+					
 					if (heart_object.y <= - actual_screen.height / 2 + 25) {
 						actual_screen.removeChild(heart_object)
 						var index = camera_information.streaming_hearts.indexOf(heart_object)
