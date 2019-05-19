@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{color,soul}
+\usepackage{enumitem}
+\usepackage[portuguese]{babel}
+\usepackage{float}
+\usepackage[font=small,labelfont=bf]{caption}
+\renewcommand{\rmdefault}{ptm}
+
+\author{
+  Isabel Soares\\
+  \texttt{89466}
+  \and
+  Rodrigo Sousa\\
+  \texttt{89535}
+  \and
+  Tiago Afonso\\
+  \texttt{89549}
+}
+
+\title{Interfaces Pessoa Máquina\\
+Guião dos Testes com Utilizadores}
+    
+
+\begin{document}
+    
+
+\maketitle
+
+\section*{Preparação}
+    Os testes com utilizadores irão ser elaborados em salas de aula do IST, num computador de um dos membros do grupo. Os testes serão realizados com um facilitador e um observador para anotar acontecimentos relevantes, nomeadamente dúvidas e indecisões dos utilizadores.
+    
+    Para a realização do teste será necessário o seguinte material:
+    
+    \begin{itemize}
+        \item Um computador
+        \item Acesso à Internet para aceder à versão online do protótipo ou uma cópia local \textbf{exata} do protótipo no próprio computador
+        \item Folha Excel onde será feito o registo da avaliação do protótipo com o utilizador
+        \item Cronómetro para registo do tempo demorado pelo utilizador nas diversas tarefas, é importante que este cronómetro seja capaz de registar tempos parciais
+        \item Folha onde o utilizador assinará de forma a dar autorização ao registo e uso de informações recolhidas durante o teste bem como de dados demográficos
+    \end{itemize}
+
+\section*{Introdução}
+    \begin{enumerate}
+        \item \textbf{Apresentação:}\\
+        \textit{Bom dia / Boa tarde: \\
+        Somos alunos de 2º ano de LEIC (Licenciatura de Engenharia Informática e de Computadores), e no âmbito da cadeira  IPM (Interfaces Pessoa Máquina) desenvolvemos de uma interface para o iGo, um dispositivo que será usado no braço. Este dispositivo foi concibido com o intuito de ajudar o utilizador durante as suas viagens!\\Foi nos pedido que desenvolvêssemos três funcionalidades à nossa escolha:
+        \begin{enumerate}
+            \item Partilha de localização e vídeo em tempo real (streaming) com um grupo fechado de amigos criado pelo utilizador.
+            \item Criação de uma rota de viagem diária, onde o utlizador pode planear o seu dia
+            \item Uma funcionalidade mais direcionada para a saúde nomeadamente SOS, registo de atividades e registo de informações sobre o utilizador como batimento cardiaco, sono, oxigenação do sangue, entre outras.
+        \end{enumerate}
+        Agora iremos realizar um teste a cada uma das funcionalidades desenvolvidas!\\
+        O teste não deverá demorar mais de 5 minutos}
+        
+        \item \textbf{Objetivos do teste:}\\
+        \textit{É importante que saiba que durante esta "avaliação" o foco não será em si, que testa o protótipo, mas sim no protótipo em si. Pelo que qualquer problema ou impasse com que se depare será um problema do protótipo que nós deveríamos ter tido em consideração ou prevenido.}
+        
+        \item \textbf{O que irá ser pedido:}\\
+        \textit{Irá ser-lhe pedido que realize três tarefas distintas, as tarefas não serão complexas, mas sim concisas e simples, de forma a como foi dito anteriormente avaliar o protótipo e não capacidades suas.\\Iremos explicar-lhe a primeira tarefa, irá executá-la e só de seguida será lhe dito a seguinte de forma a preocupar-se com uma tarefa de cada vez. No final será lhe feito um pequeno questionário sobre o protótipo e a sua interface.\\
+        É importante que saiba que a qualquer momento poderá pedir que lhe seja relembrada a tarefa, mas esta será dita da mesma forma e não será dada qualquer ajuda extra!}
+        
+        \item \textbf{Questionários pré-teste para recolha de dados demográficos:}\\
+        \textit{Temos um pequeno questionário pré-teste de forma a recolher alguns dados demográficos:
+            \begin{enumerate}
+                \item Já utilizou um dispositivo smartwatch?
+            \end{enumerate}}
+    \end{enumerate}
+
+\section*{Avaliação}
+    \begin{enumerate}
+        \item \textbf{Tarefa 1: Adicionar o contacto Maria Correia ao grupo e de seguida fazer streaming}\\
+        d e s c r i ç ã o\\
+        Medida e Critério de:
+        \begin{enumerate}
+            \item \textbf{Eficácia:} Quantos cliques foram necessários para o utilizador concluir a tarefa?\\
+            \underline{Critério:} Em média os utilizador devem concluir a tarefa com cerca de \hl{10} cliques.
+            
+            \item \textbf{Eficiência:} Quanto tempo demorou o utilizador a concluir a tarefa?\\
+            \underline{Critério:} O utilizador deve concluir a tarefa em \hl{80} segundos ou menos.
+            
+            \item \textbf{Satisfação:} Como classificaria numa escala de 1 a 5, respetivamente Muito Díficil e Muito Fácil, a tarefa que lhe foi requerida?\\
+            \underline{Critério:} Em média os utilizadores devem classificar a tarefa com nível \hl{3} ou superior.
+        \end{enumerate}
+        
+        \item \textbf{Tarefa 2: Criar uma rota de viagem que inclua uma ida à Gulbenkian, jantar no Mc Donald's e ficar alojado no Inatel Oeiras, deslocando-se para todos os locais de metro. No final ver a rota criada no mapa} \\
+        d e s c r i ç ã o\\
+        Medida e Critério de:
+        \begin{enumerate}
+            \item \textbf{Eficácia:} Quantos cliques foram necessários para o utilizador concluir a tarefa?\\
+            \underline{Critério:} Em média os utilizador devem concluir a tarefa em \hl{40} ou menos cliques.
+            
+            \item \textbf{Eficiência:} Quanto tempo demorou o utilizador a concluir a tarefa?\\
+            \underline{Critério:} O utilizador deve concluir a tarefa em \hl{90} segundos ou menos.
+            
+            \item \textbf{Satisfação:} Como classificaria numa escala de 1 a 5, respetivamente Muito Díficil e Muito Fácil, a tarefa que lhe foi requerida?\\
+            \underline{Critério:} Em média os utilizadores devem classificar a tarefa com nível \hl{2} ou superior.
+        \end{enumerate}
+        
+        \item \textbf{Tarefa 3: Fazer uma nova medição de \emph{Pressão Arterial}, começar uma atividade de corrida e chamar a emergência}\\
+        d e s c r i ç ã o\\
+        Medida e Critério de:
+        \begin{enumerate}
+            \item \textbf{Eficácia:} Quantos cliques foram necessários para o utilizador concluir a tarefa?\\
+            \underline{Critério:} Em média os utilizador devem concluir a tarefa em \hl{25} ou menos cliques.
+            
+            \item \textbf{Eficiência:} Quanto tempo demorou o utilizador a concluir a tarefa?\\
+            \underline{Critério:} O utilizador deve concluir a tarefa em \hl{60} segundos ou menos.
+            
+            \item \textbf{Satisfação:} Como classificaria numa escala de 1 a 5, respetivamente Muito Díficil e Muito Fácil, a tarefa que lhe foi requerida?\\
+            \underline{Critério:} Em média os utilizadores devem classificar a tarefa com nível \hl{4} ou superior.
+        \end{enumerate}
+    \end{enumerate}
+
+\section*{Balanço}
+    \begin{enumerate}
+        \item \textbf{Apresentação do questionário de satisfação final}
+        
+        \item \textbf{Comentários finais}\\
+        \textit{Relembramos que todas as informações e resultados obtidos durante esta avaliação serão mantidos sobre completo anonimato!}
+        
+        \item \textbf{Agradecimentos}\\
+        \textit{Muito obriagdo em nome de todo o grupo pela disponibilidade para a realização desta avaliação!}
+    \end{enumerate}
+
+\end{document}
